@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EYEDIT GLOBAL</title>
+  <meta name="description" content="EYEDIT GLOBAL: audiovisual, medicina natural i seguretat global. Holding tecnològic amb visió internacional." />
+  <meta name="theme-color" content="#0a2b1c" />
+  <style>
+    :root{
+      --bg:#050806;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --line:rgba(255,255,255,.12);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.70);
+      --green:#38f39a;
+      --blue:#45a6ff;
+      --orange:#ff9a3c;
+      --shadow: 0 18px 70px rgba(0,0,0,.55);
+      --radius: 18px;
+      --max: 1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 15%, rgba(56,243,154,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 25%, rgba(69,166,255,.16), transparent 55%),
+        radial-gradient(900px 700px at 60% 90%, rgba(255,154,60,.12), transparent 55%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 0 6px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      letter-spacing:.12em; text-transform:uppercase; font-weight:700;
+    }
+    .mark{
+      width:34px; height:34px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(56,243,154,.9), rgba(56,243,154,.25) 55%, transparent 60%),
+        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:7px;
+      border-radius:10px;
+      border:1px solid rgba(56,243,154,.55);
+      opacity:.9;
+    }
+    nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    nav a{
+      padding:10px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+    }
+    nav a:hover{
+      border-color:var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+    }
+
+    .hero{
+      margin-top:22px;
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(500px 220px at 20% 10%, rgba(56,243,154,.22), transparent 60%),
+        radial-gradient(520px 240px at 80% 30%, rgba(69,166,255,.18), transparent 60%),
+        radial-gradient(420px 220px at 55% 100%, rgba(255,154,60,.12), transparent 60%);
+      filter: blur(6px);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; display:grid; gap:18px}
+    h1{
+      margin:0;
+      font-size: clamp(28px, 4vw, 46px);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size: clamp(14px, 2vw, 18px);
+      max-width: 60ch;
+      line-height:1.5;
+    }
+    .cta{
+      display:flex; gap:12px; flex-wrap:wrap; margin-top:4px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:650;
+      letter-spacing:.02em;
+      gap:10px;
+    }
+    .btn strong{font-weight:800}
+    .btn:hover{background:rgba(255,255,255,.08)}
+    .btn.primary{
+      border-color: rgba(56,243,154,.5);
+      background: rgba(56,243,154,.12);
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+    .chip{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+      color:var(--muted);
+    }
+
+    section{margin-top:26px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .card h3{margin:0 0 8px 0; letter-spacing:.06em; text-transform:uppercase; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.55}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px;
+      color:var(--muted);
+      margin-top:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      width:fit-content;
+    }
+    .dot{width:10px; height:10px; border-radius:999px}
+    .dot.green{background:rgba(56,243,154,.95)}
+    .dot.blue{background:rgba(69,166,255,.95)}
+    .dot.orange{background:rgba(255,154,60,.95)}
+
+    .two{
+      grid-column: span 12;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+
+    @media (min-width: 860px){
+      .card.span6{grid-column: span 6;}
+      .card.span4{grid-column: span 4;}
+      .hero-inner{grid-template-columns: 1.3fr .7fr; align-items:center}
+      .hero-side{
+        justify-self:end;
+        width:min(320px, 100%);
+        border:1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(0,0,0,.22);
+        padding:16px;
+      }
+    }
+
+    .hero-side{
+      display:grid; gap:10px;
+    }
+    .mini{
+      display:flex; align-items:flex-start; gap:10px;
+      padding:10px 10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .mini b{display:block; font-size:13px; letter-spacing:.06em; text-transform:uppercase}
+    .mini span{display:block; font-size:12px; color:var(--muted); margin-top:3px; line-height:1.35}
+
+    footer{
+      margin-top:30px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+      gap:12px;
+      font-size:13px;
+    }
+    .smalllinks{display:flex; gap:12px; flex-wrap:wrap}
+    .smalllinks a{color:var(--muted)}
+    .smalllinks a:hover{color:var(--text)}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand" aria-label="EYEDIT GLOBAL">
+        <div class="mark" aria-hidden="true"></div>
+        <div>EYEDIT GLOBAL</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#divisions">Divisions</a>
+        <a href="#operations">Global</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="hero" role="main">
+      <div class="hero-inner">
+        <div>
+          <h1>EYEDIT GLOBAL</h1>
+          <p class="subtitle">
+            Holding creatiu i tecnològic amb tres verticals: audiovisual, medicina natural i seguretat.
+            Una identitat, tres engines, una visió global.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#divisions"><strong>Veure divisions</strong> ▸</a>
+            <a class="btn" href="#contact">Contactar</a>
+          </div>
+
+          <div class="chips" aria-label="Focus areas">
+            <div class="chip">Broadcast • Media • Models</div>
+            <div class="chip">Natural Therapies</div>
+            <div class="chip">Security • Transport • Cyber</div>
+            <div class="chip">Satellite-ready</div>
+          </div>
+        </div>
+
+        <aside class="hero-side" aria-label="Highlights">
+          <div class="mini">
+            <div class="dot green" aria-hidden="true"></div>
+            <div>
+              <b>Brand Core</b>
+              <span>Triangle + eye: identitat central del holding.</span>
+            </div>
+          </div>
+          <div class="mini">
+            <div class="dot blue" aria-hidden="true"></div>
+            <div>
+              <b>Global Delivery</b>
+              <span>Operacions escalables, web-first, infraestructura cloud.</span>
+            </div>
+          </div>
+          <div class="mini">
+            <div class="dot orange" aria-hidden="true"></div>
+            <div>
+              <b>Execution</b>
+              <span>De landing a plataforma, sense perdre coherència.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <section id="about">
+      <div class="grid">
+        <div class="card span6">
+          <h3>About</h3>
+          <p>
+            EYEDIT GLOBAL és una arquitectura de marques: una identitat central i tres divisions especialitzades.
+            Dissenyada per créixer, col·laborar i operar en entorns internacionals.
+          </p>
+          <div class="tag"><span class="dot green"></span> Holding structure</div>
+        </div>
+        <div class="card span6">
+          <h3>Vision</h3>
+          <p>
+            Unificar creativitat, salut i seguretat dins una mateixa narrativa corporativa.
+            Tecnologia i estètica, però també operativa real i confiança.
+          </p>
+          <div class="tag"><span class="dot blue"></span> Global mindset</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="divisions">
+      <div class="grid">
+        <div class="card span4">
+          <h3>EYEDIT Audiovisual</h3>
+          <p>
+            Ràdio, televisió, agència creativa i media. Producció, edició i distribució.
+          </p>
+          <div class="tag"><span class="dot orange"></span> Media & Broadcast</div>
+        </div>
+
+        <div class="card span4">
+          <h3>CCS CAN SS AM CAN SAM</h3>
+          <p>
+            Medicina natural i teràpies alternatives. Benestar com a sistema i com a art.
+          </p>
+          <div class="tag"><span class="dot green"></span> Natural therapies</div>
+        </div>
+
+        <div class="card span4">
+          <h3>EYE VISION Security</h3>
+          <p>
+            Seguretat privada, transport (aeri, marítim, terrestre) i capa de ciberseguretat.
+          </p>
+          <div class="tag"><span class="dot blue"></span> Security & Mobility</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="operations">
+      <div class="grid">
+        <div class="card">
+          <h3>Global Operations</h3>
+          <p>
+            Preparats per operar amb infraestructura moderna: streaming, IP workflows, desplegament ràpid i
+            comunicacions escalables. Aquesta web és el primer node del sistema.
+          </p>
+          <div class="chips" style="margin-top:14px">
+            <div class="chip">RTMP / SRT</div>
+            <div class="chip">Cloud Deploy</div>
+            <div class="chip">Security Layer</div>
+            <div class="chip">Brand System</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="grid">
+        <div class="card span6">
+          <h3>Contact</h3>
+          <p>
+            Escriu-nos i et responem amb una proposta clara.
+          </p>
+          <div class="chips" style="margin-top:14px">
+            <div class="chip">Email: <b>contact@eyeditglobal.com</b> (placeholder)</div>
+            <div class="chip">Barcelona • Global</div>
+          </div>
+          <p style="margin-top:14px; color:var(--muted); font-size:13px">
+            Nota: canvia l’email per l’oficial quan tinguis el domini i el correu corporatiu.
+          </p>
+        </div>
+
+        <div class="card span6">
+          <h3>CEO</h3>
+          <p>
+            Mikel Skoda
+          </p>
+          <div class="tag"><span class="dot green"></span> EYEDIT GLOBAL</div>
+          <p style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.45">
+            Vols afegir el logo holding (triangle amb els 3 cercles) aquí a la home?
+            Quan tinguis el PNG final, el posarem com a imatge central.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> EYEDIT GLOBAL. All rights reserved.</div>
+      <div class="smalllinks">
+        <a href="#about">About</a>
+        <a href="#divisions">Divisions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
