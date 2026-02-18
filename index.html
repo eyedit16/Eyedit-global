@@ -1,18 +1,283 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eyedit Global</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eyedit Image Quick Service</title>
+  <meta name="description" content="Eyedit Image Quick Service — International Holding. Integrated Media, Wellness, and Security Infrastructure." />
 </head>
 
-<body style="margin:0; display:flex; flex-direction:column; justify-content:center; align-items:center; height:100vh; background:#000; color:white; font-family:Arial, sans-serif;">
+<body>
+  <main class="wrap">
+    <div class="card">
+      <div class="mark">
+        <img src="logo.png" alt="Eyedit Logo" class="logo" />
+        <div class="glow" aria-hidden="true"></div>
+      </div>
 
-  <img src="logo.png" alt="Eyedit Logo" style="width:500px; margin-bottom:20px;">
+      <div class="copy">
+        <div class="kicker">International Holding</div>
 
-  <h1 style="font-weight:300; letter-spacing:3px; font-size:28px;">
-    EYEDIT IMAGE QUICK SERVICE
-  </h1>
+        <h1 class="title">EYEDIT IMAGE QUICK SERVICE</h1>
 
+        <p class="subtitle">Integrated Media · Wellness · Security Infrastructure</p>
+
+        <div class="ctaRow">
+          <a class="cta" href="#contact">Request Partnership Deck</a>
+          <a class="cta ghost" href="#about">Explore Divisions</a>
+        </div>
+
+        <div class="meta">
+          <span>Barbados</span>
+          <span class="dot">•</span>
+          <span>Confidential</span>
+          <span class="dot">•</span>
+          <span>Mikel Skoda</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="about" class="sections">
+      <div class="pill">Divisions</div>
+      <div class="grid">
+        <div class="box">
+          <div class="boxTitle">Eyedit Media & Talent</div>
+          <div class="boxText">Audiovisual production, radio/TV, talent & modeling.</div>
+        </div>
+        <div class="box">
+          <div class="boxTitle">CCS CAN SS AM CAN SAM</div>
+          <div class="boxText">Wellness retreats, natural medicine, holistic programs.</div>
+        </div>
+        <div class="box">
+          <div class="boxTitle">Eyevision Global Security</div>
+          <div class="boxText">Security services, transport, satellite telecommunications.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="sections">
+      <div class="pill">Contact</div>
+      <div class="contact">
+        <div class="contactTitle">Business enquiries</div>
+        <div class="contactText">Email: <span class="mono">eyeditimage1111@gmail.com</span></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="mono">© Eyedit Image Quick Service</span>
+      <span class="sep">|</span>
+      <span class="mono">All rights reserved</span>
+    </footer>
+  </main>
+
+<style>
+  :root{
+    --bg1:#05060a;
+    --bg2:#0a0f1a;
+    --card:#0b1020cc;
+    --line:#ffffff14;
+    --text:#eaf0ff;
+    --muted:#aab6d6;
+    --muted2:#7f8bb0;
+    --accent:#6ee7ff;
+    --accent2:#7c3aed;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    color:var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    background:
+      radial-gradient(1200px 600px at 20% 10%, #143a6a55 0%, transparent 60%),
+      radial-gradient(900px 500px at 85% 25%, #3b1c7a55 0%, transparent 55%),
+      radial-gradient(800px 420px at 50% 90%, #0a7c7a33 0%, transparent 60%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    overflow-x:hidden;
+  }
+  .wrap{
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:28px 16px 40px;
+    gap:18px;
+  }
+  .card{
+    width:min(980px, 100%);
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, #0b1020dd, #070a14dd);
+    border-radius:22px;
+    padding:22px;
+    box-shadow:
+      0 20px 80px rgba(0,0,0,.55),
+      inset 0 1px 0 rgba(255,255,255,.06);
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    gap:22px;
+    position:relative;
+  }
+  .card:before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:22px;
+    padding:1px;
+    background:linear-gradient(135deg, #6ee7ff33, #7c3aed22, transparent 60%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+            mask-composite:exclude;
+    pointer-events:none;
+  }
+
+  .mark{
+    position:relative;
+    width:220px;
+    height:220px;
+    border-radius:18px;
+    border:1px solid var(--line);
+    background:radial-gradient(circle at 30% 20%, #17305b66 0%, transparent 55%),
+               radial-gradient(circle at 70% 80%, #2b145a55 0%, transparent 55%),
+               rgba(255,255,255,.03);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .logo{
+    width:168px;
+    height:auto;
+    filter: drop-shadow(0 14px 28px rgba(0,0,0,.55));
+    animation: pop .9s ease-out both;
+  }
+  .glow{
+    position:absolute;
+    width:340px;
+    height:340px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(110,231,255,.20), rgba(124,58,237,.12), transparent 60%);
+    filter: blur(8px);
+    animation: breathe 3.6s ease-in-out infinite;
+  }
+
+  .copy{display:flex; flex-direction:column; justify-content:center; gap:8px; padding:4px 0}
+  .kicker{
+    color:var(--muted);
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-size:12px;
+  }
+  .title{
+    margin:0;
+    font-weight:320;
+    letter-spacing:.12em;
+    font-size:28px;
+    line-height:1.2;
+  }
+  .subtitle{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+    letter-spacing:.06em;
+  }
+  .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px 14px;
+    border-radius:12px;
+    border:1px solid rgba(110,231,255,.25);
+    background:linear-gradient(135deg, rgba(110,231,255,.18), rgba(124,58,237,.12));
+    color:var(--text);
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:.02em;
+    transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  }
+  .cta:hover{transform: translateY(-1px); border-color: rgba(110,231,255,.38)}
+  .cta.ghost{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.03);
+  }
+  .meta{
+    margin-top:8px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    color:var(--muted2);
+    font-size:12px;
+    letter-spacing:.04em;
+  }
+  .dot{opacity:.6}
+  .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+
+  .sections{
+    width:min(980px, 100%);
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.02);
+    border-radius:18px;
+    padding:16px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .pill{
+    display:inline-block;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--muted);
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-size:11px;
+    margin-bottom:12px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap:12px;
+  }
+  .box{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px;
+    background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  }
+  .boxTitle{font-size:13px; letter-spacing:.06em; margin-bottom:6px}
+  .boxText{font-size:12px; color:var(--muted); line-height:1.45}
+
+  .contact{display:flex; flex-direction:column; gap:6px}
+  .contactTitle{font-size:13px; letter-spacing:.06em}
+  .contactText{font-size:12px; color:var(--muted)}
+
+  .footer{
+    width:min(980px, 100%);
+    color:var(--muted2);
+    font-size:12px;
+    letter-spacing:.04em;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    padding-top:6px;
+  }
+  .sep{opacity:.45}
+
+  @keyframes pop{
+    from{transform:scale(.96); opacity:0}
+    to{transform:scale(1); opacity:1}
+  }
+  @keyframes breathe{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+  }
+
+  @media (max-width: 780px){
+    .card{grid-template-columns: 1fr; text-align:center}
+    .mark{margin:0 auto}
+    .ctaRow{justify-content:center}
+    .meta{justify-content:center}
+    .grid{grid-template-columns:1fr}
+    .title{font-size:22px}
+  }
+</style>
 </body>
 </html>
