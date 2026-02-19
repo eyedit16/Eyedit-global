@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eyedit International Holding | Portfolio</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#0a0f1a;
+    color:#ffffff;
+}
+.section{
+    padding:60px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+h1,h2{
+    font-weight:300;
+    letter-spacing:1px;
+}
+.hero{
+    text-align:center;
+    background:linear-gradient(180deg,#0a0f1a,#101a2d);
+}
+.hero h1{
+    font-size:36px;
+}
+.subtitle{
+    color:#9fb0d9;
+    margin-top:10px;
+}
+.card{
+    background:#111827;
+    padding:25px;
+    border-radius:12px;
+    margin-top:20px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:20px;
+}
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+.highlight{
+    color:#6ee7ff;
+}
+.footer{
+    text-align:center;
+    padding:40px;
+    background:#0d1424;
+    color:#7f8bb0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="section hero">
+    <h1>Eyedit Image Quick Service</h1>
+    <p class="subtitle">International Holding Structure</p>
+    <p class="subtitle">Creativity · Wellness · Security Infrastructure</p>
+</div>
+
+<div class="section">
+    <h2>Executive Summary</h2>
+    <div class="card">
+        <p>Eyedit Image Quick Service is a structured international holding integrating three strategic divisions with scalable growth potential and cross-sector synergy.</p>
+        <ul>
+            <li><strong>Eyedit Media & Talent</strong> – Audiovisual production, creative agency, radio & television.</li>
+            <li><strong>CCScanssam Wellness</strong> – Natural medicine, alternative therapies, retreat model.</li>
+            <li><strong>Eyevision Global Security</strong> – Security services, transport, satellite telecommunications.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Holding Structure</h2>
+    <div class="card">
+        <p>Parent Holding: Barbados</p>
+        <p>Three Strategic Subholdings:</p>
+        <ul>
+            <li>Media & Creative Division</li>
+            <li>Wellness & Natural Medicine Division</li>
+            <li>Security & Infrastructure Division</li>
+        </ul>
+        <p>Operational subsidiaries projected in multiple jurisdictions.</p>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Financial Projection (5 Years)</h2>
+    <div class="card">
+        <ul>
+            <li>Initial Investment Round: €5M (20% equity)</li>
+            <li>Pre-Money Valuation: €20M</li>
+            <li>Post-Money Valuation: €25M</li>
+            <li>Projected Year 5 Revenue: €128M</li>
+            <li>EBITDA Projection: €39M</li>
+            <li>Potential Valuation (8x EBITDA): <span class="highlight">€312M</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Strategic Roadmap</h2>
+    <div class="card">
+        <ul>
+            <li>Year 1–2: Structural consolidation & pilot market activation</li>
+            <li>Year 3–4: Regional scaling & institutional investment round</li>
+            <li>Year 5: Partial IPO or strategic division sale</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Core Message</h2>
+    <div class="card">
+        <p>Eyedit represents a scalable global ecosystem integrating high-value sectors with strong cross-division synergy and asset protection structure.</p>
+        <p class="highlight">Structured. Scalable. Strategic.</p>
+    </div>
+</div>
+
+<div class="footer">
+    © Eyedit Image Quick Service | Confidential Portfolio
+</div>
+
+</body>
+</html>
