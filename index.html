@@ -1,96 +1,872 @@
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EyeDit Image Quick Service</title>
+  <title>EYEDIT Group | Strategic Holding</title>
+  <meta name="description" content="EYEDIT Group is a long-term strategic holding overseeing independent divisions across Media, Human Capital Development Systems, and Infrastructure." />
 
   <style>
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-
-    /* FONS DEGRADAT GRIS-BLAU PERLA */
-    body{<!-- test -->
-    <body>
-
-<!-- prova -->
-
-<header class="hero">
-      <h2 style="color:red; text-align:center;">TEST FONS NOU</h2>
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      line-height: 1.5;
-      background: linear-gradient(135deg, #cfe4ff 0%, #e6e6e6 55%, #d7dbe3 100%);
-      color: #111;
+    :root{
+      --bg:#07070a;
+      --bg2:#0b0b10;
+      --card:#0e0f16;
+      --card2:#10121b;
+      --text:#f3f4f6;
+      --muted:#b7bcc8;
+      --muted2:#8b90a0;
+      --line:rgba(255,255,255,.10);
+      --gold:#c6a75e;
+      --gold2:#e5d39a;
+      --shadow: 0 16px 40px rgba(0,0,0,.55);
+      --radius: 18px;
+      --radius2: 24px;
+      --max: 1120px;
     }
 
-    .hero { padding: 28px 16px; text-align: center; }
-    .logo {
-      max-width: 560px;
-      width: 92%;
-      height: auto;
-      display: block;
-      margin: 0 auto 14px;
-      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.10));
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", Helvetica, sans-serif;
+      line-height:1.55;
+      background:
+        radial-gradient(900px 600px at 18% 10%, rgba(198,167,94,.16), transparent 55%),
+        radial-gradient(700px 520px at 86% 20%, rgba(229,211,154,.08), transparent 60%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      overflow-x:hidden;
     }
 
-    h1 { margin: 10px 0 6px; font-size: 28px; }
-    .sub { margin: 0 0 16px; opacity: .85; }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
 
-    .btn-primary {
-      display: inline-block;
-      padding: 10px 14px;
-      border: 1px solid rgba(0,0,0,0.55);
-      border-radius: 12px;
-      text-decoration: none;
-      color: #111;
-      background: rgba(255,255,255,0.55);
-      backdrop-filter: blur(6px);
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,7,10,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
+    }
+    .mark{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(198,167,94,.45);
+      background:
+        radial-gradient(16px 16px at 30% 25%, rgba(229,211,154,.55), transparent 60%),
+        radial-gradient(18px 18px at 80% 75%, rgba(198,167,94,.35), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: 0 10px 24px rgba(0,0,0,.45);
+      position:relative;
+      overflow:hidden;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:-20%;
+      background: conic-gradient(from 20deg, transparent 0 68%, rgba(198,167,94,.18) 76%, transparent 92%);
+      transform: rotate(8deg);
+      opacity:.9;
+    }
+    .brand .name{
+      display:flex; flex-direction:column; line-height:1.1;
+    }
+    .brand .name b{
+      letter-spacing:.24em;
+      text-transform:uppercase;
+      font-size:12px;
+      color:var(--gold2);
+    }
+    .brand .name span{
+      font-size:12px; color:var(--muted2);
+      margin-top:4px;
     }
 
-    .container { max-width: 980px; margin: 0 auto; padding: 18px 16px 40px; }
-    .section-title { font-size: 20px; font-weight: 700; margin: 10px 0 14px; }
-
-    .accordion {
-      border: 1px solid rgba(0,0,0,0.10);
-      border-radius: 14px;
-      margin: 12px 0;
-      overflow: hidden;
-      background: rgba(255,255,255,0.60);
-      backdrop-filter: blur(6px);
+    nav{
+      display:flex; align-items:center; gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-    .accordion-header { padding: 14px; cursor: pointer; user-select: none; font-weight: 700; }
-    .accordion-content { display: none; padding: 12px 14px 16px; border-top: 1px solid rgba(0,0,0,0.08); }
-
-    .highlight-section { max-width: 980px; margin: 0 auto; padding: 10px 16px 40px; }
-    .highlight-box {
-      border: 1px solid rgba(0,0,0,0.10);
-      border-radius: 14px;
-      padding: 16px;
-      background: rgba(255,255,255,0.60);
-      backdrop-filter: blur(6px);
+    nav a{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      transition: .18s ease;
+    }
+    nav a:hover{
+      color:var(--text);
+      border-color: rgba(198,167,94,.28);
+      background: rgba(198,167,94,.06);
+    }
+    .cta{
+      display:flex; align-items:center; gap:10px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:14px;
+      font-size:13px;
+      border:1px solid rgba(198,167,94,.40);
+      background: rgba(198,167,94,.10);
+      color: var(--gold2);
+      box-shadow: 0 12px 28px rgba(0,0,0,.40);
+      transition:.18s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(198,167,94,.14); }
+    .btn.secondary{
+      border-color: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      box-shadow:none;
     }
 
-    .footer {
-      padding: 18px 16px;
-      text-align: center;
-      border-top: 1px solid rgba(0,0,0,0.08);
-      opacity: .85;
-      background: rgba(255,255,255,0.35);
-      backdrop-filter: blur(6px);
+    /* Hero */
+    .hero{
+      padding:64px 0 28px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel:before{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(700px 280px at 20% 0%, rgba(198,167,94,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .hero .main{
+      padding:26px 22px 22px;
+    }
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(198,167,94,.30);
+      background: rgba(198,167,94,.08);
+      color: var(--gold2);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:42px;
+      line-height:1.08;
+      letter-spacing:.02em;
+    }
+    h1 .thin{ font-weight:500; color: rgba(243,244,246,.92); }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      max-width: 70ch;
+      font-size:15px;
+    }
+    .hero-actions{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .hero-metrics{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    .metric{
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      padding:12px 12px;
+    }
+    .metric b{
+      display:block;
+      color: var(--gold2);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:11px;
+    }
+    .metric span{
+      display:block;
+      margin-top:6px;
+      color: var(--text);
+      font-weight:700;
+      font-size:14px;
+    }
+    .side{
+      padding:18px;
+      display:flex; flex-direction:column; gap:12px;
+    }
+    .side h3{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      color: var(--gold2);
+    }
+    .side p{
+      margin:0;
+      color: var(--muted);
+      font-size:13px;
+    }
+    .mini-card{
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding:14px;
+    }
+    .mini-card b{
+      display:block;
+      font-size:13px;
+      color: var(--text);
+      margin-bottom:6px;
+    }
+    .mini-card span{
+      color: var(--muted);
+      font-size:13px;
+    }
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:12px; flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color: var(--gold2);
+    }
+    .section-title p{
+      margin:0;
+      color: var(--muted2);
+      font-size:13px;
+      max-width: 72ch;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-40% -30%;
+      background: radial-gradient(420px 240px at 20% 20%, rgba(198,167,94,.14), transparent 55%);
+      transform: rotate(-8deg);
+      pointer-events:none;
+    }
+    .pill{
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      border:1px solid rgba(198,167,94,.28);
+      background: rgba(198,167,94,.07);
+      color: var(--gold2);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .card h3{
+      margin:12px 0 8px;
+      font-size:18px;
+      letter-spacing:.01em;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size:13.5px;
+    }
+    .list{
+      margin:12px 0 0;
+      padding-left:18px;
+      color: var(--muted);
+      font-size:13px;
+    }
+    .list li{ margin:6px 0; }
+
+    /* Memorandum */
+    .memo{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .memo .card p strong{ color: var(--text); }
+    .quote{
+      padding:18px;
+      border-radius: var(--radius);
+      border:1px solid rgba(198,167,94,.22);
+      background: rgba(198,167,94,.06);
+      color: var(--muted);
+      font-size:13.5px;
+    }
+    .quote b{
+      color: var(--gold2);
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size:12px;
+    }
+
+    /* Accordion */
+    .accordion{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .acc-item + .acc-item{ border-top:1px solid rgba(255,255,255,.08); }
+    .acc-btn{
+      width:100%;
+      text-align:left;
+      padding:14px 14px;
+      background: transparent;
+      color: var(--text);
+      border:0;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .acc-btn span{
+      color: var(--muted2);
+      font-weight:600;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .acc-panel{
+      display:none;
+      padding: 0 14px 14px;
+      color: var(--muted);
+      font-size:13.5px;
+    }
+    .acc-panel p{ margin:10px 0 0; }
+    .acc-panel ul{ margin:10px 0 0; padding-left:18px; }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 18px;
+      color: var(--muted2);
+      font-size:13px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:12px;
+      align-items:start;
+    }
+    .fine{
+      font-size:12px;
+      color: var(--muted2);
+      opacity:.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid3{ grid-template-columns: 1fr; }
+      .memo{ grid-template-columns: 1fr; }
+      .footer-grid{ grid-template-columns: 1fr; }
+      h1{ font-size:36px; }
+      nav{ display:none; } /* keep it ultra clean on mobile */
     }
   </style>
 </head>
 
 <body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <div class="brand" aria-label="EYEDIT Group">
+          <div class="mark" aria-hidden="true"></div>
+          <div class="name">
+            <b>EYEDIT GROUP</b>
+            <span>Strategic Holding | Long-Term Structure</span>
+          </div>
+        </div>
 
-  <header class="hero">
-    <img class="logo" src="./logo.png" alt="Logo EyeDit + CCS CAN SS AM + EyeVision" />
-    <h1>EyeDit Image Quick Service</h1>
-    <p class="sub">Integrated Media · Wellness · Security Infrastructure</p>
-    <a href="#ecosystem" class="btn-primary">Explore the Ecosystem</a>
+        <nav aria-label="Primary navigation">
+          <a href="#divisions">Divisions</a>
+          <a href="#memorandum">Memorandum</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn secondary" href="#divisions">Explore</a>
+          <a class="btn" href="#contact">Partnership Inquiry</a>
+        </div>
+      </div>
+    </div>
   </header>
 
-  <main class="container" id="ecosystem">
-    <div class="section
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="panel">
+            <div class="main">
+              <div class="kicker">Institutional Authority · Global Orientation</div>
+
+              <h1>
+                <span class="thin">Structured Vision.</span><br />
+                Global Execution.
+              </h1>
+
+              <p class="lead">
+                EYEDIT Group operates as a long-term strategic holding overseeing independent divisions aligned under a unified governance structure.
+                The Group is built for stability, controlled expansion, and institutional consistency across sectors.
+              </p>
+
+              <div class="hero-actions">
+                <a class="btn" href="#divisions">Explore Divisions</a>
+                <a class="btn secondary" href="#memorandum">Read Memorandum</a>
+              </div>
+
+              <div class="hero-metrics" aria-label="Key holding principles">
+                <div class="metric">
+                  <b>Model</b>
+                  <span>Strategic Holding</span>
+                </div>
+                <div class="metric">
+                  <b>Approach</b>
+                  <span>Controlled Growth</span>
+                </div>
+                <div class="metric">
+                  <b>Focus</b>
+                  <span>Long-Term Value</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel">
+            <div class="side">
+              <h3>Institutional Note</h3>
+              <p>
+                EYEDIT Group is positioned as a business-first holding. Division narratives remain sector-specific while the parent brand
+                maintains a disciplined corporate posture.
+              </p>
+
+              <div class="mini-card">
+                <b>Operating Principle</b>
+                <span>Structure precedes expansion.</span>
+              </div>
+
+              <div class="mini-card">
+                <b>Governance</b>
+                <span>Unified oversight, independent execution.</span>
+              </div>
+
+              <div class="mini-card">
+                <b>Orientation</b>
+                <span>Headquartered in Europe. International by design.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVISIONS -->
+    <section id="divisions">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Divisions</h2>
+          <p>Three aligned sectors under one holding: Media, Institute, Infrastructure. Each division operates independently, governed strategically by EYEDIT Group.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="card">
+            <div class="pill">Sector 01 · Media</div>
+            <h3>EYEDIT Media</h3>
+            <p>
+              Strategic visual systems, production architecture, and multi-format broadcasting support for institutional communication and premium narratives.
+            </p>
+            <ul class="list">
+              <li>Brand & visual system engineering</li>
+              <li>Broadcast workflows (streaming-ready)</li>
+              <li>Corporate content architecture</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="pill">Sector 02 · Institute</div>
+            <h3>CCS CAN SS AM Institute</h3>
+            <p>
+              Structured programs for human capital development and applied transformation. Built for long-term institutional growth, with mixed modality (on-site + online).
+            </p>
+            <ul class="list">
+              <li>Programs: Youth, Adult, Senior tracks</li>
+              <li>Training + community systems</li>
+              <li>Retreat model as “campus” layer</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="pill">Sector 03 · Infrastructure</div>
+            <h3>Eyevision Infrastructure</h3>
+            <p>
+              Security and mobility-oriented systems combined with communications frameworks, designed for operational reliability and future-scale integration.
+            </p>
+            <ul class="list">
+              <li>Security operations frameworks</li>
+              <li>Transport coordination logic</li>
+              <li>Telecom & signal-oriented planning</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMORANDUM -->
+    <section id="memorandum">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Memorandum</h2>
+          <p>A concise institutional statement describing how EYEDIT Group builds, governs, and scales independent divisions.</p>
+        </div>
+
+        <div class="memo">
+          <div class="card">
+            <div class="pill">Holding Statement</div>
+            <h3>Strategic Holding Model</h3>
+            <p>
+              <strong>EYEDIT Group is a strategic holding</strong> designed for long-term development. The parent entity provides
+              governance, brand integrity, and capital coordination, while each division executes operations independently.
+            </p>
+            <ul class="list">
+              <li><strong>Unified governance:</strong> one framework, multiple divisions.</li>
+              <li><strong>Risk segmentation:</strong> each division carries its own operational risk.</li>
+              <li><strong>Institutional consistency:</strong> standards and ethics are enforced group-wide.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="pill">Operating Discipline</div>
+            <h3>Control Without Noise</h3>
+            <p>
+              EYEDIT Group is built to behave like an institution: measured language, controlled expansion, and disciplined execution.
+              The holding is not positioned as a service provider, but as a structured system that selects initiatives based on strategy.
+            </p>
+            <div class="quote" style="margin-top:12px;">
+              <b>Principle</b><br/>
+              Stability is not the opposite of growth. It is the condition that makes growth sustainable.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Philosophy</h2>
+          <p>Corporate principles at the holding level, and sector philosophies at the division level. The parent brand remains business-first.</p>
+        </div>
+
+        <div class="accordion" role="region" aria-label="Philosophy accordion">
+          <div class="acc-item">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              EYEDIT Group · Corporate Principles
+              <span>Holding</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <p>
+                EYEDIT Group prioritizes governance and long-term stability. Growth is executed through structure, not improvisation.
+              </p>
+              <ul>
+                <li>Long-term capital discipline and reinvestment</li>
+                <li>Independent divisions, aligned under one governance framework</li>
+                <li>Ethical responsibility, risk management, and operational reliability</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              CCS CAN SS AM Institute · Applied Human Development
+              <span>Institute</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <p>
+                The Institute develops structured programs across Youth (14–21), Adult, and Senior tracks, using a disciplined curriculum model.
+                It may draw on traditions and practices (e.g., contemplative philosophies and natural wellness frameworks) while remaining programmatic and responsible.
+              </p>
+              <ul>
+                <li>Training first: a curriculum + community engine</li>
+                <li>Retreats as campus layer, not as the entire business</li>
+                <li>Clear boundaries, documentation, and participant safety</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              Eyevision Infrastructure · Reliability & Systems Thinking
+              <span>Infrastructure</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <p>
+                Infrastructure is designed with a systems mindset: stability, redundancy, and operational clarity. The focus is pragmatic execution and long-term maintainability.
+              </p>
+              <ul>
+                <li>Security frameworks aligned to real-world operations</li>
+                <li>Integrated mobility/transport logic</li>
+                <li>Communications planning with future scalability in mind</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-btn" type="button" aria-expanded="false">
+              EYEDIT Media · Visual Systems as Strategic Assets
+              <span>Media</span>
+            </button>
+            <div class="acc-panel" role="region">
+              <p>
+                Media is treated as infrastructure: consistent, secure, and designed for institutional credibility.
+                The division builds visual systems and production architectures that scale.
+              </p>
+              <ul>
+                <li>Corporate identity systems</li>
+                <li>Broadcast-ready workflows</li>
+                <li>Premium narrative engineering</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section id="roadmap">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Roadmap</h2>
+          <p>Ambitious but measured. Built for institutional development. Designed for controlled expansion, not speculative growth.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="card">
+            <div class="pill">Years 1–2</div>
+            <h3>Phase I · Foundation</h3>
+            <p>Establish governance, protocols, division alignment, and a disciplined operational base.</p>
+            <ul class="list">
+              <li>Institutional positioning and brand integrity</li>
+              <li>Program architecture for Institute division</li>
+              <li>Operational frameworks for Infrastructure and Media</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="pill">Years 3–5</div>
+            <h3>Phase II · Consolidation</h3>
+            <p>Strengthen systems, develop multi-location capability, and refine execution at scale.</p>
+            <ul class="list">
+              <li>Controlled expansion of divisions</li>
+              <li>Team structure and partner frameworks</li>
+              <li>Operational stability across locations</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="pill">Years 5–10</div>
+            <h3>Phase III · International Structure</h3>
+            <p>Scalable governance, cross-regional alignment, and mature institutional operations.</p>
+            <ul class="list">
+              <li>International partnerships</li>
+              <li>Group-level governance reinforcement</li>
+              <li>Long-term capital strategy execution</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>For partnership inquiries and strategic alignment. This is a corporate channel intended for institutional communication.</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">Partnership Inquiry</div>
+          <h3>Send a structured message</h3>
+          <p style="margin-bottom:12px;">
+            Add your preferred email in the text below (this page is static). When you build your next step, connect this form to an email service or CRM.
+          </p>
+
+          <form onsubmit="return handleSubmit(event)">
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+              <label>
+                <span style="display:block; color:var(--muted2); font-size:12px; margin-bottom:6px;">Name</span>
+                <input required name="name" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03); color:var(--text);" />
+              </label>
+              <label>
+                <span style="display:block; color:var(--muted2); font-size:12px; margin-bottom:6px;">Email</span>
+                <input required type="email" name="email" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03); color:var(--text);" />
+              </label>
+            </div>
+
+            <label style="display:block; margin-top:10px;">
+              <span style="display:block; color:var(--muted2); font-size:12px; margin-bottom:6px;">Message</span>
+              <textarea required name="message" rows="5" style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03); color:var(--text); resize:vertical;"></textarea>
+            </label>
+
+            <div style="display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;">
+              <button class="btn" type="submit">Generate Email Draft</button>
+              <button class="btn secondary" type="button" onclick="copyDraft()">Copy Draft</button>
+              <span id="status" style="color:var(--muted2); font-size:12px; align-self:center;"></span>
+            </div>
+
+            <div id="draft" class="quote" style="display:none; margin-top:12px;">
+              <b>Email Draft</b><br/>
+              <div id="draftText" style="margin-top:10px; white-space:pre-wrap;"></div>
+            </div>
+          </form>
+
+          <p class="fine" style="margin-top:14px;">
+            Note: This static site does not send emails automatically. It generates a clean draft you can copy into your email client.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <div class="mark" aria-hidden="true" style="width:28px;height:28px;border-radius:10px;"></div>
+            <div>
+              <div style="letter-spacing:.22em; text-transform:uppercase; color:var(--gold2); font-weight:700; font-size:12px;">EYEDIT Group</div>
+              <div class="fine">Strategic Holding · Long-Term Structure · Headquartered in Europe</div>
+            </div>
+          </div>
+          <div class="fine" style="margin-top:10px;">
+            © 2026 EYEDIT Group. All Rights Reserved.
+          </div>
+        </div>
+
+        <div class="fine">
+          <div style="margin-bottom:8px; color:var(--muted); font-weight:700;">Disclosure</div>
+          EYEDIT Group is structured for long-term institutional development, prioritizing stability and controlled expansion.
+          Division activities are executed independently under a unified governance framework.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Accordion logic
+    (function initAccordion(){
+      const buttons = document.querySelectorAll('.acc-btn');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const panel = btn.parentElement.querySelector('.acc-panel');
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+
+          // close others (institutional, clean UX)
+          buttons.forEach(b => {
+            b.setAttribute('aria-expanded','false');
+            const p = b.parentElement.querySelector('.acc-panel');
+            p.style.display = 'none';
+          });
+
+          // toggle this
+          btn.setAttribute('aria-expanded', String(!expanded));
+          panel.style.display = expanded ? 'none' : 'block';
+        });
+      });
+    })();
+
+    // Contact draft generator (static site friendly)
+    let lastDraft = "";
+    function handleSubmit(e){
+      e.preventDefault();
+      const form = e.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+
+      lastDraft =
+`Subject: Partnership Inquiry | EYEDIT Group
+
+Hello EYEDIT Group team,
+
+My name is ${name} (${email}). I would like to connect regarding a potential partnership / strategic alignment.
+
+Message:
+${message}
+
+Best regards,
+${name}`;
+
+      const draftBox = document.getElementById('draft');
+      const draftText = document.getElementById('draftText');
+      draftText.textContent = lastDraft;
+      draftBox.style.display = 'block';
+      document.getElementById('status').textContent = "Draft generated.";
+      return false;
+    }
+
+    async function copyDraft(){
+      if(!lastDraft){
+        document.getElementById('status').textContent = "Generate a draft first.";
+        return;
+      }
+      try{
+        await navigator.clipboard.writeText(lastDraft);
+        document.getElementById('status').textContent = "Draft copied to clipboard.";
+      }catch(err){
+        document.getElementById('status').textContent = "Copy blocked by browser. Select and copy manually.";
+      }
+    }
+  </script>
+</body>
+</html>
