@@ -4,101 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EyeDit Image Quick Service</title>
+
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.5; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    /* FONS DEGRADAT GRIS-BLAU PERLA */
+    body{
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      background: linear-gradient(135deg, #cfe4ff 0%, #e6e6e6 55%, #d7dbe3 100%);
+      color: #111;
+    }
+
     .hero { padding: 28px 16px; text-align: center; }
-    .logo { max-width: 560px; width: 92%; height: auto; display: block; margin: 0 auto 14px; }
-    h1 { margin: 10px 0 6px; }
-    .sub { margin: 0 0 16px; opacity: .8; }
-    .btn-primary { display: inline-block; padding: 10px 14px; border: 1px solid #111; border-radius: 12px; text-decoration: none; color: #111; }
+    .logo {
+      max-width: 560px;
+      width: 92%;
+      height: auto;
+      display: block;
+      margin: 0 auto 14px;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.10));
+    }
+
+    h1 { margin: 10px 0 6px; font-size: 28px; }
+    .sub { margin: 0 0 16px; opacity: .85; }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid rgba(0,0,0,0.55);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #111;
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(6px);
+    }
+
     .container { max-width: 980px; margin: 0 auto; padding: 18px 16px 40px; }
     .section-title { font-size: 20px; font-weight: 700; margin: 10px 0 14px; }
-    .accordion { border: 1px solid #ddd; border-radius: 14px; margin: 12px 0; overflow: hidden; }
-    .accordion-header { padding: 14px 14px; cursor: pointer; user-select: none; font-weight: 700; }
-    .accordion-content { display: none; padding: 12px 14px 16px; border-top: 1px solid #eee; }
+
+    .accordion {
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 14px;
+      margin: 12px 0;
+      overflow: hidden;
+      background: rgba(255,255,255,0.60);
+      backdrop-filter: blur(6px);
+    }
+    .accordion-header { padding: 14px; cursor: pointer; user-select: none; font-weight: 700; }
+    .accordion-content { display: none; padding: 12px 14px 16px; border-top: 1px solid rgba(0,0,0,0.08); }
+
     .highlight-section { max-width: 980px; margin: 0 auto; padding: 10px 16px 40px; }
-    .footer { padding: 18px 16px; text-align: center; border-top: 1px solid #eee; opacity: .8; }
+    .highlight-box {
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 14px;
+      padding: 16px;
+      background: rgba(255,255,255,0.60);
+      backdrop-filter: blur(6px);
+    }
+
+    .footer {
+      padding: 18px 16px;
+      text-align: center;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      opacity: .85;
+      background: rgba(255,255,255,0.35);
+      backdrop-filter: blur(6px);
+    }
   </style>
 </head>
 
 <body>
-body {
-    background: linear-gradient(to bottom, #cce0ff, #e0e0e0);
-}
-  <header class="hero">
-    <!-- IMPORTANT: posa el fitxer logo.png al mateix lloc que index.html -->
-    <img class="logo" src="./logo.png" alt="Logo EyeDit + CCS CAN SS AM + EyeVision" />
 
+  <header class="hero">
+    <img class="logo" src="./logo.png" alt="Logo EyeDit + CCS CAN SS AM + EyeVision" />
     <h1>EyeDit Image Quick Service</h1>
     <p class="sub">Integrated Media · Wellness · Security Infrastructure</p>
     <a href="#ecosystem" class="btn-primary">Explore the Ecosystem</a>
   </header>
 
   <main class="container" id="ecosystem">
-    <div class="section-title">Our Strategic Divisions</div>
-
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        🎬 Eyedit Media & Talent
-      </div>
-      <div class="accordion-content">
-        Global audiovisual production, creative agency, streaming platforms, and talent representation.
-      </div>
-    </div>
-
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        🌿 CCScanssam Wellness
-      </div>
-      <div class="accordion-content">
-        <p><strong>Filosofia CCS CAN SS AM</strong></p>
-        <p>
-          Teràpies alternatives i medicina natural amb influències xamàniques, hindús,
-          sufís i budistes. Integra cristalls, homeopatia, kinesiologia i acupuntura
-          com a camins d’equilibri i benestar.
-        </p>
-
-        <h3 style="margin-top:14px;">Àrees</h3>
-        <ul>
-          <li>Teràpies alternatives</li>
-          <li>Medicina natural</li>
-          <li>Filosofia xamànica, hindú, sufí i budista</li>
-          <li>Cristalls, homeopatia, kinesiologia, acupuntura</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="accordion">
-      <div class="accordion-header" onclick="toggleAccordion(this)">
-        🛡 Eyevision Global Security
-      </div>
-      <div class="accordion-content">
-        Terrestrial, aerial and maritime security combined with satellite telecommunications infrastructure.
-      </div>
-    </div>
-  </main>
-
-  <section class="highlight-section">
-    <h2>Investment Highlights</h2>
-    <ul>
-      <li>Structured international holding model</li>
-      <li>Asset-backed expansion strategy</li>
-      <li>Scalable multi-division ecosystem</li>
-      <li>5-year growth roadmap</li>
-      <li>Defined exit strategy</li>
-    </ul>
-  </section>
-
-  <footer class="footer">
-    © 2026 Eyedit Image Quick Service · Confidential Corporate Information
-  </footer>
-
-  <script>
-    function toggleAccordion(element) {
-      const content = element.nextElementSibling;
-      content.style.display = (content.style.display === "block") ? "none" : "block";
-    }
-  </script>
-
-</body>
-</html>
+    <div class="section
