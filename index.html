@@ -1,228 +1,102 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eyedit Image Quick Service</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-.hero-logo{
-    width: 140px;
-    max-width: 45vw;
-    height: auto;
-    margin: 0 auto 18px auto;
-    display: block;
-.hero-logo{
-    width: 140px;
-    max-width: 45vw;
-    height: auto;
-    margin: 0 auto 18px auto;
-    display: block;
-}
-<style>
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #f7f8f9;
-    color: #222;
-}
-
-.hero {
-    height: 100vh;
-    background: linear-gradient(rgba(15,81,50,0.65), rgba(15,81,50,0.65)),
-    url('https://images.unsplash.com/photo-1523966211575-eb4a01e7dd51?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero h1 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 20px;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
-.btn-primary {
-    background-color: #0f5132;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 80px 20px;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 40px;
-}
-
-.accordion {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #e0e0e0;
-    overflow: hidden;
-}
-
-.accordion-header {
-    padding: 20px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.accordion-content {
-    padding: 20px;
-    display: none;
-    border-top: 1px solid #e0e0e0;
-    color: #555;
-}
-
-.highlight-section {
-    text-align: center;
-    padding: 80px 20px;
-    background: white;
-}
-
-.highlight-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.highlight-section li {
-    margin: 12px 0;
-    font-size: 16px;
-}
-
-.footer {
-    text-align: center;
-    padding: 40px;
-    font-size: 14px;
-    color: #888;
-}
-</style>
-</head>
-
-<body>
-
-<div class="hero">
-    <div> 
-        <div class="hero">
-    <div>
-          <!DOCTYPE html>
 <html lang="ca">
 <head>
-    <meta charset="UTF-8">
-    <title>Filosofia Canssam</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EyeDit Image Quick Service</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.5; }
+    .hero { padding: 28px 16px; text-align: center; }
+    .logo { max-width: 560px; width: 92%; height: auto; display: block; margin: 0 auto 14px; }
+    h1 { margin: 10px 0 6px; }
+    .sub { margin: 0 0 16px; opacity: .8; }
+    .btn-primary { display: inline-block; padding: 10px 14px; border: 1px solid #111; border-radius: 12px; text-decoration: none; color: #111; }
+    .container { max-width: 980px; margin: 0 auto; padding: 18px 16px 40px; }
+    .section-title { font-size: 20px; font-weight: 700; margin: 10px 0 14px; }
+    .accordion { border: 1px solid #ddd; border-radius: 14px; margin: 12px 0; overflow: hidden; }
+    .accordion-header { padding: 14px 14px; cursor: pointer; user-select: none; font-weight: 700; }
+    .accordion-content { display: none; padding: 12px 14px 16px; border-top: 1px solid #eee; }
+    .highlight-section { max-width: 980px; margin: 0 auto; padding: 10px 16px 40px; }
+    .footer { padding: 18px 16px; text-align: center; border-top: 1px solid #eee; opacity: .8; }
+  </style>
 </head>
+
 <body>
-    <img src="logo.png" alt="Logo">
-    <h1>Filosofia de Canssam</h1>
-    <section>
-        <h2>Teràpies Alternatives</h2>
-        <p>Aquí anirà el text de les teràpies alternatives.</p>
-    </section>
-    <section>
-        <h2>Medicina Natural</h2>
-        <p>Aquí anirà el text de la medicina natural.</p>
-    </section>
-    <section>
-        <h2>Filosofia Xamànica, Hindú, Sufí i Budista</h2>
-        <p>Aquí anirà el text d’aquestes filosofies.</p>
-    </section>
-</body>
-</html>
-        
-    <div>
 
-    <div>
-        
-        
-    <div>
-        
-        
-        
-        
-              <h1>Eyedit Image Quick Service</h1>
-        <p>Integrated Media · Wellness · Security Infrastructure</p>
-        <a href="#ecosystem" class="btn-primary">Explore the Ecosystem</a>
-    </div>
-</div>
-    
-        <p>Integrated Media · Wellness · Security Infrastructure</p>
-        <a href="#ecosystem" class="btn-primary">Explore the Ecosystem</a>
-    </div>
-</div>
+  <header class="hero">
+    <!-- IMPORTANT: posa el fitxer logo.png al mateix lloc que index.html -->
+    <img class="logo" src="./logo.png" alt="Logo EyeDit + CCS CAN SS AM + EyeVision" />
 
-<div class="container" id="ecosystem">
+    <h1>EyeDit Image Quick Service</h1>
+    <p class="sub">Integrated Media · Wellness · Security Infrastructure</p>
+    <a href="#ecosystem" class="btn-primary">Explore the Ecosystem</a>
+  </header>
+
+  <main class="container" id="ecosystem">
     <div class="section-title">Our Strategic Divisions</div>
 
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            🎬 Eyedit Media & Talent
-        </div>
-        <div class="accordion-content">
-            Global audiovisual production, creative agency, streaming platforms, and talent representation.
-        </div>
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        🎬 Eyedit Media & Talent
+      </div>
+      <div class="accordion-content">
+        Global audiovisual production, creative agency, streaming platforms, and talent representation.
+      </div>
     </div>
 
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            🌿 CCScanssam Wellness
-        </div>
-        <div class="accordion-content">
-            Retreat-based natural medicine programs, therapeutic animals, and rehabilitation systems.
-        </div>
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        🌿 CCScanssam Wellness
+      </div>
+      <div class="accordion-content">
+        <p><strong>Filosofia CCS CAN SS AM</strong></p>
+        <p>
+          Teràpies alternatives i medicina natural amb influències xamàniques, hindús,
+          sufís i budistes. Integra cristalls, homeopatia, kinesiologia i acupuntura
+          com a camins d’equilibri i benestar.
+        </p>
+
+        <h3 style="margin-top:14px;">Àrees</h3>
+        <ul>
+          <li>Teràpies alternatives</li>
+          <li>Medicina natural</li>
+          <li>Filosofia xamànica, hindú, sufí i budista</li>
+          <li>Cristalls, homeopatia, kinesiologia, acupuntura</li>
+        </ul>
+      </div>
     </div>
 
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
-            🛡 Eyevision Global Security
-        </div>
-        <div class="accordion-content">
-            Terrestrial, aerial and maritime security combined with satellite telecommunications infrastructure.
-        </div>
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        🛡 Eyevision Global Security
+      </div>
+      <div class="accordion-content">
+        Terrestrial, aerial and maritime security combined with satellite telecommunications infrastructure.
+      </div>
     </div>
-</div>
+  </main>
 
-<div class="highlight-section">
+  <section class="highlight-section">
     <h2>Investment Highlights</h2>
     <ul>
-        <li>Structured international holding model</li>
-        <li>Asset-backed expansion strategy</li>
-        <li>Scalable multi-division ecosystem</li>
-        <li>5-year growth roadmap</li>
-        <li>Defined exit strategy</li>
+      <li>Structured international holding model</li>
+      <li>Asset-backed expansion strategy</li>
+      <li>Scalable multi-division ecosystem</li>
+      <li>5-year growth roadmap</li>
+      <li>Defined exit strategy</li>
     </ul>
-</div>
+  </section>
 
-<div class="footer">
+  <footer class="footer">
     © 2026 Eyedit Image Quick Service · Confidential Corporate Information
-</div>
+  </footer>
 
-<script>
-function toggleAccordion(element) {
-    const content = element.nextElementSibling;
-    content.style.display = content.style.display === "block" ? "none" : "block";
-}
-</script>
+  <script>
+    function toggleAccordion(element) {
+      const content = element.nextElementSibling;
+      content.style.display = (content.style.display === "block") ? "none" : "block";
+    }
+  </script>
 
 </body>
 </html>
