@@ -1,236 +1,568 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="ca">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>EyeDit Group</title>
-<meta name="description" content="EyeDit Group audiovisual, media, talent and wellness division.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EyeDit Image Quick Service | Holding</title>
+  <meta name="description" content="Holding amb 3 divisions: Eyedit Audiovisual, CCS.CANSSAM (Centre Cultural per a la Salut) i EyeVision Security. Sota la marca EyeDit Image Quick Service." />
 
-<link rel="icon" href="/logo.png">
+  <!-- Favicon (pots canviar-lo després per un .ico) -->
+  <link rel="icon" href="/logo-eyedit-group.png" />
 
-<style>
-:root{
-  --bg:#020617;
-  --bg2:#0b1020;
-  --txt:#e5e7eb;
-  --muted:#94a3b8;
-  --accent:#38bdf8;
-}
+  <style>
+    :root{
+      --bg0:#020617;
+      --bg1:#0b1020;
+      --txt:#e5e7eb;
+      --muted:#94a3b8;
+      --line:rgba(255,255,255,.10);
+      --glass:rgba(255,255,255,.04);
+      --accent:#38bdf8;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 700px at 50% 0%, rgba(56,189,248,.12), transparent 55%),
+        radial-gradient(900px 600px at 20% 90%, rgba(34,197,94,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg0));
+      color:var(--txt);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1120px;margin:0 auto;padding:0 18px}
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-  background:var(--bg);
-  color:var(--txt);
-}
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(2,6,23,.65);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(10px);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 0; gap:14px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900}
+    .brand img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(56,189,248,.22))}
+    .brand .t1{line-height:1}
+    .brand .t1 b{display:block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(229,231,235,.72)}
+    .brand .t1 span{display:block;font-size:16px}
+    .links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .links a{
+      font-size:13px;color:rgba(229,231,235,.86);
+      padding:8px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      transition:transform .2s ease, border-color .2s ease, background .2s ease;
+      white-space:nowrap;
+    }
+    .links a:hover{transform:translateY(-1px);border-color:rgba(56,189,248,.28);background:rgba(255,255,255,.05)}
 
-/* NAV */
-.nav{
-  position:sticky;
-  top:0;
-  background:rgba(2,6,23,.7);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.nav-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.brand{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  text-decoration:none;
-  color:var(--txt);
-  font-weight:800;
-}
-.brand img{width:34px}
+    /* HERO */
+    .hero{padding:72px 0 36px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center}
+    .kicker{
+      display:inline-block;
+      font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+      color:rgba(229,231,235,.65);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      padding:8px 12px;border-radius:999px;
+    }
+    h1{margin:14px 0 10px;font-size:46px;letter-spacing:-.02em;line-height:1.05}
+    .sub{margin:0 0 18px;color:var(--muted);line-height:1.65;max-width:70ch;font-size:16px}
 
-/* HERO */
-.hero{
-  min-height:90vh;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:40px 20px;
-  background:linear-gradient(180deg,var(--bg2),var(--bg));
-}
-.hero h1{
-  font-size:44px;
-  margin:0 0 10px;
-}
-.hero p{
-  color:var(--muted);
-  max-width:700px;
-  margin:auto;
-}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .btn{
+      padding:14px 22px;border-radius:999px;font-weight:900;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      display:inline-block;
+    }
+    .btn:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.28)}
+    .btn.primary{
+      border:none;color:#020617;
+      background:linear-gradient(135deg, var(--accent), #22d3ee);
+      box-shadow:0 14px 44px rgba(56,189,248,.18);
+    }
+    .btn.primary:hover{box-shadow:0 18px 56px rgba(56,189,248,.28)}
 
-/* GLASS LOGOS */
-.glass-logos{
-  margin-top:40px;
-  display:flex;
-  gap:18px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
-.glass-card{
-  padding:16px;
-  border-radius:18px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.15);
-  backdrop-filter:blur(12px);
-  animation:float 5s ease-in-out infinite;
-}
-.glass-card img{
-  width:70px;
-  height:70px;
-  object-fit:contain;
-}
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-6px)}
-}
+    .hero-card{
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius:22px;
+      padding:18px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;inset:-40%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(56,189,248,.14), transparent 55%),
+        radial-gradient(circle at 70% 65%, rgba(34,197,94,.10), transparent 60%);
+      filter:blur(14px);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .hero-logo{
+      position:relative;
+      display:flex;align-items:center;gap:14px;
+      padding:14px;border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(2,6,23,.30);
+      backdrop-filter: blur(10px);
+      margin-bottom:12px;
+    }
+    .hero-logo img{width:58px;height:58px;object-fit:contain}
+    .hero-logo b{display:block;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(229,231,235,.70)}
+    .hero-logo span{display:block;font-size:18px;font-weight:900}
 
-/* SECTIONS */
-.section{
-  padding:80px 20px;
-}
-.wrap{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-  align-items:center;
-}
-@media(max-width:900px){
-  .wrap{grid-template-columns:1fr}
-}
+    .stat-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .stat{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      border-radius:18px;
+      padding:12px;
+    }
+    .stat b{display:block;font-size:18px}
+    .stat span{color:rgba(148,163,184,.95);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 
-.section-logo{
-  width:56px;
-  margin:10px 0;
-}
+    /* SECTIONS */
+    .section{padding:56px 0}
+    .head{
+      display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    .head h2{margin:0;font-size:28px;letter-spacing:-.02em}
+    .head p{margin:0;color:var(--muted);max-width:70ch;line-height:1.6}
 
-/* WELLNESS NIGHT */
-.wellness{
-  background:
-    radial-gradient(circle at 20% 20%, rgba(34,197,94,.15), transparent 60%),
-    linear-gradient(180deg,#020617,#03130f,#020617);
-}
+    /* DIVISIONS GRID */
+    .grid3{display:grid;grid-template-columns:repeat(3, minmax(0,1fr));gap:14px}
+    @media (max-width:980px){.hero-grid{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}}
 
-/* CONTACT */
-.contact{
-  background:var(--bg2);
-  padding:80px 20px;
-}
-.footer{
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
-}
-</style>
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius:22px;
+      overflow:hidden;
+      transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(56,189,248,.30);
+      box-shadow:0 18px 60px rgba(2,6,23,.55);
+    }
+    .thumb{
+      height:178px;
+      display:flex;align-items:flex-end;justify-content:flex-start;
+      padding:16px;border-bottom:1px solid rgba(255,255,255,.08);
+      position:relative;overflow:hidden;
+    }
+    .thumb::before{
+      content:"";position:absolute;inset:-40%;
+      filter:blur(18px);opacity:.75;
+      background:radial-gradient(circle at 30% 30%, rgba(56,189,248,.18), transparent 55%);
+    }
+    .thumb.aud::before{background:radial-gradient(circle at 30% 30%, rgba(56,189,248,.22), transparent 60%)}
+    .thumb.ccs::before{background:radial-gradient(circle at 30% 30%, rgba(34,197,94,.25), transparent 60%)}
+    .thumb.sec::before{background:radial-gradient(circle at 30% 30%, rgba(99,102,241,.22), transparent 60%)}
+
+    .mini{
+      position:relative;
+      display:flex;align-items:center;gap:12px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(2,6,23,.35);
+      backdrop-filter: blur(10px);
+    }
+    .mini img{width:34px;height:34px;object-fit:contain}
+    .badge{
+      font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+      color:rgba(229,231,235,.78);
+      line-height:1.15;
+    }
+
+    .body{padding:16px}
+    .body h3{margin:0 0 8px;font-size:18px}
+    .body p{margin:0 0 12px;color:var(--muted);line-height:1.55}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tags span{
+      font-size:12px;color:rgba(229,231,235,.75);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      padding:6px 10px;border-radius:999px;
+    }
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .mini-btn{
+      font-size:13px;font-weight:900;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.03);
+      transition:transform .2s ease, border-color .2s ease;
+    }
+    .mini-btn:hover{transform:translateY(-1px);border-color:rgba(56,189,248,.28)}
+    .mini-btn.primary{border:none;background:linear-gradient(135deg, var(--accent), #22d3ee);color:#020617}
+
+    /* FEATURE SECTIONS */
+    .feature{
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius:26px;
+      padding:22px;
+      display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center;
+      overflow:hidden; position:relative;
+    }
+    .feature::before{
+      content:"";position:absolute;inset:-40%;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(56,189,248,.14), transparent 60%),
+        radial-gradient(circle at 70% 70%, rgba(250,204,21,.09), transparent 62%);
+      filter:blur(16px);opacity:.45;pointer-events:none;
+    }
+    .feature .col{position:relative}
+    .feature h3{margin:0 0 8px;font-size:22px}
+    .feature p{margin:0 0 14px;color:var(--muted);line-height:1.6}
+    .list{margin:0;padding-left:18px;line-height:1.75;color:rgba(229,231,235,.86)}
+
+    .mock{
+      position:relative;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      border-radius:22px;
+      padding:16px;
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;
+    }
+    .mock div{
+      height:92px;border-radius:18px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:900;color:rgba(229,231,235,.82);
+    }
+    @media (max-width:980px){.feature{grid-template-columns:1fr}}
+
+    /* CONTACT */
+    .contact{
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(2,6,23,.75);
+      padding:54px 0;
+    }
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+    @media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
+    .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      border-radius:22px;
+      padding:16px;
+    }
+    .label{
+      font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(229,231,235,.62);
+      margin-bottom:8px;
+    }
+    input, textarea{
+      width:100%;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(2,6,23,.55);
+      color:var(--txt);
+      padding:12px;
+      outline:none;
+    }
+    input:focus, textarea:focus{border-color:rgba(56,189,248,.45)}
+    .row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+    .footer{padding:22px 0;text-align:center;color:rgba(148,163,184,.9);font-size:13px}
+  </style>
 </head>
 
 <body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <div class="nav-inner">
+        <a class="brand" href="#top">
+          <img src="/logo-eyedit-group.png" alt="EyeDit Group logo" />
+          <div class="t1">
+            <b>Holding</b>
+            <span>EyeDit Image Quick Service</span>
+          </div>
+        </a>
 
-<!-- NAV -->
-<header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="#">
-      <img src="/logo.png" alt="logo">
-      EyeDit Group
-    </a>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>EyeDit Group</h1>
-    <p>Film, media, talent, broadcast and cultural health division.</p>
-
-    <div class="glass-logos">
-      <div class="glass-card"><img src="/logo.png"></div>
-      <div class="glass-card"><img src="/logo.png"></div>
-      <div class="glass-card"><img src="/logo.png"></div>
-      <div class="glass-card"><img src="/logo.png"></div>
+        <nav class="links" aria-label="Primary">
+          <a href="#divisions">Empreses</a>
+          <a href="#audiovisual">Audiovisual</a>
+          <a href="#ccs">Salut</a>
+          <a href="#eyevision">Seguretat</a>
+          <a href="#contact">Contacte</a>
+        </nav>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- PRODUCTION -->
-<section class="section">
-  <div class="wrap">
-    <div>
-      <img class="section-logo" src="/logo.png">
-      <h2>Production & Media</h2>
-      <p>Cinema, theatre, radio and television production.</p>
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="kicker">3 Empreses • 1 Marca • Barcelona</span>
+          <h1>Una sola marca. Tres divisions premium.</h1>
+          <p class="sub">
+            <b>EyeDit Image Quick Service</b> és el holding que integra:
+            <b>EyeDit Audiovisual</b>, <b>CCS.CANSSAM</b> i <b>EyeVision Security</b>.
+            Estructura clara, visual i preparada per créixer.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#divisions">Veure les 3 empreses</a>
+            <a class="btn" href="#contact">Demana una reunió</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Overview">
+          <div class="hero-logo">
+            <img src="/logo-eyedit-group.png" alt="EyeDit Group">
+            <div>
+              <b>Marca paraigua</b>
+              <span>EyeDit Group</span>
+            </div>
+          </div>
+
+          <div class="stat-grid">
+            <div class="stat"><b>3</b><span>Divisions</span></div>
+            <div class="stat"><b>1</b><span>Holding</span></div>
+            <div class="stat"><b>Media</b><span>Producció</span></div>
+            <div class="stat"><b>Wellness</b><span>Salut</span></div>
+          </div>
+        </aside>
+      </div>
     </div>
-    <div>Film · TV · Radio · Digital</div>
-  </div>
-</section>
+  </main>
 
-<!-- TALENT -->
-<section class="section">
-  <div class="wrap">
-    <div>
-      <img class="section-logo" src="/logo.png">
-      <h2>Talent & Models</h2>
-      <p>Agency, scouting and casting services.</p>
+  <!-- 3 DIVISIONS -->
+  <section id="divisions" class="section">
+    <div class="wrap">
+      <div class="head">
+        <h2>Les 3 empreses del holding</h2>
+        <p>Cada targeta porta al seu bloc. Tot en una sola landing, ràpid i clar.</p>
+      </div>
+
+      <div class="grid3">
+        <!-- Audiovisual -->
+        <article class="card">
+          <div class="thumb aud">
+            <div class="mini">
+              <img src="/logo-eyedit-audiovisual.png" alt="Eyedit Audiovisual logo">
+              <div class="badge">EyeDit Audiovisual</div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>Productora, cinema, teatre, ràdio i TV</h3>
+            <p>Producció, edició, post, live, media i agència de models (talent scouting).</p>
+            <div class="tags">
+              <span>Film</span><span>TV</span><span>Radio</span><span>Live</span><span>Talent</span>
+            </div>
+            <div class="actions">
+              <a class="mini-btn primary" href="#audiovisual">Entrar</a>
+              <a class="mini-btn" href="#contact">Contactar</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CCS -->
+        <article class="card">
+          <div class="thumb ccs">
+            <div class="mini">
+              <img src="/logo-ccscanssam.png" alt="CCS.CANSSAM logo">
+              <div class="badge">CCS.CANSSAM</div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>Centre Cultural per a la Salut</h3>
+            <p>Teràpies naturals, retirs i programes de benestar amb enfoc cultural.</p>
+            <div class="tags">
+              <span>Wellness</span><span>Retirs</span><span>Nutrició</span><span>Cultura</span>
+            </div>
+            <div class="actions">
+              <a class="mini-btn primary" href="#ccs">Entrar</a>
+              <a class="mini-btn" href="#contact">Contactar</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- EyeVision -->
+        <article class="card">
+          <div class="thumb sec">
+            <div class="mini">
+              <img src="/logo-eyevision.png" alt="EyeVision logo">
+              <div class="badge">EyeVision Security</div>
+            </div>
+          </div>
+          <div class="body">
+            <h3>Seguretat privada i transport</h3>
+            <p>Seguretat física, logística i suport aero-marítim-terrestre + cyber.</p>
+            <div class="tags">
+              <span>Security</span><span>Transport</span><span>Ops</span><span>Cyber</span>
+            </div>
+            <div class="actions">
+              <a class="mini-btn primary" href="#eyevision">Entrar</a>
+              <a class="mini-btn" href="#contact">Contactar</a>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
-    <div>Models · Casting · Campaigns</div>
-  </div>
-</section>
+  </section>
 
-<!-- LIVE -->
-<section class="section">
-  <div class="wrap">
-    <div>
-      <img class="section-logo" src="/logo.png">
-      <h2>Broadcast & Live</h2>
-      <p>Professional streaming and live production.</p>
+  <!-- AUDIOVISUAL -->
+  <section id="audiovisual" class="section">
+    <div class="wrap">
+      <div class="feature">
+        <div class="col">
+          <span class="kicker">Divisió 01</span>
+          <h3>EyeDit Audiovisual</h3>
+          <p>Productora i estudi creatiu per cinema, teatre, ràdio, TV i campanyes. També scouting i gestió de talent.</p>
+          <ul class="list">
+            <li>Producció de cinema, documental i publicitat</li>
+            <li>Teatre i formats escènics</li>
+            <li>Ràdio i televisió: programes i cobertura</li>
+            <li>Postproducció: edició, color, so, motion</li>
+            <li>Live streaming i multicàmera</li>
+          </ul>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Reservar producció</a>
+            <a class="btn" href="#divisions">Tornar</a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mock" aria-label="Audiovisual blocks">
+            <div>Showreel</div><div>Film</div>
+            <div>TV</div><div>Live</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>RTMP · SRT · Multi-cam</div>
-  </div>
-</section>
+  </section>
 
-<!-- CCS WELLNESS -->
-<section class="section wellness">
-  <div class="wrap">
-    <div>
-      <img class="section-logo" src="/logo.png">
-      <h2>Centre Cultural per a la Salut</h2>
-      <p>Natural therapies, retreats and cultural wellness programs.</p>
+  <!-- CCS -->
+  <section id="ccs" class="section">
+    <div class="wrap">
+      <div class="feature" style="border-color: rgba(34,197,94,.28);">
+        <div class="col">
+          <span class="kicker">Divisió 02</span>
+          <h3>CCS.CANSSAM · Centre Cultural per a la Salut</h3>
+          <p>Benestar integral, medicina natural i creixement personal. Programes, cicles i retirs.</p>
+          <ul class="list">
+            <li>Teràpies naturals i programes personalitzats</li>
+            <li>Retirs de salut i benestar (cicles)</li>
+            <li>Nutrició equilibrada i hàbits saludables</li>
+            <li>Activitats culturals orientades al creixement</li>
+          </ul>
+          <div class="cta">
+            <a class="btn primary" style="background: linear-gradient(135deg,#22c55e,#10b981); color:#022c22;" href="#contact">Demana informació</a>
+            <a class="btn" href="#divisions">Tornar</a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mock" aria-label="CCS blocks" style="border-color: rgba(34,197,94,.22);">
+            <div style="border-color: rgba(34,197,94,.22);">Teràpies</div>
+            <div style="border-color: rgba(34,197,94,.22);">Retirs</div>
+            <div style="border-color: rgba(34,197,94,.22);">Nutrició</div>
+            <div style="border-color: rgba(34,197,94,.22);">Cultura</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>Therapies · Retreats · Nutrition</div>
-  </div>
-</section>
+  </section>
 
-<!-- CONTACT -->
-<section class="contact">
-  <div class="wrap">
-    <div>
-      <h2>Contact</h2>
-      <p>info@eyeditimagequickservice.org</p>
+  <!-- EYEVISION -->
+  <section id="eyevision" class="section">
+    <div class="wrap">
+      <div class="feature" style="border-color: rgba(99,102,241,.28);">
+        <div class="col">
+          <span class="kicker">Divisió 03</span>
+          <h3>EyeVision Security</h3>
+          <p>Seguretat privada, suport logístic i transport. Protocols, coordinació i opcions cyber segons projecte.</p>
+          <ul class="list">
+            <li>Seguretat privada i protecció d’actius</li>
+            <li>Transport i suport aero-marítim-terrestre</li>
+            <li>Protocols, control d’accessos i coordinació</li>
+            <li>Cyber & telecom support (segons projecte)</li>
+          </ul>
+          <div class="cta">
+            <a class="btn primary" href="#contact">Sol·licitar servei</a>
+            <a class="btn" href="#divisions">Tornar</a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="mock" aria-label="EyeVision blocks" style="border-color: rgba(99,102,241,.22);">
+            <div style="border-color: rgba(99,102,241,.22);">Security</div>
+            <div style="border-color: rgba(99,102,241,.22);">Transport</div>
+            <div style="border-color: rgba(99,102,241,.22);">Ops</div>
+            <div style="border-color: rgba(99,102,241,.22);">Cyber</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>Barcelona</div>
-  </div>
-</section>
+  </section>
 
-<footer class="footer">
-© <span id="y"></span> EyeDit Group
-</footer>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:12px">
+        <h2>Contacte</h2>
+        <p>Canvia el WhatsApp i el correu quan vulguis. El formulari és demo (després podem posar Formspree).</p>
+      </div>
 
-<script>
-document.getElementById("y").textContent=new Date().getFullYear();
-</script>
+      <div class="contact-grid">
+        <div class="panel">
+          <div class="label">Email</div>
+          <div><a href="mailto:info@eyeditimagequickservice.org"><b>info@eyeditimagequickservice.org</b></a></div>
 
+          <div style="height:10px"></div>
+          <div class="label">WhatsApp</div>
+          <div><a href="https://wa.me/34XXXXXXXXX" target="_blank" rel="noopener"><b>https://wa.me/34XXXXXXXXX</b></a></div>
+
+          <div style="height:10px"></div>
+          <div class="label">Localització</div>
+          <div><b>Barcelona</b></div>
+
+          <div style="height:14px"></div>
+          <div class="label">Logos (fitxers)</div>
+          <div style="color:rgba(148,163,184,.95);font-size:13px;line-height:1.6">
+            /logo-eyedit-group.png<br>
+            /logo-eyedit-audiovisual.png<br>
+            /logo-ccscanssam.png<br>
+            /logo-eyevision.png
+          </div>
+        </div>
+
+        <form class="panel" action="#" method="post" onsubmit="alert('Formulari demo. Després hi posem enviament real.'); return false;">
+          <div class="row">
+            <div class="label">Nom</div>
+            <input required placeholder="El teu nom" />
+          </div>
+          <div class="row">
+            <div class="label">Email</div>
+            <input type="email" required placeholder="tu@email.com" />
+          </div>
+          <div class="row">
+            <div class="label">Missatge</div>
+            <textarea rows="5" required placeholder="Explica què necessites..."></textarea>
+          </div>
+          <button class="btn primary" type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <div class="footer">© <span id="y"></span> EyeDit Image Quick Service</div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
