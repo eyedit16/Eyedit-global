@@ -2,15 +2,9 @@
 <html lang="ca">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EyeDit Image Quick Service</title>
-<meta name="description" content="Holding amb 3 divisions: Audiovisual, CCS.CANSSAM i EyeVision.">
 
-<link rel="icon" href="./logo-eyedit-group.png">
-/* Fix text blanc (contrast) */
-.brand, .brand * { color: #e5e7eb !important; }
-.brand .t1 span { color: #38bdf8 !important; }
-h1, h2, h3, p { color: #e5e7eb; }
 <style>
 :root{
   --bg:#020617;
@@ -41,26 +35,14 @@ body{
   margin:auto;
   padding:14px 20px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  gap:12px;
 }
-.brand{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  text-decoration:none;
-  color:var(--txt);
-  font-weight:800;
-}
-.brand img{width:34px}
-
-/* ✅ COLOR TEXT LOGO (arreglat) */
-.brand .t1 span{ color:#38bdf8; }
-.brand .t1 b{ color:rgba(229,231,235,.75); }
+.brand img{width:40px;height:40px;object-fit:contain}
 
 /* HERO */
 .hero{
-  min-height:80vh;
+  min-height:60vh;
   display:grid;
   place-items:center;
   text-align:center;
@@ -85,15 +67,15 @@ body{
 .card{
   border:1px solid rgba(255,255,255,.1);
   border-radius:18px;
-  padding:20px;
+  padding:24px;
   background:rgba(255,255,255,.03);
   text-align:center;
 }
 .card img{
-  width:80px;
-  height:80px;
+  width:90px;
+  height:90px;
   object-fit:contain;
-  margin-bottom:10px;
+  margin-bottom:14px;
 }
 
 .footer{
@@ -106,22 +88,15 @@ body{
 
 <body>
 
+<!-- HEADER -->
 <header class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="#">
-<img src="./IMG_COM_20260222217552930.png" alt="EyeDit Group">
-      IMG_COM_20260222217552930.png
-<img src="./IMG_COM_202602222317555371.png" alt="EyeDit Audiovisual">
-<img src="./IMG_COM_202602222317556412.png" alt="CCS CANSSAM">
-<img src="./IMG_COM_202602222317557583.png" alt="EyeVision Security">
-      <div class="t1">
-        <b>Holding</b>
-        <span>EyeDit Image Quick Service</span>
-      </div>
-    </a>
+  <div class="nav-inner brand">
+    <img src="./IMG_COM_20260222217552930.png" alt="EyeDit Group">
+    <strong>EyeDit Image Quick Service</strong>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div>
     <h1>EyeDit Group</h1>
@@ -129,23 +104,27 @@ body{
   </div>
 </section>
 
+<!-- DIVISIONS -->
 <section class="section">
   <div class="wrap">
 
+    <!-- Audiovisual -->
     <div class="card">
-      <img src="./logo-eyedit-audiovisual.png" alt="Audiovisual">
+      <img src="./IMG_COM_202602222317555371.png" alt="EyeDit Audiovisual">
       <h3>EyeDit Audiovisual</h3>
-      <p>Productora cinema, teatre, ràdio i televisió.</p>
+      <p>Productora de cinema, teatre, ràdio i televisió.</p>
     </div>
 
+    <!-- CCS -->
     <div class="card">
-      <img src="./logo-ccscanssam.png" alt="CCS">
-      <h3>CCS.CANSSAM</h3>
-      <p>Centre Cultural per a la Salut i teràpies naturals.</p>
+      <img src="./IMG_COM_202602222317556412.png" alt="CCS CANSSAM">
+      <h3>CCS CANSSAM</h3>
+      <p>Centre cultural per a la salut i teràpies naturals.</p>
     </div>
 
+    <!-- EyeVision -->
     <div class="card">
-      <img src="./logo-eyevision.png" alt="EyeVision">
+      <img src="./IMG_COM_202602222317557583.png" alt="EyeVision Security">
       <h3>EyeVision Security</h3>
       <p>Seguretat privada i transport especialitzat.</p>
     </div>
