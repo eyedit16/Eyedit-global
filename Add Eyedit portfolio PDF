@@ -1,11 +1,10 @@
-
 <!doctype html>
 <html lang="ca">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EyeDit Group | Holding + Portafolis</title>
-<meta name="description" content="EyeDit Group: Audiovisual, CCS CANSSAM i EyeVision. Web unificada amb portafolis, docs, scroll spy i back-to-top.">
+<title>EyeDit Group | Holding</title>
+<meta name="description" content="EyeDit Group: landing + Audiovisual + CCS + EyeVision (tot en un sol HTML).">
 
 <style>
 :root{
@@ -16,7 +15,6 @@
   --border:rgba(255,255,255,.10);
   --shadow:0 22px 70px rgba(0,0,0,.55);
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -31,70 +29,40 @@ body{
 }
 a{color:inherit;text-decoration:none}
 .small{font-size:12px;color:rgba(229,231,235,.72)}
-hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
+hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:18px 0}
+.hidden{display:none}
 
 header{
-  position:sticky; top:0; z-index:50;
+  position:sticky; top:0; z-index:80;
   background:rgba(2,6,23,.62);
   backdrop-filter: blur(12px);
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 .nav{
-  max-width:1120px;
-  margin:auto;
+  max-width:1120px; margin:auto;
   padding:14px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+  display:flex; align-items:center; justify-content:space-between;
   gap:16px;
 }
-.brand{
-  display:flex; align-items:center; gap:12px;
-  min-width:0;
-}
-.brand img{
-  width:42px;height:42px;object-fit:contain;
-  filter: drop-shadow(0 0 22px rgba(56,189,248,.20));
-}
-.brand strong{
-  display:block;
-  font-weight:900;
-  letter-spacing:.2px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-.navlinks{
-  display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-}
-.navlinks a{
-  font-size:12px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:rgba(229,231,235,.78);
-  padding:9px 11px;
-  border-radius:999px;
-  border:1px solid transparent;
+.brand{display:flex; align-items:center; gap:12px; min-width:0}
+.brand img{width:42px;height:42px;object-fit:contain;filter: drop-shadow(0 0 22px rgba(56,189,248,.20))}
+.brand strong{display:block;font-weight:900;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.navlinks{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+.navlinks button{
+  appearance:none; border:1px solid transparent;
+  background:transparent; color:rgba(229,231,235,.78);
+  font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  padding:9px 11px; border-radius:999px; cursor:pointer;
   transition:.18s ease;
 }
-.navlinks a:hover{
-  border-color: rgba(56,189,248,.28);
-  background: rgba(56,189,248,.07);
-  color: var(--txt);
-}
-
-/* Scroll Spy active state */
-.navlinks a.active{
+.navlinks button:hover{border-color: rgba(56,189,248,.28);background: rgba(56,189,248,.07);color: var(--txt)}
+.navlinks button.active{
   border-color: rgba(56,189,248,.35);
   background: rgba(56,189,248,.10);
   color: var(--txt);
 }
 
-.hero{
-  max-width:1120px;
-  margin:auto;
-  padding:70px 20px 18px;
-}
+.hero{max-width:1120px;margin:auto;padding:70px 20px 18px}
 .hero .label{
   display:inline-flex; gap:10px; align-items:center;
   font-size:12px; letter-spacing:.22em; text-transform:uppercase;
@@ -105,57 +73,12 @@ header{
   background: rgba(56,189,248,.65);
   box-shadow: 0 0 18px rgba(56,189,248,.45);
 }
-.hero h1{
-  margin:14px 0 10px;
-  font-size:56px;
-  letter-spacing:-.02em;
-  line-height:1.02;
-}
-.hero p{
-  margin:0;
-  max-width:860px;
-  color:var(--muted);
-  line-height:1.55;
-  font-size:16px;
-}
-@media(max-width:900px){
-  .hero{padding-top:52px}
-  .hero h1{font-size:42px}
-}
+.hero h1{margin:14px 0 10px;font-size:56px;letter-spacing:-.02em;line-height:1.02}
+.hero p{margin:0;max-width:860px;color:var(--muted);line-height:1.55;font-size:16px}
+@media(max-width:900px){.hero{padding-top:52px}.hero h1{font-size:42px}}
 
-.cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
-.btn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding:12px 14px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.12);
-  background: rgba(255,255,255,.04);
-  color: var(--txt);
-  font-weight:900;
-  font-size:13px;
-  letter-spacing:.03em;
-  transition:.18s ease;
-}
-.btn:hover{
-  transform: translateY(-2px);
-  border-color: rgba(56,189,248,.30);
-  background: rgba(56,189,248,.08);
-}
-.btn.primary{
-  border-color: rgba(56,189,248,.35);
-  background: linear-gradient(180deg, rgba(56,189,248,.18), rgba(56,189,248,.06));
-}
-
-.section{
-  max-width:1120px;
-  margin:auto;
-  padding:24px 20px 70px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
+.section{max-width:1120px;margin:auto;padding:24px 20px 70px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 @media(max-width:900px){.grid{grid-template-columns:1fr}}
 
 .card{
@@ -163,111 +86,64 @@ header{
   background: var(--glass);
   border-radius:18px;
   padding:22px;
-  position:relative;
-  overflow:hidden;
   transition:.18s ease;
 }
-.card:hover{
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  border-color: rgba(56,189,248,.22);
-}
-.card-top{display:flex; gap:14px; align-items:center}
-.card-top img{
-  width:86px;height:86px;object-fit:contain;
-  filter: drop-shadow(0 0 22px rgba(56,189,248,.14));
-}
+.card:hover{transform: translateY(-4px); box-shadow: var(--shadow); border-color: rgba(56,189,248,.22)}
+.card-top{display:flex;gap:14px;align-items:center}
+.card-top img{width:86px;height:86px;object-fit:contain;filter: drop-shadow(0 0 22px rgba(56,189,248,.14))}
 .card h2{margin:0;font-size:18px}
-.tag{
-  margin-top:6px;
-  font-size:12px;
-  color: rgba(229,231,235,.78);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
+.tag{margin-top:6px;font-size:12px;color:rgba(229,231,235,.78);letter-spacing:.14em;text-transform:uppercase}
 .card p{margin:12px 0 0;color:var(--muted);line-height:1.5}
-
-.panel{
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius:18px;
-  padding:18px;
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  margin-top:14px; padding:10px 12px;
+  border-radius:12px; border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.04);
+  font-weight:900; font-size:12px;
+  letter-spacing:.10em; text-transform:uppercase;
+  cursor:pointer; transition:.18s ease;
 }
+.btn:hover{transform: translateY(-1px); border-color: rgba(56,189,248,.30); background: rgba(56,189,248,.08)}
+
+.panel{border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.03);border-radius:18px;padding:18px}
 .panel h3{margin:0 0 8px;font-size:16px;letter-spacing:.12em;text-transform:uppercase}
 .panel p{margin:0;color:var(--muted);line-height:1.55}
 
-details{
-  border:1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  border-radius:14px;
-  padding:12px 14px;
-  margin-top:10px;
-}
-summary{
-  cursor:pointer;
-  list-style:none;
-  font-weight:900;
-  letter-spacing:.02em;
-}
+details{border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.03);border-radius:14px;padding:12px 14px;margin-top:10px}
+summary{cursor:pointer;list-style:none;font-weight:900}
 summary::-webkit-details-marker{display:none}
 .list{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.55}
 
-.badgeRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-.badge{
-  display:inline-flex; align-items:center;
-  border:1px solid rgba(56,189,248,.22);
-  background: rgba(56,189,248,.06);
-  color: rgba(229,231,235,.92);
-  border-radius:999px;
-  padding:6px 10px;
-  font-size:12px;
-}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.badge{display:inline-flex;border:1px solid rgba(56,189,248,.22);background: rgba(56,189,248,.06);border-radius:999px;padding:6px 10px;font-size:12px;color:rgba(229,231,235,.92)}
 
-footer{
-  text-align:center;
-  padding:28px 20px 44px;
-  color:var(--muted);
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+@media(max-width:900px){.gallery{grid-template-columns:1fr}}
+.ph{
+  height:140px;border-radius:16px;border:1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(240px 120px at 30% 30%, rgba(56,189,248,.16), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.18));
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:12px;color:rgba(229,231,235,.85)
 }
+.ph small{color:rgba(229,231,235,.70)}
 
-code,kbd,pre{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-}
-pre{
-  white-space:pre-wrap;
-  word-break:break-word;
-  background: rgba(0,0,0,.35);
-  border:1px solid rgba(255,255,255,.10);
-  border-radius:16px;
-  padding:14px;
-  margin:12px 0 0;
-  color: rgba(229,231,235,.92);
-}
-
-/* Back to top button */
+footer{text-align:center;padding:28px 20px 44px;color:var(--muted)}
 #toTop{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  z-index:60;
+  position:fixed; right:16px; bottom:16px; z-index:90;
   display:none;
-  padding:10px 12px;
-  border-radius:14px;
+  padding:10px 12px; border-radius:14px;
   border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.06);
   color: var(--txt);
-  font-weight:900;
-  font-size:12px;
-  letter-spacing:.10em;
-  text-transform:uppercase;
+  font-weight:900; font-size:12px;
+  letter-spacing:.10em; text-transform:uppercase;
   cursor:pointer;
   backdrop-filter: blur(10px);
   transition:.18s ease;
 }
-#toTop:hover{
-  transform: translateY(-2px);
-  border-color: rgba(56,189,248,.30);
-  background: rgba(56,189,248,.10);
-}
+#toTop:hover{transform: translateY(-2px); border-color: rgba(56,189,248,.30); background: rgba(56,189,248,.10)}
 </style>
 </head>
 
@@ -275,7 +151,7 @@ pre{
 
 <header>
   <div class="nav">
-    <a class="brand" href="#top">
+    <a class="brand" href="#top" onclick="showPage('home');return false;">
       <img src="./IMG_COM_20260222217552930.png" alt="EyeDit Group">
       <div>
         <strong>EyeDit Image Quick Service</strong>
@@ -284,225 +160,266 @@ pre{
     </a>
 
     <nav class="navlinks" aria-label="Navegació">
-      <a data-spy href="#divisions">Divisions</a>
-      <a data-spy href="#portfolios">Portafolis</a>
-      <a data-spy href="#docs">Docs</a>
-      <a data-spy href="#contact">Contacte</a>
+      <button id="nav-home" class="active" onclick="showPage('home')">Home</button>
+      <button id="nav-audiovisual" onclick="showPage('audiovisual')">Audiovisual</button>
+      <button id="nav-ccs" onclick="showPage('ccs')">CCS</button>
+      <button id="nav-eyevision" onclick="showPage('eyevision')">EyeVision</button>
     </nav>
   </div>
 </header>
 
-<section id="top" class="hero">
-  <div class="label">HOLDING · DEFINITIU</div>
-  <h1>EyeDit Group</h1>
-  <p>
-    Versió definitiva “1 sol HTML”: landing + portafolis (Audiovisual, CCS CANSSAM, EyeVision) + docs tipus README,
-    amb scroll spy al menú i botó flotant per tornar a dalt.
-  </p>
+<!-- HOME / PORTA D'ENTRADA -->
+<section id="page-home">
+  <section id="top" class="hero">
+    <div class="label">PORTA D’ENTRADA</div>
+    <h1>EyeDit Group</h1>
+    <p>
+      Una sola web amb 3 divisions. Prem una targeta i s’obre la secció completa (projectes desplegables + galeria),
+      sense canviar de fitxer.
+    </p>
+  </section>
 
-  <div class="cta">
-    <a class="btn primary" href="#divisions">Veure divisions</a>
-    <a class="btn" href="#portfolios">Anar a portafolis</a>
-    <a class="btn" href="#contact">Contactar</a>
-  </div>
+  <section class="section">
+    <div class="grid">
+
+      <article class="card">
+        <div class="card-top">
+          <img src="./IMG_COM_202602222317555371.png" alt="EyeDit Audiovisual">
+          <div>
+            <h2>EyeDit Audiovisual</h2>
+            <div class="tag">Media</div>
+          </div>
+        </div>
+        <p>Productora de cinema, teatre, ràdio i televisió. Agència creativa i cerca de talents.</p>
+        <button class="btn" onclick="showPage('audiovisual')">Entrar</button>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <img src="./IMG_COM_202602222317556412.png" alt="CCS CANSSAM">
+          <div>
+            <h2>CCS CANSSAM</h2>
+            <div class="tag">Salut</div>
+          </div>
+        </div>
+        <p>Centre cultural per a la salut: programes, teràpies naturals i cursos.</p>
+        <button class="btn" onclick="showPage('ccs')">Entrar</button>
+      </article>
+
+      <article class="card">
+        <div class="card-top">
+          <img src="./IMG_COM_202602222317557583.png" alt="EyeVision Security">
+          <div>
+            <h2>EyeVision Security</h2>
+            <div class="tag">Seguretat</div>
+          </div>
+        </div>
+        <p>Seguretat privada i transport especialitzat (aeri, marítim i terrestre) amb orientació telecom/cyber.</p>
+        <button class="btn" onclick="showPage('eyevision')">Entrar</button>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="panel">
+      <h3>Contacte</h3>
+      <p>Domini: <b>eyeditimagequickservice.org</b> · Quan tinguis email corporatiu, l’afegim aquí.</p>
+    </div>
+  </section>
 </section>
 
-<!-- DIVISIONS -->
-<section id="divisions" class="section">
-  <div class="grid">
-
-    <article class="card">
-      <div class="card-top">
-        <img src="./IMG_COM_202602222317555371.png" alt="EyeDit Audiovisual">
+<!-- AUDIOVISUAL -->
+<section id="page-audiovisual" class="hidden">
+  <section class="section">
+    <div class="panel">
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <img src="./IMG_COM_202602222317555371.png" alt="EyeDit Audiovisual" style="width:86px;height:86px;object-fit:contain">
         <div>
-          <h2>EyeDit Audiovisual</h2>
-          <div class="tag">Media</div>
+          <h3>EyeDit Audiovisual</h3>
+          <p>Portafoli complet: projectes + galeria. (Edita títols i textos quan vulguis.)</p>
+          <div class="badges">
+            <span class="badge">Producció</span><span class="badge">Postproducció</span><span class="badge">Ràdio/TV</span><span class="badge">Talent</span>
+          </div>
         </div>
       </div>
-      <p>Productora de cinema, teatre, ràdio i televisió. Agència creativa i cerca de talents.</p>
-      <div class="badgeRow">
-        <span class="badge">Producció</span>
-        <span class="badge">Ràdio/TV</span>
-        <span class="badge">Creativitat</span>
-        <span class="badge">Talent</span>
-      </div>
-      <div class="cta" style="margin-top:14px">
-        <a class="btn" href="#pf-audiovisual">Portafoli Audiovisual</a>
-      </div>
-    </article>
 
-    <article class="card">
-      <div class="card-top">
-        <img src="./IMG_COM_202602222317556412.png" alt="CCS CANSSAM">
+      <hr>
+
+      <h3 style="margin-top:0">Projectes</h3>
+
+      <details open>
+        <summary>Projecte 1 · (Títol)</summary>
+        <ul class="list">
+          <li><b>Objectiu:</b> …</li>
+          <li><b>Què vam fer:</b> guió, rodatge, edició, so, color…</li>
+          <li><b>Resultat:</b> …</li>
+          <li><b>Enllaç:</b> …</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Projecte 2 · (Títol)</summary>
+        <ul class="list">
+          <li><b>Objectiu:</b> …</li>
+          <li><b>Què vam fer:</b> streaming, realització, post…</li>
+          <li><b>Resultat:</b> …</li>
+          <li><b>Enllaç:</b> …</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Projecte 3 · (Títol)</summary>
+        <ul class="list">
+          <li><b>Objectiu:</b> …</li>
+          <li><b>Què vam fer:</b> branding, campanya, continguts…</li>
+          <li><b>Resultat:</b> …</li>
+          <li><b>Enllaç:</b> …</li>
+        </ul>
+      </details>
+
+      <hr>
+
+      <h3 style="margin-top:0">Galeria</h3>
+      <p class="small">Quan tinguis fotos, substitueix aquests placeholders per &lt;img src="..."&gt;.</p>
+      <div class="gallery">
+        <div class="ph"><div><b>Frame 01</b><br><small>Afegir foto</small></div><small>1920×1080</small></div>
+        <div class="ph"><div><b>Frame 02</b><br><small>Afegir foto</small></div><small>1920×1080</small></div>
+        <div class="ph"><div><b>Frame 03</b><br><small>Afegir foto</small></div><small>1920×1080</small></div>
+      </div>
+
+      <div style="margin-top:14px">
+        <button class="btn" onclick="showPage('home')">Tornar a Home</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- CCS -->
+<section id="page-ccs" class="hidden">
+  <section class="section">
+    <div class="panel">
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <img src="./IMG_COM_202602222317556412.png" alt="CCS CANSSAM" style="width:86px;height:86px;object-fit:contain">
         <div>
-          <h2>CCS CANSSAM</h2>
-          <div class="tag">Salut</div>
+          <h3>CCS CANSSAM</h3>
+          <p>Portafoli complet: programes, cursos i galeria.</p>
+          <div class="badges">
+            <span class="badge">Retirs</span><span class="badge">Teràpies</span><span class="badge">Nutrició</span><span class="badge">Cursos</span>
+          </div>
         </div>
       </div>
-      <p>Centre cultural per a la salut: programes, teràpies naturals i cursos.</p>
-      <div class="badgeRow">
-        <span class="badge">Retirs</span>
-        <span class="badge">Teràpies</span>
-        <span class="badge">Nutrició</span>
-        <span class="badge">Cursos</span>
-      </div>
-      <div class="cta" style="margin-top:14px">
-        <a class="btn" href="#pf-ccs">Portafoli CCS</a>
-      </div>
-    </article>
 
-    <article class="card">
-      <div class="card-top">
-        <img src="./IMG_COM_202602222317557583.png" alt="EyeVision Security">
+      <hr>
+
+      <h3 style="margin-top:0">Programes</h3>
+
+      <details open>
+        <summary>Programa 1 · Retir / Estada (Títol)</summary>
+        <ul class="list">
+          <li><b>Durada:</b> 15 dies (editable)</li>
+          <li><b>Perfil:</b> 18–80</li>
+          <li><b>Inclou:</b> teràpies, alimentació, rutines, seguiment…</li>
+          <li><b>Resultat:</b> …</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Programa 2 · Executive / Directius (Títol)</summary>
+        <ul class="list">
+          <li><b>Durada:</b> 4 dies (editable)</li>
+          <li><b>Horari:</b> …</li>
+          <li><b>Inclou:</b> …</li>
+          <li><b>Preu:</b> …</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Curs presencial · (Títol)</summary>
+        <ul class="list">
+          <li><b>Format:</b> grup reduït (4 alumnes)</li>
+          <li><b>Objectiu:</b> …</li>
+          <li><b>Contingut:</b> …</li>
+        </ul>
+      </details>
+
+      <hr>
+
+      <h3 style="margin-top:0">Galeria</h3>
+      <div class="gallery">
+        <div class="ph"><div><b>Espai 01</b><br><small>Instal·lacions</small></div><small>Foto</small></div>
+        <div class="ph"><div><b>Espai 02</b><br><small>Natura</small></div><small>Foto</small></div>
+        <div class="ph"><div><b>Espai 03</b><br><small>Alimentació</small></div><small>Foto</small></div>
+      </div>
+
+      <div style="margin-top:14px">
+        <button class="btn" onclick="showPage('home')">Tornar a Home</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- EYEVISION -->
+<section id="page-eyevision" class="hidden">
+  <section class="section">
+    <div class="panel">
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+        <img src="./IMG_COM_202602222317557583.png" alt="EyeVision Security" style="width:86px;height:86px;object-fit:contain">
         <div>
-          <h2>EyeVision Security</h2>
-          <div class="tag">Seguretat</div>
+          <h3>EyeVision Security</h3>
+          <p>Portafoli complet: serveis, operacions i galeria.</p>
+          <div class="badges">
+            <span class="badge">Operacions</span><span class="badge">Logística</span><span class="badge">Aero/Mar/Terra</span><span class="badge">Cyber</span>
+          </div>
         </div>
       </div>
-      <p>Seguretat privada i transport especialitzat (aeri, marítim i terrestre) amb orientació telecom/cyber.</p>
-      <div class="badgeRow">
-        <span class="badge">Operacions</span>
-        <span class="badge">Logística</span>
-        <span class="badge">Aero/Mar/Terra</span>
-        <span class="badge">Cyber</span>
+
+      <hr>
+
+      <h3 style="margin-top:0">Serveis i Operacions</h3>
+
+      <details open>
+        <summary>Operació 1 · (Títol)</summary>
+        <ul class="list">
+          <li><b>Objectiu:</b> …</li>
+          <li><b>Protocol:</b> …</li>
+          <li><b>Coordinació:</b> aero/mar/terra…</li>
+          <li><b>Resultat:</b> …</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Servei 2 · Seguretat privada (Títol)</summary>
+        <ul class="list">
+          <li><b>Abast:</b> …</li>
+          <li><b>Equip:</b> …</li>
+          <li><b>Resultat:</b> …</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Servei 3 · Transport especialitzat (Títol)</summary>
+        <ul class="list">
+          <li><b>Tipus:</b> aeri / marítim / terrestre</li>
+          <li><b>Logística:</b> …</li>
+          <li><b>Resultat:</b> …</li>
+        </ul>
+      </details>
+
+      <hr>
+
+      <h3 style="margin-top:0">Galeria</h3>
+      <div class="gallery">
+        <div class="ph"><div><b>Operació 01</b><br><small>Planificació</small></div><small>Foto</small></div>
+        <div class="ph"><div><b>Operació 02</b><br><small>Transport</small></div><small>Foto</small></div>
+        <div class="ph"><div><b>Operació 03</b><br><small>Seguretat</small></div><small>Foto</small></div>
       </div>
-      <div class="cta" style="margin-top:14px">
-        <a class="btn" href="#pf-eyevision">Portafoli EyeVision</a>
+
+      <div style="margin-top:14px">
+        <button class="btn" onclick="showPage('home')">Tornar a Home</button>
       </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- PORTFOLIOS -->
-<section id="portfolios" class="section">
-  <div class="panel">
-    <h3>Portafolis</h3>
-    <p>Desplegables per projectes. Edita títols i textos quan vulguis. Tot dins d’aquest `index.html`.</p>
-  </div>
-
-  <div id="pf-audiovisual" class="panel" style="margin-top:14px">
-    <h3>EyeDit Audiovisual · Portafoli</h3>
-
-    <details>
-      <summary>Projecte 1 · (Títol)</summary>
-      <div class="badgeRow">
-        <span class="badge">Format: vídeo/TV/ràdio</span>
-        <span class="badge">Rol: producció</span>
-        <span class="badge">Any: 2026</span>
-      </div>
-      <ul class="list">
-        <li><b>Objectiu:</b> …</li>
-        <li><b>Què vam fer:</b> producció, edició, so, streaming…</li>
-        <li><b>Resultat:</b> …</li>
-        <li><b>Enllaç:</b> …</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>Projecte 2 · (Títol)</summary>
-      <ul class="list">
-        <li><b>Objectiu:</b> …</li>
-        <li><b>Què vam fer:</b> …</li>
-        <li><b>Resultat:</b> …</li>
-        <li><b>Enllaç:</b> …</li>
-      </ul>
-    </details>
-  </div>
-
-  <div id="pf-ccs" class="panel" style="margin-top:14px">
-    <h3>CCS CANSSAM · Portafoli</h3>
-
-    <details>
-      <summary>Programa 1 · Retir / Estada (Títol)</summary>
-      <div class="badgeRow">
-        <span class="badge">Durada: 15 dies</span>
-        <span class="badge">Perfil: 18–80</span>
-        <span class="badge">Model: premium</span>
-      </div>
-      <ul class="list">
-        <li><b>Inclou:</b> teràpies, alimentació, rutines, seguiment…</li>
-        <li><b>Objectiu:</b> desbloquejos, creixement personal, salut…</li>
-        <li><b>Resultat:</b> …</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>Curs presencial · (Títol)</summary>
-      <ul class="list">
-        <li><b>Format:</b> grup reduït (4 alumnes)</li>
-        <li><b>Objectiu:</b> …</li>
-        <li><b>Contingut:</b> …</li>
-      </ul>
-    </details>
-  </div>
-
-  <div id="pf-eyevision" class="panel" style="margin-top:14px">
-    <h3>EyeVision Security · Portafoli</h3>
-
-    <details>
-      <summary>Operació 1 · (Títol)</summary>
-      <div class="badgeRow">
-        <span class="badge">Sector: logística</span>
-        <span class="badge">Mode: aero/mar/terra</span>
-        <span class="badge">Nivell: pro</span>
-      </div>
-      <ul class="list">
-        <li><b>Objectiu:</b> …</li>
-        <li><b>Protocol:</b> …</li>
-        <li><b>Coordinació:</b> …</li>
-        <li><b>Resultat:</b> …</li>
-      </ul>
-    </details>
-
-    <details>
-      <summary>Servei · Seguretat privada (Títol)</summary>
-      <ul class="list">
-        <li><b>Abast:</b> …</li>
-        <li><b>Equip:</b> …</li>
-        <li><b>Resultat:</b> …</li>
-      </ul>
-    </details>
-  </div>
-</section>
-
-<!-- DOCS -->
-<section id="docs" class="section">
-  <div class="panel">
-    <h3>Docs (README)</h3>
-    <p>Documentació integrada a la web. També pots tenir README.md al repo si vols.</p>
-
-    <pre>
-# EyeDit Image Quick Service
-
-Holding multidisciplinari amb tres divisions:
-- EyeDit Audiovisual
-- CCS CANSSAM
-- EyeVision Security
-
-Estructura (versió unificada):
-/index.html + logos IMG_COM_*.png
-
-Tecnologies:
-- HTML5
-- CSS3
-- Deploy: Vercel
-- Repo: GitHub
-
-Contacte:
-Domini: eyeditimagequickservice.org
-CEO: Mikel Skoda
-Barcelona · Global vision
-    </pre>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="section">
-  <div class="panel">
-    <h3>Contacte</h3>
-    <p>Domini: <b>eyeditimagequickservice.org</b> · Quan tinguis email corporatiu, l’afegim aquí (i formulari si vols).</p>
-  </div>
+    </div>
+  </section>
 </section>
 
 <footer>
@@ -512,46 +429,38 @@ Barcelona · Global vision
 <button id="toTop" type="button" aria-label="Tornar a dalt">Top</button>
 
 <script>
-  // Any
-  const y = document.getElementById("y");
-  if (y) y.textContent = new Date().getFullYear();
+  // Year
+  document.getElementById("y").textContent = new Date().getFullYear();
 
-  // Scroll Spy
-  const spyLinks = Array.from(document.querySelectorAll('a[data-spy]'));
-  const sections = spyLinks
-    .map(a => document.querySelector(a.getAttribute('href')))
-    .filter(Boolean);
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  const toggleTop = () => { toTop.style.display = (window.scrollY > 600) ? 'inline-flex' : 'none'; };
+  window.addEventListener('scroll', toggleTop, { passive:true });
+  toggleTop();
+  toTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
 
-  const setActive = (id) => {
-    spyLinks.forEach(a => {
-      const match = a.getAttribute('href') === `#${id}`;
-      a.classList.toggle('active', match);
+  // Single-file "pages"
+  const pages = ['home','audiovisual','ccs','eyevision'];
+  const setNavActive = (key) => {
+    pages.forEach(k=>{
+      document.getElementById('nav-'+k)?.classList.toggle('active', k===key);
     });
   };
-
-  if ('IntersectionObserver' in window && sections.length) {
-    const obs = new IntersectionObserver((entries) => {
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (visible?.target?.id) setActive(visible.target.id);
-    }, { rootMargin: "-25% 0px -55% 0px", threshold: [0.1, 0.25, 0.4, 0.6] });
-
-    sections.forEach(sec => obs.observe(sec));
-  }
-
-  // Back to Top
-  const toTop = document.getElementById('toTop');
-  const toggleTop = () => {
-    if (!toTop) return;
-    toTop.style.display = (window.scrollY > 600) ? 'inline-flex' : 'none';
+  const showPage = (key) => {
+    pages.forEach(k=>{
+      const el = document.getElementById('page-'+k);
+      if (!el) return;
+      el.classList.toggle('hidden', k!==key);
+    });
+    setNavActive(key);
+    window.scrollTo({top:0,behavior:'smooth'});
+    history.replaceState(null,'', key==='home' ? '#home' : '#'+key);
   };
-  window.addEventListener('scroll', toggleTop, { passive: true });
-  toggleTop();
+  window.showPage = showPage;
 
-  toTop?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  // Load from hash
+  const start = (location.hash || '#home').replace('#','');
+  showPage(pages.includes(start) ? start : 'home');
 </script>
 
 </body>
