@@ -1,17 +1,16 @@
+
 <!doctype html>
 <html lang="ca">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>EyeDit Group | SpaceX Style</title>
-<meta name="description" content="EyeDit Group: Audiovisual, CCS CANSSAM i EyeVision. Landing SpaceX-style." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EyeDit Group | Holding + Portafolis</title>
+<meta name="description" content="EyeDit Group: Audiovisual, CCS CANSSAM i EyeVision. Web unificada amb portafolis, docs, scroll spy i back-to-top.">
 
 <style>
 :root{
-  --bg:#020617;
-  --bg2:#050b18;
-  --txt:#e5e7eb;
-  --muted:#94a3b8;
+  --bg:#020617; --bg2:#050b18;
+  --txt:#e5e7eb; --muted:#94a3b8;
   --accent:#38bdf8;
   --glass:rgba(255,255,255,.035);
   --border:rgba(255,255,255,.10);
@@ -22,7 +21,7 @@
 html{scroll-behavior:smooth}
 body{
   margin:0;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
   color:var(--txt);
   background:
     radial-gradient(900px 560px at 15% 15%, rgba(56,189,248,.18), transparent 60%),
@@ -31,48 +30,9 @@ body{
   overflow-x:hidden;
 }
 a{color:inherit;text-decoration:none}
+.small{font-size:12px;color:rgba(229,231,235,.72)}
+hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:16px 0}
 
-/* STARFIELD LAYERS */
-.stars, .stars2{
-  position:fixed;
-  inset:-20%;
-  pointer-events:none;
-  z-index:-1;
-  opacity:.55;
-}
-.stars{
-  background:
-    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.85), transparent 40%),
-    radial-gradient(1px 1px at 30% 70%, rgba(255,255,255,.75), transparent 40%),
-    radial-gradient(1px 1px at 60% 25%, rgba(255,255,255,.75), transparent 40%),
-    radial-gradient(1px 1px at 80% 60%, rgba(255,255,255,.70), transparent 40%),
-    radial-gradient(2px 2px at 45% 45%, rgba(255,255,255,.65), transparent 55%),
-    radial-gradient(1px 1px at 75% 10%, rgba(255,255,255,.70), transparent 40%),
-    radial-gradient(1px 1px at 5% 85%, rgba(255,255,255,.70), transparent 40%);
-  background-size: 420px 420px;
-  filter: blur(.1px);
-  animation: drift 55s linear infinite;
-}
-.stars2{
-  opacity:.35;
-  background:
-    radial-gradient(1px 1px at 20% 10%, rgba(255,255,255,.55), transparent 40%),
-    radial-gradient(1px 1px at 50% 80%, rgba(255,255,255,.45), transparent 40%),
-    radial-gradient(1px 1px at 85% 30%, rgba(255,255,255,.45), transparent 40%),
-    radial-gradient(2px 2px at 65% 55%, rgba(255,255,255,.38), transparent 55%);
-  background-size: 520px 520px;
-  animation: drift2 85s linear infinite;
-}
-@keyframes drift{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(-140px,120px,0)}
-}
-@keyframes drift2{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(120px,-150px,0)}
-}
-
-/* TOP NAV */
 header{
   position:sticky; top:0; z-index:50;
   background:rgba(2,6,23,.62);
@@ -89,38 +49,23 @@ header{
   gap:16px;
 }
 .brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+  display:flex; align-items:center; gap:12px;
   min-width:0;
 }
 .brand img{
-  width:42px; height:42px; object-fit:contain;
+  width:42px;height:42px;object-fit:contain;
   filter: drop-shadow(0 0 22px rgba(56,189,248,.20));
-  animation: floaty 6s ease-in-out infinite;
-}
-.brand .txt{
-  line-height:1.1;
-  min-width:0;
 }
 .brand strong{
   display:block;
   font-weight:900;
-  letter-spacing:.25px;
+  letter-spacing:.2px;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
 }
-.brand small{
-  display:block;
-  font-size:12px;
-  color:rgba(229,231,235,.72);
-}
 .navlinks{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
 }
 .navlinks a{
   font-size:12px;
@@ -138,64 +83,55 @@ header{
   color: var(--txt);
 }
 
-/* HERO (SpaceX-style: big type + subtle line) */
+/* Scroll Spy active state */
+.navlinks a.active{
+  border-color: rgba(56,189,248,.35);
+  background: rgba(56,189,248,.10);
+  color: var(--txt);
+}
+
 .hero{
   max-width:1120px;
   margin:auto;
-  padding:74px 20px 10px;
-  text-align:left;
-  position:relative;
+  padding:70px 20px 18px;
 }
 .hero .label{
-  display:inline-flex;
-  gap:10px;
-  align-items:center;
-  font-size:12px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
+  display:inline-flex; gap:10px; align-items:center;
+  font-size:12px; letter-spacing:.22em; text-transform:uppercase;
   color:rgba(229,231,235,.8);
 }
 .hero .label:before{
-  content:"";
-  width:34px;
-  height:1px;
+  content:""; width:34px; height:1px;
   background: rgba(56,189,248,.65);
   box-shadow: 0 0 18px rgba(56,189,248,.45);
 }
 .hero h1{
   margin:14px 0 10px;
-  font-size:62px;
+  font-size:56px;
   letter-spacing:-.02em;
   line-height:1.02;
 }
 .hero p{
   margin:0;
-  max-width:760px;
+  max-width:860px;
   color:var(--muted);
   line-height:1.55;
   font-size:16px;
 }
 @media(max-width:900px){
   .hero{padding-top:52px}
-  .hero h1{font-size:44px}
+  .hero h1{font-size:42px}
 }
 
-.cta{
-  margin-top:18px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
+.cta{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
 .btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
+  display:inline-flex; align-items:center; gap:10px;
   padding:12px 14px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
   color: var(--txt);
-  font-weight:800;
+  font-weight:900;
   font-size:13px;
   letter-spacing:.03em;
   transition:.18s ease;
@@ -210,20 +146,17 @@ header{
   background: linear-gradient(180deg, rgba(56,189,248,.18), rgba(56,189,248,.06));
 }
 
-/* SECTIONS */
 .section{
   max-width:1120px;
   margin:auto;
-  padding:28px 20px 70px;
+  padding:24px 20px 70px;
 }
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
-@media(max-width:900px){
-  .grid{grid-template-columns:1fr}
-}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
 
 .card{
   border:1px solid var(--border);
@@ -232,180 +165,343 @@ header{
   padding:22px;
   position:relative;
   overflow:hidden;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
   transition:.18s ease;
-}
-.card:before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background: radial-gradient(650px 240px at 50% 0%, rgba(56,189,248,.10), transparent 60%);
-  opacity:.9;
-  pointer-events:none;
 }
 .card:hover{
   transform: translateY(-4px);
   box-shadow: var(--shadow);
   border-color: rgba(56,189,248,.22);
 }
-.card-top{
-  display:flex;
-  gap:14px;
-  align-items:center;
-}
+.card-top{display:flex; gap:14px; align-items:center}
 .card-top img{
-  width:86px; height:86px;
-  object-fit:contain;
+  width:86px;height:86px;object-fit:contain;
   filter: drop-shadow(0 0 22px rgba(56,189,248,.14));
-  transition:.18s ease;
 }
-.card:hover .card-top img{transform: scale(1.03)}
-.card h3{
-  margin:0;
-  font-size:18px;
-  letter-spacing:.01em;
-}
-.card .tag{
+.card h2{margin:0;font-size:18px}
+.tag{
   margin-top:6px;
   font-size:12px;
   color: rgba(229,231,235,.78);
   letter-spacing:.14em;
   text-transform:uppercase;
 }
-.card p{
-  margin:12px 0 0;
-  color:var(--muted);
-  line-height:1.5;
-}
+.card p{margin:12px 0 0;color:var(--muted);line-height:1.5}
 
-/* MINI MODULES */
-.module{
-  margin-top:18px;
+.panel{
   border:1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.03);
   border-radius:18px;
   padding:18px;
 }
-.module h4{margin:0 0 8px; font-size:14px; letter-spacing:.16em; text-transform:uppercase; color:rgba(229,231,235,.88)}
-.module p{margin:0; color:var(--muted); line-height:1.5}
+.panel h3{margin:0 0 8px;font-size:16px;letter-spacing:.12em;text-transform:uppercase}
+.panel p{margin:0;color:var(--muted);line-height:1.55}
 
-/* FOOTER */
+details{
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  border-radius:14px;
+  padding:12px 14px;
+  margin-top:10px;
+}
+summary{
+  cursor:pointer;
+  list-style:none;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+summary::-webkit-details-marker{display:none}
+.list{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.55}
+
+.badgeRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.badge{
+  display:inline-flex; align-items:center;
+  border:1px solid rgba(56,189,248,.22);
+  background: rgba(56,189,248,.06);
+  color: rgba(229,231,235,.92);
+  border-radius:999px;
+  padding:6px 10px;
+  font-size:12px;
+}
+
 footer{
   text-align:center;
   padding:28px 20px 44px;
   color:var(--muted);
 }
 
-/* ANIMATIONS */
-@keyframes floaty{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-4px)}
+code,kbd,pre{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+pre{
+  white-space:pre-wrap;
+  word-break:break-word;
+  background: rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:16px;
+  padding:14px;
+  margin:12px 0 0;
+  color: rgba(229,231,235,.92);
 }
 
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce){
-  *{animation:none !important; transition:none !important}
-  html{scroll-behavior:auto}
-}/* Fix colors text */
-h1 {
-  background: linear-gradient(90deg,#ffffff,#38bdf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Back to top button */
+#toTop{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:60;
+  display:none;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  color: var(--txt);
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  cursor:pointer;
+  backdrop-filter: blur(10px);
+  transition:.18s ease;
 }
-
-h2, h3 { color:#e5e7eb; }
-p { color:#94a3b8; }
+#toTop:hover{
+  transform: translateY(-2px);
+  border-color: rgba(56,189,248,.30);
+  background: rgba(56,189,248,.10);
+}
 </style>
-/* Fix colors text */
-h1 { color: #ffffff; }
-h2, h3 { color: #e5e7eb; }
-p { color: #94a3b8; }
 </head>
 
 <body>
-<div class="stars"></div>
-<div class="stars2"></div>
 
 <header>
   <div class="nav">
     <a class="brand" href="#top">
-      <!-- LOGO PRINCIPAL -->
       <img src="./IMG_COM_20260222217552930.png" alt="EyeDit Group">
-      <div class="txt">
+      <div>
         <strong>EyeDit Image Quick Service</strong>
-        <small>Holding • Audiovisual • Salut • Seguretat</small>
+        <div class="small">Holding · Audiovisual · Salut · Seguretat</div>
       </div>
     </a>
+
     <nav class="navlinks" aria-label="Navegació">
-      <a href="#divisions">Divisions</a>
-      <a href="#projects">Projectes</a>
-      <a href="#contact">Contacte</a>
+      <a data-spy href="#divisions">Divisions</a>
+      <a data-spy href="#portfolios">Portafolis</a>
+      <a data-spy href="#docs">Docs</a>
+      <a data-spy href="#contact">Contacte</a>
     </nav>
   </div>
 </header>
 
 <section id="top" class="hero">
-  <div class="label">SPACE STYLE LANDING</div>
+  <div class="label">HOLDING · DEFINITIU</div>
   <h1>EyeDit Group</h1>
   <p>
-    Una sola marca, tres divisions professionals. Disseny tipus “space-tech”: net, potent, visual i amb estructura clara.
+    Versió definitiva “1 sol HTML”: landing + portafolis (Audiovisual, CCS CANSSAM, EyeVision) + docs tipus README,
+    amb scroll spy al menú i botó flotant per tornar a dalt.
   </p>
 
   <div class="cta">
     <a class="btn primary" href="#divisions">Veure divisions</a>
+    <a class="btn" href="#portfolios">Anar a portafolis</a>
     <a class="btn" href="#contact">Contactar</a>
   </div>
 </section>
 
+<!-- DIVISIONS -->
 <section id="divisions" class="section">
   <div class="grid">
 
-    <!-- AUDIOVISUAL -->
     <article class="card">
       <div class="card-top">
         <img src="./IMG_COM_202602222317555371.png" alt="EyeDit Audiovisual">
         <div>
-          <h3>EyeDit Audiovisual</h3>
+          <h2>EyeDit Audiovisual</h2>
           <div class="tag">Media</div>
         </div>
       </div>
       <p>Productora de cinema, teatre, ràdio i televisió. Agència creativa i cerca de talents.</p>
+      <div class="badgeRow">
+        <span class="badge">Producció</span>
+        <span class="badge">Ràdio/TV</span>
+        <span class="badge">Creativitat</span>
+        <span class="badge">Talent</span>
+      </div>
+      <div class="cta" style="margin-top:14px">
+        <a class="btn" href="#pf-audiovisual">Portafoli Audiovisual</a>
+      </div>
     </article>
 
-    <!-- CCS -->
     <article class="card">
       <div class="card-top">
         <img src="./IMG_COM_202602222317556412.png" alt="CCS CANSSAM">
         <div>
-          <h3>CCS CANSSAM</h3>
+          <h2>CCS CANSSAM</h2>
           <div class="tag">Salut</div>
         </div>
       </div>
       <p>Centre cultural per a la salut: programes, teràpies naturals i cursos.</p>
+      <div class="badgeRow">
+        <span class="badge">Retirs</span>
+        <span class="badge">Teràpies</span>
+        <span class="badge">Nutrició</span>
+        <span class="badge">Cursos</span>
+      </div>
+      <div class="cta" style="margin-top:14px">
+        <a class="btn" href="#pf-ccs">Portafoli CCS</a>
+      </div>
     </article>
 
-    <!-- EYEVISION -->
     <article class="card">
       <div class="card-top">
         <img src="./IMG_COM_202602222317557583.png" alt="EyeVision Security">
         <div>
-          <h3>EyeVision Security</h3>
+          <h2>EyeVision Security</h2>
           <div class="tag">Seguretat</div>
         </div>
       </div>
       <p>Seguretat privada i transport especialitzat (aeri, marítim i terrestre) amb orientació telecom/cyber.</p>
+      <div class="badgeRow">
+        <span class="badge">Operacions</span>
+        <span class="badge">Logística</span>
+        <span class="badge">Aero/Mar/Terra</span>
+        <span class="badge">Cyber</span>
+      </div>
+      <div class="cta" style="margin-top:14px">
+        <a class="btn" href="#pf-eyevision">Portafoli EyeVision</a>
+      </div>
     </article>
 
   </div>
+</section>
 
-  <div class="module" style="margin-top:18px">
-    <h4>Projectes</h4>
-    <p>Afegirem 3 projectes destacats (un per divisió) i un únic botó “Contactar” per mantenir-ho net.</p>
+<!-- PORTFOLIOS -->
+<section id="portfolios" class="section">
+  <div class="panel">
+    <h3>Portafolis</h3>
+    <p>Desplegables per projectes. Edita títols i textos quan vulguis. Tot dins d’aquest `index.html`.</p>
   </div>
 
-  <div id="contact" class="module" style="margin-top:12px">
-    <h4>Contacte</h4>
-    <p>Domini: eyeditimagequickservice.org · Quan tinguis email corporatiu, l’afegim aquí. També podem posar un formulari senzill.</p>
+  <div id="pf-audiovisual" class="panel" style="margin-top:14px">
+    <h3>EyeDit Audiovisual · Portafoli</h3>
+
+    <details>
+      <summary>Projecte 1 · (Títol)</summary>
+      <div class="badgeRow">
+        <span class="badge">Format: vídeo/TV/ràdio</span>
+        <span class="badge">Rol: producció</span>
+        <span class="badge">Any: 2026</span>
+      </div>
+      <ul class="list">
+        <li><b>Objectiu:</b> …</li>
+        <li><b>Què vam fer:</b> producció, edició, so, streaming…</li>
+        <li><b>Resultat:</b> …</li>
+        <li><b>Enllaç:</b> …</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Projecte 2 · (Títol)</summary>
+      <ul class="list">
+        <li><b>Objectiu:</b> …</li>
+        <li><b>Què vam fer:</b> …</li>
+        <li><b>Resultat:</b> …</li>
+        <li><b>Enllaç:</b> …</li>
+      </ul>
+    </details>
+  </div>
+
+  <div id="pf-ccs" class="panel" style="margin-top:14px">
+    <h3>CCS CANSSAM · Portafoli</h3>
+
+    <details>
+      <summary>Programa 1 · Retir / Estada (Títol)</summary>
+      <div class="badgeRow">
+        <span class="badge">Durada: 15 dies</span>
+        <span class="badge">Perfil: 18–80</span>
+        <span class="badge">Model: premium</span>
+      </div>
+      <ul class="list">
+        <li><b>Inclou:</b> teràpies, alimentació, rutines, seguiment…</li>
+        <li><b>Objectiu:</b> desbloquejos, creixement personal, salut…</li>
+        <li><b>Resultat:</b> …</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Curs presencial · (Títol)</summary>
+      <ul class="list">
+        <li><b>Format:</b> grup reduït (4 alumnes)</li>
+        <li><b>Objectiu:</b> …</li>
+        <li><b>Contingut:</b> …</li>
+      </ul>
+    </details>
+  </div>
+
+  <div id="pf-eyevision" class="panel" style="margin-top:14px">
+    <h3>EyeVision Security · Portafoli</h3>
+
+    <details>
+      <summary>Operació 1 · (Títol)</summary>
+      <div class="badgeRow">
+        <span class="badge">Sector: logística</span>
+        <span class="badge">Mode: aero/mar/terra</span>
+        <span class="badge">Nivell: pro</span>
+      </div>
+      <ul class="list">
+        <li><b>Objectiu:</b> …</li>
+        <li><b>Protocol:</b> …</li>
+        <li><b>Coordinació:</b> …</li>
+        <li><b>Resultat:</b> …</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Servei · Seguretat privada (Títol)</summary>
+      <ul class="list">
+        <li><b>Abast:</b> …</li>
+        <li><b>Equip:</b> …</li>
+        <li><b>Resultat:</b> …</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<!-- DOCS -->
+<section id="docs" class="section">
+  <div class="panel">
+    <h3>Docs (README)</h3>
+    <p>Documentació integrada a la web. També pots tenir README.md al repo si vols.</p>
+
+    <pre>
+# EyeDit Image Quick Service
+
+Holding multidisciplinari amb tres divisions:
+- EyeDit Audiovisual
+- CCS CANSSAM
+- EyeVision Security
+
+Estructura (versió unificada):
+/index.html + logos IMG_COM_*.png
+
+Tecnologies:
+- HTML5
+- CSS3
+- Deploy: Vercel
+- Repo: GitHub
+
+Contacte:
+Domini: eyeditimagequickservice.org
+CEO: Mikel Skoda
+Barcelona · Global vision
+    </pre>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="panel">
+    <h3>Contacte</h3>
+    <p>Domini: <b>eyeditimagequickservice.org</b> · Quan tinguis email corporatiu, l’afegim aquí (i formulari si vols).</p>
   </div>
 </section>
 
@@ -413,11 +509,51 @@ p { color: #94a3b8; }
   © <span id="y"></span> EyeDit Image Quick Service
 </footer>
 
+<button id="toTop" type="button" aria-label="Tornar a dalt">Top</button>
+
 <script>
-  document.getElementById("y").textContent = new Date().getFullYear();
+  // Any
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Scroll Spy
+  const spyLinks = Array.from(document.querySelectorAll('a[data-spy]'));
+  const sections = spyLinks
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+
+  const setActive = (id) => {
+    spyLinks.forEach(a => {
+      const match = a.getAttribute('href') === `#${id}`;
+      a.classList.toggle('active', match);
+    });
+  };
+
+  if ('IntersectionObserver' in window && sections.length) {
+    const obs = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible?.target?.id) setActive(visible.target.id);
+    }, { rootMargin: "-25% 0px -55% 0px", threshold: [0.1, 0.25, 0.4, 0.6] });
+
+    sections.forEach(sec => obs.observe(sec));
+  }
+
+  // Back to Top
+  const toTop = document.getElementById('toTop');
+  const toggleTop = () => {
+    if (!toTop) return;
+    toTop.style.display = (window.scrollY > 600) ? 'inline-flex' : 'none';
+  };
+  window.addEventListener('scroll', toggleTop, { passive: true });
+  toggleTop();
+
+  toTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 </script>
 
 </body>
 </html>
-
 
