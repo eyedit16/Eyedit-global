@@ -903,7 +903,32 @@ function setLang(lang){
   }
 })();
 </script>
+<script>
+const pages = ['home','audiovisual','ccs','eyevision'];
 
+function showPage(key){
+  pages.forEach(k=>{
+    const el = document.getElementById('page-'+k);
+    if(!el) return;
+    el.classList.toggle('hidden', k!==key);
+  });
+
+  pages.forEach(k=>{
+    const btn = document.getElementById('nav-'+k);
+    if(!btn) return;
+    btn.classList.toggle('active', k===key);
+  });
+
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.replaceState(null,'', key==='home' ? '#home' : '#'+key);
+}
+
+window.showPage = showPage;
+
+// iniciar
+const start = (location.hash || '#home').replace('#','');
+showPage(pages.includes(start) ? start : 'home');
+</script>
 </body>
 </html>
 
