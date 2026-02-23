@@ -929,6 +929,41 @@ window.showPage = showPage;
 const start = (location.hash || '#home').replace('#','');
 showPage(pages.includes(start) ? start : 'home');
 </script>
+<script>
+(() => {
+  const pages = ['home','audiovisual','ccs','eyevision'];
+
+  function showPage(key){
+    if(!pages.includes(key)) key = 'home';
+
+    pages.forEach(k=>{
+      const el = document.getElementById('page-'+k);
+      if(el) el.classList.toggle('hidden', k!==key);
+    });
+
+    pages.forEach(k=>{
+      const btn = document.getElementById('nav-'+k);
+      if(btn) btn.classList.toggle('active', k===key);
+    });
+
+    history.replaceState(null,'', key==='home' ? '#home' : '#'+key);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  // events robustos
+  pages.forEach(k=>{
+    const btn = document.getElementById('nav-'+k);
+    if(btn) btn.addEventListener('click', () => showPage(k));
+  });
+
+  // exposar per botons "Entrar" de les targetes
+  window.showPage = showPage;
+
+  // inici per hash
+  const start = (location.hash || '#home').replace('#','');
+  showPage(pages.includes(start) ? start : 'home');
+})();
+</script>
 </body>
 </html>
 
