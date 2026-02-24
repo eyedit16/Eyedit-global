@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ca">
 <head>
+</body>
+</html>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>EyeDit Group | Holding</title>
 <meta name="description" content="EyeDit Group: Image Quick Service, Audiovisual, CCS CANSSAM, EyeVision." />
-<meta name="theme-color" content="#050816" />
-
+<meta name="theme-color" content="#050816" /
 <style>
 :root{
   --bg:#050816;
