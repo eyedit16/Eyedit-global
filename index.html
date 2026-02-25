@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ca">
 <head>
@@ -7,6 +6,7 @@
   <title>EyeDit Group</title>
   <meta name="description" content="EyeDit Group: Imaging, Audiovisual & Telecom, Natural Therapies, Security & Transport." />
   <meta name="theme-color" content="#0a6b3b" />
+
   <style>
     :root{
       --bg:#07110c;
@@ -17,10 +17,17 @@
       --line:rgba(255,255,255,.10);
       --shadow: 0 18px 40px rgba(0,0,0,.35);
       --radius: 18px;
-      --max: 1100px;
+      --max: 1140px;
+
+      --green: rgba(25,195,125,.90);
+      --blue:  rgba(93,197,255,.90);
+      --orange:rgba(255,146,86,.90);
+      --cyan:  rgba(86,255,219,.90);
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -30,39 +37,44 @@
         radial-gradient(800px 500px at 85% 0%, rgba(93,197,255,.12), transparent 55%),
         radial-gradient(900px 700px at 70% 90%, rgba(255,146,86,.10), transparent 60%),
         var(--bg);
-      line-height:1.5;
+      line-height:1.55;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 56px}
+    section{scroll-margin-top: 98px;}
+    a{color:inherit; text-decoration:none}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 64px}
+
+    /* Topbar */
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      gap:16px;
+      gap:12px;
       padding:14px 14px;
       border:1px solid var(--line);
       background:rgba(11,27,18,.65);
       backdrop-filter: blur(10px);
       border-radius: 999px;
       box-shadow: var(--shadow);
+      position: sticky;
+      top: 14px;
+      z-index: 20;
     }
-    .brand{
-      display:flex; align-items:center; gap:12px; min-width:0;
-    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:0;}
     .logo{
       width:40px; height:40px;
       border-radius:12px;
       border:1px solid var(--line);
       background:rgba(0,0,0,.25);
       object-fit:contain;
+      display:none;
     }
     .brand h1{
-      font-size:14px; margin:0; letter-spacing:.4px; text-transform:uppercase;
+      font-size:14px; margin:0; letter-spacing:.45px; text-transform:uppercase;
       white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     }
-    .nav{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-    }
+
+    .right{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
     .chip{
-      text-decoration:none;
       font-size:13px;
       padding:8px 10px;
       border:1px solid var(--line);
@@ -70,13 +82,27 @@
       background:rgba(255,255,255,.04);
     }
     .chip:hover{border-color:rgba(25,195,125,.55)}
-    .hero{padding:44px 10px 10px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
-      align-items:stretch;
+
+    .langs{display:flex; gap:6px; align-items:center;}
+    .langbtn{
+      cursor:pointer;
+      font-size:12px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(0,0,0,.18);
+      color:var(--text);
+      font-weight:800;
+      letter-spacing:.25px;
     }
+    .langbtn.active{
+      border-color:rgba(25,195,125,.7);
+      background:rgba(25,195,125,.14);
+    }
+
+    /* Hero */
+    .hero{padding:44px 10px 10px}
+    .hero-grid{display:grid; grid-template-columns: 1.15fr .85fr; gap:18px; align-items:stretch;}
     .panel{
       border:1px solid var(--line);
       background:rgba(11,27,18,.60);
@@ -85,37 +111,38 @@
       padding:22px;
     }
     .kicker{
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
-      font-size:12px;
-      color:var(--muted);
+      display:inline-flex; gap:8px; align-items:center;
+      font-size:12px; color:var(--muted);
       border:1px solid var(--line);
       border-radius:999px;
       padding:7px 10px;
       background:rgba(255,255,255,.03);
     }
-    .dot{width:8px;height:8px;border-radius:99px;background:var(--brand); box-shadow:0 0 0 4px rgba(25,195,125,.12)}
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background:var(--brand);
+      box-shadow:0 0 0 4px rgba(25,195,125,.12);
+    }
     h2{margin:14px 0 10px; font-size:34px; line-height:1.1}
     p{margin:0 0 14px; color:rgba(232,255,243,.88)}
+
     .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
     .btn{
       border:1px solid var(--line);
       background:rgba(25,195,125,.12);
       color:var(--text);
-      text-decoration:none;
       padding:10px 12px;
       border-radius: 12px;
-      font-weight:600;
+      font-weight:800;
       font-size:14px;
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
     }
     .btn:hover{border-color:rgba(25,195,125,.55)}
-    .btn.secondary{background:rgba(255,255,255,.05); font-weight:600}
-    .mini{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:12px;
-    }
+    .btn.secondary{background:rgba(255,255,255,.05)}
+
+    .mini{display:grid; grid-template-columns: 1fr; gap:12px;}
     .stat{
       padding:14px;
       border-radius: 14px;
@@ -124,28 +151,28 @@
     }
     .stat b{display:block; font-size:14px}
     .stat span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
-    .section{padding:26px 10px 0}
+
+    /* Sections */
+    .section{padding:30px 10px 0}
     .section h3{margin:0 0 10px; font-size:18px}
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
+
+    .grid4{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;}
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;}
+
     .card{
       border:1px solid var(--line);
       border-radius: var(--radius);
       background: rgba(11,27,18,.55);
       box-shadow: var(--shadow);
       padding:18px;
-      min-height: 180px;
+      min-height: 200px;
       position:relative;
       overflow:hidden;
     }
     .tag{
-      display:inline-flex; align-items:center;
-      gap:8px;
-      font-size:12px;
-      color:var(--muted);
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:var(--muted);
       border:1px solid var(--line);
       border-radius:999px;
       padding:6px 10px;
@@ -154,6 +181,7 @@
     .card h4{margin:10px 0 6px; font-size:18px}
     .card ul{margin:10px 0 0; padding-left:18px; color:rgba(232,255,243,.86)}
     .card li{margin:6px 0}
+
     .accent{
       position:absolute; inset:auto -40px -40px auto;
       width:160px; height:160px;
@@ -161,13 +189,68 @@
       filter: blur(18px);
       opacity:.35;
     }
-    .a-green{background:rgba(25,195,125,.9)}
-    .a-blue{background:rgba(93,197,255,.9)}
-    .a-orange{background:rgba(255,146,86,.9)}
-    .about{
-      display:grid; grid-template-columns: 1fr 1fr;
-      gap:14px;
+    .a-green{background:var(--green)}
+    .a-blue{background:var(--blue)}
+    .a-orange{background:var(--orange)}
+    .a-cyan{background:var(--cyan)}
+
+    /* Portfolio */
+    .port-tabs{
+      display:flex; gap:8px; flex-wrap:wrap;
+      margin: 8px 0 14px;
     }
+    .tab{
+      cursor:pointer;
+      font-size:13px;
+      padding:8px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:rgba(0,0,0,.18);
+      color:var(--text);
+      font-weight:800;
+    }
+    .tab.active{
+      border-color:rgba(25,195,125,.7);
+      background:rgba(25,195,125,.14);
+    }
+
+    .project{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(11,27,18,.55);
+      box-shadow: var(--shadow);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+      min-height: 160px;
+    }
+    .project h5{margin:10px 0 6px; font-size:16px}
+    .project p{margin:0; color:rgba(232,255,243,.86)}
+    .meta{
+      margin-top:10px;
+      display:flex; gap:8px; flex-wrap:wrap;
+      color: var(--muted);
+      font-size:12px;
+    }
+    .pill{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:5px 9px;
+      background:rgba(255,255,255,.03);
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      background:rgba(255,255,255,.03);
+    }
+
+    /* Footer */
     .footer{
       margin-top:26px;
       border-top:1px solid var(--line);
@@ -179,6 +262,7 @@
       flex-wrap:wrap;
       gap:10px;
     }
+
     code.inline{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       font-size: 12px;
@@ -187,146 +271,555 @@
       border-radius: 8px;
       background: rgba(0,0,0,.25);
     }
-    @media (max-width: 920px){
+
+    @media (max-width: 1020px){
       .hero-grid{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .about{grid-template-columns:1fr}
+      .grid4{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
       h2{font-size:30px}
+      .topbar{border-radius: 22px}
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header class="topbar">
       <div class="brand">
-        <!-- IMPORTANT: posa el teu logo al repo amb aquest nom exactament -->
-        <img class="logo" src="logo.png" alt="EyeDit Logo" onerror="this.style.display='none';" />
+        <img class="logo" id="brandLogo" alt="EyeDit Logo" />
         <h1>EyeDit Group</h1>
       </div>
 
-      <nav class="nav">
-        <a class="chip" href="#sectors">Sectors</a>
-        <a class="chip" href="#about">Sobre</a>
-        <a class="chip" href="#contact">Contacte</a>
-      </nav>
+      <div class="right">
+        <nav class="nav">
+          <a class="chip" href="#sectors" data-i18n="nav_sectors">Sectors</a>
+          <a class="chip" href="#portfolios" data-i18n="nav_portfolios">Portafolis</a>
+          <a class="chip" href="#about" data-i18n="nav_about">Sobre</a>
+          <a class="chip" href="#contact" data-i18n="nav_contact">Contacte</a>
+        </nav>
+
+        <div class="langs" aria-label="Language switcher">
+          <button class="langbtn active" data-lang="ca">CAT</button>
+          <button class="langbtn" data-lang="es">ES</button>
+          <button class="langbtn" data-lang="en">EN</button>
+        </div>
+      </div>
     </header>
 
-    <section class="hero">
+    <section class="hero" aria-label="Hero">
       <div class="hero-grid">
         <div class="panel">
-          <span class="kicker"><span class="dot"></span> Holding creatiu · telecom · seguretat</span>
-          <h2>EyeDit: imatge, transmissió, benestar i protecció.</h2>
-          <p>
-            Web estàtica preparada per Vercel: un <code class="inline">index.html</code> a l’arrel del repositori,
-            sense frameworks, sense build, i amb seccions clares.
+          <span class="kicker"><span class="dot"></span> <span data-i18n="kicker">Holding creatiu · telecom · seguretat</span></span>
+          <h2 data-i18n="hero_title">EyeDit: imatge, transmissió, benestar i protecció.</h2>
+          <p data-i18n="hero_text">
+            Web estàtica preparada per Vercel: un <code class="inline">index.html</code> a l’arrel del repositori, sense frameworks, sense build, i amb estructura professional.
           </p>
           <div class="actions">
-            <a class="btn" href="#sectors">Veure els 3 sectors</a>
-            <a class="btn secondary" href="#contact">Contactar</a>
+            <a class="btn" href="#sectors" data-i18n="cta_sectors">Veure els sectors</a>
+            <a class="btn secondary" href="#portfolios" data-i18n="cta_portfolios">Veure portafolis</a>
           </div>
         </div>
 
         <div class="panel">
           <div class="mini">
             <div class="stat">
-              <b>Deploy automàtic</b>
-              <span>Quan fas commit a GitHub, Vercel publica sol.</span>
+              <b data-i18n="stat1_title">Deploy automàtic</b>
+              <span data-i18n="stat1_text">Quan fas commit a GitHub, Vercel publica sol.</span>
             </div>
             <div class="stat">
-              <b>Sense Root Directory</b>
-              <span>Deixa Root Directory buit (arrel del repo).</span>
+              <b data-i18n="stat2_title">Fitxer únic</b>
+              <span data-i18n="stat2_text">Un sol <code class="inline">index.html</code> i ja està.</span>
             </div>
             <div class="stat">
-              <b>Fitxers mínims</b>
-              <span><code class="inline">index.html</code> + <code class="inline">logo.png</code> (opcional)</span>
+              <b data-i18n="stat3_title">Logos després</b>
+              <span data-i18n="stat3_text">Puja <code class="inline">logo.png</code> a l’arrel i apareix automàticament.</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="sectors" class="section">
-      <h3>Els 3 sectors</h3>
+    <section id="sectors" class="section" aria-label="Sectors">
+      <h3 data-i18n="sectors_title">Sectors</h3>
 
-      <div class="grid">
+      <div class="grid4">
         <article class="card">
           <span class="tag">🟢 EyeDit Image Quick Service</span>
-          <h4>Imatge · Contingut · Producció</h4>
-          <p>Servei i plataforma orientada a creació, edició i gestió d’imatge i contingut digital.</p>
+          <h4 data-i18n="s1_title">Imatge · Contingut · Producció</h4>
+          <p data-i18n="s1_text">Servei i plataforma orientada a creació, edició i gestió d’imatge i contingut digital.</p>
           <ul>
-            <li>Fotografia i postproducció</li>
-            <li>Agència creativa i projectes digitals</li>
-            <li>Branding visual i assets</li>
+            <li data-i18n="s1_li1">Fotografia i postproducció</li>
+            <li data-i18n="s1_li2">Branding visual i assets</li>
+            <li data-i18n="s1_li3">Workflows ràpids i qualitat</li>
           </ul>
           <div class="accent a-green"></div>
         </article>
 
         <article class="card">
           <span class="tag">🔵 EyeDit Audiovisual</span>
-          <h4>Ràdio · TV · Streaming</h4>
-          <p>Operativa audiovisual i transmissió: formats moderns, distribució i cobertura.</p>
+          <h4 data-i18n="s2_title">Ràdio · TV · Streaming</h4>
+          <p data-i18n="s2_text">Operativa audiovisual i transmissió: formats moderns, distribució i cobertura.</p>
           <ul>
-            <li>RTMP / SRT / IP (i satèl·lit si cal)</li>
-            <li>Emissió i senyal</li>
-            <li>Producció de programes i continguts</li>
+            <li data-i18n="s2_li1">RTMP / SRT / IP (i satèl·lit si cal)</li>
+            <li data-i18n="s2_li2">Emissió i senyal</li>
+            <li data-i18n="s2_li3">Producció de programes</li>
           </ul>
           <div class="accent a-blue"></div>
         </article>
 
         <article class="card">
           <span class="tag">🟠 CCS.CANSSAM</span>
-          <h4>Benestar · Medicina natural</h4>
-          <p>Projecte de teràpies alternatives i medicina natural amb enfoc seriós i clar.</p>
+          <h4 data-i18n="s3_title">Benestar · Medicina natural</h4>
+          <p data-i18n="s3_text">Projecte de teràpies alternatives i medicina natural amb enfoc seriós i clar.</p>
           <ul>
-            <li>Guies i protocols de benestar</li>
-            <li>Contingut educatiu i acompanyament</li>
-            <li>Metodologies naturals</li>
+            <li data-i18n="s3_li1">Guies i protocols de benestar</li>
+            <li data-i18n="s3_li2">Contingut educatiu</li>
+            <li data-i18n="s3_li3">Acompanyament i comunitat</li>
           </ul>
           <div class="accent a-orange"></div>
+        </article>
+
+        <article class="card">
+          <span class="tag">🟦 Eyevision</span>
+          <h4 data-i18n="s4_title">Seguretat · Transport · Cyber</h4>
+          <p data-i18n="s4_text">Protecció, logística i seguretat digital: terra, aire, mar i telecom.</p>
+          <ul>
+            <li data-i18n="s4_li1">Seguretat privada i protocols</li>
+            <li data-i18n="s4_li2">Transport aero · marítim · terrestre</li>
+            <li data-i18n="s4_li3">Cyberseguretat i comunicacions</li>
+          </ul>
+          <div class="accent a-cyan"></div>
         </article>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <h3>Sobre EyeDit</h3>
+    <section id="portfolios" class="section" aria-label="Portfolios">
+      <h3 data-i18n="port_title">Portafolis</h3>
+      <p data-i18n="port_intro">
+        Aquí tens portafolis per sector en format “cards”. Després pots substituir els textos per projectes reals i afegir imatges.
+      </p>
 
-      <div class="about">
+      <div class="port-tabs" role="tablist" aria-label="Portfolio tabs">
+        <button class="tab active" data-tab="p-eyedit" data-i18n="tab_eyedit">EyeDit</button>
+        <button class="tab" data-tab="p-av" data-i18n="tab_av">Audiovisual</button>
+        <button class="tab" data-tab="p-ccs" data-i18n="tab_ccs">CCS.CANSSAM</button>
+        <button class="tab" data-tab="p-eyevision" data-i18n="tab_eyevision">Eyevision</button>
+      </div>
+
+      <!-- EyeDit Portfolio -->
+      <div class="port-panel" id="p-eyedit">
+        <div class="badge">🟢 <span data-i18n="p1_badge">EyeDit Portfolio</span></div>
+        <div style="height:12px"></div>
+
+        <div class="grid3">
+          <article class="project">
+            <span class="tag" data-i18n="p1_tag1">Imatge</span>
+            <h5 data-i18n="p1_title1">Producció i edició d’imatge premium</h5>
+            <p data-i18n="p1_text1">Flux ràpid: captura, retoc, export i lliurament, pensat per volum i qualitat.</p>
+            <div class="meta">
+              <span class="pill">Workflow</span><span class="pill">Retoc</span><span class="pill">Delivery</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p1_tag2">Brand</span>
+            <h5 data-i18n="p1_title2">Pack de marca i assets</h5>
+            <p data-i18n="p1_text2">Sistema visual: logos, tipografies, paleta, plantilles i guidelines.</p>
+            <div class="meta">
+              <span class="pill">Brand Kit</span><span class="pill">Templates</span><span class="pill">Guidelines</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p1_tag3">Web</span>
+            <h5 data-i18n="p1_title3">Landing corporativa i conversió</h5>
+            <p data-i18n="p1_text3">Estructures clares, CTA, seccions i portafoli, amb enfoc institucional.</p>
+            <div class="meta">
+              <span class="pill">UX</span><span class="pill">CTA</span><span class="pill">SEO-ready</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Audiovisual Portfolio -->
+      <div class="port-panel" id="p-av" hidden>
+        <div class="badge">🔵 <span data-i18n="p2_badge">Audiovisual Portfolio</span></div>
+        <div style="height:12px"></div>
+
+        <div class="grid3">
+          <article class="project">
+            <span class="tag" data-i18n="p2_tag1">Streaming</span>
+            <h5 data-i18n="p2_title1">Emissió en directe amb SRT/RTMP</h5>
+            <p data-i18n="p2_text1">Arquitectura estable per streaming: ingest, control, i distribució.</p>
+            <div class="meta">
+              <span class="pill">SRT</span><span class="pill">RTMP</span><span class="pill">IP</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p2_tag2">TV</span>
+            <h5 data-i18n="p2_title2">Producció de programes i formats</h5>
+            <p data-i18n="p2_text2">Guió, realització, edició i paquet gràfic per televisió i xarxes.</p>
+            <div class="meta">
+              <span class="pill">Studio</span><span class="pill">Edit</span><span class="pill">Graphics</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p2_tag3">Ràdio</span>
+            <h5 data-i18n="p2_title3">Ràdio digital i distribució</h5>
+            <p data-i18n="p2_text3">Producció, canals, programació i publicació en plataformes.</p>
+            <div class="meta">
+              <span class="pill">Podcast</span><span class="pill">Live</span><span class="pill">Distribution</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CCS Portfolio -->
+      <div class="port-panel" id="p-ccs" hidden>
+        <div class="badge">🟠 <span data-i18n="p3_badge">CCS.CANSSAM Portfolio</span></div>
+        <div style="height:12px"></div>
+
+        <div class="grid3">
+          <article class="project">
+            <span class="tag" data-i18n="p3_tag1">Guies</span>
+            <h5 data-i18n="p3_title1">Guies de benestar i protocols</h5>
+            <p data-i18n="p3_text1">Documents clars i pràctics: rutines, hàbits, i seguiment setmanal.</p>
+            <div class="meta">
+              <span class="pill">Plans</span><span class="pill">Routines</span><span class="pill">Tracking</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p3_tag2">Contingut</span>
+            <h5 data-i18n="p3_title2">Contingut educatiu</h5>
+            <p data-i18n="p3_text2">Articles i peces breus per educació, consciència i comunitat.</p>
+            <div class="meta">
+              <span class="pill">Articles</span><span class="pill">Short-form</span><span class="pill">Community</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p3_tag3">Marca</span>
+            <h5 data-i18n="p3_title3">Identitat per benestar</h5>
+            <p data-i18n="p3_text3">Línia visual serena i professional, preparada per producte i serveis.</p>
+            <div class="meta">
+              <span class="pill">Identity</span><span class="pill">Tone</span><span class="pill">System</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Eyevision Portfolio -->
+      <div class="port-panel" id="p-eyevision" hidden>
+        <div class="badge">🟦 <span data-i18n="p4_badge">Eyevision Portfolio</span></div>
+        <div style="height:12px"></div>
+
+        <div class="grid3">
+          <article class="project">
+            <span class="tag" data-i18n="p4_tag1">Seguretat</span>
+            <h5 data-i18n="p4_title1">Serveis de seguretat privada</h5>
+            <p data-i18n="p4_text1">Plans, protocols, equips i coordinació per entorns corporatius.</p>
+            <div class="meta">
+              <span class="pill">Protocols</span><span class="pill">Ops</span><span class="pill">Coordination</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p4_tag2">Transport</span>
+            <h5 data-i18n="p4_title2">Logística i transport multimodal</h5>
+            <p data-i18n="p4_text2">Aero, marítim i terrestre amb planificació, control i seguretat.</p>
+            <div class="meta">
+              <span class="pill">Air</span><span class="pill">Sea</span><span class="pill">Land</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <span class="tag" data-i18n="p4_tag3">Cyber</span>
+            <h5 data-i18n="p4_title3">Cyberseguretat i comunicacions</h5>
+            <p data-i18n="p4_text3">Bones pràctiques, seguretat de canals i continuïtat operativa.</p>
+            <div class="meta">
+              <span class="pill">Security</span><span class="pill">Comms</span><span class="pill">Resilience</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-label="About">
+      <h3 data-i18n="about_title">Sobre EyeDit</h3>
+
+      <div class="grid2">
         <div class="panel">
-          <h4 style="margin:0 0 8px;">Missió</h4>
-          <p style="margin:0;">
-            Construir un holding amb tres línies complementàries: creativitat visual, transmissió audiovisual,
-            i serveis orientats a benestar i seguretat.
+          <h4 style="margin:0 0 8px;" data-i18n="about_mission_title">Missió</h4>
+          <p style="margin:0;" data-i18n="about_mission_text">
+            Construir un holding amb línies complementàries: creativitat visual, transmissió audiovisual, benestar i seguretat operativa.
           </p>
         </div>
+
         <div class="panel">
-          <h4 style="margin:0 0 8px;">Operativa</h4>
-          <p style="margin:0;">
-            Base a Barcelona (Raval). Preparat per créixer a formats institucionals i comercials.
+          <h4 style="margin:0 0 8px;" data-i18n="about_ops_title">Operativa</h4>
+          <p style="margin:0;" data-i18n="about_ops_text">
+            Base a Barcelona (Raval). Preparat per créixer en formats institucionals i comercials, amb desplegament per fases.
           </p>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-      <h3>Contacte</h3>
+    <section id="contact" class="section" aria-label="Contact">
+      <h3 data-i18n="contact_title">Contacte</h3>
       <div class="panel">
-        <p style="margin:0 0 10px;">
-          Afegeix aquí el teu email corporatiu quan el tinguis. De moment pots posar un contacte temporal.
+        <p style="margin:0 0 10px;" data-i18n="contact_text">
+          Quan tinguis el domini i el correu corporatiu, aquí posarem el contacte oficial. De moment:
         </p>
+
         <p style="margin:0;">
           Email: <a href="mailto:Eyeditimage1111@gmail.com">Eyeditimage1111@gmail.com</a>
         </p>
       </div>
 
       <footer class="footer">
-        <div>© <span id="y"></span> EyeDit Group</div>
-        <div>Static HTML for Vercel · <code class="inline">index.html</code></div>
+        <div>© <span id="year"></span> EyeDit Group</div>
+        <div><span data-i18n="footer_text">Static HTML for Vercel</span> · <code class="inline">index.html</code></div>
       </footer>
     </section>
   </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Optional logo loader (logo.png -> logo.svg -> logo.jpg)
+    (function loadLogo(){
+      const img = document.getElementById("brandLogo");
+      const tryList = ["logo.png", "logo.svg", "logo.jpg"];
+      let i = 0;
+
+      function tryNext(){
+        if(i >= tryList.length) return;
+        const src = tryList[i++];
+        img.onload = () => { img.style.display = "block"; };
+        img.onerror = () => { tryNext(); };
+        img.src = src;
+      }
+      tryNext();
+    })();
+
+    // Portfolio tabs
+    (function portfolioTabs(){
+      const tabs = Array.from(document.querySelectorAll(".tab"));
+      const panels = Array.from(document.querySelectorAll(".port-panel"));
+
+      function show(id){
+        tabs.forEach(t => t.classList.toggle("active", t.getAttribute("data-tab") === id));
+        panels.forEach(p => p.hidden = (p.id !== id));
+      }
+
+      tabs.forEach(t => t.addEventListener("click", () => show(t.getAttribute("data-tab"))));
+      show("p-eyedit");
+    })();
+
+    // i18n dictionary
+    const I18N = {
+      ca: {
+        nav_sectors:"Sectors", nav_portfolios:"Portafolis", nav_about:"Sobre", nav_contact:"Contacte",
+        kicker:"Holding creatiu · telecom · seguretat",
+        hero_title:"EyeDit: imatge, transmissió, benestar i protecció.",
+        hero_text:"Web estàtica preparada per Vercel: un index.html a l’arrel del repositori, sense frameworks, sense build, i amb estructura professional.",
+        cta_sectors:"Veure els sectors", cta_portfolios:"Veure portafolis",
+        stat1_title:"Deploy automàtic", stat1_text:"Quan fas commit a GitHub, Vercel publica sol.",
+        stat2_title:"Fitxer únic", stat2_text:"Un sol index.html i ja està.",
+        stat3_title:"Logos després", stat3_text:"Puja logo.png a l’arrel i apareix automàticament.",
+        sectors_title:"Sectors",
+        s1_title:"Imatge · Contingut · Producció", s1_text:"Servei i plataforma orientada a creació, edició i gestió d’imatge i contingut digital.",
+        s1_li1:"Fotografia i postproducció", s1_li2:"Branding visual i assets", s1_li3:"Workflows ràpids i qualitat",
+        s2_title:"Ràdio · TV · Streaming", s2_text:"Operativa audiovisual i transmissió: formats moderns, distribució i cobertura.",
+        s2_li1:"RTMP / SRT / IP (i satèl·lit si cal)", s2_li2:"Emissió i senyal", s2_li3:"Producció de programes",
+        s3_title:"Benestar · Medicina natural", s3_text:"Projecte de teràpies alternatives i medicina natural amb enfoc seriós i clar.",
+        s3_li1:"Guies i protocols de benestar", s3_li2:"Contingut educatiu", s3_li3:"Acompanyament i comunitat",
+        s4_title:"Seguretat · Transport · Cyber", s4_text:"Protecció, logística i seguretat digital: terra, aire, mar i telecom.",
+        s4_li1:"Seguretat privada i protocols", s4_li2:"Transport aero · marítim · terrestre", s4_li3:"Cyberseguretat i comunicacions",
+
+        port_title:"Portafolis",
+        port_intro:"Aquí tens portafolis per sector en format “cards”. Després pots substituir els textos per projectes reals i afegir imatges.",
+        tab_eyedit:"EyeDit", tab_av:"Audiovisual", tab_ccs:"CCS.CANSSAM", tab_eyevision:"Eyevision",
+
+        p1_badge:"EyeDit Portfolio",
+        p1_tag1:"Imatge", p1_title1:"Producció i edició d’imatge premium", p1_text1:"Flux ràpid: captura, retoc, export i lliurament, pensat per volum i qualitat.",
+        p1_tag2:"Brand",  p1_title2:"Pack de marca i assets", p1_text2:"Sistema visual: logos, tipografies, paleta, plantilles i guidelines.",
+        p1_tag3:"Web",    p1_title3:"Landing corporativa i conversió", p1_text3:"Estructures clares, CTA, seccions i portafoli, amb enfoc institucional.",
+
+        p2_badge:"Audiovisual Portfolio",
+        p2_tag1:"Streaming", p2_title1:"Emissió en directe amb SRT/RTMP", p2_text1:"Arquitectura estable per streaming: ingest, control, i distribució.",
+        p2_tag2:"TV",        p2_title2:"Producció de programes i formats", p2_text2:"Guió, realització, edició i paquet gràfic per televisió i xarxes.",
+        p2_tag3:"Ràdio",     p2_title3:"Ràdio digital i distribució", p2_text3:"Producció, canals, programació i publicació en plataformes.",
+
+        p3_badge:"CCS.CANSSAM Portfolio",
+        p3_tag1:"Guies",     p3_title1:"Guies de benestar i protocols", p3_text1:"Documents clars i pràctics: rutines, hàbits, i seguiment setmanal.",
+        p3_tag2:"Contingut", p3_title2:"Contingut educatiu", p3_text2:"Articles i peces breus per educació, consciència i comunitat.",
+        p3_tag3:"Marca",     p3_title3:"Identitat per benestar", p3_text3:"Línia visual serena i professional, preparada per producte i serveis.",
+
+        p4_badge:"Eyevision Portfolio",
+        p4_tag1:"Seguretat", p4_title1:"Serveis de seguretat privada", p4_text1:"Plans, protocols, equips i coordinació per entorns corporatius.",
+        p4_tag2:"Transport", p4_title2:"Logística i transport multimodal", p4_text2:"Aero, marítim i terrestre amb planificació, control i seguretat.",
+        p4_tag3:"Cyber",     p4_title3:"Cyberseguretat i comunicacions", p4_text3:"Bones pràctiques, seguretat de canals i continuïtat operativa.",
+
+        about_title:"Sobre EyeDit",
+        about_mission_title:"Missió",
+        about_mission_text:"Construir un holding amb línies complementàries: creativitat visual, transmissió audiovisual, benestar i seguretat operativa.",
+        about_ops_title:"Operativa",
+        about_ops_text:"Base a Barcelona (Raval). Preparat per créixer en formats institucionals i comercials, amb desplegament per fases.",
+        contact_title:"Contacte",
+        contact_text:"Quan tinguis el domini i el correu corporatiu, aquí posarem el contacte oficial. De moment:",
+        footer_text:"Static HTML for Vercel"
+      },
+
+      es: {
+        nav_sectors:"Sectores", nav_portfolios:"Portafolios", nav_about:"Sobre", nav_contact:"Contacto",
+        kicker:"Holding creativo · telecom · seguridad",
+        hero_title:"EyeDit: imagen, transmisión, bienestar y protección.",
+        hero_text:"Web estática lista para Vercel: un index.html en la raíz del repositorio, sin frameworks, sin build y con estructura profesional.",
+        cta_sectors:"Ver sectores", cta_portfolios:"Ver portafolios",
+        stat1_title:"Deploy automático", stat1_text:"Cuando haces commit en GitHub, Vercel publica solo.",
+        stat2_title:"Archivo único", stat2_text:"Un solo index.html y listo.",
+        stat3_title:"Logos después", stat3_text:"Sube logo.png a la raíz y aparece automáticamente.",
+        sectors_title:"Sectores",
+        s1_title:"Imagen · Contenido · Producción", s1_text:"Servicio y plataforma para creación, edición y gestión de imagen y contenido digital.",
+        s1_li1:"Fotografía y postproducción", s1_li2:"Branding visual y assets", s1_li3:"Flujos rápidos y calidad",
+        s2_title:"Radio · TV · Streaming", s2_text:"Operativa audiovisual y transmisión: formatos modernos, distribución y cobertura.",
+        s2_li1:"RTMP / SRT / IP (y satélite si hace falta)", s2_li2:"Emisión y señal", s2_li3:"Producción de programas",
+        s3_title:"Bienestar · Medicina natural", s3_text:"Proyecto de terapias alternativas y medicina natural con enfoque serio y claro.",
+        s3_li1:"Guías y protocolos de bienestar", s3_li2:"Contenido educativo", s3_li3:"Acompañamiento y comunidad",
+        s4_title:"Seguridad · Transporte · Cyber", s4_text:"Protección, logística y seguridad digital: tierra, aire, mar y telecom.",
+        s4_li1:"Seguridad privada y protocolos", s4_li2:"Transporte aéreo · marítimo · terrestre", s4_li3:"Ciberseguridad y comunicaciones",
+
+        port_title:"Portafolios",
+        port_intro:"Aquí tienes portafolios por sector en formato “cards”. Luego puedes sustituir los textos por proyectos reales y añadir imágenes.",
+        tab_eyedit:"EyeDit", tab_av:"Audiovisual", tab_ccs:"CCS.CANSSAM", tab_eyevision:"Eyevision",
+
+        p1_badge:"EyeDit Portfolio",
+        p1_tag1:"Imagen", p1_title1:"Producción y edición de imagen premium", p1_text1:"Flujo rápido: captura, retoque, exportación y entrega, pensado para volumen y calidad.",
+        p1_tag2:"Brand",  p1_title2:"Pack de marca y assets", p1_text2:"Sistema visual: logos, tipografías, paleta, plantillas y guidelines.",
+        p1_tag3:"Web",    p1_title3:"Landing corporativa y conversión", p1_text3:"Estructuras claras, CTA, secciones y portafolio, con enfoque institucional.",
+
+        p2_badge:"Audiovisual Portfolio",
+        p2_tag1:"Streaming", p2_title1:"Emisión en directo con SRT/RTMP", p2_text1:"Arquitectura estable para streaming: ingest, control y distribución.",
+        p2_tag2:"TV",        p2_title2:"Producción de programas y formatos", p2_text2:"Guion, realización, edición y paquete gráfico para TV y redes.",
+        p2_tag3:"Radio",     p2_title3:"Radio digital y distribución", p2_text3:"Producción, canales, programación y publicación en plataformas.",
+
+        p3_badge:"CCS.CANSSAM Portfolio",
+        p3_tag1:"Guías",     p3_title1:"Guías de bienestar y protocolos", p3_text1:"Documentos claros y prácticos: rutinas, hábitos y seguimiento semanal.",
+        p3_tag2:"Contenido", p3_title2:"Contenido educativo", p3_text2:"Artículos y piezas breves para educación, conciencia y comunidad.",
+        p3_tag3:"Marca",     p3_title3:"Identidad para bienestar", p3_text3:"Línea visual serena y profesional, preparada para producto y servicios.",
+
+        p4_badge:"Eyevision Portfolio",
+        p4_tag1:"Seguridad", p4_title1:"Servicios de seguridad privada", p4_text1:"Planes, protocolos, equipos y coordinación para entornos corporativos.",
+        p4_tag2:"Transporte", p4_title2:"Logística y transporte multimodal", p4_text2:"Aéreo, marítimo y terrestre con planificación, control y seguridad.",
+        p4_tag3:"Cyber",     p4_title3:"Ciberseguridad y comunicaciones", p4_text3:"Buenas prácticas, seguridad de canales y continuidad operativa.",
+
+        about_title:"Sobre EyeDit",
+        about_mission_title:"Misión",
+        about_mission_text:"Construir un holding con líneas complementarias: creatividad visual, transmisión audiovisual, bienestar y seguridad operativa.",
+        about_ops_title:"Operativa",
+        about_ops_text:"Base en Barcelona (Raval). Preparado para crecer en formatos institucionales y comerciales, con despliegue por fases.",
+        contact_title:"Contacto",
+        contact_text:"Cuando tengas el dominio y el correo corporativo, aquí pondremos el contacto oficial. De momento:",
+        footer_text:"Static HTML for Vercel"
+      },
+
+      en: {
+        nav_sectors:"Sectors", nav_portfolios:"Portfolios", nav_about:"About", nav_contact:"Contact",
+        kicker:"Creative holding · telecom · security",
+        hero_title:"EyeDit: imaging, broadcasting, wellness and protection.",
+        hero_text:"Static site ready for Vercel: a single index.html at repo root, no frameworks, no build, professional structure included.",
+        cta_sectors:"View sectors", cta_portfolios:"View portfolios",
+        stat1_title:"Auto deploy", stat1_text:"When you commit to GitHub, Vercel publishes automatically.",
+        stat2_title:"Single file", stat2_text:"One index.html and you are done.",
+        stat3_title:"Logos later", stat3_text:"Upload logo.png to the root and it will appear automatically.",
+        sectors_title:"Sectors",
+        s1_title:"Imaging · Content · Production", s1_text:"Service and platform for creating, editing and managing digital images and content.",
+        s1_li1:"Photography and post-production", s1_li2:"Visual branding and assets", s1_li3:"Fast workflows and quality",
+        s2_title:"Radio · TV · Streaming", s2_text:"Audiovisual operations and transmission: modern formats, distribution and coverage.",
+        s2_li1:"RTMP / SRT / IP (satellite if needed)", s2_li2:"Broadcast signal", s2_li3:"Show production",
+        s3_title:"Wellness · Natural medicine", s3_text:"Alternative therapies and natural medicine project with a clear, serious approach.",
+        s3_li1:"Wellness guides and protocols", s3_li2:"Educational content", s3_li3:"Support and community",
+        s4_title:"Security · Transport · Cyber", s4_text:"Protection, logistics and digital security across land, air, sea and communications.",
+        s4_li1:"Private security and protocols", s4_li2:"Air · maritime · land transport", s4_li3:"Cybersecurity and communications",
+
+        port_title:"Portfolios",
+        port_intro:"Here are sector portfolios in card format. Later you can replace text with real projects and add images.",
+        tab_eyedit:"EyeDit", tab_av:"Audiovisual", tab_ccs:"CCS.CANSSAM", tab_eyevision:"Eyevision",
+
+        p1_badge:"EyeDit Portfolio",
+        p1_tag1:"Imaging", p1_title1:"Premium image production and editing", p1_text1:"Fast pipeline: capture, retouch, export and delivery, built for volume and quality.",
+        p1_tag2:"Brand",   p1_title2:"Brand kit and assets", p1_text2:"Visual system: logos, typography, palette, templates and guidelines.",
+        p1_tag3:"Web",     p1_title3:"Corporate landing and conversion", p1_text3:"Clear structure, CTA, sections and portfolio with an institutional feel.",
+
+        p2_badge:"Audiovisual Portfolio",
+        p2_tag1:"Streaming", p2_title1:"Live broadcasting with SRT/RTMP", p2_text1:"Stable streaming architecture: ingest, control and distribution.",
+        p2_tag2:"TV",        p2_title2:"Shows and format production", p2_text2:"Script, direction, editing and graphics for TV and social.",
+        p2_tag3:"Radio",     p2_title3:"Digital radio and distribution", p2_text3:"Production, channels, scheduling and platform publishing.",
+
+        p3_badge:"CCS.CANSSAM Portfolio",
+        p3_tag1:"Guides",    p3_title1:"Wellness guides and protocols", p3_text1:"Clear practical documents: routines, habits and weekly tracking.",
+        p3_tag2:"Content",   p3_title2:"Educational content", p3_text2:"Articles and short pieces for education, awareness and community.",
+        p3_tag3:"Brand",     p3_title3:"Wellness identity", p3_text3:"Calm professional visual line ready for product and services.",
+
+        p4_badge:"Eyevision Portfolio",
+        p4_tag1:"Security",  p4_title1:"Private security services", p4_text1:"Plans, protocols, teams and coordination for corporate environments.",
+        p4_tag2:"Transport", p4_title2:"Multimodal logistics and transport", p4_text2:"Air, sea and land with planning, control and safety.",
+        p4_tag3:"Cyber",     p4_title3:"Cybersecurity and communications", p4_text3:"Best practices, channel security and operational continuity.",
+
+        about_title:"About EyeDit",
+        about_mission_title:"Mission",
+        about_mission_text:"Build a holding with complementary lines: visual creativity, broadcasting, wellness and operational security.",
+        about_ops_title:"Operations",
+        about_ops_text:"Based in Barcelona (Raval). Built to grow into institutional and commercial formats in phases.",
+        contact_title:"Contact",
+        contact_text:"When you have your domain and corporate email, we’ll place the official contact here. For now:",
+        footer_text:"Static HTML for Vercel"
+      }
+    };
+
+    function setLang(lang){
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        const value = I18N[lang] && I18N[lang][key];
+        if(!value) return;
+
+        // Keep <code> in hero and stat lines
+        if(key === "hero_text"){
+          el.innerHTML = value.replace("index.html", '<code class="inline">index.html</code>');
+          return;
+        }
+        if(key === "stat2_text"){
+          el.innerHTML = value.replace("index.html", '<code class="inline">index.html</code>');
+          return;
+        }
+        if(key === "stat3_text"){
+          el.innerHTML = value.replace("logo.png", '<code class="inline">logo.png</code>');
+          return;
+        }
+
+        el.textContent = value;
+      });
+
+      document.querySelectorAll(".langbtn").forEach(b=>{
+        b.classList.toggle("active", b.getAttribute("data-lang") === lang);
+      });
+
+      localStorage.setItem("lang", lang);
+    }
+
+    document.querySelectorAll(".langbtn").forEach(btn=>{
+      btn.addEventListener("click", ()=> setLang(btn.getAttribute("data-lang")));
+    });
+
+    setLang(localStorage.getItem("lang") || "ca");
   </script>
 </body>
 </html>
