@@ -1,630 +1,332 @@
+
 <!doctype html>
 <html lang="ca">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EyeDit Group | Holding</title>
-  <meta name="description" content="EyeDit Group: Image Quick Service, Audiovisual, CCS CANSSAM i EyeVision." />
-  <meta name="theme-color" content="#050816" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EyeDit Group</title>
+  <meta name="description" content="EyeDit Group: Imaging, Audiovisual & Telecom, Natural Therapies, Security & Transport." />
+  <meta name="theme-color" content="#0a6b3b" />
   <style>
     :root{
-      --bg:#050816;
-      --bg2:#070b1a;
-      --card:rgba(255,255,255,.035);
-      --border:rgba(255,255,255,.10);
-      --txt:#e5e7eb;
-      --muted:#94a3b8;
-      --acc:#38bdf8;
-      --acc2:#a78bfa;
-      --shadow:0 26px 90px rgba(0,0,0,.60);
-      --radius:18px;
+      --bg:#07110c;
+      --card:#0b1b12;
+      --muted:#a8c7b6;
+      --text:#e8fff3;
+      --brand:#19c37d;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 18px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1100px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
-      color:var(--txt);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
       background:
-        radial-gradient(900px 580px at 10% 10%, rgba(56,189,248,.20), transparent 60%),
-        radial-gradient(860px 520px at 88% 22%, rgba(167,139,250,.14), transparent 55%),
-        linear-gradient(180deg,var(--bg2),var(--bg));
-      overflow-x:hidden;
+        radial-gradient(900px 500px at 15% 10%, rgba(25,195,125,.18), transparent 60%),
+        radial-gradient(800px 500px at 85% 0%, rgba(93,197,255,.12), transparent 55%),
+        radial-gradient(900px 700px at 70% 90%, rgba(255,146,86,.10), transparent 60%),
+        var(--bg);
+      line-height:1.5;
     }
-    a{color:inherit;text-decoration:none}
-    .hidden{display:none !important}
-    .small{font-size:12px;color:rgba(229,231,235,.70)}
-    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;border:1px solid rgba(255,255,255,.12);padding:2px 6px;border-radius:8px;background:rgba(255,255,255,.06)}
-    hr{border:0;border-top:1px solid rgba(255,255,255,.10);margin:18px 0}
-
-    #progressWrap{position:fixed;top:0;left:0;width:100%;height:3px;z-index:200;background:rgba(255,255,255,.06)}
-    #progressBar{height:100%;width:0;background:linear-gradient(90deg, rgba(56,189,248,.95), rgba(167,139,250,.85));box-shadow:0 0 18px rgba(56,189,248,.35)}
-
-    header{
-      position:sticky;top:0;z-index:150;
-      background:rgba(5,8,22,.60);
-      backdrop-filter: blur(14px);
-      border-bottom:1px solid rgba(255,255,255,.08);
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 56px}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+      padding:14px 14px;
+      border:1px solid var(--line);
+      background:rgba(11,27,18,.65);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
     }
-    .wrap{
-      max-width:1120px;margin:auto;padding:14px 18px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:0;
     }
-    .brand{display:flex;align-items:center;gap:12px;min-width:0;cursor:pointer}
-    .brand img{width:44px;height:44px;object-fit:contain;filter: drop-shadow(0 0 22px rgba(56,189,248,.20))}
-    .brand .fallback{display:none;width:44px;height:44px;border-radius:14px;border:1px solid rgba(56,189,248,.25);background:rgba(56,189,248,.06);align-items:center;justify-content:center;font-weight:900;letter-spacing:.08em}
-    .brand strong{display:block;font-weight:950;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-
-    .nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
-    .nav button{
-      appearance:none;border:1px solid transparent;background:transparent;
-      color:rgba(229,231,235,.78);
-      font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-      padding:9px 11px;border-radius:999px;cursor:pointer;transition:.18s ease;
-    }
-    .nav button:hover{border-color:rgba(56,189,248,.28);background:rgba(56,189,248,.08);color:var(--txt)}
-    .nav button.active{border-color:rgba(56,189,248,.35);background:rgba(56,189,248,.12);color:var(--txt)}
-    #lang{
-      background:rgba(255,255,255,.06);
-      color:rgba(229,231,235,.92);
-      border:1px solid rgba(255,255,255,.12);
+    .logo{
+      width:40px; height:40px;
       border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.25);
+      object-fit:contain;
+    }
+    .brand h1{
+      font-size:14px; margin:0; letter-spacing:.4px; text-transform:uppercase;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .nav{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .chip{
+      text-decoration:none;
+      font-size:13px;
       padding:8px 10px;
-    }
-
-    .hero{max-width:1120px;margin:auto;padding:66px 18px 18px}
-    .label{display:inline-flex;gap:10px;align-items:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:rgba(229,231,235,.78)}
-    .label:before{content:"";width:34px;height:1px;background:rgba(56,189,248,.72);box-shadow:0 0 18px rgba(56,189,248,.35)}
-    h1{margin:14px 0 10px;font-size:56px;letter-spacing:-.02em;line-height:1.02}
-    .hero p{margin:0;max-width:900px;color:var(--muted);line-height:1.55;font-size:16px}
-    @media(max-width:900px){h1{font-size:42px}}
-
-    .section{max-width:1120px;margin:auto;padding:22px 18px 74px}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    @media(max-width:1100px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:720px){.grid{grid-template-columns:1fr}}
-
-    .card{
-      border:1px solid var(--border);
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:20px;
-      transition:.18s ease;
-    }
-    .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(56,189,248,.22)}
-    .cardTop{display:flex;gap:14px;align-items:center}
-    .cardTop img{width:82px;height:82px;object-fit:contain;filter: drop-shadow(0 0 22px rgba(56,189,248,.14))}
-    .card h2{margin:0;font-size:18px}
-    .tag{margin-top:6px;font-size:12px;color:rgba(229,231,235,.78);letter-spacing:.14em;text-transform:uppercase}
-    .card p{margin:12px 0 0;color:var(--muted);line-height:1.5}
-
-    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .btn{
-      appearance:none;
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 12px;border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
+      border:1px solid var(--line);
+      border-radius:999px;
       background:rgba(255,255,255,.04);
-      color:var(--txt);
-      font-weight:900;font-size:12px;
-      letter-spacing:.10em;text-transform:uppercase;
-      cursor:pointer;transition:.18s ease;
     }
-    .btn:hover{transform:translateY(-1px);border-color:rgba(56,189,248,.30);background:rgba(56,189,248,.08)}
-
+    .chip:hover{border-color:rgba(25,195,125,.55)}
+    .hero{padding:44px 10px 10px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
     .panel{
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid var(--line);
+      background:rgba(11,27,18,.60);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .kicker{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:7px 10px;
       background:rgba(255,255,255,.03);
-      border-radius:var(--radius);
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--brand); box-shadow:0 0 0 4px rgba(25,195,125,.12)}
+    h2{margin:14px 0 10px; font-size:34px; line-height:1.1}
+    p{margin:0 0 14px; color:rgba(232,255,243,.88)}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .btn{
+      border:1px solid var(--line);
+      background:rgba(25,195,125,.12);
+      color:var(--text);
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius: 12px;
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn:hover{border-color:rgba(25,195,125,.55)}
+    .btn.secondary{background:rgba(255,255,255,.05); font-weight:600}
+    .mini{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px;
+    }
+    .stat{
+      padding:14px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,.18);
+    }
+    .stat b{display:block; font-size:14px}
+    .stat span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
+    .section{padding:26px 10px 0}
+    .section h3{margin:0 0 10px; font-size:18px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(11,27,18,.55);
+      box-shadow: var(--shadow);
       padding:18px;
+      min-height: 180px;
+      position:relative;
+      overflow:hidden;
     }
-    .panel h3{margin:0 0 8px;font-size:16px;letter-spacing:.12em;text-transform:uppercase}
-    .panel p{margin:0;color:var(--muted);line-height:1.55}
-
-    .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-    .pill{display:inline-flex;border:1px solid rgba(56,189,248,.22);background:rgba(56,189,248,.06);border-radius:999px;padding:6px 10px;font-size:12px;color:rgba(229,231,235,.92)}
-
-    details{border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);border-radius:14px;padding:12px 14px;margin-top:10px}
-    summary{cursor:pointer;list-style:none;font-weight:900}
-    summary::-webkit-details-marker{display:none}
-    .list{margin:10px 0 0;padding-left:18px;color:var(--muted);line-height:1.55}
-
-    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
-    @media(max-width:900px){.gallery{grid-template-columns:1fr}}
-    .ph{
-      height:140px;border-radius:16px;border:1px solid rgba(255,255,255,.10);
-      background:
-        radial-gradient(240px 120px at 30% 30%, rgba(56,189,248,.16), transparent 60%),
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.18));
-      display:flex;align-items:flex-end;justify-content:space-between;
-      padding:12px;color:rgba(229,231,235,.85);
-      cursor:pointer;transition:.16s ease;
+    .tag{
+      display:inline-flex; align-items:center;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      background:rgba(255,255,255,.03);
     }
-    .ph:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.25)}
-    .ph small{color:rgba(229,231,235,.70)}
-
-    footer{text-align:center;padding:28px 18px 44px;color:var(--muted)}
-    #toTop{
-      position:fixed;right:16px;bottom:16px;z-index:160;
-      display:none;padding:10px 12px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      color:var(--txt);
-      font-weight:900;font-size:12px;letter-spacing:.10em;text-transform:uppercase;
-      cursor:pointer;backdrop-filter: blur(10px);
-      transition:.18s ease;
+    .card h4{margin:10px 0 6px; font-size:18px}
+    .card ul{margin:10px 0 0; padding-left:18px; color:rgba(232,255,243,.86)}
+    .card li{margin:6px 0}
+    .accent{
+      position:absolute; inset:auto -40px -40px auto;
+      width:160px; height:160px;
+      border-radius: 50%;
+      filter: blur(18px);
+      opacity:.35;
     }
-    #toTop:hover{transform:translateY(-2px);border-color:rgba(56,189,248,.30);background:rgba(56,189,248,.10)}
-
-    /* Lightbox */
-    #lbOverlay{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.72);backdrop-filter: blur(10px);padding:18px}
-    #lbOverlay.show{display:flex}
-    #lbCard{width:min(980px,96vw);border-radius:18px;border:1px solid rgba(255,255,255,.12);background:rgba(5,8,22,.58);box-shadow:0 22px 90px rgba(0,0,0,.7);overflow:hidden}
-    #lbTop{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.10)}
-    #lbTitle{font-weight:900;letter-spacing:.02em;color:rgba(229,231,235,.92);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    #lbClose{appearance:none;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);color:rgba(229,231,235,.92);border-radius:12px;padding:8px 10px;cursor:pointer;font-weight:900;transition:.16s ease}
-    #lbClose:hover{border-color:rgba(56,189,248,.30);background:rgba(56,189,248,.10)}
-    #lbBody{padding:12px}
-    #lbImg{width:100%;max-height:72vh;object-fit:contain;display:block;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.30)}
-    #lbHint{margin-top:10px;color:rgba(229,231,235,.70);font-size:12px}
+    .a-green{background:rgba(25,195,125,.9)}
+    .a-blue{background:rgba(93,197,255,.9)}
+    .a-orange{background:rgba(255,146,86,.9)}
+    .about{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .footer{
+      margin-top:26px;
+      border-top:1px solid var(--line);
+      padding-top:18px;
+      color:rgba(232,255,243,.70);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    code.inline{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(0,0,0,.25);
+    }
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      h2{font-size:30px}
+    }
   </style>
 </head>
-
 <body>
-  <div id="progressWrap" aria-hidden="true"><div id="progressBar"></div></div>
-
-  <header>
-    <div class="wrap">
-      <div class="brand" role="link" aria-label="Home" tabindex="0" id="brandHome">
-        <img id="logoBrand" src="./logo-eyedit-group.png" alt="EyeDit Group"
-             onerror="this.style.display='none'; document.getElementById('brandFallback').style.display='flex';" />
-        <div id="brandFallback" class="fallback" aria-hidden="true">ED</div>
-        <div>
-          <strong>EyeDit Group</strong>
-          <div class="small" data-i18n="header_sub">Holding · Imatge · Media · Salut · Seguretat</div>
-        </div>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <!-- IMPORTANT: posa el teu logo al repo amb aquest nom exactament -->
+        <img class="logo" src="logo.png" alt="EyeDit Logo" onerror="this.style.display='none';" />
+        <h1>EyeDit Group</h1>
       </div>
 
-      <div class="nav">
-        <button id="nav-home" class="active" data-i18n="nav_home">Home</button>
-        <button id="nav-iqs" data-i18n="nav_iqs">Image Service</button>
-        <button id="nav-audiovisual" data-i18n="nav_av">Audiovisual</button>
-        <button id="nav-ccs" data-i18n="nav_ccs">CCS</button>
-        <button id="nav-eyevision" data-i18n="nav_ev">EyeVision</button>
-        <select id="lang" aria-label="Language">
-          <option value="ca">CAT</option>
-          <option value="es">ES</option>
-          <option value="en">EN</option>
-          <option value="fr">FR</option>
-          <option value="pt-BR">PT-BR</option>
-        </select>
-      </div>
-    </div>
-  </header>
+      <nav class="nav">
+        <a class="chip" href="#sectors">Sectors</a>
+        <a class="chip" href="#about">Sobre</a>
+        <a class="chip" href="#contact">Contacte</a>
+      </nav>
+    </header>
 
-  <!-- HOME -->
-  <section id="page-home">
     <section class="hero">
-      <div class="label" data-i18n="home_label">PORTA D’ENTRADA</div>
-      <h1 data-i18n="home_title">EyeDit Group</h1>
-      <p data-i18n="home_sub">Holding amb 4 divisions. Menú amb pestanyes, multi-secció en un únic HTML, lightbox i idiomes.</p>
-      <div class="btnrow">
-        <button class="btn" id="ctaStart" data-i18n="cta_start">Començar</button>
-        <a class="btn" href="#contact" data-i18n="cta_contact">Contacte</a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="grid">
-
-        <article class="card">
-          <div class="cardTop">
-            <img src="./logo-iqs.png" alt="Image Quick Service"
-                 onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=&quot;fallback&quot; style=&quot;display:flex&quot;>IQS</div>');" />
-            <div>
-              <h2 data-i18n="iqs_title">Image Quick Service</h2>
-              <div class="tag" data-i18n="iqs_tag">Imatge</div>
-            </div>
+      <div class="hero-grid">
+        <div class="panel">
+          <span class="kicker"><span class="dot"></span> Holding creatiu · telecom · seguretat</span>
+          <h2>EyeDit: imatge, transmissió, benestar i protecció.</h2>
+          <p>
+            Web estàtica preparada per Vercel: un <code class="inline">index.html</code> a l’arrel del repositori,
+            sense frameworks, sense build, i amb seccions clares.
+          </p>
+          <div class="actions">
+            <a class="btn" href="#sectors">Veure els 3 sectors</a>
+            <a class="btn secondary" href="#contact">Contactar</a>
           </div>
-          <p data-i18n="iqs_desc">Serveis d’imatge: producció, edició, contingut i entrega orientada a empresa.</p>
-          <button class="btn" data-go="iqs" data-i18n="enter">Entrar</button>
-        </article>
-
-        <article class="card">
-          <div class="cardTop">
-            <img src="./logo-audiovisual.png" alt="EyeDit Audiovisual"
-                 onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=&quot;fallback&quot; style=&quot;display:flex&quot;>AV</div>');" />
-            <div>
-              <h2 data-i18n="av_title">EyeDit Audiovisual</h2>
-              <div class="tag" data-i18n="av_tag">Media</div>
-            </div>
-          </div>
-          <p data-i18n="av_desc">Productora cine i teatre, ràdio/TV, agència creativa i cerca de talents.</p>
-          <button class="btn" data-go="audiovisual" data-i18n="enter">Entrar</button>
-        </article>
-
-        <article class="card">
-          <div class="cardTop">
-            <img src="./logo-ccs.png" alt="CCS CANSSAM"
-                 onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=&quot;fallback&quot; style=&quot;display:flex&quot;>CCS</div>');" />
-            <div>
-              <h2 data-i18n="ccs_title">CCS CANSSAM</h2>
-              <div class="tag" data-i18n="ccs_tag">Salut</div>
-            </div>
-          </div>
-          <p data-i18n="ccs_desc">Centre cultural per la salut: programes, teràpies naturals i cursos.</p>
-          <button class="btn" data-go="ccs" data-i18n="enter">Entrar</button>
-        </article>
-
-        <article class="card">
-          <div class="cardTop">
-            <img src="./logo-eyevision.png" alt="EyeVision Security"
-                 onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','<div class=&quot;fallback&quot; style=&quot;display:flex&quot;>EV</div>');" />
-            <div>
-              <h2 data-i18n="ev_title">EyeVision Security</h2>
-              <div class="tag" data-i18n="ev_tag">Seguretat</div>
-            </div>
-          </div>
-          <p data-i18n="ev_desc">Seguretat privada i transport aero/mar/terra amb orientació telecom/cyber.</p>
-          <button class="btn" data-go="eyevision" data-i18n="enter">Entrar</button>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="panel">
-        <h3 data-i18n="ceo_title">CEO</h3>
-        <p><b>Mikel Skoda</b> · <span data-i18n="ceo_role">Founder & CEO</span></p>
-        <hr>
-        <h3 data-i18n="contact_title">Contacte</h3>
-        <p class="small" data-i18n="contact_hint">Edita aquests camps amb les teves dades reals.</p>
-        <div class="pills" style="margin-top:12px">
-          <a class="pill" href="mailto:info@eyeditimagequickservice.org">info@eyeditimagequickservice.org</a>
-          <a class="pill" href="tel:+34000000000">+34 000 000 000</a>
-          <a class="pill" href="https://wa.me/34000000000" target="_blank" rel="noopener">WhatsApp</a>
         </div>
-        <p class="small" style="margin-top:12px">
-          Tip: si algun logo no surt, revisa el nom del fitxer a GitHub i que estigui a la mateixa carpeta que <span class="kbd">index.html</span>.
+
+        <div class="panel">
+          <div class="mini">
+            <div class="stat">
+              <b>Deploy automàtic</b>
+              <span>Quan fas commit a GitHub, Vercel publica sol.</span>
+            </div>
+            <div class="stat">
+              <b>Sense Root Directory</b>
+              <span>Deixa Root Directory buit (arrel del repo).</span>
+            </div>
+            <div class="stat">
+              <b>Fitxers mínims</b>
+              <span><code class="inline">index.html</code> + <code class="inline">logo.png</code> (opcional)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sectors" class="section">
+      <h3>Els 3 sectors</h3>
+
+      <div class="grid">
+        <article class="card">
+          <span class="tag">🟢 EyeDit Image Quick Service</span>
+          <h4>Imatge · Contingut · Producció</h4>
+          <p>Servei i plataforma orientada a creació, edició i gestió d’imatge i contingut digital.</p>
+          <ul>
+            <li>Fotografia i postproducció</li>
+            <li>Agència creativa i projectes digitals</li>
+            <li>Branding visual i assets</li>
+          </ul>
+          <div class="accent a-green"></div>
+        </article>
+
+        <article class="card">
+          <span class="tag">🔵 EyeDit Audiovisual</span>
+          <h4>Ràdio · TV · Streaming</h4>
+          <p>Operativa audiovisual i transmissió: formats moderns, distribució i cobertura.</p>
+          <ul>
+            <li>RTMP / SRT / IP (i satèl·lit si cal)</li>
+            <li>Emissió i senyal</li>
+            <li>Producció de programes i continguts</li>
+          </ul>
+          <div class="accent a-blue"></div>
+        </article>
+
+        <article class="card">
+          <span class="tag">🟠 CCS.CANSSAM</span>
+          <h4>Benestar · Medicina natural</h4>
+          <p>Projecte de teràpies alternatives i medicina natural amb enfoc seriós i clar.</p>
+          <ul>
+            <li>Guies i protocols de benestar</li>
+            <li>Contingut educatiu i acompanyament</li>
+            <li>Metodologies naturals</li>
+          </ul>
+          <div class="accent a-orange"></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h3>Sobre EyeDit</h3>
+
+      <div class="about">
+        <div class="panel">
+          <h4 style="margin:0 0 8px;">Missió</h4>
+          <p style="margin:0;">
+            Construir un holding amb tres línies complementàries: creativitat visual, transmissió audiovisual,
+            i serveis orientats a benestar i seguretat.
+          </p>
+        </div>
+        <div class="panel">
+          <h4 style="margin:0 0 8px;">Operativa</h4>
+          <p style="margin:0;">
+            Base a Barcelona (Raval). Preparat per créixer a formats institucionals i comercials.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h3>Contacte</h3>
+      <div class="panel">
+        <p style="margin:0 0 10px;">
+          Afegeix aquí el teu email corporatiu quan el tinguis. De moment pots posar un contacte temporal.
+        </p>
+        <p style="margin:0;">
+          Email: <a href="mailto:Eyeditimage1111@gmail.com">Eyeditimage1111@gmail.com</a>
         </p>
       </div>
-    </section>
-  </section>
 
-  <!-- IQS -->
-  <section id="page-iqs" class="hidden">
-    <section class="hero">
-      <div class="label" data-i18n="iqs_label">DIVISIÓ</div>
-      <h1 data-i18n="iqs_title">Image Quick Service</h1>
-      <p data-i18n="iqs_intro">Estandarditza, accelera i entrega contingut visual per a marca i empresa.</p>
-      <div class="btnrow">
-        <button class="btn" data-go="home" data-i18n="back_home">Tornar a Home</button>
-        <button class="btn" id="btnContactFromIqs" data-i18n="cta_contact">Contacte</button>
-      </div>
+      <footer class="footer">
+        <div>© <span id="y"></span> EyeDit Group</div>
+        <div>Static HTML for Vercel · <code class="inline">index.html</code></div>
+      </footer>
     </section>
-    <section class="section">
-      <div class="panel">
-        <h3 data-i18n="iqs_services">Serveis</h3>
-        <div class="pills">
-          <span class="pill" data-i18n="iqs_s1">Edició ràpida</span>
-          <span class="pill" data-i18n="iqs_s2">Retoc & color</span>
-          <span class="pill" data-i18n="iqs_s3">Brand content</span>
-          <span class="pill" data-i18n="iqs_s4">Entrega per lots</span>
-        </div>
-        <hr>
-        <h3 data-i18n="projects">Projectes</h3>
-        <details open>
-          <summary data-i18n="iqs_p1">Cas 1 · (Títol)</summary>
-          <ul class="list">
-            <li><b data-i18n="goal">Objectiu:</b> …</li>
-            <li><b data-i18n="work">Què vam fer:</b> …</li>
-            <li><b data-i18n="result">Resultat:</b> …</li>
-          </ul>
-        </details>
-        <details>
-          <summary data-i18n="iqs_p2">Cas 2 · (Títol)</summary>
-          <ul class="list">
-            <li><b data-i18n="goal">Objectiu:</b> …</li>
-            <li><b data-i18n="work">Què vam fer:</b> …</li>
-            <li><b data-i18n="result">Resultat:</b> …</li>
-          </ul>
-        </details>
-        <hr>
-        <h3 data-i18n="gallery">Galeria</h3>
-        <div class="gallery">
-          <div class="ph" data-lb-title="IQS · Sample 01"><div><b>Sample 01</b><br><small data-i18n="add_photo">Afegir foto</small></div><small>1920×1080</small></div>
-          <div class="ph" data-lb-title="IQS · Sample 02"><div><b>Sample 02</b><br><small data-i18n="add_photo">Afegir foto</small></div><small>1920×1080</small></div>
-          <div class="ph" data-lb-title="IQS · Sample 03"><div><b>Sample 03</b><br><small data-i18n="add_photo">Afegir foto</small></div><small>1920×1080</small></div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <!-- AUDIOVISUAL -->
-  <section id="page-audiovisual" class="hidden">
-    <section class="hero">
-      <div class="label" data-i18n="av_label">DIVISIÓ</div>
-      <h1 data-i18n="av_title">EyeDit Audiovisual</h1>
-      <p data-i18n="av_intro">Producció, realització, postproducció i talent scouting. De zero a estrena.</p>
-      <div class="btnrow">
-        <button class="btn" data-go="home" data-i18n="back_home">Tornar a Home</button>
-        <button class="btn" id="btnContactFromAv" data-i18n="cta_contact">Contacte</button>
-      </div>
-    </section>
-    <section class="section">
-      <div class="panel">
-        <h3 data-i18n="av_services">4 pilars</h3>
-        <div class="pills">
-          <span class="pill" data-i18n="av_s1">Productora</span>
-          <span class="pill" data-i18n="av_s2">Ràdio/TV</span>
-          <span class="pill" data-i18n="av_s3">Agència creativa</span>
-          <span class="pill" data-i18n="av_s4">Agència models/talent</span>
-        </div>
-        <hr>
-        <h3 data-i18n="projects">Projectes</h3>
-        <details open>
-          <summary data-i18n="av_p1">Projecte 1 · (Títol)</summary>
-          <ul class="list">
-            <li><b data-i18n="goal">Objectiu:</b> …</li>
-            <li><b data-i18n="work">Què vam fer:</b> …</li>
-            <li><b data-i18n="result">Resultat:</b> …</li>
-            <li><b data-i18n="link">Enllaç:</b> …</li>
-          </ul>
-        </details>
-        <details>
-          <summary data-i18n="av_p2">Projecte 2 · (Títol)</summary>
-          <ul class="list">
-            <li><b data-i18n="goal">Objectiu:</b> …</li>
-            <li><b data-i18n="work">Què vam fer:</b> …</li>
-            <li><b data-i18n="result">Resultat:</b> …</li>
-            <li><b data-i18n="link">Enllaç:</b> …</li>
-          </ul>
-        </details>
-        <hr>
-        <h3 data-i18n="gallery">Galeria</h3>
-        <div class="gallery">
-          <div class="ph" data-lb-title="Audiovisual · Frame 01"><div><b>Frame 01</b><br><small data-i18n="add_photo">Afegir foto</small></div><small>1920×1080</small></div>
-          <div class="ph" data-lb-title="Audiovisual · Frame 02"><div><b>Frame 02</b><br><small data-i18n="add_photo">Afegir foto</small></div><small>1920×1080</small></div>
-          <div class="ph" data-lb-title="Audiovisual · Frame 03"><div><b>Frame 03</b><br><small data-i18n="add_photo">Afegir foto</small></div><small>1920×1080</small></div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <!-- CCS -->
-  <section id="page-ccs" class="hidden">
-    <section class="hero">
-      <div class="label" data-i18n="ccs_label">DIVISIÓ</div>
-      <h1 data-i18n="ccs_title">CCS CANSSAM</h1>
-      <p data-i18n="ccs_intro">Centre cultural per la salut. Retirs, teràpies, nutrició i cursos.</p>
-      <div class="btnrow">
-        <button class="btn" data-go="home" data-i18n="back_home">Tornar a Home</button>
-        <button class="btn" id="btnContactFromCcs" data-i18n="cta_contact">Contacte</button>
-      </div>
-    </section>
-    <section class="section">
-      <div class="panel">
-        <h3 data-i18n="programs">Programes</h3>
-        <details open>
-          <summary data-i18n="ccs_p1">Programa 1 · Retir / Estada</summary>
-          <ul class="list">
-            <li><b data-i18n="profile">Perfil:</b> 18–80</li>
-            <li><b data-i18n="includes">Inclou:</b> teràpies, alimentació, rutines…</li>
-          </ul>
-        </details>
-        <details>
-          <summary data-i18n="ccs_p2">Programa 2 · Executive / Directius</summary>
-          <ul class="list">
-            <li><b data-i18n="duration">Durada:</b> 4 dies</li>
-            <li><b data-i18n="includes">Inclou:</b> …</li>
-            <li><b data-i18n="price">Preu:</b> …</li>
-          </ul>
-        </details>
-        <details>
-          <summary data-i18n="ccs_p3">Curs presencial · Grup reduït</summary>
-          <ul class="list">
-            <li><b data-i18n="format">Format:</b> 4 alumnes</li>
-            <li><b data-i18n="includes">Inclou:</b> …</li>
-          </ul>
-        </details>
-        <hr>
-        <h3 data-i18n="gallery">Galeria</h3>
-        <div class="gallery">
-          <div class="ph" data-lb-title="CCS · Instal·lacions"><div><b>Espai 01</b><br><small data-i18n="facilities">Instal·lacions</small></div><small data-i18n="photo">Foto</small></div>
-          <div class="ph" data-lb-title="CCS · Natura"><div><b>Espai 02</b><br><small data-i18n="nature">Natura</small></div><small data-i18n="photo">Foto</small></div>
-          <div class="ph" data-lb-title="CCS · Alimentació"><div><b>Espai 03</b><br><small data-i18n="nutrition">Alimentació</small></div><small data-i18n="photo">Foto</small></div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <!-- EYEVISION -->
-  <section id="page-eyevision" class="hidden">
-    <section class="hero">
-      <div class="label" data-i18n="ev_label">DIVISIÓ</div>
-      <h1 data-i18n="ev_title">EyeVision Security</h1>
-      <p data-i18n="ev_intro">Seguretat privada i transport especialitzat (aero/mar/terra) amb orientació telecom/cyber.</p>
-      <div class="btnrow">
-        <button class="btn" data-go="home" data-i18n="back_home">Tornar a Home</button>
-        <button class="btn" id="btnContactFromEv" data-i18n="cta_contact">Contacte</button>
-      </div>
-    </section>
-    <section class="section">
-      <div class="panel">
-        <h3 data-i18n="services">Serveis i Operacions</h3>
-        <details open>
-          <summary data-i18n="ev_p1">Operació 1 · (Títol)</summary>
-          <ul class="list">
-            <li><b data-i18n="goal">Objectiu:</b> …</li>
-            <li><b data-i18n="protocol">Protocol:</b> …</li>
-            <li><b data-i18n="coord">Coordinació:</b> aero/mar/terra…</li>
-          </ul>
-        </details>
-        <details>
-          <summary data-i18n="ev_p2">Servei 2 · Seguretat privada</summary>
-          <ul class="list">
-            <li><b data-i18n="scope">Abast:</b> …</li>
-            <li><b data-i18n="team">Equip:</b> …</li>
-          </ul>
-        </details>
-        <details>
-          <summary data-i18n="ev_p3">Servei 3 · Transport especialitzat</summary>
-          <ul class="list">
-            <li><b data-i18n="type">Tipus:</b> aeri / marítim / terrestre</li>
-            <li><b data-i18n="logistics">Logística:</b> …</li>
-          </ul>
-        </details>
-        <hr>
-        <h3 data-i18n="gallery">Galeria</h3>
-        <div class="gallery">
-          <div class="ph" data-lb-title="EyeVision · Planificació"><div><b>Operació 01</b><br><small data-i18n="planning">Planificació</small></div><small data-i18n="photo">Foto</small></div>
-          <div class="ph" data-lb-title="EyeVision · Transport"><div><b>Operació 02</b><br><small data-i18n="transport">Transport</small></div><small data-i18n="photo">Foto</small></div>
-          <div class="ph" data-lb-title="EyeVision · Seguretat"><div><b>Operació 03</b><br><small data-i18n="security">Seguretat</small></div><small data-i18n="photo">Foto</small></div>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <footer>© <span id="y"></span> EyeDit Group</footer>
-  <button id="toTop" type="button">Top</button>
-
-  <!-- LIGHTBOX -->
-  <div id="lbOverlay" role="dialog" aria-modal="true" aria-label="Image preview">
-    <div id="lbCard">
-      <div id="lbTop">
-        <div id="lbTitle">Preview</div>
-        <button id="lbClose" type="button">✕</button>
-      </div>
-      <div id="lbBody">
-        <img id="lbImg" alt="Preview image" />
-        <div id="lbHint">Tip: ESC</div>
-      </div>
-    </div>
   </div>
 
   <script>
-    /* YEAR */
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    /* TOP + PROGRESS */
-    const toTop = document.getElementById('toTop');
-    const pbar = document.getElementById('progressBar');
-    const update = () => {
-      const doc = document.documentElement;
-      const st = doc.scrollTop || document.body.scrollTop;
-      const sh = doc.scrollHeight - doc.clientHeight;
-      const pct = sh > 0 ? (st / sh) * 100 : 0;
-      pbar.style.width = pct.toFixed(2) + '%';
-      toTop.style.display = (st > 600) ? 'inline-flex' : 'none';
-    };
-    window.addEventListener('scroll', update, {passive:true});
-    window.addEventListener('resize', update);
-    update();
-    toTop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-
-    /* NAVIGATION (robust) */
-    (() => {
-      const pages = ['home','iqs','audiovisual','ccs','eyevision'];
-
-      function showPage(key){
-        if(!pages.includes(key)) key='home';
-
-        pages.forEach(k=>{
-          const el = document.getElementById('page-'+k);
-          if(el) el.classList.toggle('hidden', k!==key);
-        });
-
-        pages.forEach(k=>{
-          const btn = document.getElementById('nav-'+k);
-          if(btn) btn.classList.toggle('active', k===key);
-        });
-
-        history.replaceState(null,'', key==='home' ? '#home' : '#'+key);
-        window.scrollTo({top:0,behavior:'smooth'});
-      }
-      window.showPage = showPage;
-
-      pages.forEach(k=>{
-        const btn = document.getElementById('nav-'+k);
-        if(btn) btn.addEventListener('click', () => showPage(k));
-      });
-
-      document.querySelectorAll('[data-go]').forEach(el=>{
-        el.addEventListener('click', () => showPage(el.getAttribute('data-go')));
-      });
-
-      document.getElementById('brandHome').addEventListener('click', () => showPage('home'));
-      document.getElementById('brandHome').addEventListener('keydown', (e) => { if(e.key==='Enter') showPage('home'); });
-
-      const ctaStart = document.getElementById('ctaStart');
-      if(ctaStart) ctaStart.addEventListener('click', () => showPage('iqs'));
-
-      const goContact = () => { showPage('home'); setTimeout(()=>location.hash='#contact', 50); };
-      ['btnContactFromIqs','btnContactFromAv','btnContactFromCcs','btnContactFromEv'].forEach(id=>{
-        const b=document.getElementById(id); if(b) b.addEventListener('click', goContact);
-      });
-
-      const start = (location.hash || '#home').replace('#','');
-      showPage(pages.includes(start) ? start : 'home');
-    })();
-
-    /* LIGHTBOX */
-    const lbOverlay = document.getElementById('lbOverlay');
-    const lbClose = document.getElementById('lbClose');
-    const lbTitle = document.getElementById('lbTitle');
-    const lbImg = document.getElementById('lbImg');
-
-    const mockSVG = (title) => {
-      const safe = (title || 'Preview').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900">
-        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="rgba(56,189,248,0.55)"/><stop offset="1" stop-color="rgba(167,139,250,0.28)"/></linearGradient></defs>
-        <rect width="100%" height="100%" fill="rgba(5,8,22,1)"/><rect width="100%" height="100%" fill="url(#g)" opacity="0.35"/>
-        <circle cx="280" cy="220" r="170" fill="rgba(56,189,248,0.30)"/>
-        <text x="90" y="520" font-family="Arial" font-size="64" fill="rgba(229,231,235,0.95)" font-weight="700">${safe}</text>
-        <text x="90" y="600" font-family="Arial" font-size="28" fill="rgba(229,231,235,0.65)">Placeholder · Replace with real images later</text>
-      </svg>`;
-      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-    };
-    const openLB = (src, title) => {
-      lbTitle.textContent = title || 'Preview';
-      lbImg.src = src;
-      lbOverlay.classList.add('show');
-      document.body.style.overflow='hidden';
-    };
-    const closeLB = () => {
-      lbOverlay.classList.remove('show');
-      document.body.style.overflow='';
-      setTimeout(()=>{ lbImg.src=''; },50);
-    };
-    lbClose.addEventListener('click', closeLB);
-    lbOverlay.addEventListener('click', (e)=>{ if(e.target===lbOverlay) closeLB(); });
-    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && lbOverlay.classList.contains('show')) closeLB(); });
-
-    document.addEventListener('click', (e)=>{
-      const ph = e.target.closest('.ph');
-      if(ph){
-        const t = ph.getAttribute('data-lb-title') || 'Preview';
-        openLB(mockSVG(t), t);
-      }
-    });
-
-    /* I18N */
-    const I18N = {
-      "ca":{header_sub:"Holding · Imatge · Media · Salut · Seguretat",nav_home:"Home",nav_iqs:"Image Service",nav_av:"Audiovisual",nav_ccs:"CCS",nav_ev:"EyeVision",home_label:"PORTA D’ENTRADA",home_title:"EyeDit Group",home_sub:"Holding amb 4 divisions. Menú amb pestanyes, multi-secció en un únic HTML, lightbox i idiomes.",cta_start:"Començar",cta_contact:"Contacte",enter:"Entrar",ceo_title:"CEO",ceo_role:"Founder & CEO",contact_title:"Contacte",contact_hint:"Edita aquests camps amb les teves dades reals.",iqs_title:"Image Quick Service",iqs_tag:"Imatge",iqs_desc:"Serveis d’imatge: producció, edició, contingut i entrega orientada a empresa.",iqs_label:"DIVISIÓ",iqs_intro:"Estandarditza, accelera i entrega contingut visual per a marca i empresa.",iqs_services:"Serveis",iqs_s1:"Edició ràpida",iqs_s2:"Retoc & color",iqs_s3:"Brand content",iqs_s4:"Entrega per lots",projects:"Projectes",goal:"Objectiu:",work:"Què vam fer:",result:"Resultat:",gallery:"Galeria",add_photo:"Afegir foto",iqs_p1:"Cas 1 · (Títol)",iqs_p2:"Cas 2 · (Títol)",back_home:"Tornar a Home",
-            av_title:"EyeDit Audiovisual",av_tag:"Media",av_desc:"Productora cine i teatre, ràdio/TV, agència creativa i cerca de talents.",av_label:"DIVISIÓ",av_intro:"Producció, realització, postproducció i talent scouting. De zero a estrena.",av_services:"4 pilars",av_s1:"Productora",av_s2:"Ràdio/TV",av_s3:"Agència creativa",av_s4:"Agència models/talent",av_p1:"Projecte 1 · (Títol)",av_p2:"Projecte 2 · (Títol)",link:"Enllaç:",
-            ccs_title:"CCS CANSSAM",ccs_tag:"Salut",ccs_desc:"Centre cultural per la salut: programes, teràpies naturals i cursos.",ccs_label:"DIVISIÓ",ccs_intro:"Centre cultural per la salut. Retirs, teràpies, nutrició i cursos.",programs:"Programes",profile:"Perfil:",includes:"Inclou:",duration:"Durada:",price:"Preu:",format:"Format:",ccs_p1:"Programa 1 · Retir / Estada",ccs_p2:"Programa 2 · Executive / Directius",ccs_p3:"Curs presencial · Grup reduït",facilities:"Instal·lacions",nature:"Natura",nutrition:"Alimentació",photo:"Foto",
-            ev_title:"EyeVision Security",ev_tag:"Seguretat",ev_desc:"Seguretat privada i transport aero/mar/terra amb orientació telecom/cyber.",ev_label:"DIVISIÓ",ev_intro:"Seguretat privada i transport especialitzat (aero/mar/terra) amb orientació telecom/cyber.",services:"Serveis i Operacions",ev_p1:"Operació 1 · (Títol)",ev_p2:"Servei 2 · Seguretat privada",ev_p3:"Servei 3 · Transport especialitzat",protocol:"Protocol:",coord:"Coordinació:",scope:"Abast:",team:"Equip:",type:"Tipus:",logistics:"Logística:",planning:"Planificació",transport:"Transport",security:"Seguretat"},
-      "es":{header_sub:"Holding · Imagen · Media · Salud · Seguridad",nav_home:"Inicio",nav_iqs:"Image Service",nav_av:"Audiovisual",nav_ccs:"CCS",nav_ev:"EyeVision",home_label:"PUERTA DE ENTRADA",home_title:"EyeDit Group",home_sub:"Holding con 4 divisiones. Menú por pestañas, multi-sección en un solo HTML, lightbox e idiomas.",cta_start:"Empezar",cta_contact:"Contacto",enter:"Entrar",ceo_title:"CEO",ceo_role:"Founder & CEO",contact_title:"Contacto",contact_hint:"Edita estos campos con tus datos reales.",iqs_title:"Image Quick Service",iqs_tag:"Imagen",iqs_desc:"Servicios de imagen: producción, edición, contenido y entrega para empresas.",iqs_label:"DIVISIÓN",iqs_intro:"Estandariza, acelera y entrega contenido visual para marca y empresa.",iqs_services:"Servicios",iqs_s1:"Edición rápida",iqs_s2:"Retoque y color",iqs_s3:"Brand content",iqs_s4:"Entrega por lotes",projects:"Proyectos",goal:"Objetivo:",work:"Qué hicimos:",result:"Resultado:",gallery:"Galería",add_photo:"Añadir foto",iqs_p1:"Caso 1 · (Título)",iqs_p2:"Caso 2 · (Título)",back_home:"Volver a Inicio",
-            av_title:"EyeDit Audiovisual",av_tag:"Media",av_desc:"Productora de cine y teatro, radio/TV, agencia creativa y búsqueda de talentos.",av_label:"DIVISIÓN",av_intro:"Producción, dirección, postproducción y talent scouting. De cero a estreno.",av_services:"4 pilares",av_s1:"Productora",av_s2:"Radio/TV",av_s3:"Agencia creativa",av_s4:"Agencia modelos/talent",av_p1:"Proyecto 1 · (Título)",av_p2:"Proyecto 2 · (Título)",link:"Enlace:",
-            ccs_title:"CCS CANSSAM",ccs_tag:"Salud",ccs_desc:"Centro cultural para la salud: programas, terapias naturales y cursos.",ccs_label:"DIVISIÓN",ccs_intro:"Centro cultural para la salud. Retiros, terapias, nutrición y cursos.",programs:"Programas",profile:"Perfil:",includes:"Incluye:",duration:"Duración:",price:"Precio:",format:"Formato:",ccs_p1:"Programa 1 · Retiro / Estancia",ccs_p2:"Programa 2 · Executive / Directivos",ccs_p3:"Curso presencial · Grupo reducido",facilities:"Instalaciones",nature:"Naturaleza",nutrition:"Alimentación",photo:"Foto",
-            ev_title:"EyeVision Security",ev_tag:"Seguridad",ev_desc:"Seguridad privada y transporte aire/mar/tierra con enfoque telecom/cyber.",ev_label:"DIVISIÓN",ev_intro:"Seguridad privada y transporte especializado (aire/mar/tierra) con enfoque telecom/cyber.",services:"Servicios y Operaciones",ev_p1:"Operación 1 · (Título)",ev_p2:"Servicio 2 · Seguridad privada",ev_p3:"Servicio 3 · Transporte especializado",protocol:"Protocolo:",coord:"Coordinación:",scope:"Alcance:",team:"Equipo:",type:"Tipo:",logistics:"Logística:",planning:"Planificación",transport:"Transporte",security:"Seguridad"},
-      "en":{header_sub:"Holding · Imaging · Media · Health · Security",nav_home:"Home",nav_iqs:"Image Service",nav_av:"Audiovisual",nav_ccs:"CCS",nav_ev:"EyeVision",home_label:"ENTRY",home_title:"EyeDit Group",home_sub:"Holding with 4 divisions. Tab navigation, single-file multi-section, lightbox and languages.",cta_start:"Start",cta_contact:"Contact",enter:"Enter",ceo_title:"CEO",ceo_role:"Founder & CEO",contact_title:"Contact",contact_hint:"Edit these fields with your real details.",iqs_title:"Image Quick Service",iqs_tag:"Imaging",iqs_desc:"Imaging services: production, editing, content and enterprise delivery.",iqs_label:"DIVISION",iqs_intro:"Standardize, accelerate and deliver visual content for brands and businesses.",iqs_services:"Services",iqs_s1:"Fast editing",iqs_s2:"Retouch & color",iqs_s3:"Brand content",iqs_s4:"Batch delivery",projects:"Projects",goal:"Goal:",work:"What we did:",result:"Result:",gallery:"Gallery",add_photo:"Add photo",iqs_p1:"Case 1 · (Title)",iqs_p2:"Case 2 · (Title)",back_home:"Back to Home",
-            av_title:"EyeDit Audiovisual",av_tag:"Media",av_desc:"Film/theatre production, radio/TV, creative agency and talent scouting.",av_label:"DIVISION",av_intro:"Production, direction, post-production and talent scouting. From zero to premiere.",av_services:"4 pillars",av_s1:"Production",av_s2:"Radio/TV",av_s3:"Creative agency",av_s4:"Models/talent",av_p1:"Project 1 · (Title)",av_p2:"Project 2 · (Title)",link:"Link:",
-            ccs_title:"CCS CANSSAM",ccs_tag:"Health",ccs_desc:"Cultural health center: programs, natural therapies and courses.",ccs_label:"DIVISION",ccs_intro:"Cultural health center. Retreats, therapies, nutrition and courses.",programs:"Programs",profile:"Profile:",includes:"Includes:",duration:"Duration:",price:"Price:",format:"Format:",ccs_p1:"Program 1 · Retreat / Stay",ccs_p2:"Program 2 · Executive",ccs_p3:"In-person course · Small group",facilities:"Facilities",nature:"Nature",nutrition:"Nutrition",photo:"Photo",
-            ev_title:"EyeVision Security",ev_tag:"Security",ev_desc:"Private security and air/sea/land transport with telecom/cyber focus.",ev_label:"DIVISION",ev_intro:"Private security and specialized transport with telecom/cyber focus.",services:"Services & Operations",ev_p1:"Operation 1 · (Title)",ev_p2:"Service 2 · Private security",ev_p3:"Service 3 · Specialized transport",protocol:"Protocol:",coord:"Coordination:",scope:"Scope:",team:"Team:",type:"Type:",logistics:"Logistics:",planning:"Planning",transport:"Transport",security:"Security"},
-      "fr":{header_sub:"Holding · Image · Média · Santé · Sécurité",nav_home:"Accueil",nav_iqs:"Image Service",nav_av:"Audiovisuel",nav_ccs:"CCS",nav_ev:"EyeVision",home_label:"ACCÈS",home_title:"EyeDit Group",home_sub:"Holding 4 divisions. Navigation onglets, un seul fichier, lightbox et langues.",cta_start:"Démarrer",cta_contact:"Contact",enter:"Entrer",ceo_title:"CEO",ceo_role:"Founder & CEO",contact_title:"Contact",contact_hint:"Modifiez ces champs avec vos coordonnées réelles.",iqs_title:"Image Quick Service",iqs_tag:"Image",iqs_desc:"Services d’image: production, édition, contenu et livraison entreprise.",iqs_label:"DIVISION",iqs_intro:"Standardiser, accélérer et livrer du contenu visuel.",iqs_services:"Services",iqs_s1:"Édition rapide",iqs_s2:"Retouche & couleur",iqs_s3:"Brand content",iqs_s4:"Livraison par lots",projects:"Projets",goal:"Objectif :",work:"Réalisation :",result:"Résultat :",gallery:"Galerie",add_photo:"Ajouter photo",iqs_p1:"Cas 1 · (Titre)",iqs_p2:"Cas 2 · (Titre)",back_home:"Retour accueil",
-            av_title:"EyeDit Audiovisual",av_tag:"Média",av_desc:"Production cinéma/théâtre, radio/TV, agence créative et chasse de talents.",av_label:"DIVISION",av_intro:"Production, réalisation, postproduction et talents.",av_services:"4 piliers",av_s1:"Production",av_s2:"Radio/TV",av_s3:"Agence créative",av_s4:"Modèles/talents",av_p1:"Projet 1 · (Titre)",av_p2:"Projet 2 · (Titre)",link:"Lien :",
-            ccs_title:"CCS CANSSAM",ccs_tag:"Santé",ccs_desc:"Centre culturel santé: programmes, thérapies naturelles et cours.",ccs_label:"DIVISION",ccs_intro:"Centre culturel santé. Retraites, thérapies, nutrition et cours.",programs:"Programmes",profile:"Profil :",includes:"Inclus :",duration:"Durée :",price:"Prix :",format:"Format :",ccs_p1:"Programme 1 · Retraite / Séjour",ccs_p2:"Programme 2 · Executive",ccs_p3:"Cours présentiel · Petit groupe",facilities:"Installations",nature:"Nature",nutrition:"Alimentation",photo:"Photo",
-            ev_title:"EyeVision Security",ev_tag:"Sécurité",ev_desc:"Sécurité privée et transport air/mer/terre avec axe telecom/cyber.",ev_label:"DIVISION",ev_intro:"Sécurité privée et transport spécialisé.",services:"Services & Opérations",ev_p1:"Opération 1 · (Titre)",ev_p2:"Service 2 · Sécurité privée",ev_p3:"Service 3 · Transport spécialisé",protocol:"Protocole :",coord:"Coordination :",scope:"Périmètre :",team:"Équipe :",type:"Type :",logistics:"Logistique :",planning:"Planification",transport:"Transport",security:"Sécurité"},
-      "pt-BR":{header_sub:"Holding · Imagem · Mídia · Saúde · Segurança",nav_home:"Início",nav_iqs:"Image Service",nav_av:"Audiovisual",nav_ccs:"CCS",
+  </script>
+</body>
+</html>
