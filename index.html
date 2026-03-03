@@ -1,395 +1,164 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EyeDit Image Quick Service</title>
-  <meta name="description" content="EyeDit Image Quick Service: imatge, audiovisual, telecomunicacions i serveis segurs. Ecosistema amb CCS CAN SS AM CAN SAM i EyeVision." />
 
   <style>
-    :root{
-      --bg:#0b0f14;
-      --panel:#0f1620;
-      --text:#e8eef6;
-      --muted:#a9b6c6;
-      --line:rgba(255,255,255,.10);
-      --accent:#21d07a;
-      --accent2:#5aa8ff;
-      --shadow:0 18px 45px rgba(0,0,0,.45);
-      --r:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(900px 500px at 15% 0%, rgba(33,208,122,.18), transparent 60%),
-                  radial-gradient(900px 500px at 85% 15%, rgba(90,168,255,.16), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#0b0f14;
+      color:#e8eef6;
     }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:22px}
-    .card{
-      background: rgba(15,22,32,.72);
-      border:1px solid var(--line);
-      border-radius: var(--r);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
+
     header{
-      position:sticky; top:0; z-index:50;
-      background: linear-gradient(to bottom, rgba(11,15,20,.88), rgba(11,15,20,.55));
-      border-bottom:1px solid rgba(255,255,255,.06);
-      backdrop-filter: blur(10px);
+      padding:20px;
+      border-bottom:1px solid rgba(255,255,255,.1);
+      background:#0f1620;
     }
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:14px 22px;
-    }
+
     .brand{
-      display:flex; align-items:center; gap:12px;
-      min-width: 240px;
-    }
-    .brand img{height:44px;width:auto}
-    .brand b{display:block;font-size:14px;letter-spacing:.2px}
-    .brand small{display:block;color:var(--muted);font-size:12px}
-    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    nav a{
-      text-decoration:none;
-      padding:10px 12px;
-      border:1px solid rgba(255,255,255,.10);
-      border-radius: 999px;
-      color:var(--text);
-      font-size:13px;
-      background: rgba(255,255,255,.03);
-    }
-    nav a:hover{border-color:rgba(33,208,122,.45)}
-    .cta{
-      text-decoration:none;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(33,208,122,.55);
-      background: rgba(33,208,122,.10);
-      font-weight:600;
-    }
-
-    /* Hero */
-    .hero{
-      margin-top:18px;
-      padding:28px;
-      overflow:hidden;
-      position:relative;
-    }
-    .hero:before{
-      content:"";
-      position:absolute; inset:-120px -120px auto auto;
-      width:420px; height:420px;
-      background: radial-gradient(circle at 30% 30%, rgba(33,208,122,.22), transparent 60%);
-      filter: blur(2px);
-      transform: rotate(10deg);
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      position:relative;
-    }
-    @media (max-width: 860px){
-      .grid{grid-template-columns:1fr}
-      nav{justify-content:flex-start}
-      .brand{min-width:auto}
-    }
-    h1{margin:0 0 10px;font-size:34px;letter-spacing:-.2px}
-    p.lead{margin:0 0 16px;color:var(--muted);font-size:16px}
-    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 2px}
-    .pill{
-      padding:9px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-      font-size:13px;
-      color:var(--text);
-    }
-    .pill strong{color:var(--accent)}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-      text-decoration:none;
-      font-weight:600;
-    }
-    .btn.primary{
-      border-color:rgba(33,208,122,.55);
-      background: rgba(33,208,122,.12);
-    }
-    .panel{
-      padding:16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-    @media (max-width: 520px){ .kpis{grid-template-columns:1fr} }
-    .kpi b{font-size:18px}
-    .kpi small{display:block;color:var(--muted)}
-
-    /* Brand strip (3 logos) */
-    .brand-strip{
       display:flex;
-      gap:14px;
       align-items:center;
+      gap:14px;
       flex-wrap:wrap;
-      margin-top:16px;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.08);
     }
-    .brand-strip img{height:44px;width:auto}
-    .brand-strip span{color:var(--muted);font-size:13px}
 
-    /* Sections */
-    section{margin-top:18px}
-    .section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px}
-    .section-title h2{margin:0;font-size:20px}
-    .section-title p{margin:0;color:var(--muted);font-size:13px}
-    .cards{
+    .logo-main{
+      height:80px;
+      width:auto;
+    }
+
+    .brand b{
+      display:block;
+      font-size:18px;
+    }
+
+    .brand small{
+      color:#a9b6c6;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:24px;
+    }
+
+    .projects{
+      margin-top:30px;
+    }
+
+    .projects h2{
+      margin-bottom:16px;
+    }
+
+    .projects-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:12px;
+      gap:16px;
     }
-    @media (max-width: 860px){ .cards{grid-template-columns:1fr} }
-    .mini{
-      padding:16px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.03);
-    }
-    .mini h3{margin:0 0 8px;font-size:16px}
-    .mini p{margin:0;color:var(--muted);font-size:13px}
-    .tag{
-      display:inline-block;margin-top:10px;
-      padding:6px 10px;border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      font-size:12px;color:var(--text);
-      background: rgba(255,255,255,.03);
-    }
-    .tag.green{border-color:rgba(33,208,122,.45)}
-    .tag.blue{border-color:rgba(90,168,255,.45)}
-    .tag.gray{border-color:rgba(255,255,255,.18)}
 
-    /* Footer */
-    footer{margin:26px 0 10px;color:var(--muted);font-size:12px}
-    .contact{
-      display:grid;grid-template-columns:1fr 1fr;gap:12px;
+    .project-card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:14px;
+      padding:18px;
     }
-    @media (max-width: 860px){ .contact{grid-template-columns:1fr} }
-    .contact a{color:var(--text);text-decoration:none}
-    .note{color:var(--muted);font-size:13px;margin:8px 0 0}
-    .line{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
+
+    .project-logo{
+      height:60px;
+      width:auto;
+      margin-bottom:12px;
+      display:block;
+    }
+
+    .project-card h3{
+      margin:0 0 8px;
+    }
+
+    .project-card p{
+      color:#a9b6c6;
+      font-size:14px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:12px;
+      padding:10px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      background:#21d07a;
+      color:#001b0f;
+      font-weight:bold;
+      font-size:14px;
+    }
+
+    .btn:hover{
+      opacity:.9;
+    }
+
+    @media (max-width:900px){
+      .projects-grid{
+        grid-template-columns:1fr;
+      }
+      .logo-main{
+        height:64px;
+      }
+    }
   </style>
 </head>
 
 <body>
+
 <header>
-  <div class="topbar wrap">
-    <div class="brand">
-    <!-- Logo principal (EyeDit Group / holding) -->
-<img src="logo-eyeditgroup.png" alt="EyeDit Group logo" width="200">
+  <div class="container brand">
+    <!-- Logo principal -->
+    <img src="logo-eyeditgroup.png" alt="EyeDit Group logo" class="logo-main">
 
-<section class="brand-strip">
-  <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM">
-  <img src="logo-eyedit.png" alt="EyeDit">
-  <img src="logo-eyevision.png" alt="EyeVision">
-</section>
-
-<b>EyeDit Image Quick Service</b>
-<small>Media • Telecom • Secure Infrastructure</small>
-      
-
-
-  
-  
-  
-
-        
-        
-      </div>
+    <div>
+      <b>EyeDit Image Quick Service</b>
+      <small>Media • Telecom • Secure Infrastructure</small>
     </div>
-
-    <nav>
-      <a href="#services">Serveis</a>
-      <a href="#ecosystem">Ecosistema</a>
-      <a href="#usecases">Casos d’ús</a>
-      <a href="#contact" class="cta">Contacte</a>
-    </nav>
   </div>
 </header>
 
-<main class="wrap">
-  <section class="hero card">
-    <div class="grid">
-      <div>
-        <h1>Velocitat d’imatge. Precisió d’infraestructura. Resultat premium.</h1>
-        <p class="lead">
-          EyeDit Image Quick Service és una plataforma de serveis d’imatge i audiovisual, telecomunicacions i operacions segures,
-          preparada per escalar internacionalment i treballar amb estàndards corporatius.
-        </p>
+<main class="container">
 
-        <div class="pillrow">
-          <div class="pill"><strong>Image</strong> workflow ràpid</div>
-          <div class="pill"><strong>Media</strong> & broadcast</div>
-          <div class="pill"><strong>Telecom</strong> & satèl·lit</div>
-          <div class="pill"><strong>Security</strong> & compliance</div>
-        </div>
+  <section class="projects">
+    <h2>Projects Portfolio</h2>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="#contact">Demana un briefing</a>
-          <a class="btn" href="#services">Veure serveis</a>
-        </div>
+    <div class="projects-grid">
 
-        <!-- Franja amb els 3 logos (divisions) -->
-        <div class="brand-strip" aria-label="Divisions">
-          <span>Divisions:</span>
-          <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM" />
-          <img src="logo-eyedit.png" alt="EyeDit" />
-          <img src="logo-eyevision.png" alt="EyeVision" />
-        </div>
-      </div>
-
-      <div class="panel">
-        <div class="kpis">
-          <div class="kpi">
-            <b>Fast</b>
-            <small>Turnaround per clients</small>
-          </div>
-          <div class="kpi">
-            <b>Secure</b>
-            <small>Canals i fluxos controlats</small>
-          </div>
-          <div class="kpi">
-            <b>Global</b>
-            <small>Escalabilitat i projecció</small>
-          </div>
-        </div>
-        <div class="line"></div>
-        <p class="note">
-          CEO: <b style="color:var(--text)">Mikel Skoda</b><br/>
-          Base operativa: Barcelona (Raval) i projecció internacional.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="section-title">
-      <h2>Serveis principals</h2>
-      <p>Tria un paquet o combina’ls per projecte.</p>
-    </div>
-    <div class="cards">
-      <div class="mini">
-        <h3>Image Quick Service</h3>
-        <p>Captura, edició, optimització i entrega d’imatge amb fluxos ràpids i consistents.</p>
-        <span class="tag green">Imatge & producció</span>
-      </div>
-      <div class="mini">
-        <h3>Audiovisual & Broadcast</h3>
-        <p>Producció, streaming, formats creatius i contingut per canals digitals i corporatius.</p>
-        <span class="tag blue">Media & streaming</span>
-      </div>
-      <div class="mini">
-        <h3>Telecom & Secure Ops</h3>
-        <p>Integració de comunicacions, canals segurs i arquitectura operativa per entorns exigents.</p>
-        <span class="tag gray">Telecom & seguretat</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="ecosystem">
-    <div class="section-title">
-      <h2>Ecosistema EyeDit</h2>
-      <p>Tres divisions, una operació coordinada.</p>
-    </div>
-
-    <div class="cards">
-      <div class="mini">
+      <!-- CCS -->
+      <article class="project-card">
+        <img class="project-logo" src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM">
         <h3>CCS CAN SS AM CAN SAM</h3>
-        <p>Benestar, teràpies naturals i serveis holístics amb enfoc integratiu i escalable.</p>
-        <span class="tag green">Wellness</span>
-      </div>
-      <div class="mini">
+        <p>Medicina natural, teràpies alternatives i benestar integratiu professional.</p>
+        <a class="btn" href="#" target="_blank">View Portfolio</a>
+      </article>
+
+      <!-- EyeDit -->
+      <article class="project-card">
+        <img class="project-logo" src="logo-eyedit.png" alt="EyeDit">
         <h3>EyeDit Media</h3>
-        <p>Agència creativa, ràdio/TV, producció i distribució de contingut amb qualitat premium.</p>
-        <span class="tag blue">Audiovisual</span>
-      </div>
-      <div class="mini">
-        <h3>EyeVision</h3>
-        <p>Seguretat i operacions, transport (aeri, marítim, terrestre) i capa de ciberseguretat.</p>
-        <span class="tag gray">Security</span>
-      </div>
+        <p>Producció audiovisual, ràdio, televisió i agència creativa.</p>
+        <a class="btn" href="#" target="_blank">View Portfolio</a>
+      </article>
+
+      <!-- EyeVision -->
+      <article class="project-card">
+        <img class="project-logo" src="logo-eyevision.png" alt="EyeVision">
+        <h3>EyeVision Security</h3>
+        <p>Seguretat privada, transport aero-marítim-terrestre i ciberseguretat.</p>
+        <a class="btn" href="#" target="_blank">View Portfolio</a>
+      </article>
+
     </div>
   </section>
 
-  <section id="usecases">
-    <div class="section-title">
-      <h2>Casos d’ús</h2>
-      <p>Exemples de com s’aplica el model.</p>
-    </div>
-
-    <div class="cards">
-      <div class="mini">
-        <h3>Family Office & Premium Clients</h3>
-        <p>Branding, imatge i comunicació segura amb lliuraments ràpids i confidencialitat.</p>
-        <span class="tag gray">Confidential</span>
-      </div>
-      <div class="mini">
-        <h3>Producció + Distribució</h3>
-        <p>Streaming i contingut amb canals robustos, suport remot i qualitat consistent.</p>
-        <span class="tag blue">Broadcast-ready</span>
-      </div>
-      <div class="mini">
-        <h3>Wellness Digital Delivery</h3>
-        <p>Serveis i programes de benestar amb capa digital, media i seguretat integrades.</p>
-        <span class="tag green">Welltech</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="card" style="padding:18px">
-    <div class="section-title">
-      <h2>Contacte</h2>
-      <p>Per briefing, deck o col·laboracions.</p>
-    </div>
-
-    <div class="contact">
-      <div class="mini">
-        <h3>Email</h3>
-        <p>
-          <a href="mailto:ms.eyedit@outlook.com">ms.eyedit@outlook.com</a>
-        </p>
-        <p class="note">Responc amb un missatge curt i orientat a acció.</p>
-      </div>
-      <div class="mini">
-        <h3>Nota</h3>
-        <p>Si estàs enviant un pitch: inclou 3 línies, un link al deck i el teu objectiu (meeting / intro).</p>
-        <p class="note">També puc preparar one-pager i deck institucional.</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="wrap">
-    © <span id="y"></span> EyeDit Image Quick Service. All rights reserved.
-  </footer>
 </main>
-
-<script>
-  // Any actualitza any
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
 
 </body>
 </html>
