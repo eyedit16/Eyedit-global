@@ -1,1460 +1,380 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <title>EyeDit</title>
-
-  <style>
-    .brand-strip{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:18px}
-    .brand-strip img{height:44px;width:auto}
-  </style>
-</head>
-
-
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EyeDit Group</title>
-  <meta name="description" content="EyeDit Group: Imaging, Audiovisual, Natural Therapies, Security & Transport. Corporate portfolio and institutional platform." />
-  <meta name="theme-color" content="#0a6b3b" />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://eyeditimagequickservice.org/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="EyeDit Group" />
-  <meta property="og:description" content="Imaging · Audiovisual · Natural Therapies · Security & Transport. Corporate portfolio." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="og-image.png" />
-  <meta property="og:locale" content="ca_ES" />
+  <title>EyeDit Image Quick Service</title>
+  <meta name="description" content="EyeDit Image Quick Service: imatge, audiovisual, telecomunicacions i serveis segurs. Ecosistema amb CCS CAN SS AM CAN SAM i EyeVision." />
 
   <style>
     :root{
-      --bg:#07110c;
-      --card:#0b1b12;
-      --muted:#a8c7b6;
-      --text:#e8fff3;
-      --brand:#19c37d;
+      --bg:#0b0f14;
+      --panel:#0f1620;
+      --text:#e8eef6;
+      --muted:#a9b6c6;
       --line:rgba(255,255,255,.10);
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
-      --shadow2: 0 24px 70px rgba(0,0,0,.55);
-      --radius: 18px;
-      --max: 1160px;
-
-      --green: rgba(25,195,125,.90);
-      --blue:  rgba(93,197,255,.90);
-      --orange:rgba(255,146,86,.90);
-      --cyan:  rgba(86,255,219,.90);
-      --violet:rgba(190,120,255,.85);
+      --accent:#21d07a;
+      --accent2:#5aa8ff;
+      --shadow:0 18px 45px rgba(0,0,0,.45);
+      --r:18px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
-    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 500px at 15% 0%, rgba(33,208,122,.18), transparent 60%),
+                  radial-gradient(900px 500px at 85% 15%, rgba(90,168,255,.16), transparent 55%),
+                  var(--bg);
       color:var(--text);
-      background:
-        radial-gradient(900px 500px at 15% 10%, rgba(25,195,125,.18), transparent 60%),
-        radial-gradient(800px 520px at 85% 0%, rgba(93,197,255,.12), transparent 55%),
-        radial-gradient(900px 720px at 70% 90%, rgba(255,146,86,.10), transparent 60%),
-        radial-gradient(900px 520px at 40% 70%, rgba(190,120,255,.08), transparent 60%),
-        var(--bg);
-      line-height:1.55;
+      line-height:1.5;
     }
-    section{scroll-margin-top: 104px;}
-    a{color:inherit; text-decoration:none}
-    button{font:inherit}
-    .sr-only{
-      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:22px}
+    .card{
+      background: rgba(15,22,32,.72);
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
-
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 16px 70px}
-
-    /* Topbar */
+    header{
+      position:sticky; top:0; z-index:50;
+      background: linear-gradient(to bottom, rgba(11,15,20,.88), rgba(11,15,20,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+      backdrop-filter: blur(10px);
+    }
     .topbar{
       display:flex; align-items:center; justify-content:space-between;
-      gap:12px;
-      padding:14px 14px;
-      border:1px solid var(--line);
-      background:rgba(11,27,18,.65);
-      backdrop-filter: blur(10px);
+      gap:14px; padding:14px 22px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 240px;
+    }
+    .brand img{height:44px;width:auto}
+    .brand b{display:block;font-size:14px;letter-spacing:.2px}
+    .brand small{display:block;color:var(--muted);font-size:12px}
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{
+      text-decoration:none;
+      padding:10px 12px;
+      border:1px solid rgba(255,255,255,.10);
       border-radius: 999px;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 14px;
-      z-index: 50;
-    }
-    .brand{display:flex; align-items:center; gap:12px; min-width:0;}
-    .logo{
-      width:40px; height:40px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.25);
-      object-fit:contain;
-      display:none;
-    }
-    .brand h1{
-      font-size:14px; margin:0; letter-spacing:.45px; text-transform:uppercase;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-    }
-
-    .right{display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-    .nav{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
-    .chip{
-      font-size:13px;
-      padding:8px 10px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-    }
-    .chip:hover{border-color:rgba(25,195,125,.55)}
-
-    .langs{display:flex; gap:6px; align-items:center;}
-    .langbtn{
-      cursor:pointer;
-      font-size:12px;
-      padding:7px 10px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(0,0,0,.18);
       color:var(--text);
-      font-weight:800;
-      letter-spacing:.25px;
+      font-size:13px;
+      background: rgba(255,255,255,.03);
     }
-    .langbtn.active{
-      border-color:rgba(25,195,125,.7);
-      background:rgba(25,195,125,.14);
+    nav a:hover{border-color:rgba(33,208,122,.45)}
+    .cta{
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(33,208,122,.55);
+      background: rgba(33,208,122,.10);
+      font-weight:600;
     }
 
     /* Hero */
-    .hero{padding:44px 10px 10px}
-    .hero-grid{display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:stretch;}
-    .panel{
-      border:1px solid var(--line);
-      background:rgba(11,27,18,.60);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:22px;
+    .hero{
+      margin-top:18px;
+      padding:28px;
+      overflow:hidden;
+      position:relative;
     }
-    .kicker{
-      display:inline-flex; gap:8px; align-items:center;
-      font-size:12px; color:var(--muted);
-      border:1px solid var(--line);
+    .hero:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(33,208,122,.22), transparent 60%);
+      filter: blur(2px);
+      transform: rotate(10deg);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      position:relative;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns:1fr}
+      nav{justify-content:flex-start}
+      .brand{min-width:auto}
+    }
+    h1{margin:0 0 10px;font-size:34px;letter-spacing:-.2px}
+    p.lead{margin:0 0 16px;color:var(--muted);font-size:16px}
+    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 2px}
+    .pill{
+      padding:9px 12px;
       border-radius:999px;
-      padding:7px 10px;
-      background:rgba(255,255,255,.03);
-    }
-    .dot{
-      width:8px; height:8px; border-radius:99px;
-      background:var(--brand);
-      box-shadow:0 0 0 4px rgba(25,195,125,.12);
-    }
-    h2{margin:14px 0 10px; font-size:36px; line-height:1.08}
-    p{margin:0 0 14px; color:rgba(232,255,243,.88)}
-    code.inline{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 12px;
-      padding: 2px 6px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(0,0,0,.25);
-    }
-
-    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
-    .btn{
-      cursor:pointer;
-      border:1px solid var(--line);
-      background:rgba(25,195,125,.12);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      font-size:13px;
       color:var(--text);
-      padding:10px 12px;
-      border-radius: 12px;
-      font-weight:800;
-      font-size:14px;
-      display:inline-flex;
-      gap:8px;
-      align-items:center;
     }
-    .btn:hover{border-color:rgba(25,195,125,.55)}
-    .btn.secondary{background:rgba(255,255,255,.05)}
-    .btn.ghost{background:transparent}
-    .btn:focus{outline:2px solid rgba(25,195,125,.55); outline-offset:2px}
+    .pill strong{color:var(--accent)}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      text-decoration:none;
+      font-weight:600;
+    }
+    .btn.primary{
+      border-color:rgba(33,208,122,.55);
+      background: rgba(33,208,122,.12);
+    }
+    .panel{
+      padding:16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    @media (max-width: 520px){ .kpis{grid-template-columns:1fr} }
+    .kpi b{font-size:18px}
+    .kpi small{display:block;color:var(--muted)}
 
-    .mini{display:grid; grid-template-columns: 1fr; gap:12px;}
-    .stat{
-      padding:14px;
-      border-radius: 14px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.18);
+    /* Brand strip (3 logos) */
+    .brand-strip{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top:16px;
+      padding-top:14px;
+      border-top:1px solid rgba(255,255,255,.08);
     }
-    .stat b{display:block; font-size:14px}
-    .stat span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
+    .brand-strip img{height:44px;width:auto}
+    .brand-strip span{color:var(--muted);font-size:13px}
 
     /* Sections */
-    .section{padding:32px 10px 0}
-    .section h3{margin:0 0 10px; font-size:18px}
-
-    .grid4{display:grid; grid-template-columns: repeat(4, 1fr); gap:14px;}
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
-    .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;}
-
-    .card{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(11,27,18,.55);
-      box-shadow: var(--shadow);
-      padding:18px;
-      min-height: 200px;
-      position:relative;
-      overflow:hidden;
+    section{margin-top:18px}
+    .section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px}
+    .section-title h2{margin:0;font-size:20px}
+    .section-title p{margin:0;color:var(--muted);font-size:13px}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
     }
+    @media (max-width: 860px){ .cards{grid-template-columns:1fr} }
+    .mini{
+      padding:16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .mini h3{margin:0 0 8px;font-size:16px}
+    .mini p{margin:0;color:var(--muted);font-size:13px}
     .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      font-size:12px; color:var(--muted);
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:6px 10px;
-      background:rgba(255,255,255,.03);
+      display:inline-block;margin-top:10px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      font-size:12px;color:var(--text);
+      background: rgba(255,255,255,.03);
     }
-    .card h4{margin:10px 0 6px; font-size:18px}
-    .card ul{margin:10px 0 0; padding-left:18px; color:rgba(232,255,243,.86)}
-    .card li{margin:6px 0}
-
-    .accent{
-      position:absolute; inset:auto -40px -40px auto;
-      width:160px; height:160px;
-      border-radius: 50%;
-      filter: blur(18px);
-      opacity:.35;
-    }
-    .a-green{background:var(--green)}
-    .a-blue{background:var(--blue)}
-    .a-orange{background:var(--orange)}
-    .a-cyan{background:var(--cyan)}
-
-    /* Portfolio controls */
-    .controls{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin: 8px 0 14px;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .filters{
-      display:flex; gap:8px; flex-wrap:wrap;
-      align-items:center;
-    }
-    .pillbtn{
-      cursor:pointer;
-      font-size:13px;
-      padding:8px 10px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:rgba(0,0,0,.18);
-      color:var(--text);
-      font-weight:800;
-    }
-    .pillbtn.active{
-      border-color:rgba(25,195,125,.7);
-      background:rgba(25,195,125,.14);
-    }
-    .search{
-      flex:1;
-      min-width: 220px;
-      display:flex;
-      justify-content:flex-end;
-    }
-    .search input{
-      width: min(420px, 100%);
-      padding:10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-      outline: none;
-    }
-    .search input:focus{border-color:rgba(25,195,125,.55)}
-
-    /* Project cards */
-    .project{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(11,27,18,.55);
-      box-shadow: var(--shadow);
-      padding:16px;
-      position:relative;
-      overflow:hidden;
-      min-height: 175px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-    .project h5{margin:10px 0 6px; font-size:16px}
-    .project p{margin:0; color:rgba(232,255,243,.86)}
-    .meta{
-      margin-top:12px;
-      display:flex; gap:8px; flex-wrap:wrap;
-      color: var(--muted);
-      font-size:12px;
-    }
-    .pill{
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:5px 9px;
-      background:rgba(255,255,255,.03);
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:12px;
-      color:var(--muted);
-      border:1px solid var(--line);
-      border-radius:999px;
-      padding:6px 10px;
-      background:rgba(255,255,255,.03);
-    }
-    .proj-actions{
-      margin-top:14px;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:flex-start;
-    }
-
-    /* Highlights */
-    .highlights{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
-    .highlight{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(11,27,18,.55);
-      box-shadow: var(--shadow);
-      padding:16px;
-      min-height: 150px;
-    }
-    .highlight b{display:block; font-size:14px}
-    .highlight span{display:block; margin-top:6px; color:rgba(232,255,243,.86)}
-
-    /* FAQ */
-    .faq{
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(11,27,18,.55);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    details{border-top:1px solid var(--line); padding:14px 16px;}
-    details:first-child{border-top:none}
-    summary{
-      cursor:pointer;
-      font-weight:900;
-      list-style:none;
-    }
-    summary::-webkit-details-marker{display:none}
-    details p{margin:10px 0 0}
+    .tag.green{border-color:rgba(33,208,122,.45)}
+    .tag.blue{border-color:rgba(90,168,255,.45)}
+    .tag.gray{border-color:rgba(255,255,255,.18)}
 
     /* Footer */
-    .footer{
-      margin-top:26px;
-      border-top:1px solid var(--line);
-      padding-top:18px;
-      color:rgba(232,255,243,.70);
-      font-size:13px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:10px;
+    footer{margin:26px 0 10px;color:var(--muted);font-size:12px}
+    .contact{
+      display:grid;grid-template-columns:1fr 1fr;gap:12px;
     }
-
-    /* Modal */
-    .modal-overlay{
-      position:fixed;
-      inset:0;
-      background: rgba(0,0,0,.55);
-      backdrop-filter: blur(6px);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding: 18px;
-      z-index: 100;
-    }
-    .modal-overlay.open{display:flex}
-    .modal{
-      width: min(980px, 100%);
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: rgba(10,20,14,.88);
-      box-shadow: var(--shadow2);
-      overflow:hidden;
-    }
-    .modal-head{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      padding: 16px 16px 12px;
-      border-bottom: 1px solid var(--line);
-    }
-    .modal-title{
-      margin:0;
-      font-size: 18px;
-      font-weight: 950;
-      letter-spacing:.2px;
-    }
-    .modal-sub{
-      margin:6px 0 0;
-      color: rgba(232,255,243,.86);
-      font-size: 13px;
-    }
-    .modal-close{
-      cursor:pointer;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      border-radius: 12px;
-      padding: 8px 10px;
-      font-weight: 900;
-    }
-    .modal-close:hover{border-color: rgba(25,195,125,.55)}
-    .modal-body{ padding: 14px 16px 16px; }
-    .modal-grid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:14px;
-      align-items:start;
-    }
-
-    /* Video embed box */
-    .mediaBox{
-      border:1px solid rgba(255,255,255,.12);
-      border-radius: 18px;
-      background: rgba(0,0,0,.18);
-      overflow:hidden;
-    }
-    .mediaTop{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding: 10px 12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-    }
-    .mediaTop b{font-size:13px}
-    .mediaTop span{font-size:12px; color:var(--muted)}
-    .embedWrap{
-      position:relative;
-      width:100%;
-      aspect-ratio: 16 / 9;
-      background: rgba(0,0,0,.22);
-    }
-    .embedWrap iframe{
-      position:absolute; inset:0;
-      width:100%; height:100%;
-      border:0;
-    }
-    .embedPlaceholder{
-      position:absolute; inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:16px;
-      text-align:center;
-      color: rgba(232,255,243,.82);
-    }
-    .embedPlaceholder .tag{
-      margin-bottom:10px;
-    }
-
-    .list{
-      margin:10px 0 0;
-      padding-left: 18px;
-      color: rgba(232,255,243,.86);
-    }
-    .modal-foot{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      padding: 12px 16px 16px;
-      border-top: 1px solid var(--line);
-    }
-
-    /* Back to top */
-    .toTop{
-      position: fixed;
-      right: 14px;
-      bottom: 14px;
-      z-index: 60;
-      display:none;
-    }
-    .toTop.show{display:block}
-
-    @media (max-width: 1020px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid4{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
-      .highlights{grid-template-columns:1fr}
-      .modal-grid{grid-template-columns:1fr}
-      h2{font-size:30px}
-      .topbar{border-radius: 22px}
-      .search{justify-content:stretch}
-      .search input{width:100%}
-    }
+    @media (max-width: 860px){ .contact{grid-template-columns:1fr} }
+    .contact a{color:var(--text);text-decoration:none}
+    .note{color:var(--muted);font-size:13px;margin:8px 0 0}
+    .line{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
   </style>
 </head>
 
 <body>
-  <div class="wrap">
-    <header class="topbar">
-      <div class="brand">
-  <img src="logo-eyeditgroup.png" alt="EyeDit Group logo" width="200">
-  <h1>EyeDit Group</h1>
-
-  <section class="brand-strip" aria-label="Brands">
-    <img src="logo-eyedit.png" alt="EyeDit">
-    <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM">
-    <img src="logo-eyevision.png" alt="EyeVision">
-  </section>
-</div>
-
-      <div class="right">
-        <nav class="nav" aria-label="Primary">
-          <a class="chip" href="#sectors" data-i18n="nav_sectors">Sectors</a>
-          <a class="chip" href="#portfolio" data-i18n="nav_portfolio">Portafolis</a>
-          <a class="chip" href="#highlights" data-i18n="nav_highlights">Highlights</a>
-          <a class="chip" href="#faq" data-i18n="nav_faq">FAQ</a>
-          <a class="chip" href="#contact" data-i18n="nav_contact">Contacte</a>
-        </nav>
-
-        <div class="langs" aria-label="Language switcher">
-          <button class="langbtn active" type="button" data-lang="ca">CAT</button>
-          <button class="langbtn" type="button" data-lang="es">ES</button>
-          <button class="langbtn" type="button" data-lang="en">EN</button>
-        </div>
-      </div>
-    </header>
-
-    <section class="hero" aria-label="Hero">
-      <div class="hero-grid">
-        <div class="panel">
-          <span class="kicker"><span class="dot"></span> <span data-i18n="kicker">Holding creatiu · telecom · seguretat</span></span>
-
-          <h2 data-i18n="hero_title">EyeDit Group: creativitat, transmissió, benestar i protecció.</h2>
-
-          <p data-i18n="hero_text">
-            Web estàtica pro per Vercel: un <code class="inline">index.html</code>, idiomes, portafolis, i fitxes de projectes amb popup + video embed.
-          </p>
-
-          <div class="actions">
-            <a class="btn" href="#portfolio" data-i18n="cta_portfolio">Veure portafolis</a>
-            <a class="btn secondary" href="#contact" data-i18n="cta_contact">Contactar</a>
-            <button class="btn ghost" type="button" id="btnDownload" data-i18n="cta_download">Checklist de llançament</button>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="mini">
-            <div class="stat">
-              <b data-i18n="stat1_title">Deploy automàtic</b>
-              <span data-i18n="stat1_text">Commit a GitHub = deploy a Vercel. Sense build.</span>
-            </div>
-            <div class="stat">
-              <b data-i18n="stat2_title">Preparat per logos</b>
-              <span data-i18n="stat2_text">Puja <code class="inline">logo.png</code> (o .svg) a l’arrel i apareix sol.</span>
-            </div>
-            <div class="stat">
-              <b data-i18n="stat3_title">Portafolis i video</b>
-              <span data-i18n="stat3_text">Filtres, cerca, popup amb fitxa i video embed.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="sectors" class="section" aria-label="Sectors">
-      <h3 data-i18n="sectors_title">Sectors</h3>
-
-      <div class="grid4">
-        <article class="card">
-          <span class="tag">🟢 EyeDit Image Quick Service</span>
-          <h4 data-i18n="s1_title">Imatge · Contingut · Producció</h4>
-          <p data-i18n="s1_text">Creació i gestió d’imatge i contingut amb flux ràpid i qualitat.</p>
-          <ul>
-            <li data-i18n="s1_li1">Fotografia i postproducció</li>
-            <li data-i18n="s1_li2">Brand kit i assets</li>
-            <li data-i18n="s1_li3">Webs i landings institucionals</li>
-          </ul>
-          <div class="accent a-green"></div>
-        </article>
-
-        <article class="card">
-          <span class="tag">🔵 EyeDit Audiovisual</span>
-          <h4 data-i18n="s2_title">Ràdio · TV · Streaming</h4>
-          <p data-i18n="s2_text">Operativa audiovisual i transmissió multicanal, preparada per creixement.</p>
-          <ul>
-            <li data-i18n="s2_li1">RTMP / SRT / IP</li>
-            <li data-i18n="s2_li2">Producció i realització</li>
-            <li data-i18n="s2_li3">Distribució i publicació</li>
-          </ul>
-          <div class="accent a-blue"></div>
-        </article>
-
-        <article class="card">
-          <span class="tag">🟠 CCS.CANSSAM</span>
-          <h4 data-i18n="s3_title">Benestar · Medicina natural</h4>
-          <p data-i18n="s3_text">Contingut educatiu, protocols i metodologia de benestar amb enfoc seriós.</p>
-          <ul>
-            <li data-i18n="s3_li1">Guies i rutines</li>
-            <li data-i18n="s3_li2">Comunitat i educació</li>
-            <li data-i18n="s3_li3">Marca i materials</li>
-          </ul>
-          <div class="accent a-orange"></div>
-        </article>
-
-        <article class="card">
-          <span class="tag">🟦 Eyevision</span>
-          <h4 data-i18n="s4_title">Seguretat · Transport · Cyber</h4>
-          <p data-i18n="s4_text">Protecció operativa, logística i ciberseguretat orientada a servei.</p>
-          <ul>
-            <li data-i18n="s4_li1">Protocols i seguretat privada</li>
-            <li data-i18n="s4_li2">Transport multimodal</li>
-            <li data-i18n="s4_li3">Comunicacions i cyber</li>
-          </ul>
-          <div class="accent a-cyan"></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="portfolio" class="section" aria-label="Portfolio">
-      <h3 data-i18n="port_title">Portafolis</h3>
-      <p data-i18n="port_intro">Filtra per sector o busca per paraula. Clica “Veure fitxa” per obrir el popup del projecte (amb video).</p>
-
-      <div class="controls" aria-label="Portfolio controls">
-        <div class="filters" role="group" aria-label="Filters">
-          <button class="pillbtn active" type="button" data-filter="all" data-i18n="f_all">Tots</button>
-          <button class="pillbtn" type="button" data-filter="eyedit" data-i18n="f_eyedit">EyeDit</button>
-          <button class="pillbtn" type="button" data-filter="audiovisual" data-i18n="f_av">Audiovisual</button>
-          <button class="pillbtn" type="button" data-filter="ccs" data-i18n="f_ccs">CCS</button>
-          <button class="pillbtn" type="button" data-filter="eyevision" data-i18n="f_eyevision">Eyevision</button>
-        </div>
-
-        <div class="search">
-          <label class="sr-only" for="q" data-i18n="search_label">Cerca</label>
-          <input id="q" type="search" placeholder="Cerca projectes…" />
-        </div>
-      </div>
-
-      <div class="grid3" id="projectGrid" aria-live="polite"></div>
-      <div style="height:10px"></div>
-      <div class="badge">🎬 <span data-i18n="port_tip">Tip: ja està preparat el Video embed. Després hi afegim imatges/lightbox si vols.</span></div>
-    </section>
-
-    <section id="highlights" class="section" aria-label="Highlights">
-      <h3 data-i18n="high_title">Highlights</h3>
-      <div class="highlights">
-        <div class="highlight">
-          <b data-i18n="high1_t">Arquitectura simple, potent</b>
-          <span data-i18n="high1_s">Un sol fitxer. Ràpid. Fàcil d’editar. Perfecte per arrencar i créixer.</span>
-        </div>
-        <div class="highlight">
-          <b data-i18n="high2_t">Preparat per institucional</b>
-          <span data-i18n="high2_s">Seccions clares, portafoli, FAQ i missatge de marca coherent.</span>
-        </div>
-        <div class="highlight">
-          <b data-i18n="high3_t">Escalable</b>
-          <span data-i18n="high3_s">Quan vulguis, ho dividim en pàgines o passem a framework sense perdre el disseny.</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section" aria-label="FAQ">
-      <h3 data-i18n="faq_title">FAQ</h3>
-      <div class="faq">
-        <details open>
-          <summary data-i18n="faq_q1">Això funciona a Vercel sense framework?</summary>
-          <p data-i18n="faq_a1">Sí. Només cal que el fitxer es digui <code class="inline">index.html</code> i estigui a l’arrel del repositori.</p>
-        </details>
-        <details>
-          <summary data-i18n="faq_q2">Com poso els logos després?</summary>
-          <p data-i18n="faq_a2">Puja <code class="inline">logo.png</code> (o <code class="inline">logo.svg</code>) a l’arrel del repo i sortirà automàticament.</p>
-        </details>
-        <details>
-          <summary data-i18n="faq_q3">I el domini eyeditimagequickservice.org?</summary>
-          <p data-i18n="faq_a3">Quan el tinguis apuntant a Vercel, aquest HTML ja està preparat amb canonical i contacte al domini.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="contact" class="section" aria-label="Contact">
-      <h3 data-i18n="contact_title">Contacte</h3>
-      <div class="panel">
-        <p data-i18n="contact_text" style="margin:0 0 12px;">
-          Contacte oficial del projecte (domini):
-        </p>
-
-        <p style="margin:0 0 12px;">
-          Web: <a href="https://eyeditimagequickservice.org" target="_blank" rel="noopener">eyeditimagequickservice.org</a><br/>
-          Email: <a href="mailto:info@eyeditimagequickservice.org">info@eyeditimagequickservice.org</a>
-          <span style="display:block;color:var(--muted);font-size:12px;margin-top:6px;">(Si encara no tens l’email creat, temporalment pots usar el teu Gmail.)</span>
-        </p>
-
-        <div class="actions">
-          <a class="btn" href="mailto:info@eyeditimagequickservice.org?subject=EyeDit%20Group%20-%20Contact" data-i18n="contact_btn">Enviar email</a>
-          <button class="btn secondary" type="button" id="btnCopy" data-i18n="copy_btn">Copiar email</button>
-        </div>
-        <p id="copyStatus" style="margin:10px 0 0; color: var(--muted); font-size:13px;"></p>
-      </div>
-
-      <footer class="footer">
-        <div>© <span id="year"></span> EyeDit Group</div>
-        <div><span data-i18n="footer_text">Static HTML for Vercel</span> · <code class="inline">index.html</code></div>
-      </footer>
-    </section>
-  </div>
-
-  <!-- Back to top -->
-  <div class="toTop" id="toTop">
-    <a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">↑ Top</a>
-  </div>
-
-  <!-- Modal -->
-  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
-    <div class="modal" tabindex="-1" id="modalBox">
-      <div class="modal-head">
-        <div>
-          <h4 class="modal-title" id="modalTitle">Projecte</h4>
-          <p class="modal-sub" id="modalDesc">Detalls</p>
-        </div>
-        <button class="modal-close" type="button" id="modalClose" aria-label="Close">✕</button>
-      </div>
-
-      <div class="modal-body">
-        <div class="modal-grid">
-          <!-- LEFT: VIDEO EMBED -->
-          <div class="mediaBox">
-            <div class="mediaTop">
-              <b data-i18n="modal_media_title">Video embed</b>
-              <span id="videoHint"></span>
-            </div>
-
-            <div class="embedWrap" id="embedWrap">
-              <div class="embedPlaceholder" id="embedPlaceholder">
-                <div>
-                  <div class="tag">🎬 Video</div>
-                  <div id="embedPlaceholderText">Aquest projecte encara no té vídeo. Després el posem aquí.</div>
-                </div>
-              </div>
-              <!-- iframe gets injected here -->
-            </div>
-          </div>
-
-          <!-- RIGHT: DETAILS -->
-          <div>
-            <div class="badge" id="modalSectorBadge">• Sector</div>
-            <div style="height:10px"></div>
-
-            <b data-i18n="modal_scope_title">Abast</b>
-            <ul class="list" id="modalScope"></ul>
-
-            <div style="height:10px"></div>
-            <b data-i18n="modal_stack_title">Tecnologia / Deliverables</b>
-            <ul class="list" id="modalStack"></ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-foot">
-        <button class="btn" type="button" id="modalPrimary" data-i18n="modal_primary">Demanar proposta</button>
-        <button class="btn secondary" type="button" id="modalSecondary" data-i18n="modal_secondary">Tancar</button>
+<header>
+  <div class="topbar wrap">
+    <div class="brand">
+      <!-- Logo principal (EyeDit Group / holding) -->
+      <img src="logo-eyeditgroup.png" alt="EyeDit Group logo" />
+      <div>
+        <b>EyeDit Image Quick Service</b>
+        <small>Media • Telecom • Secure Infrastructure</small>
       </div>
     </div>
+
+    <nav>
+      <a href="#services">Serveis</a>
+      <a href="#ecosystem">Ecosistema</a>
+      <a href="#usecases">Casos d’ús</a>
+      <a href="#contact" class="cta">Contacte</a>
+    </nav>
   </div>
+</header>
 
-  <script>
-    // ---- Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+<main class="wrap">
+  <section class="hero card">
+    <div class="grid">
+      <div>
+        <h1>Velocitat d’imatge. Precisió d’infraestructura. Resultat premium.</h1>
+        <p class="lead">
+          EyeDit Image Quick Service és una plataforma de serveis d’imatge i audiovisual, telecomunicacions i operacions segures,
+          preparada per escalar internacionalment i treballar amb estàndards corporatius.
+        </p>
 
-    // ---- Optional logo loader (logo.png -> logo.svg -> logo.jpg)
-    (function loadLogo(){
-      const img = document.getElementById("brandLogo");
-      const tryList = ["logo.png", "logo.svg", "logo.jpg"];
-      let i = 0;
-      function tryNext(){
-        if(i >= tryList.length) return;
-        const src = tryList[i++];
-        img.onload = () => { img.style.display = "block"; };
-        img.onerror = () => { tryNext(); };
-        img.src = src;
-      }
-      tryNext();
-    })();
+        <div class="pillrow">
+          <div class="pill"><strong>Image</strong> workflow ràpid</div>
+          <div class="pill"><strong>Media</strong> & broadcast</div>
+          <div class="pill"><strong>Telecom</strong> & satèl·lit</div>
+          <div class="pill"><strong>Security</strong> & compliance</div>
+        </div>
 
-    // ---- Back to top
-    (function toTop(){
-      const el = document.getElementById("toTop");
-      function onScroll(){ el.classList.toggle("show", window.scrollY > 600); }
-      window.addEventListener("scroll", onScroll, {passive:true});
-      onScroll();
-    })();
-  </script>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Demana un briefing</a>
+          <a class="btn" href="#services">Veure serveis</a>
+        </div>
 
-  <script>
-    // =========================
-    // Projects (now with optional VIDEO)
-    // Put your real embed URLs later.
-    // Works with: YouTube embed link or Vimeo embed link.
-    // Example:
-    // video: { type:"youtube", url:"https://www.youtube.com/embed/VIDEO_ID" }
-    // video: { type:"vimeo",   url:"https://player.vimeo.com/video/VIDEO_ID" }
-    // =========================
-    const PROJECTS = [
-      // EyeDit
-      {
-        id:"eyedit-1", sector:"eyedit",
-        title:{ca:"Producció i edició d’imatge premium", es:"Producción y edición de imagen premium", en:"Premium image production and editing"},
-        summary:{ca:"Flux ràpid: captura, retoc, export i lliurament.", es:"Flujo rápido: captura, retoque, exportación y entrega.", en:"Fast pipeline: capture, retouch, export and delivery."},
-        tags:["Workflow","Retoc","Delivery"],
-        video:{ type:"youtube", url:"https://www.youtube.com/embed/dQw4w9WgXcQ" }, /* canvia-ho després */
-        scope:{
-          ca:["Captura/ingest i selecció","Retoc i consistència cromàtica","Export multi-format","Lliurament i arxiu"],
-          es:["Captura/ingest y selección","Retoque y consistencia cromática","Export multi-formato","Entrega y archivo"],
-          en:["Capture/ingest and selection","Retouch & color consistency","Multi-format export","Delivery and archiving"]
-        },
-        stack:{
-          ca:["Guia d’estil + presets","Plantilles d’export","Checklists QA"],
-          es:["Guía de estilo + presets","Plantillas de exportación","Checklists QA"],
-          en:["Style guide + presets","Export templates","QA checklists"]
-        }
-      },
-      {
-        id:"eyedit-2", sector:"eyedit",
-        title:{ca:"Pack de marca i assets", es:"Pack de marca y assets", en:"Brand kit and assets"},
-        summary:{ca:"Sistema visual: logos, paleta, tipografia, plantilles.", es:"Sistema visual: logos, paleta, tipografía, plantillas.", en:"Visual system: logos, palette, typography, templates."},
-        tags:["Brand Kit","Templates","Guidelines"],
-        video:null,
-        scope:{
-          ca:["Logo system (versions)","Paleta i tipografies","Plantilles socials","Guia d’ús (PDF)"],
-          es:["Sistema de logo (versiones)","Paleta y tipografías","Plantillas sociales","Guía de uso (PDF)"],
-          en:["Logo system (versions)","Palette & typography","Social templates","Usage guide (PDF)"]
-        },
-        stack:{
-          ca:["Brand guidelines","Asset pack","Nomenclatura i estructura"],
-          es:["Brand guidelines","Paquete de assets","Nomenclatura y estructura"],
-          en:["Brand guidelines","Asset pack","Naming & structure"]
-        }
-      },
-      {
-        id:"eyedit-3", sector:"eyedit",
-        title:{ca:"Landing corporativa i conversió", es:"Landing corporativa y conversión", en:"Corporate landing and conversion"},
-        summary:{ca:"Estructura clara: proposta, sectors, portafoli, contacte.", es:"Estructura clara: propuesta, sectores, portafolio, contacto.", en:"Clear structure: value, sectors, portfolio, contact."},
-        tags:["UX","CTA","SEO-ready"],
-        video:null,
-        scope:{
-          ca:["Arquitectura de contingut","Seccions + CTA","Portafoli amb fitxes","Textos base i SEO"],
-          es:["Arquitectura de contenido","Secciones + CTA","Portafolio con fichas","Textos base y SEO"],
-          en:["Content architecture","Sections + CTA","Portfolio with cards","Base copy and SEO"]
-        },
-        stack:{
-          ca:["HTML/CSS clean","Microinteraccions","Analytics-ready (opcional)"],
-          es:["HTML/CSS clean","Microinteracciones","Analytics-ready (opcional)"],
-          en:["Clean HTML/CSS","Micro-interactions","Analytics-ready (optional)"]
-        }
-      },
+        <!-- Franja amb els 3 logos (divisions) -->
+        <div class="brand-strip" aria-label="Divisions">
+          <span>Divisions:</span>
+          <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM" />
+          <img src="logo-eyedit.png" alt="EyeDit" />
+          <img src="logo-eyevision.png" alt="EyeVision" />
+        </div>
+      </div>
 
-      // Audiovisual
-      {
-        id:"av-1", sector:"audiovisual",
-        title:{ca:"Emissió en directe amb SRT/RTMP", es:"Emisión en directo con SRT/RTMP", en:"Live broadcasting with SRT/RTMP"},
-        summary:{ca:"Arquitectura estable: ingest, control i distribució.", es:"Arquitectura estable: ingest, control y distribución.", en:"Stable architecture: ingest, control and distribution."},
-        tags:["SRT","RTMP","IP"],
-        video:{ type:"vimeo", url:"https://player.vimeo.com/video/76979871" }, /* canvia-ho després */
-        scope:{
-          ca:["Ingest i redundància","Control de senyal","Distribució i plataformes","Monitoratge"],
-          es:["Ingest y redundancia","Control de señal","Distribución y plataformas","Monitorización"],
-          en:["Ingest and redundancy","Signal control","Distribution and platforms","Monitoring"]
-        },
-        stack:{
-          ca:["Checklist operatiu","Mapa de fluxos","Procediment incidències"],
-          es:["Checklist operativo","Mapa de flujos","Procedimiento incidencias"],
-          en:["Ops checklist","Flow map","Incident procedure"]
-        }
-      },
-      {
-        id:"av-2", sector:"audiovisual",
-        title:{ca:"Producció de programes i formats", es:"Producción de programas y formatos", en:"Shows and format production"},
-        summary:{ca:"Guió, realització, edició i paquet gràfic.", es:"Guion, realización, edición y paquete gráfico.", en:"Script, direction, editing and graphics."},
-        tags:["Studio","Edit","Graphics"],
-        video:null,
-        scope:{
-          ca:["Preproducció (guió)","Gravació/realització","Edició final","Paquet gràfic"],
-          es:["Preproducción (guion)","Grabación/realización","Edición final","Paquete gráfico"],
-          en:["Pre-production (script)","Recording/direction","Final edit","Graphics package"]
-        },
-        stack:{
-          ca:["Templates gràfics","Arxiu per capítols","Exports per xarxes"],
-          es:["Templates gráficos","Archivo por episodios","Exports para redes"],
-          en:["Graphics templates","Episode archiving","Social exports"]
-        }
-      },
-      {
-        id:"av-3", sector:"audiovisual",
-        title:{ca:"Ràdio digital i distribució", es:"Radio digital y distribución", en:"Digital radio and distribution"},
-        summary:{ca:"Producció, canals, programació i publicació.", es:"Producción, canales, programación y publicación.", en:"Production, channels, scheduling and publishing."},
-        tags:["Podcast","Live","Distribution"],
-        video:null,
-        scope:{
-          ca:["Canal i identitat","Programació","Publicació multicanal","Clips curts"],
-          es:["Canal e identidad","Programación","Publicación multicanal","Clips cortos"],
-          en:["Channel and identity","Scheduling","Multi-platform publishing","Short clips"]
-        },
-        stack:{
-          ca:["Nomenclatura d’episodis","Plantilles de descripció","Checklist de publicació"],
-          es:["Nomenclatura de episodios","Plantillas de descripción","Checklist de publicación"],
-          en:["Episode naming","Description templates","Publishing checklist"]
-        }
-      },
-
-      // CCS
-      {
-        id:"ccs-1", sector:"ccs",
-        title:{ca:"Guies de benestar i protocols", es:"Guías de bienestar y protocolos", en:"Wellness guides and protocols"},
-        summary:{ca:"Documents clars: rutines, hàbits i seguiment.", es:"Documentos claros: rutinas, hábitos y seguimiento.", en:"Clear docs: routines, habits and tracking."},
-        tags:["Plans","Routines","Tracking"],
-        video:null,
-        scope:{
-          ca:["Rutina setmanal","Hàbits i objectius","Seguiment","Material educatiu"],
-          es:["Rutina semanal","Hábitos y objetivos","Seguimiento","Material educativo"],
-          en:["Weekly routine","Habits and goals","Tracking","Educational material"]
-        },
-        stack:{
-          ca:["Plantilles PDF","Calendari (opcional)","Guia d’ús"],
-          es:["Plantillas PDF","Calendario (opcional)","Guía de uso"],
-          en:["PDF templates","Calendar (optional)","Usage guide"]
-        }
-      },
-      {
-        id:"ccs-2", sector:"ccs",
-        title:{ca:"Contingut educatiu", es:"Contenido educativo", en:"Educational content"},
-        summary:{ca:"Articles i peces breus per educació i comunitat.", es:"Artículos y piezas breves para educación y comunidad.", en:"Articles and short pieces for education and community."},
-        tags:["Articles","Short-form","Community"],
-        video:null,
-        scope:{
-          ca:["Calendari editorial","Articles base","Peces curtes","Recursos"],
-          es:["Calendario editorial","Artículos base","Piezas cortas","Recursos"],
-          en:["Editorial calendar","Core articles","Short pieces","Resources"]
-        },
-        stack:{
-          ca:["Guia d’estil","Plantilles socials","Checklist publicació"],
-          es:["Guía de estilo","Plantillas sociales","Checklist publicación"],
-          en:["Style guide","Social templates","Publishing checklist"]
-        }
-      },
-      {
-        id:"ccs-3", sector:"ccs",
-        title:{ca:"Identitat per benestar", es:"Identidad para bienestar", en:"Wellness identity"},
-        summary:{ca:"Línia visual serena i professional.", es:"Línea visual serena y profesional.", en:"Calm, professional visual line."},
-        tags:["Identity","Tone","System"],
-        video:null,
-        scope:{
-          ca:["Marca i to","Paleta i tipografia","Plantilles","Iconografia"],
-          es:["Marca y tono","Paleta y tipografía","Plantillas","Iconografía"],
-          en:["Brand and tone","Palette & typography","Templates","Iconography"]
-        },
-        stack:{
-          ca:["Brand kit","Assets","Guia de consistència"],
-          es:["Brand kit","Assets","Guía de consistencia"],
-          en:["Brand kit","Assets","Consistency guide"]
-        }
-      },
-
-      // Eyevision
-      {
-        id:"ev-1", sector:"eyevision",
-        title:{ca:"Serveis de seguretat privada", es:"Servicios de seguridad privada", en:"Private security services"},
-        summary:{ca:"Plans, protocols, equips i coordinació.", es:"Planes, protocolos, equipos y coordinación.", en:"Plans, protocols, teams and coordination."},
-        tags:["Protocols","Ops","Coordination"],
-        video:null,
-        scope:{
-          ca:["Avaluació de risc","Protocol d’actuació","Coordinació operativa","Informe i millores"],
-          es:["Evaluación de riesgo","Protocolo de actuación","Coordinación operativa","Informe y mejoras"],
-          en:["Risk assessment","Operating protocols","Ops coordination","Report and improvements"]
-        },
-        stack:{
-          ca:["Checklist operatiu","Documents","Procés d’escalat"],
-          es:["Checklist operativo","Documentos","Proceso de escalado"],
-          en:["Ops checklist","Documentation","Escalation process"]
-        }
-      },
-      {
-        id:"ev-2", sector:"eyevision",
-        title:{ca:"Logística i transport multimodal", es:"Logística y transporte multimodal", en:"Multimodal logistics and transport"},
-        summary:{ca:"Aero, marítim i terrestre amb planificació i control.", es:"Aéreo, marítimo y terrestre con planificación y control.", en:"Air, sea and land with planning and control."},
-        tags:["Air","Sea","Land"],
-        video:null,
-        scope:{
-          ca:["Planificació de ruta","Controls i punts crítics","Coord. d’equips","Seguiment"],
-          es:["Planificación de ruta","Controles y puntos críticos","Coord. de equipos","Seguimiento"],
-          en:["Route planning","Controls and critical points","Team coordination","Tracking"]
-        },
-        stack:{
-          ca:["Mapa operatiu","Checklist de seguretat","KPI bàsics"],
-          es:["Mapa operativo","Checklist de seguridad","KPI básicos"],
-          en:["Ops map","Security checklist","Basic KPIs"]
-        }
-      },
-      {
-        id:"ev-3", sector:"eyevision",
-        title:{ca:"Cyberseguretat i comunicacions", es:"Ciberseguridad y comunicaciones", en:"Cybersecurity and communications"},
-        summary:{ca:"Bones pràctiques, seguretat de canals i continuïtat.", es:"Buenas prácticas, seguridad de canales y continuidad.", en:"Best practices, secure channels and continuity."},
-        tags:["Security","Comms","Resilience"],
-        video:null,
-        scope:{
-          ca:["Mapa de comunicacions","Higiene digital","Procediments","Continuïtat bàsica"],
-          es:["Mapa de comunicaciones","Higiene digital","Procedimientos","Continuidad básica"],
-          en:["Comms mapping","Digital hygiene","Procedures","Basic continuity"]
-        },
-        stack:{
-          ca:["Checklist","Guia de canals","Playbook d’incidents"],
-          es:["Checklist","Guía de canales","Playbook de incidentes"],
-          en:["Checklist","Channel guide","Incident playbook"]
-        }
-      }
-    ];
-
-    const SECTOR_LABEL = {
-      eyedit: {ca:"🟢 EyeDit", es:"🟢 EyeDit", en:"🟢 EyeDit"},
-      audiovisual: {ca:"🔵 Audiovisual", es:"🔵 Audiovisual", en:"🔵 Audiovisual"},
-      ccs: {ca:"🟠 CCS.CANSSAM", es:"🟠 CCS.CANSSAM", en:"🟠 CCS.CANSSAM"},
-      eyevision: {ca:"🟦 Eyevision", es:"🟦 Eyevision", en:"🟦 Eyevision"},
-    };
-
-    // i18n UI
-    const I18N = {
-      ca:{
-        nav_sectors:"Sectors", nav_portfolio:"Portafolis", nav_highlights:"Highlights", nav_faq:"FAQ", nav_contact:"Contacte",
-        kicker:"Holding creatiu · telecom · seguretat",
-        hero_title:"EyeDit Group: creativitat, transmissió, benestar i protecció.",
-        hero_text:"Web estàtica pro per Vercel: un index.html, idiomes, portafolis, i fitxes de projectes amb popup + video embed.",
-        cta_portfolio:"Veure portafolis", cta_contact:"Contactar", cta_download:"Checklist de llançament",
-        stat1_title:"Deploy automàtic", stat1_text:"Commit a GitHub = deploy a Vercel. Sense build.",
-        stat2_title:"Preparat per logos", stat2_text:"Puja logo.png (o .svg) a l’arrel i apareix sol.",
-        stat3_title:"Portafolis i video", stat3_text:"Filtres, cerca, popup amb fitxa i video embed.",
-
-        sectors_title:"Sectors",
-        s1_title:"Imatge · Contingut · Producció", s1_text:"Creació i gestió d’imatge i contingut amb flux ràpid i qualitat.",
-        s1_li1:"Fotografia i postproducció", s1_li2:"Brand kit i assets", s1_li3:"Webs i landings institucionals",
-        s2_title:"Ràdio · TV · Streaming", s2_text:"Operativa audiovisual i transmissió multicanal, preparada per creixement.",
-        s2_li1:"RTMP / SRT / IP", s2_li2:"Producció i realització", s2_li3:"Distribució i publicació",
-        s3_title:"Benestar · Medicina natural", s3_text:"Contingut educatiu, protocols i metodologia de benestar amb enfoc seriós.",
-        s3_li1:"Guies i rutines", s3_li2:"Comunitat i educació", s3_li3:"Marca i materials",
-        s4_title:"Seguretat · Transport · Cyber", s4_text:"Protecció operativa, logística i ciberseguretat orientada a servei.",
-        s4_li1:"Protocols i seguretat privada", s4_li2:"Transport multimodal", s4_li3:"Comunicacions i cyber",
-
-        port_title:"Portafolis",
-        port_intro:"Filtra per sector o busca per paraula. Clica “Veure fitxa” per obrir el popup del projecte (amb video).",
-        f_all:"Tots", f_eyedit:"EyeDit", f_av:"Audiovisual", f_ccs:"CCS", f_eyevision:"Eyevision",
-        search_label:"Cerca",
-        port_tip:"Tip: ja està preparat el Video embed. Després hi afegim imatges/lightbox si vols.",
-
-        high_title:"Highlights",
-        high1_t:"Arquitectura simple, potent", high1_s:"Un sol fitxer. Ràpid. Fàcil d’editar. Perfecte per arrencar i créixer.",
-        high2_t:"Preparat per institucional", high2_s:"Seccions clares, portafoli, FAQ i missatge de marca coherent.",
-        high3_t:"Escalable", high3_s:"Quan vulguis, ho dividim en pàgines o passem a framework sense perdre el disseny.",
-
-        faq_title:"FAQ",
-        faq_q1:"Això funciona a Vercel sense framework?",
-        faq_a1:"Sí. Només cal que el fitxer es digui index.html i estigui a l’arrel del repositori.",
-        faq_q2:"Com poso els logos després?",
-        faq_a2:"Puja logo.png (o logo.svg) a l’arrel del repo i sortirà automàticament.",
-        faq_q3:"I el domini eyeditimagequickservice.org?",
-        faq_a3:"Quan el tinguis apuntant a Vercel, aquest HTML ja està preparat amb canonical i contacte al domini.",
-
-        contact_title:"Contacte",
-        contact_text:"Contacte oficial del projecte (domini):",
-        contact_btn:"Enviar email",
-        copy_btn:"Copiar email",
-        footer_text:"Static HTML for Vercel",
-
-        modal_media_title:"Video embed",
-        modal_scope_title:"Abast",
-        modal_stack_title:"Tecnologia / Deliverables",
-        modal_primary:"Demanar proposta",
-        modal_secondary:"Tancar",
-        modal_no_video:"Aquest projecte encara no té vídeo. Després el posem aquí.",
-        modal_video_hint:"Auto-play desactivat (pro).",
-
-        proj_view:"Veure fitxa"
-      },
-      es:{
-        nav_sectors:"Sectores", nav_portfolio:"Portafolios", nav_highlights:"Highlights", nav_faq:"FAQ", nav_contact:"Contacto",
-        kicker:"Holding creativo · telecom · seguridad",
-        hero_title:"EyeDit Group: creatividad, transmisión, bienestar y protección.",
-        hero_text:"Web estática pro para Vercel: un index.html, idiomas, portafolios y fichas con popup + video embed.",
-        cta_portfolio:"Ver portafolios", cta_contact:"Contactar", cta_download:"Checklist de lanzamiento",
-        stat1_title:"Deploy automático", stat1_text:"Commit en GitHub = deploy en Vercel. Sin build.",
-        stat2_title:"Listo para logos", stat2_text:"Sube logo.png (o .svg) a la raíz y aparece solo.",
-        stat3_title:"Portafolios y video", stat3_text:"Filtros, búsqueda, popup y video embed.",
-
-        sectors_title:"Sectores",
-        s1_title:"Imagen · Contenido · Producción", s1_text:"Creación y gestión de imagen y contenido con flujo rápido y calidad.",
-        s1_li1:"Fotografía y postproducción", s1_li2:"Brand kit y assets", s1_li3:"Webs y landings institucionales",
-        s2_title:"Radio · TV · Streaming", s2_text:"Operativa audiovisual y transmisión multicanal, lista para crecer.",
-        s2_li1:"RTMP / SRT / IP", s2_li2:"Producción y realización", s2_li3:"Distribución y publicación",
-        s3_title:"Bienestar · Medicina natural", s3_text:"Contenido educativo, protocolos y metodología de bienestar con enfoque serio.",
-        s3_li1:"Guías y rutinas", s3_li2:"Comunidad y educación", s3_li3:"Marca y materiales",
-        s4_title:"Seguridad · Transporte · Cyber", s4_text:"Protección operativa, logística y ciberseguridad orientada a servicio.",
-        s4_li1:"Protocolos y seguridad privada", s4_li2:"Transporte multimodal", s4_li3:"Comunicaciones y cyber",
-
-        port_title:"Portafolios",
-        port_intro:"Filtra por sector o busca por palabra. Pulsa “Ver ficha” para abrir el popup del proyecto (con video).",
-        f_all:"Todos", f_eyedit:"EyeDit", f_av:"Audiovisual", f_ccs:"CCS", f_eyevision:"Eyevision",
-        search_label:"Buscar",
-        port_tip:"Tip: el Video embed ya está listo. Luego añadimos imágenes/lightbox si quieres.",
-
-        high_title:"Highlights",
-        high1_t:"Arquitectura simple, potente", high1_s:"Un solo archivo. Rápido. Fácil de editar. Perfecto para arrancar y crecer.",
-        high2_t:"Preparado para institucional", high2_s:"Secciones claras, portafolio, FAQ y mensaje de marca coherente.",
-        high3_t:"Escalable", high3_s:"Cuando quieras, lo dividimos en páginas o pasamos a framework sin perder el diseño.",
-
-        faq_title:"FAQ",
-        faq_q1:"¿Funciona en Vercel sin framework?",
-        faq_a1:"Sí. Solo necesitas index.html en la raíz del repositorio.",
-        faq_q2:"¿Cómo pongo los logos después?",
-        faq_a2:"Sube logo.png (o logo.svg) a la raíz del repo y aparecerá automáticamente.",
-        faq_q3:"¿Y el dominio eyeditimagequickservice.org?",
-        faq_a3:"Cuando lo apuntes a Vercel, este HTML ya está preparado con canonical y contacto del dominio.",
-
-        contact_title:"Contacto",
-        contact_text:"Contacto oficial del proyecto (dominio):",
-        contact_btn:"Enviar email",
-        copy_btn:"Copiar email",
-        footer_text:"Static HTML for Vercel",
-
-        modal_media_title:"Video embed",
-        modal_scope_title:"Alcance",
-        modal_stack_title:"Tecnología / Entregables",
-        modal_primary:"Pedir propuesta",
-        modal_secondary:"Cerrar",
-        modal_no_video:"Este proyecto aún no tiene video. Luego lo ponemos aquí.",
-        modal_video_hint:"Auto-play desactivado (pro).",
-
-        proj_view:"Ver ficha"
-      },
-      en:{
-        nav_sectors:"Sectors", nav_portfolio:"Portfolios", nav_highlights:"Highlights", nav_faq:"FAQ", nav_contact:"Contact",
-        kicker:"Creative holding · telecom · security",
-        hero_title:"EyeDit Group: creativity, broadcasting, wellness and protection.",
-        hero_text:"Pro static site for Vercel: one index.html, languages, portfolios and popups + video embed.",
-        cta_portfolio:"View portfolios", cta_contact:"Contact", cta_download:"Launch checklist",
-        stat1_title:"Auto deploy", stat1_text:"Commit to GitHub = deploy on Vercel. No build.",
-        stat2_title:"Ready for logos", stat2_text:"Upload logo.png (or .svg) to repo root and it appears automatically.",
-        stat3_title:"Portfolios and video", stat3_text:"Filters, search, popup and video embed.",
-
-        sectors_title:"Sectors",
-        s1_title:"Imaging · Content · Production", s1_text:"Create and manage images and content with fast workflows and quality.",
-        s1_li1:"Photography and post-production", s1_li2:"Brand kit and assets", s1_li3:"Institutional websites and landings",
-        s2_title:"Radio · TV · Streaming", s2_text:"Audiovisual operations and multi-channel transmission, ready to scale.",
-        s2_li1:"RTMP / SRT / IP", s2_li2:"Production and direction", s2_li3:"Distribution and publishing",
-        s3_title:"Wellness · Natural medicine", s3_text:"Educational content, protocols and serious wellness methodology.",
-        s3_li1:"Guides and routines", s3_li2:"Community and education", s3_li3:"Brand and materials",
-        s4_title:"Security · Transport · Cyber", s4_text:"Operational protection, logistics and service-oriented cybersecurity.",
-        s4_li1:"Protocols and private security", s4_li2:"Multimodal transport", s4_li3:"Communications and cyber",
-
-        port_title:"Portfolios",
-        port_intro:"Filter by sector or search. Click “View sheet” to open the project popup (with video).",
-        f_all:"All", f_eyedit:"EyeDit", f_av:"Audiovisual", f_ccs:"CCS", f_eyevision:"Eyevision",
-        search_label:"Search",
-        port_tip:"Tip: Video embed is ready. Later we can add images/lightbox.",
-
-        high_title:"Highlights",
-        high1_t:"Simple, powerful architecture", high1_s:"Single file. Fast. Easy to edit. Perfect to launch and grow.",
-        high2_t:"Institutional-ready", high2_s:"Clear sections, portfolio, FAQ and consistent brand message.",
-        high3_t:"Scalable", high3_s:"When ready, split into pages or move to a framework without losing design.",
-
-        faq_title:"FAQ",
-        faq_q1:"Does it work on Vercel without a framework?",
-        faq_a1:"Yes. Keep index.html at the repository root.",
-        faq_q2:"How do I add logos later?",
-        faq_a2:"Upload logo.png (or logo.svg) to the repo root and it will appear automatically.",
-        faq_q3:"And the domain eyeditimagequickservice.org?",
-        faq_a3:"Once it points to Vercel, this HTML is already prepared with canonical + domain contact.",
-
-        contact_title:"Contact",
-        contact_text:"Official project contact (domain):",
-        contact_btn:"Send email",
-        copy_btn:"Copy email",
-        footer_text:"Static HTML for Vercel",
-
-        modal_media_title:"Video embed",
-        modal_scope_title:"Scope",
-        modal_stack_title:"Tech / Deliverables",
-        modal_primary:"Request a proposal",
-        modal_secondary:"Close",
-        modal_no_video:"This project does not have a video yet. We’ll add it here.",
-        modal_video_hint:"Auto-play disabled (pro).",
-
-        proj_view:"View sheet"
-      }
-    };
-
-    let LANG = localStorage.getItem("lang") || "ca";
-    const $ = (sel, root=document) => root.querySelector(sel);
-    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
-    const emailOfficial = "info@eyeditimagequickservice.org";
-
-    function t(obj){ return (obj && obj[LANG]) ? obj[LANG] : (obj?.ca || obj?.es || obj?.en || ""); }
-    function escapeHtml(str){
-      return String(str)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-    }
-    function sectorBadgeText(sector){ return t(SECTOR_LABEL[sector]) || sector; }
-
-    function setLang(lang){
-      LANG = lang;
-      document.documentElement.lang = lang;
-
-      $$("[data-i18n]").forEach(el=>{
-        const key = el.getAttribute("data-i18n");
-        const val = I18N[lang]?.[key];
-        if(!val) return;
-
-        if(key === "hero_text"){
-          el.innerHTML = val.replace("index.html", '<code class="inline">index.html</code>');
-          return;
-        }
-        if(key === "stat2_text" || key === "faq_a2"){
-          el.innerHTML = val
-            .replace("logo.png", '<code class="inline">logo.png</code>')
-            .replace("logo.svg", '<code class="inline">logo.svg</code>');
-          return;
-        }
-        if(key === "faq_a1"){
-          el.innerHTML = val.replace("index.html", '<code class="inline">index.html</code>');
-          return;
-        }
-
-        el.textContent = val;
-      });
-
-      $("#embedPlaceholderText").textContent = I18N[LANG].modal_no_video;
-      $("#videoHint").textContent = I18N[LANG].modal_video_hint;
-
-      $$(".langbtn").forEach(b => b.classList.toggle("active", b.dataset.lang === lang));
-      localStorage.setItem("lang", lang);
-
-      renderProjects();
-    }
-
-    // Filters/search
-    let ACTIVE_FILTER = "all";
-    let QUERY = "";
-
-    function projectMatches(p){
-      const sectorOk = (ACTIVE_FILTER === "all") || (p.sector === ACTIVE_FILTER);
-      const q = QUERY.trim().toLowerCase();
-      if(!q) return sectorOk;
-
-      const text = [
-        t(p.title), t(p.summary),
-        ...(p.tags || []),
-        ...(p.scope?.[LANG] || []),
-        ...(p.stack?.[LANG] || [])
-      ].join(" ").toLowerCase();
-
-      return sectorOk && text.includes(q);
-    }
-
-    function renderProjects(){
-      const grid = $("#projectGrid");
-      const list = PROJECTS.filter(projectMatches);
-      grid.innerHTML = "";
-
-      if(list.length === 0){
-        const empty = document.createElement("div");
-        empty.className = "panel";
-        empty.innerHTML = `<b style="display:block;margin-bottom:6px;">No results</b><span style="color:var(--muted);font-size:13px;">${LANG==="ca"?"Cap projecte amb aquest filtre/cerca.":LANG==="es"?"No hay proyectos con ese filtro/búsqueda.":"No projects match this filter/search."}</span>`;
-        grid.appendChild(empty);
-        return;
-      }
-
-      list.forEach(p=>{
-        const card = document.createElement("article");
-        card.className = "project";
-        const tagsHtml = (p.tags||[]).slice(0,3).map(x=>`<span class="pill">${escapeHtml(x)}</span>`).join("");
-
-        card.innerHTML = `
-          <div>
-            <span class="badge">${escapeHtml(sectorBadgeText(p.sector))}</span>
-            <h5>${escapeHtml(t(p.title))}</h5>
-            <p>${escapeHtml(t(p.summary))}</p>
-            <div class="meta">${tagsHtml}</div>
+      <div class="panel">
+        <div class="kpis">
+          <div class="kpi">
+            <b>Fast</b>
+            <small>Turnaround per clients</small>
           </div>
-          <div class="proj-actions">
-            <button class="btn" type="button" data-open="${p.id}">${escapeHtml(I18N[LANG].proj_view)}</button>
-            <a class="btn secondary" href="mailto:${emailOfficial}?subject=${encodeURIComponent("EyeDit Group - "+t(p.title))}">${LANG==="ca"?"Contacte":LANG==="es"?"Contacto":"Contact"}</a>
+          <div class="kpi">
+            <b>Secure</b>
+            <small>Canals i fluxos controlats</small>
           </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
+          <div class="kpi">
+            <b>Global</b>
+            <small>Escalabilitat i projecció</small>
+          </div>
+        </div>
+        <div class="line"></div>
+        <p class="note">
+          CEO: <b style="color:var(--text)">Mikel Skoda</b><br/>
+          Base operativa: Barcelona (Raval) i projecció internacional.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    // Modal (popup)
-    const overlay = $("#modalOverlay");
-    const modalClose = $("#modalClose");
-    const modalSecondary = $("#modalSecondary");
-    const modalPrimary = $("#modalPrimary");
-    const modalTitle = $("#modalTitle");
-    const modalDesc = $("#modalDesc");
-    const modalScope = $("#modalScope");
-    const modalStack = $("#modalStack");
-    const modalSectorBadge = $("#modalSectorBadge");
+  <section id="services">
+    <div class="section-title">
+      <h2>Serveis principals</h2>
+      <p>Tria un paquet o combina’ls per projecte.</p>
+    </div>
+    <div class="cards">
+      <div class="mini">
+        <h3>Image Quick Service</h3>
+        <p>Captura, edició, optimització i entrega d’imatge amb fluxos ràpids i consistents.</p>
+        <span class="tag green">Imatge & producció</span>
+      </div>
+      <div class="mini">
+        <h3>Audiovisual & Broadcast</h3>
+        <p>Producció, streaming, formats creatius i contingut per canals digitals i corporatius.</p>
+        <span class="tag blue">Media & streaming</span>
+      </div>
+      <div class="mini">
+        <h3>Telecom & Secure Ops</h3>
+        <p>Integració de comunicacions, canals segurs i arquitectura operativa per entorns exigents.</p>
+        <span class="tag gray">Telecom & seguretat</span>
+      </div>
+    </div>
+  </section>
 
-    const embedWrap = $("#embedWrap");
-    const embedPlaceholder = $("#embedPlaceholder");
+  <section id="ecosystem">
+    <div class="section-title">
+      <h2>Ecosistema EyeDit</h2>
+      <p>Tres divisions, una operació coordinada.</p>
+    </div>
 
-    let lastFocus = null;
-    let CURRENT_PROJECT = null;
+    <div class="cards">
+      <div class="mini">
+        <h3>CCS CAN SS AM CAN SAM</h3>
+        <p>Benestar, teràpies naturals i serveis holístics amb enfoc integratiu i escalable.</p>
+        <span class="tag green">Wellness</span>
+      </div>
+      <div class="mini">
+        <h3>EyeDit Media</h3>
+        <p>Agència creativa, ràdio/TV, producció i distribució de contingut amb qualitat premium.</p>
+        <span class="tag blue">Audiovisual</span>
+      </div>
+      <div class="mini">
+        <h3>EyeVision</h3>
+        <p>Seguretat i operacions, transport (aeri, marítim, terrestre) i capa de ciberseguretat.</p>
+        <span class="tag gray">Security</span>
+      </div>
+    </div>
+  </section>
 
-    function clearEmbed(){
-      // remove any iframe
-      const iframe = embedWrap.querySelector("iframe");
-      if(iframe) iframe.remove();
-      embedPlaceholder.style.display = "flex";
-    }
+  <section id="usecases">
+    <div class="section-title">
+      <h2>Casos d’ús</h2>
+      <p>Exemples de com s’aplica el model.</p>
+    </div>
 
-    function setEmbed(video){
-      clearEmbed();
-      if(!video || !video.url){
-        return;
-      }
-      const iframe = document.createElement("iframe");
-      iframe.src = video.url;
-      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      iframe.allowFullscreen = true;
-      iframe.referrerPolicy = "strict-origin-when-cross-origin";
-      embedWrap.appendChild(iframe);
-      embedPlaceholder.style.display = "none";
-    }
+    <div class="cards">
+      <div class="mini">
+        <h3>Family Office & Premium Clients</h3>
+        <p>Branding, imatge i comunicació segura amb lliuraments ràpids i confidencialitat.</p>
+        <span class="tag gray">Confidential</span>
+      </div>
+      <div class="mini">
+        <h3>Producció + Distribució</h3>
+        <p>Streaming i contingut amb canals robustos, suport remot i qualitat consistent.</p>
+        <span class="tag blue">Broadcast-ready</span>
+      </div>
+      <div class="mini">
+        <h3>Wellness Digital Delivery</h3>
+        <p>Serveis i programes de benestar amb capa digital, media i seguretat integrades.</p>
+        <span class="tag green">Welltech</span>
+      </div>
+    </div>
+  </section>
 
-    function openModal(projectId){
-      const p = PROJECTS.find(x=>x.id===projectId);
-      if(!p) return;
+  <section id="contact" class="card" style="padding:18px">
+    <div class="section-title">
+      <h2>Contacte</h2>
+      <p>Per briefing, deck o col·laboracions.</p>
+    </div>
 
-      CURRENT_PROJECT = p;
-      lastFocus = document.activeElement;
+    <div class="contact">
+      <div class="mini">
+        <h3>Email</h3>
+        <p>
+          <a href="mailto:ms.eyedit@outlook.com">ms.eyedit@outlook.com</a>
+        </p>
+        <p class="note">Responc amb un missatge curt i orientat a acció.</p>
+      </div>
+      <div class="mini">
+        <h3>Nota</h3>
+        <p>Si estàs enviant un pitch: inclou 3 línies, un link al deck i el teu objectiu (meeting / intro).</p>
+        <p class="note">També puc preparar one-pager i deck institucional.</p>
+      </div>
+    </div>
+  </section>
 
-      modalTitle.textContent = t(p.title);
-      modalDesc.textContent = t(p.summary);
-      modalSectorBadge.textContent = sectorBadgeText(p.sector);
+  <footer class="wrap">
+    © <span id="y"></span> EyeDit Image Quick Service. All rights reserved.
+  </footer>
+</main>
 
-      modalScope.innerHTML = "";
-      (p.scope?.[LANG] || []).forEach(item=>{
-        const li = document.createElement("li");
-        li.textContent = item;
-        modalScope.appendChild(li);
-      });
+<script>
+  // Any actualitza any
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 
-      modalStack.innerHTML = "";
-      (p.stack?.[LANG] || []).forEach(item=>{
-        const li = document.createElement("li");
-        li.textContent = item;
-        modalStack.appendChild(li);
-      });
-
-      setEmbed(p.video);
-
-      overlay.classList.add("open");
-      setTimeout(()=> modalClose.focus(), 0);
-      document.body.style.overflow = "hidden";
-    }
-
-    function closeModal(){
-      overlay.classList.remove("open");
-      document.body.style.overflow = "";
-      clearEmbed();
-      if(lastFocus && typeof lastFocus.focus === "function") lastFocus.focus();
-      CURRENT_PROJECT = null;
-    }
-
-    overlay.addEventListener("click", (e)=>{ if(e.target === overlay) closeModal(); });
-    modalClose.addEventListener("click", closeModal);
-    modalSecondary.addEventListener("click", closeModal);
-
-    window.addEventListener("keydown", (e)=>{
-      if(e.key === "Escape" && overlay.classList.contains("open")) closeModal();
-    });
-
-    modalPrimary.addEventListener("click", ()=>{
-      const subject = encodeURIComponent(`EyeDit Group - Proposal: ${CURRENT_PROJECT ? t(CURRENT_PROJECT.title) : ""}`);
-      const body = encodeURIComponent(
-        `${LANG==="ca"?"Hola EyeDit,":"Hello EyeDit,"}\n\n` +
-        `${LANG==="ca"?"Vull una proposta per al projecte:":"I would like a proposal for the project:"} ` +
-        `${CURRENT_PROJECT ? t(CURRENT_PROJECT.title) : ""}\n\n` +
-        `${LANG==="ca"?"Detalls:":"Details:"}\n- \n- \n`
-      );
-      window.location.href = `mailto:${emailOfficial}?subject=${subject}&body=${body}`;
-    });
-
-    // Controls
-    $$(".pillbtn").forEach(btn=>{
-      btn.addEventListener("click", ()=>{
-        ACTIVE_FILTER = btn.dataset.filter;
-        $$(".pillbtn").forEach(b=> b.classList.toggle("active", b.dataset.filter === ACTIVE_FILTER));
-        renderProjects();
-      });
-    });
-
-    $("#q").addEventListener("input", (e)=>{ QUERY = e.target.value || ""; renderProjects(); });
-
-    $("#projectGrid").addEventListener("click", (e)=>{
-      const openId = e.target?.dataset?.open;
-      if(openId) openModal(openId);
-    });
-
-    // Copy email
-    $("#btnCopy").addEventListener("click", async ()=>{
-      try{
-        await navigator.clipboard.writeText(emailOfficial);
-        $("#copyStatus").textContent = (LANG==="ca"?"Copiat ✅":LANG==="es"?"Copiado ✅":"Copied ✅");
-      } catch {
-        $("#copyStatus").textContent = (LANG==="ca"?"No he pogut copiar. Copia manualment: ":"No pude copiar. Copia manualmente: ":"Could not copy. Copy manually: ") + emailOfficial;
-      }
-      setTimeout(()=> { $("#copyStatus").textContent = ""; }, 2500);
-    });
-
-    // Checklist download
-    $("#btnDownload").addEventListener("click", ()=>{
-      const text = [
-        "EyeDit Group - Launch Checklist",
-        "1) index.html at repo root",
-        "2) Domain: eyeditimagequickservice.org -> Vercel",
-        "3) Optional: add logo.png / logo.svg at repo root",
-        "4) Test: languages, portfolio filters, modal popups",
-        "5) Add OG image (og-image.png) if needed",
-        "6) Replace demo portfolio texts with real projects",
-        "7) Add real video embed URLs per project",
-      ].join("\n");
-      const blob = new Blob([text], {type:"text/plain;charset=utf-8"});
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = "eyedit-launch-checklist.txt";
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      setTimeout(()=> URL.revokeObjectURL(a.href), 500);
-    });
-
-    // Init
-    document.getElementById("year").textContent = new Date().getFullYear();
-    document.getElementById("videoHint").textContent = I18N[LANG].modal_video_hint;
-    document.getElementById("embedPlaceholderText").textContent = I18N[LANG].modal_no_video;
-
-    $$(".langbtn").forEach(btn=> btn.addEventListener("click", ()=> setLang(btn.dataset.lang)));
-    setLang(LANG);
-    renderProjects();
-  </script>
 </body>
 </html>
