@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -41,7 +42,6 @@
     a{color:inherit}
     .wrap{max-width:1100px;margin:0 auto;padding:22px}
 
-    /* Top bar */
     header{
       position:sticky; top:0; z-index:50;
       background: linear-gradient(to bottom, rgba(7,10,15,.92), rgba(7,10,15,.60));
@@ -77,7 +77,6 @@
       background: rgba(199,167,106,.12)!important;
     }
 
-    /* Cards */
     .card{
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
@@ -160,7 +159,6 @@
     .kpi b{font-size:18px;color:var(--gold2)}
     .kpi small{display:block;color:var(--muted);margin-top:2px}
 
-    /* Sections */
     section{margin-top:20px}
     .section-title{
       display:flex; align-items:baseline; justify-content:space-between; gap:12px;
@@ -169,7 +167,6 @@
     .section-title h2{margin:0;font-size:20px}
     .section-title p{margin:0;color:var(--muted);font-size:13px}
 
-    /* Projects cards */
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -208,7 +205,6 @@
     .tag.silver{border-color:rgba(255,255,255,.18)}
     .card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 
-    /* Portfolio blocks */
     .portfolio-grid{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -237,7 +233,6 @@
     .divider{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
     .hr-soft{height:1px;background:rgba(255,255,255,.08);margin:12px 0}
 
-    /* Investment ultra luxe */
     .invest-grid{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -280,7 +275,6 @@
     .ticket p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
     .ticket .mini{color:var(--muted);font-size:12px;margin-top:8px}
 
-    /* Private access */
     details.private{
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
@@ -302,443 +296,456 @@
     }
     @media (max-width: 920px){ .private-grid{grid-template-columns:1fr} }
 
-    /* Anchor offset for sticky header */
     .anchor{scroll-margin-top:110px}
 
-    /* Footer */
     footer{padding:18px 22px;color:var(--muted);font-size:12px;text-align:center}
+
+    /* Marker badge */
+    .lux-badge{
+      position:fixed;
+      bottom:10px;
+      right:10px;
+      background:var(--gold);
+      color:var(--bg);
+      padding:8px 10px;
+      border-radius:10px;
+      font-weight:900;
+      z-index:99999;
+      border:1px solid rgba(0,0,0,.25);
+    }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="topbar">
-    <div class="brand">
-      <img src="logo-eyeditgroup.png" alt="EyeDit Group logo" class="logo-main">
-      <div>
-        <b>EyeDit Image Quick Service</b>
-        <small>Luxury-grade ecosystem: Media • Telecom • Secure Infrastructure</small>
+  <!-- VERSION LUXE EYEDIT 2026 -->
+  <div class="lux-badge">EYEDIT LUX</div>
+
+  <header>
+    <div class="topbar">
+      <div class="brand">
+        <img src="logo-eyeditgroup.png" alt="EyeDit Group logo" class="logo-main">
+        <div>
+          <b>EyeDit Image Quick Service</b>
+          <small>Luxury-grade ecosystem: Media • Telecom • Secure Infrastructure</small>
+        </div>
       </div>
+
+      <nav>
+        <a href="#divisions">Divisions</a>
+        <a href="#portfolios">Portfolios</a>
+        <a href="#investment">Investment</a>
+        <a href="#private" class="cta">Private Access</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <nav>
-      <a href="#divisions">Divisions</a>
-      <a href="#portfolios">Portfolios</a>
-      <a href="#investment">Investment</a>
-      <a href="#private" class="cta">Private Access</a>
-      <a href="#contact" class="cta">Contact</a>
-    </nav>
-  </div>
-</header>
+  <main class="wrap">
+    <section class="hero card">
+      <div class="grid">
+        <div>
+          <h1>Precision services for premium clients and global operations.</h1>
+          <p class="lead">
+            EyeDit Group integrates high-end media production, secure communications and operational security,
+            with a wellness division designed for modern delivery. Built to scale. Built to be trusted.
+          </p>
 
-<main class="wrap">
-  <section class="hero card">
-    <div class="grid">
-      <div>
-        <h1>Precision services for premium clients and global operations.</h1>
-        <p class="lead">
-          EyeDit Group integrates high-end media production, secure communications and operational security,
-          with a wellness division designed for modern delivery. Built to scale. Built to be trusted.
-        </p>
+          <div class="pillrow">
+            <div class="pill"><strong>Premium</strong> execution</div>
+            <div class="pill"><strong>Secure</strong> delivery</div>
+            <div class="pill"><strong>Global</strong> projection</div>
+            <div class="pill"><strong>Discreet</strong> operations</div>
+          </div>
 
-        <div class="pillrow">
-          <div class="pill"><strong>Premium</strong> execution</div>
-          <div class="pill"><strong>Secure</strong> delivery</div>
-          <div class="pill"><strong>Global</strong> projection</div>
-          <div class="pill"><strong>Discreet</strong> operations</div>
+          <div class="actions">
+            <a class="btn primary" href="#investment">Investment briefing</a>
+            <a class="btn" href="#divisions">Explore divisions</a>
+          </div>
         </div>
 
-        <div class="actions">
-          <a class="btn primary" href="#investment">Investment briefing</a>
-          <a class="btn" href="#divisions">Explore divisions</a>
+        <div class="panel">
+          <div class="kpis">
+            <div class="kpi"><b>Fast</b><small>Reliable turnaround</small></div>
+            <div class="kpi"><b>Trusted</b><small>Secure-by-design</small></div>
+            <div class="kpi"><b>Global</b><small>Scalable operations</small></div>
+          </div>
+          <p class="note">
+            CEO: <span style="color:var(--text);font-weight:700">Mikel Skoda</span><br>
+            Operating base: Barcelona. International projection.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="divisions" class="anchor">
+      <div class="section-title">
+        <h2>Divisions</h2>
+        <p>Three projects, one premium operational standard.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-inner">
+            <img class="project-logo" src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM logo">
+            <h3>CCS CAN SS AM CAN SAM</h3>
+            <p>Integrative wellness: natural therapies and holistic care delivery with professional standards and scalable programs.</p>
+            <div class="tags">
+              <span class="tag gold">Wellness</span>
+              <span class="tag silver">Integrative Care</span>
+              <span class="tag silver">Programs</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn small primary" href="#portfolio-ccs">Portfolio</a>
+              <a class="btn small ghost" href="#contact">Collaborate</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-inner">
+            <img class="project-logo" src="logo-eyedit.png" alt="EyeDit logo">
+            <h3>EyeDit Media</h3>
+            <p>Luxury creative production: image services, audiovisual, radio/TV formats and brand storytelling with premium execution.</p>
+            <div class="tags">
+              <span class="tag gold">Media</span>
+              <span class="tag silver">Production</span>
+              <span class="tag silver">Broadcast</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn small primary" href="#portfolio-eyedit">Portfolio</a>
+              <a class="btn small ghost" href="#contact">Request quote</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-inner">
+            <img class="project-logo" src="logo-eyevision.png" alt="EyeVision logo">
+            <h3>EyeVision Security</h3>
+            <p>Security and transport operations: private security, aero-maritime-terrestrial support, and cybersecurity layer for demanding environments.</p>
+            <div class="tags">
+              <span class="tag gold">Security</span>
+              <span class="tag silver">Transport</span>
+              <span class="tag silver">Cyber</span>
+            </div>
+            <div class="card-actions">
+              <a class="btn small primary" href="#portfolio-eyevision">Portfolio</a>
+              <a class="btn small ghost" href="#contact">Secure inquiry</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="portfolios" class="anchor">
+      <div class="section-title">
+        <h2>Portfolios</h2>
+        <p>Dedicated sections for each division in a single page.</p>
+      </div>
+
+      <div id="portfolio-ccs" class="anchor box">
+        <div class="section-title" style="margin:0 0 10px">
+          <h2 style="font-size:18px;margin:0">CCS CAN SS AM CAN SAM</h2>
+          <p style="margin:0;color:var(--muted);font-size:13px">Wellness • Integrative Care • Programs</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="box" style="border-radius:18px">
+            <p class="mini-title">Identity</p>
+            <p class="note">
+              Integrative wellness platform focused on natural therapies and holistic care delivery,
+              designed for premium client journeys and scalable programs.
+            </p>
+            <div class="divider"></div>
+            <p class="mini-title">Core services</p>
+            <ul class="list">
+              <li>Natural therapies and holistic sessions</li>
+              <li>Preventive wellbeing and lifestyle protocols</li>
+              <li>Program design: wellness journeys and packages</li>
+              <li>Private client service experience</li>
+            </ul>
+          </div>
+
+          <div class="box" style="border-radius:18px">
+            <p class="mini-title">Delivery model</p>
+            <ul class="list">
+              <li>Appointments and programs with consistent standards</li>
+              <li>Content + guidance material (digital delivery ready)</li>
+              <li>Premium confidentiality for sensitive clients</li>
+            </ul>
+            <div class="divider"></div>
+            <p class="mini-title">Notes</p>
+            <p class="note">
+              For a private dossier or investor brief, request a briefing via email. References can be shared privately.
+            </p>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:14px">
+          <a class="btn small primary" href="#contact">Request CCS briefing</a>
+          <a class="btn small" href="#divisions">Back to divisions</a>
         </div>
       </div>
 
-      <div class="panel">
-        <div class="kpis">
-          <div class="kpi"><b>Fast</b><small>Reliable turnaround</small></div>
-          <div class="kpi"><b>Trusted</b><small>Secure-by-design</small></div>
-          <div class="kpi"><b>Global</b><small>Scalable operations</small></div>
+      <div id="portfolio-eyedit" class="anchor box" style="margin-top:14px">
+        <div class="section-title" style="margin:0 0 10px">
+          <h2 style="font-size:18px;margin:0">EyeDit Media</h2>
+          <p style="margin:0;color:var(--muted);font-size:13px">Production • Broadcast • Creative</p>
         </div>
+
+        <div class="portfolio-grid">
+          <div class="box" style="border-radius:18px">
+            <p class="mini-title">Capabilities</p>
+            <ul class="list">
+              <li>Image Quick Service workflow (fast delivery)</li>
+              <li>Audiovisual production and creative direction</li>
+              <li>Radio / TV formats and streaming support</li>
+              <li>Brand storytelling and premium content</li>
+            </ul>
+            <div class="divider"></div>
+            <p class="mini-title">Ideal clients</p>
+            <p class="note">Premium brands, family offices, institutions, and high-exigency corporate environments.</p>
+          </div>
+
+          <div class="box" style="border-radius:18px">
+            <p class="mini-title">Workflow standard</p>
+            <ul class="list">
+              <li>Briefing → production → review → delivery</li>
+              <li>High consistency and premium finish</li>
+              <li>Discreet handling of sensitive material</li>
+            </ul>
+            <div class="divider"></div>
+            <p class="mini-title">Notes</p>
+            <p class="note">Request a curated sample pack or references tailored to your sector.</p>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:14px">
+          <a class="btn small primary" href="#contact">Request Media briefing</a>
+          <a class="btn small" href="#divisions">Back to divisions</a>
+        </div>
+      </div>
+
+      <div id="portfolio-eyevision" class="anchor box" style="margin-top:14px">
+        <div class="section-title" style="margin:0 0 10px">
+          <h2 style="font-size:18px;margin:0">EyeVision Security</h2>
+          <p style="margin:0;color:var(--muted);font-size:13px">Security • Transport • Cyber</p>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="box" style="border-radius:18px">
+            <p class="mini-title">Services</p>
+            <ul class="list">
+              <li>Private security operations and coordination</li>
+              <li>Transport support (air / sea / land)</li>
+              <li>Cybersecurity advisory layer</li>
+              <li>Secure operational coordination</li>
+            </ul>
+            <div class="divider"></div>
+            <p class="mini-title">Use cases</p>
+            <p class="note">Premium client movements, sensitive events, and demanding environments requiring discretion.</p>
+          </div>
+
+          <div class="box" style="border-radius:18px">
+            <p class="mini-title">Confidentiality</p>
+            <p class="note">
+              Sensitive references are shared privately. Request a briefing to receive a tailored dossier.
+            </p>
+            <div class="divider"></div>
+            <p class="mini-title">Notes</p>
+            <p class="note">We can coordinate with media and telecom layers within the EyeDit ecosystem when required.</p>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top:14px">
+          <a class="btn small primary" href="#contact">Request Security briefing</a>
+          <a class="btn small" href="#divisions">Back to divisions</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="investment" class="anchor">
+      <div class="section-title">
+        <h2>Investment</h2>
+        <p>Family Office • Strategic Partners • Institutional Conversations</p>
+      </div>
+
+      <div class="invest-grid">
+        <div class="invest-card">
+          <div class="invest-inner">
+            <h3 style="margin:0 0 8px;font-size:18px">EyeDit Group: premium ecosystem built to scale</h3>
+            <p class="note" style="margin:0">
+              We are opening selective conversations with aligned partners to accelerate execution across:
+              <b style="color:var(--text)">Media</b>, <b style="color:var(--text)">Secure Operations</b>, and
+              <b style="color:var(--text)">Wellness Delivery</b>.
+              Our focus is a luxury-grade standard: discreet, reliable, and internationally scalable.
+            </p>
+
+            <div class="invest-badges">
+              <span class="badge gold">Confidential Deck</span>
+              <span class="badge">Selective Access</span>
+              <span class="badge">Premium Clients</span>
+              <span class="badge">International Projection</span>
+            </div>
+
+            <div class="hr-soft"></div>
+
+            <p class="note" style="margin:0">
+              If you manage capital for premium clients or strategic expansion vehicles, request the private deck and a short briefing.
+              We reply with a clear next step.
+            </p>
+
+            <div class="actions" style="margin-top:14px">
+              <a class="btn primary"
+                 href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20Investment%20Deck&body=Hello%20Mikel,%0A%0AI%20would%20like%20to%20request%20the%20EyeDit%20Group%20investment%20deck.%0A%0AName:%0AOrganization:%0ARole:%0AInvestment%20focus:%0A%0APreferred%20time%20windows%20(CET):%0A%0ARegards,">
+                Request Deck
+              </a>
+
+              <a class="btn secondary"
+                 href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20One-Pager%20Request&body=Hello%20Mikel,%0A%0APlease%20share%20the%20EyeDit%20Group%20one-pager.%0A%0AName:%0AOrganization:%0ARegards,">
+                Request One-Pager
+              </a>
+
+              <a class="btn" href="#private">Private access</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="invest-card">
+          <div class="invest-inner">
+            <h3 style="margin:0 0 10px;font-size:16px">Engagement tickets</h3>
+
+            <div class="ticket">
+              <h3>Seed / Pre-Seed (Execution)</h3>
+              <p>Accelerate delivery: productization, go-to-market, premium client acquisition and scalable operations.</p>
+              <div class="mini">Fast iteration • clear milestones • lean governance</div>
+            </div>
+
+            <div style="height:10px"></div>
+
+            <div class="ticket">
+              <h3>Strategic Partnership (Expansion)</h3>
+              <p>Market access, distribution, co-production, and partnerships aligned with premium and institutional demands.</p>
+              <div class="mini">Co-selling • alliances • international rollouts</div>
+            </div>
+
+            <div style="height:10px"></div>
+
+            <div class="ticket">
+              <h3>Infrastructure / Secure Ops</h3>
+              <p>Secure communications, operational coordination and high-exigency environments for sensitive projects.</p>
+              <div class="mini">Compliance-ready • discretion-first • robust delivery</div>
+            </div>
+
+            <div class="hr-soft"></div>
+            <p class="note" style="margin:0">
+              Detailed references are shared privately after a short alignment call.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="private" class="anchor">
+      <div class="section-title">
+        <h2>Private Access</h2>
+        <p>NDA request • Secure link • Board-ready summary</p>
+      </div>
+
+      <details class="private" open>
+        <summary>Confidential materials (click to collapse/expand)</summary>
         <p class="note">
-          CEO: <span style="color:var(--text);font-weight:700">Mikel Skoda</span><br>
-          Operating base: Barcelona. International projection.
+          For premium clients and institutional contexts, we share sensitive information via private channels and, when required, under NDA.
         </p>
-      </div>
-    </div>
-  </section>
 
-  <!-- DIVISIONS -->
-  <section id="divisions" class="anchor">
-    <div class="section-title">
-      <h2>Divisions</h2>
-      <p>Three projects, one premium operational standard.</p>
-    </div>
+        <div class="private-grid">
+          <div class="box">
+            <p class="mini-title">NDA request</p>
+            <p class="note">Request our NDA template, or send yours. We can align quickly and proceed with confidential sharing.</p>
 
-    <div class="projects-grid">
-      <!-- CCS -->
-      <article class="project-card">
-        <div class="project-inner">
-          <img class="project-logo" src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM logo">
-          <h3>CCS CAN SS AM CAN SAM</h3>
-          <p>Integrative wellness: natural therapies and holistic care delivery with professional standards and scalable programs.</p>
-          <div class="tags">
-            <span class="tag gold">Wellness</span>
-            <span class="tag silver">Integrative Care</span>
-            <span class="tag silver">Programs</span>
+            <div class="actions" style="margin-top:12px">
+              <a class="btn small primary"
+                 href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20NDA%20Request&body=Hello%20Mikel,%0A%0APlease%20send%20your%20NDA%20template.%0A%0AName:%0AOrganization:%0ARole:%0A%0ARegards,">
+                Request NDA
+              </a>
+              <a class="btn small secondary" href="#contact">Send my NDA</a>
+            </div>
           </div>
-          <div class="card-actions">
-            <a class="btn small primary" href="#portfolio-ccs">Portfolio</a>
-            <a class="btn small ghost" href="#contact">Collaborate</a>
-          </div>
-        </div>
-      </article>
 
-      <!-- EyeDit -->
-      <article class="project-card">
-        <div class="project-inner">
-          <img class="project-logo" src="logo-eyedit.png" alt="EyeDit logo">
-          <h3>EyeDit Media</h3>
-          <p>Luxury creative production: image services, audiovisual, radio/TV formats and brand storytelling with premium execution.</p>
-          <div class="tags">
-            <span class="tag gold">Media</span>
-            <span class="tag silver">Production</span>
-            <span class="tag silver">Broadcast</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn small primary" href="#portfolio-eyedit">Portfolio</a>
-            <a class="btn small ghost" href="#contact">Request quote</a>
+          <div class="box">
+            <p class="mini-title">Secure link request</p>
+            <p class="note">We can share a private deck link with access control and limited visibility, based on your objective.</p>
+
+            <div class="actions" style="margin-top:12px">
+              <a class="btn small primary"
+                 href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20Secure%20Deck%20Link&body=Hello%20Mikel,%0A%0AI%20would%20like%20to%20request%20a%20secure%20link%20to%20the%20deck.%0A%0AName:%0AOrganization:%0ARole:%0APurpose:%0A%0ARegards,">
+                Request Secure Link
+              </a>
+              <a class="btn small ghost" href="#investment">Back to Investment</a>
+            </div>
           </div>
         </div>
-      </article>
 
-      <!-- EyeVision -->
-      <article class="project-card">
-        <div class="project-inner">
-          <img class="project-logo" src="logo-eyevision.png" alt="EyeVision logo">
-          <h3>EyeVision Security</h3>
-          <p>Security and transport operations: private security, aero-maritime-terrestrial support, and cybersecurity layer for demanding environments.</p>
-          <div class="tags">
-            <span class="tag gold">Security</span>
-            <span class="tag silver">Transport</span>
-            <span class="tag silver">Cyber</span>
-          </div>
-          <div class="card-actions">
-            <a class="btn small primary" href="#portfolio-eyevision">Portfolio</a>
-            <a class="btn small ghost" href="#contact">Secure inquiry</a>
-          </div>
+        <div class="box" style="margin-top:14px">
+          <p class="mini-title">Board-ready summary (3 bullets)</p>
+          <ul class="list">
+            <li><b style="color:var(--text)">Premium ecosystem:</b> media + secure operations + wellness delivery, designed for discretion and consistency.</li>
+            <li><b style="color:var(--text)">Scalable model:</b> productized services, operational standards, international projection from Barcelona.</li>
+            <li><b style="color:var(--text)">Selective partnerships:</b> aligned conversations for execution capital, strategic expansion and infrastructure-grade engagements.</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p class="mini-title">Next step</p>
+          <p class="note" style="margin:0">
+            Send a short message with your objective and preferred time window (CET). We respond with a clear next step.
+          </p>
         </div>
-      </article>
-    </div>
-  </section>
+      </details>
+    </section>
 
-  <!-- PORTFOLIOS -->
-  <section id="portfolios" class="anchor">
-    <div class="section-title">
-      <h2>Portfolios</h2>
-      <p>Dedicated sections for each division in a single page.</p>
-    </div>
-
-    <!-- CCS Portfolio -->
-    <div id="portfolio-ccs" class="anchor box">
-      <div class="section-title" style="margin:0 0 10px">
-        <h2 style="font-size:18px;margin:0">CCS CAN SS AM CAN SAM</h2>
-        <p style="margin:0;color:var(--muted);font-size:13px">Wellness • Integrative Care • Programs</p>
+    <section id="contact" class="anchor">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>Short message, fast reply.</p>
       </div>
 
       <div class="portfolio-grid">
-        <div class="box" style="border-radius:18px">
-          <p class="mini-title">Identity</p>
-          <p class="note">
-            Integrative wellness platform focused on natural therapies and holistic care delivery,
-            designed for premium client journeys and scalable programs.
-          </p>
-          <div class="divider"></div>
-          <p class="mini-title">Core services</p>
-          <ul class="list">
-            <li>Natural therapies and holistic sessions</li>
-            <li>Preventive wellbeing and lifestyle protocols</li>
-            <li>Program design: wellness journeys and packages</li>
-            <li>Private client service experience</li>
-          </ul>
-        </div>
-
-        <div class="box" style="border-radius:18px">
-          <p class="mini-title">Delivery model</p>
-          <ul class="list">
-            <li>Appointments and programs with consistent standards</li>
-            <li>Content + guidance material (digital delivery ready)</li>
-            <li>Premium confidentiality for sensitive clients</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="mini-title">Notes</p>
-          <p class="note">
-            For a private dossier or investor brief, request a briefing via email. References can be shared privately.
-          </p>
-        </div>
-      </div>
-
-      <div class="actions" style="margin-top:14px">
-        <a class="btn small primary" href="#contact">Request CCS briefing</a>
-        <a class="btn small" href="#divisions">Back to divisions</a>
-      </div>
-    </div>
-
-    <!-- EyeDit Media Portfolio -->
-    <div id="portfolio-eyedit" class="anchor box" style="margin-top:14px">
-      <div class="section-title" style="margin:0 0 10px">
-        <h2 style="font-size:18px;margin:0">EyeDit Media</h2>
-        <p style="margin:0;color:var(--muted);font-size:13px">Production • Broadcast • Creative</p>
-      </div>
-
-      <div class="portfolio-grid">
-        <div class="box" style="border-radius:18px">
-          <p class="mini-title">Capabilities</p>
-          <ul class="list">
-            <li>Image Quick Service workflow (fast delivery)</li>
-            <li>Audiovisual production and creative direction</li>
-            <li>Radio / TV formats and streaming support</li>
-            <li>Brand storytelling and premium content</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="mini-title">Ideal clients</p>
-          <p class="note">Premium brands, family offices, institutions, and high-exigency corporate environments.</p>
-        </div>
-
-        <div class="box" style="border-radius:18px">
-          <p class="mini-title">Workflow standard</p>
-          <ul class="list">
-            <li>Briefing → production → review → delivery</li>
-            <li>High consistency and premium finish</li>
-            <li>Discreet handling of sensitive material</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="mini-title">Notes</p>
-          <p class="note">Request a curated sample pack or references tailored to your sector.</p>
-        </div>
-      </div>
-
-      <div class="actions" style="margin-top:14px">
-        <a class="btn small primary" href="#contact">Request Media briefing</a>
-        <a class="btn small" href="#divisions">Back to divisions</a>
-      </div>
-    </div>
-
-    <!-- EyeVision Portfolio -->
-    <div id="portfolio-eyevision" class="anchor box" style="margin-top:14px">
-      <div class="section-title" style="margin:0 0 10px">
-        <h2 style="font-size:18px;margin:0">EyeVision Security</h2>
-        <p style="margin:0;color:var(--muted);font-size:13px">Security • Transport • Cyber</p>
-      </div>
-
-      <div class="portfolio-grid">
-        <div class="box" style="border-radius:18px">
-          <p class="mini-title">Services</p>
-          <ul class="list">
-            <li>Private security operations and coordination</li>
-            <li>Transport support (air / sea / land)</li>
-            <li>Cybersecurity advisory layer</li>
-            <li>Secure operational coordination</li>
-          </ul>
-          <div class="divider"></div>
-          <p class="mini-title">Use cases</p>
-          <p class="note">Premium client movements, sensitive events, and demanding environments requiring discretion.</p>
-        </div>
-
-        <div class="box" style="border-radius:18px">
-          <p class="mini-title">Confidentiality</p>
-          <p class="note">
-            Sensitive references are shared privately. Request a briefing to receive a tailored dossier.
-          </p>
-          <div class="divider"></div>
-          <p class="mini-title">Notes</p>
-          <p class="note">We can coordinate with media and telecom layers within the EyeDit ecosystem when required.</p>
-        </div>
-      </div>
-
-      <div class="actions" style="margin-top:14px">
-        <a class="btn small primary" href="#contact">Request Security briefing</a>
-        <a class="btn small" href="#divisions">Back to divisions</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- INVESTMENT -->
-  <section id="investment" class="anchor">
-    <div class="section-title">
-      <h2>Investment</h2>
-      <p>Family Office • Strategic Partners • Institutional Conversations</p>
-    </div>
-
-    <div class="invest-grid">
-      <div class="invest-card">
-        <div class="invest-inner">
-          <h3 style="margin:0 0 8px;font-size:18px">EyeDit Group: premium ecosystem built to scale</h3>
-          <p class="note" style="margin:0">
-            We are opening selective conversations with aligned partners to accelerate execution across:
-            <b style="color:var(--text)">Media</b>, <b style="color:var(--text)">Secure Operations</b>, and
-            <b style="color:var(--text)">Wellness Delivery</b>.
-            Our focus is a luxury-grade standard: discreet, reliable, and internationally scalable.
-          </p>
-
-          <div class="invest-badges">
-            <span class="badge gold">Confidential Deck</span>
-            <span class="badge">Selective Access</span>
-            <span class="badge">Premium Clients</span>
-            <span class="badge">International Projection</span>
-          </div>
-
-          <div class="hr-soft"></div>
-
-          <p class="note" style="margin:0">
-            If you manage capital for premium clients or strategic expansion vehicles, request the private deck and a short briefing.
-            We reply with a clear next step.
-          </p>
-
-          <div class="actions" style="margin-top:14px">
-            <a class="btn primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Request%20Deck%20%2F%20Briefing&body=Hello%20Mikel%2C%0A%0AI%20would%20like%20to%20request%20the%20EyeDit%20Group%20deck%20and%20a%20short%20briefing.%0A%0AName%3A%0AOrganization%3A%0ARole%3A%0AInvestment%20Focus%3A%0APreferred%20time%20windows%20(CET)%3A%0A%0ARegards%2C">
-              Request Deck
-            </a>
-
-            <a class="btn secondary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Request%20One-Pager&body=Hello%20Mikel%2C%0A%0APlease%20share%20the%20EyeDit%20Group%20one-pager.%0A%0AName%3A%0AOrganization%3A%0ARegards%2C">
-              Request One-Pager
-            </a>
-
-            <a class="btn" href="#private">Private access</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="invest-card">
-        <div class="invest-inner">
-          <h3 style="margin:0 0 10px;font-size:16px">Engagement tickets</h3>
-
-          <div class="ticket">
-            <h3>Seed / Pre-Seed (Execution)</h3>
-            <p>Accelerate delivery: productization, go-to-market, premium client acquisition and scalable operations.</p>
-            <div class="mini">Fast iteration • clear milestones • lean governance</div>
-          </div>
-
-          <div style="height:10px"></div>
-
-          <div class="ticket">
-            <h3>Strategic Partnership (Expansion)</h3>
-            <p>Market access, distribution, co-production, and partnerships aligned with premium and institutional demands.</p>
-            <div class="mini">Co-selling • alliances • international rollouts</div>
-          </div>
-
-          <div style="height:10px"></div>
-
-          <div class="ticket">
-            <h3>Infrastructure / Secure Ops</h3>
-            <p>Secure communications, operational coordination and high-exigency environments for sensitive projects.</p>
-            <div class="mini">Compliance-ready • discretion-first • robust delivery</div>
-          </div>
-
-          <div class="hr-soft"></div>
-          <p class="note" style="margin:0">
-            To keep discretion: detailed references are shared privately after a short alignment call.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRIVATE ACCESS -->
-  <section id="private" class="anchor">
-    <div class="section-title">
-      <h2>Private Access</h2>
-      <p>NDA request • Secure link • Board-ready summary</p>
-    </div>
-
-    <details class="private" open>
-      <summary>Confidential materials (click to collapse/expand)</summary>
-      <p class="note">
-        For premium clients and institutional contexts, we share sensitive information via private channels and, when required, under NDA.
-      </p>
-
-      <div class="private-grid">
         <div class="box">
-          <p class="mini-title">NDA request</p>
-          <p class="note">Request our NDA template, or send yours. We can align quickly and proceed with confidential sharing.</p>
-          <div class="actions" style="margin-top:12px">
-            <a class="btn small primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20NDA%20Request&body=Hello%20Mikel%2C%0A%0APlease%20send%20your%20NDA%20template.%0A%0AName%3A%0AOrganization%3A%0ARole%3A%0A%0ARegards%2C">
-              Request NDA
+          <p class="mini-title">Email</p>
+          <p style="margin:0">
+            <a href="mailto:ms.eyedit@outlook.com" style="text-decoration:none;color:var(--text);font-weight:700">
+              ms.eyedit@outlook.com
             </a>
-            <a class="btn small secondary" href="#contact">Send my NDA</a>
+          </p>
+          <p class="note">Include: objective (briefing / quote / partnership) + 2 lines of context + preferred time windows (CET).</p>
+
+          <div class="actions" style="margin-top:12px">
+            <a class="btn small primary"
+               href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Briefing%20Request&body=Hello%20Mikel,%0A%0AI%20request%20a%20briefing.%0A%0AName:%0AOrganization:%0AObjective:%0APreferred%20time%20windows%20(CET):%0A%0ARegards,">
+              Request briefing
+            </a>
+            <a class="btn small secondary" href="#private">Private access</a>
           </div>
         </div>
 
         <div class="box">
-          <p class="mini-title">Secure link request</p>
-          <p class="note">We can share a private deck link with access control and limited visibility, based on your objective.</p>
-          <div class="actions" style="margin-top:12px">
-            <a class="btn small primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Secure%20Deck%20Link%20Request&body=Hello%20Mikel%2C%0A%0AI%20request%20a%20secure%20link%20to%20the%20deck.%0A%0AName%3A%0AOrganization%3A%0ARole%3A%0APurpose%20(briefing%20%2F%20investment%20%2F%20partnership)%3A%0A%0ARegards%2C">
-              Request secure link
-            </a>
-            <a class="btn small ghost" href="#investment">Back to Investment</a>
-          </div>
+          <p class="mini-title">Office</p>
+          <p class="note">Barcelona. Operations designed for international projection.</p>
+          <div class="divider"></div>
+          <p class="mini-title">Discretion</p>
+          <p class="note">We handle sensitive requests with confidentiality. NDA-based sharing available.</p>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="box" style="margin-top:14px">
-        <p class="mini-title">Board-ready summary (3 bullets)</p>
-        <ul class="list">
-          <li><b style="color:var(--text)">Premium ecosystem:</b> media + secure operations + wellness delivery, designed for discretion and consistency.</li>
-          <li><b style="color:var(--text)">Scalable model:</b> productized services, operational standards, and international projection from Barcelona.</li>
-          <li><b style="color:var(--text)">Selective partnerships:</b> opening aligned conversations for execution capital, strategic expansion and infrastructure-grade engagements.</li>
-        </ul>
+  <footer>
+    © <span id="y"></span> EyeDit Group. All rights reserved.
+  </footer>
 
-        <div class="divider"></div>
-
-        <p class="mini-title">Next step</p>
-        <p class="note" style="margin:0">
-          Send a short message with your objective and preferred time window (CET). We respond with a clear next step.
-        </p>
-      </div>
-    </details>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="anchor">
-    <div class="section-title">
-      <h2>Contact</h2>
-      <p>Short message, fast reply.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <div class="box">
-        <p class="mini-title">Email</p>
-        <p style="margin:0">
-          <a href="mailto:ms.eyedit@outlook.com" style="text-decoration:none;color:var(--text);font-weight:700">
-            ms.eyedit@outlook.com
-          </a>
-        </p>
-        <p class="note">Include: objective (briefing / quote / partnership) + 2 lines of context + preferred time windows (CET).</p>
-
-        <div class="actions" style="margin-top:12px">
-          <a class="btn small primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Briefing%20Request&body=Hello%20Mikel%2C%0A%0AI%20request%20a%20briefing.%0A%0AName%3A%0AOrganization%3A%0AObjective%3A%0APreferred%20time%20windows%20(CET)%3A%0A%0ARegards%2C">Request briefing</a>
-          <a class="btn small secondary" href="#private">Private access</a>
-        </div>
-      </div>
-
-      <div class="box">
-        <p class="mini-title">Office</p>
-        <p class="note">Barcelona. Operations designed for international projection.</p>
-        <div class="divider"></div>
-        <p class="mini-title">Discretion</p>
-        <p class="note">We handle sensitive requests with confidentiality. NDA-based sharing available.</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  © <span id="y"></span> EyeDit Group. All rights reserved.
-</footer>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
