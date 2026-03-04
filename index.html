@@ -1,170 +1,518 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EyeDit Image Quick Service</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EyeDit Group | Luxury Ecosystem</title>
+  <meta name="description" content="EyeDit Group: Luxury-grade ecosystem across media, telecom, security and wellness. One-page portfolios." />
 
   <style>
+    :root{
+      --bg:#070A0F;
+      --panel:#0B111A;
+      --glass:rgba(255,255,255,.04);
+      --line:rgba(255,255,255,.10);
+      --text:#EAF0F8;
+      --muted:#A9B6C6;
+
+      --gold:#C7A76A;
+      --gold2:#F0D6A0;
+
+      --shadow: 0 22px 70px rgba(0,0,0,.60);
+      --r: 18px;
+      --r2: 26px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background:#0b0f14;
-      color:#e8eef6;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 540px at 20% 5%, rgba(199,167,106,.22), transparent 60%),
+        radial-gradient(900px 540px at 85% 15%, rgba(240,214,160,.14), transparent 55%),
+        radial-gradient(700px 480px at 55% 95%, rgba(199,167,106,.10), transparent 60%),
+        var(--bg);
     }
 
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:22px}
+
+    /* Top bar */
     header{
-      padding:20px;
-      border-bottom:1px solid rgba(255,255,255,.1);
-      background:#0f1620;
+      position:sticky; top:0; z-index:50;
+      background: linear-gradient(to bottom, rgba(7,10,15,.92), rgba(7,10,15,.60));
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
     }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-
-    .logo-main{
-      height:80px;
-      width:auto;
-    }
-
-    .brand b{
-      display:block;
-      font-size:18px;
-    }
-
-    .brand small{
-      color:#a9b6c6;
-    }
-
-    .container{
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+      padding:16px 22px;
       max-width:1100px;
-      margin:auto;
-      padding:24px;
+      margin:0 auto;
+    }
+    .brand{
+      display:flex; align-items:center; gap:14px; min-width:260px;
+    }
+    .logo-main{height:86px;width:auto}
+    .brand b{display:block;font-size:16px;letter-spacing:.3px}
+    .brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+    nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    nav a{
+      text-decoration:none;
+      font-size:13px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    nav a:hover{border-color:rgba(199,167,106,.55)}
+    .cta{
+      border-color:rgba(199,167,106,.55)!important;
+      background: rgba(199,167,106,.12)!important;
     }
 
-    .projects{
-      margin-top:30px;
+    /* Cards */
+    .card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--r2);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .hero{
+      margin-top:18px;
+      padding:28px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-120px auto auto -120px;
+      width:460px; height:460px;
+      background: radial-gradient(circle at 30% 30%, rgba(199,167,106,.26), transparent 60%);
+      filter: blur(2px);
+      opacity:.9;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      position:relative;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+      .logo-main{height:72px}
+      nav{justify-content:flex-start}
+      .brand{min-width:auto}
     }
 
-    .projects h2{
-      margin-bottom:16px;
+    h1{margin:0 0 10px;font-size:34px;letter-spacing:-.25px}
+    .lead{margin:0 0 14px;color:var(--muted);font-size:16px;max-width:62ch}
+    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+    .pill{
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      font-size:13px;
     }
+    .pill strong{color:var(--gold2)}
 
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+    }
+    .btn.primary{
+      border-color:rgba(199,167,106,.65);
+      background: rgba(199,167,106,.14);
+    }
+    .btn:hover{border-color:rgba(240,214,160,.55)}
+
+    .panel{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--r);
+      padding:16px;
+    }
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    @media (max-width: 560px){ .kpis{grid-template-columns:1fr} }
+    .kpi b{font-size:18px;color:var(--gold2)}
+    .kpi small{display:block;color:var(--muted);margin-top:2px}
+
+    /* Sections */
+    section{margin-top:20px}
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+      margin:0 0 12px;
+    }
+    .section-title h2{margin:0;font-size:20px}
+    .section-title p{margin:0;color:var(--muted);font-size:13px}
+
+    /* Projects cards */
     .projects-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:16px;
+      gap:14px;
     }
+    @media (max-width: 920px){ .projects-grid{grid-template-columns:1fr} }
 
     .project-card{
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:14px;
       padding:18px;
+      border-radius: var(--r2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
     }
+    .project-card:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width:340px; height:340px;
+      background: radial-gradient(circle at 30% 30%, rgba(199,167,106,.16), transparent 60%);
+      opacity:.75;
+    }
+    .project-inner{position:relative}
+    .project-logo{height:62px;width:auto;display:block;margin-bottom:10px;filter: drop-shadow(0 18px 22px rgba(0,0,0,.4));}
+    .project-card h3{margin:0 0 8px;font-size:16px;letter-spacing:.2px}
+    .project-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .tag{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .tag.gold{border-color:rgba(199,167,106,.45)}
+    .tag.silver{border-color:rgba(255,255,255,.18)}
+    .card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .btn.small{padding:10px 12px;border-radius:12px;font-size:13px}
+    .btn.ghost{background:transparent}
 
-    .project-logo{
-      height:60px;
-      width:auto;
-      margin-bottom:12px;
-      display:block;
+    /* Portfolio blocks */
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
     }
+    @media (max-width: 920px){ .portfolio-grid{grid-template-columns:1fr} }
+    .box{
+      padding:18px;
+      border-radius:var(--r2);
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .mini-title{margin:0 0 8px;font-size:14px}
+    .note{color:var(--muted);font-size:13px;margin:8px 0 0;line-height:1.55}
+    .list{margin:0;padding-left:18px;color:var(--muted);line-height:1.7}
+    .divider{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
 
-    .project-card h3{
-      margin:0 0 8px;
-    }
+    /* Anchor offset for sticky header */
+    .anchor{scroll-margin-top:110px}
 
-    .project-card p{
-      color:#a9b6c6;
-      font-size:14px;
-    }
-
-    .btn{
-      display:inline-block;
-      margin-top:12px;
-      padding:10px 14px;
-      border-radius:8px;
-      text-decoration:none;
-      background:#21d07a;
-      color:#001b0f;
-      font-weight:bold;
-      font-size:14px;
-    }
-
-    .btn:hover{
-      opacity:.9;
-    }
-
-    @media (max-width:900px){
-      .projects-grid{
-        grid-template-columns:1fr;
-      }
-      .logo-main{
-        height:64px;
-      }
-    }
+    footer{padding:18px 22px;color:var(--muted);font-size:12px;text-align:center}
   </style>
 </head>
 
 <body>
-
-<div style="position:fixed;bottom:10px;right:10px;background:#ff4d4f;color:white;padding:8px 10px;border-radius:10px;font-weight:bold;z-index:99999">
-TEST EYEDIT 777
-</div>
-
 <header>
-
-<header>
-  <div class="container brand">
-    <!-- Logo principal -->
-    <img src="logo-eyeditgroup.png" alt="EyeDit Group logo" class="logo-main">
-
-    <div>
-      <b>EyeDit Image Quick Service</b>
-      <small>Media • Telecom • Secure Infrastructure</small>
+  <div class="topbar">
+    <div class="brand">
+      <img src="logo-eyeditgroup.png" alt="EyeDit Group logo" class="logo-main">
+      <div>
+        <b>EyeDit Image Quick Service</b>
+        <small>Luxury-grade ecosystem: Media • Telecom • Secure Infrastructure</small>
+      </div>
     </div>
+
+    <nav>
+      <a href="#divisions">Divisions</a>
+      <a href="#portfolios">Portfolios</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
   </div>
 </header>
 
-<main class="container">
+<main class="wrap">
+  <section class="hero card">
+    <div class="grid">
+      <div>
+        <h1>Precision services for premium clients and global operations.</h1>
+        <p class="lead">
+          EyeDit Group integrates high-end media production, secure communications and operational security,
+          with a wellness division designed for modern delivery. Built to scale. Built to be trusted.
+        </p>
 
-  <section class="projects">
-    <h2>Projects Portfolio</h2>
+        <div class="pillrow">
+          <div class="pill"><strong>Premium</strong> execution</div>
+          <div class="pill"><strong>Secure</strong> delivery</div>
+          <div class="pill"><strong>Global</strong> projection</div>
+          <div class="pill"><strong>Discreet</strong> operations</div>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#contact">Request a briefing</a>
+          <a class="btn" href="#divisions">Explore divisions</a>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="kpis">
+          <div class="kpi"><b>Fast</b><small>Reliable turnaround</small></div>
+          <div class="kpi"><b>Trusted</b><small>Secure-by-design</small></div>
+          <div class="kpi"><b>Global</b><small>Scalable operations</small></div>
+        </div>
+        <p class="note">
+          CEO: <span style="color:var(--text);font-weight:700">Mikel Skoda</span><br>
+          Operating base: Barcelona. International projection.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVISIONS -->
+  <section id="divisions" class="anchor">
+    <div class="section-title">
+      <h2>Divisions</h2>
+      <p>Three projects, one premium operational standard.</p>
+    </div>
 
     <div class="projects-grid">
-
       <!-- CCS -->
       <article class="project-card">
-        <img class="project-logo" src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM">
-        <h3>CCS CAN SS AM CAN SAM</h3>
-        <p>Medicina natural, teràpies alternatives i benestar integratiu professional.</p>
-        <a class="btn" href="#" target="_blank">View Portfolio</a>
+        <div class="project-inner">
+          <img class="project-logo" src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM logo">
+          <h3>CCS CAN SS AM CAN SAM</h3>
+          <p>Integrative wellness: natural therapies and holistic care delivery with professional standards and scalable programs.</p>
+          <div class="tags">
+            <span class="tag gold">Wellness</span>
+            <span class="tag silver">Integrative Care</span>
+            <span class="tag silver">Programs</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn small primary" href="#portfolio-ccs">Portfolio</a>
+            <a class="btn small ghost" href="#contact">Collaborate</a>
+          </div>
+        </div>
       </article>
 
       <!-- EyeDit -->
       <article class="project-card">
-        <img class="project-logo" src="logo-eyedit.png" alt="EyeDit">
-        <h3>EyeDit Media</h3>
-        <p>Producció audiovisual, ràdio, televisió i agència creativa.</p>
-        <a class="btn" href="#" target="_blank">View Portfolio</a>
+        <div class="project-inner">
+          <img class="project-logo" src="logo-eyedit.png" alt="EyeDit logo">
+          <h3>EyeDit Media</h3>
+          <p>Luxury creative production: image services, audiovisual, radio/TV formats and brand storytelling with premium execution.</p>
+          <div class="tags">
+            <span class="tag gold">Media</span>
+            <span class="tag silver">Production</span>
+            <span class="tag silver">Broadcast</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn small primary" href="#portfolio-eyedit">Portfolio</a>
+            <a class="btn small ghost" href="#contact">Request quote</a>
+          </div>
+        </div>
       </article>
 
       <!-- EyeVision -->
       <article class="project-card">
-        <img class="project-logo" src="logo-eyevision.png" alt="EyeVision">
-        <h3>EyeVision Security</h3>
-        <p>Seguretat privada, transport aero-marítim-terrestre i ciberseguretat.</p>
-        <a class="btn" href="#" target="_blank">View Portfolio</a>
+        <div class="project-inner">
+          <img class="project-logo" src="logo-eyevision.png" alt="EyeVision logo">
+          <h3>EyeVision Security</h3>
+          <p>Security and transport operations: private security, aero-maritime-terrestrial support, and cybersecurity layer for demanding environments.</p>
+          <div class="tags">
+            <span class="tag gold">Security</span>
+            <span class="tag silver">Transport</span>
+            <span class="tag silver">Cyber</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn small primary" href="#portfolio-eyevision">Portfolio</a>
+            <a class="btn small ghost" href="#contact">Secure inquiry</a>
+          </div>
+        </div>
       </article>
-
     </div>
   </section>
 
+  <!-- PORTFOLIOS (one page) -->
+  <section id="portfolios" class="anchor">
+    <div class="section-title">
+      <h2>Portfolios</h2>
+      <p>Dedicated sections for each division in a single page.</p>
+    </div>
+
+    <!-- CCS Portfolio -->
+    <div id="portfolio-ccs" class="anchor box">
+      <div class="section-title" style="margin:0 0 10px">
+        <h2 style="font-size:18px;margin:0">CCS CAN SS AM CAN SAM</h2>
+        <p style="margin:0;color:var(--muted);font-size:13px">Wellness • Integrative Care • Programs</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="box" style="border-radius:18px">
+          <p class="mini-title">Identity</p>
+          <p class="note">
+            Integrative wellness platform focused on natural therapies and holistic care delivery,
+            designed for premium client journeys and scalable programs.
+          </p>
+          <div class="divider"></div>
+          <p class="mini-title">Core services</p>
+          <ul class="list">
+            <li>Natural therapies and holistic sessions</li>
+            <li>Preventive wellbeing and lifestyle protocols</li>
+            <li>Program design: wellness journeys and packages</li>
+            <li>Private client service experience</li>
+          </ul>
+        </div>
+
+        <div class="box" style="border-radius:18px">
+          <p class="mini-title">Delivery model</p>
+          <ul class="list">
+            <li>Appointments and programs with consistent standards</li>
+            <li>Content + guidance material (digital delivery ready)</li>
+            <li>Premium confidentiality for sensitive clients</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="mini-title">Notes</p>
+          <p class="note">
+            For a private dossier or investor brief, request a briefing via email. References can be shared privately.
+          </p>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:14px">
+        <a class="btn small primary" href="#contact">Request CCS briefing</a>
+        <a class="btn small" href="#divisions">Back to divisions</a>
+      </div>
+    </div>
+
+    <!-- EyeDit Media Portfolio -->
+    <div id="portfolio-eyedit" class="anchor box" style="margin-top:14px">
+      <div class="section-title" style="margin:0 0 10px">
+        <h2 style="font-size:18px;margin:0">EyeDit Media</h2>
+        <p style="margin:0;color:var(--muted);font-size:13px">Production • Broadcast • Creative</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="box" style="border-radius:18px">
+          <p class="mini-title">Capabilities</p>
+          <ul class="list">
+            <li>Image Quick Service workflow (fast delivery)</li>
+            <li>Audiovisual production and creative direction</li>
+            <li>Radio / TV formats and streaming support</li>
+            <li>Brand storytelling and premium content</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="mini-title">Ideal clients</p>
+          <p class="note">Premium brands, family offices, institutions, and high-exigency corporate environments.</p>
+        </div>
+
+        <div class="box" style="border-radius:18px">
+          <p class="mini-title">Workflow standard</p>
+          <ul class="list">
+            <li>Briefing → production → review → delivery</li>
+            <li>High consistency and premium finish</li>
+            <li>Discreet handling of sensitive material</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="mini-title">Notes</p>
+          <p class="note">Request a curated sample pack or references tailored to your sector.</p>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:14px">
+        <a class="btn small primary" href="#contact">Request Media briefing</a>
+        <a class="btn small" href="#divisions">Back to divisions</a>
+      </div>
+    </div>
+
+    <!-- EyeVision Portfolio -->
+    <div id="portfolio-eyevision" class="anchor box" style="margin-top:14px">
+      <div class="section-title" style="margin:0 0 10px">
+        <h2 style="font-size:18px;margin:0">EyeVision Security</h2>
+        <p style="margin:0;color:var(--muted);font-size:13px">Security • Transport • Cyber</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="box" style="border-radius:18px">
+          <p class="mini-title">Services</p>
+          <ul class="list">
+            <li>Private security operations and coordination</li>
+            <li>Transport support (air / sea / land)</li>
+            <li>Cybersecurity advisory layer</li>
+            <li>Secure communications mindset for operations</li>
+          </ul>
+          <div class="divider"></div>
+          <p class="mini-title">Use cases</p>
+          <p class="note">Premium client movements, sensitive events, and demanding environments requiring discretion.</p>
+        </div>
+
+        <div class="box" style="border-radius:18px">
+          <p class="mini-title">Confidentiality</p>
+          <p class="note">
+            Sensitive references are shared privately. Request a briefing to receive a tailored dossier.
+          </p>
+          <div class="divider"></div>
+          <p class="mini-title">Notes</p>
+          <p class="note">We can coordinate with media and telecom layers within the EyeDit ecosystem when required.</p>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:14px">
+        <a class="btn small primary" href="#contact">Request Security briefing</a>
+        <a class="btn small" href="#divisions">Back to divisions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="anchor">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Short message, fast reply.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="box">
+        <p class="mini-title">Email</p>
+        <p style="margin:0">
+          <a href="mailto:ms.eyedit@outlook.com" style="text-decoration:none;color:var(--text);font-weight:700">
+            ms.eyedit@outlook.com
+          </a>
+        </p>
+        <p class="note">Include: your objective (briefing / quote / partnership) + 2 lines of context.</p>
+      </div>
+
+      <div class="box">
+        <p class="mini-title">Office</p>
+        <p class="note">Barcelona. Operations designed for international projection.</p>
+        <div class="divider"></div>
+        <p class="mini-title">Private decks</p>
+        <p class="note">For family office / investor conversations, decks can be shared privately upon request.</p>
+      </div>
+    </div>
+  </section>
 </main>
 
+<footer>
+  © <span id="y"></span> EyeDit Group. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
