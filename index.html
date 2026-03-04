@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>EyeDit Group | Luxury Ecosystem</title>
-  <meta name="description" content="EyeDit Group: Luxury-grade ecosystem across media, telecom, security and wellness. One-page portfolios." />
+  <meta name="description" content="EyeDit Group: luxury-grade ecosystem across media, telecom, security and wellness. One-page portfolios with investment and private access." />
+  <meta name="robots" content="index,follow" />
 
   <style>
     :root{
@@ -112,7 +113,7 @@
     }
 
     h1{margin:0 0 10px;font-size:34px;letter-spacing:-.25px}
-    .lead{margin:0 0 14px;color:var(--muted);font-size:16px;max-width:62ch}
+    .lead{margin:0 0 14px;color:var(--muted);font-size:16px;max-width:66ch}
     .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
     .pill{
       padding:9px 12px;
@@ -134,12 +135,19 @@
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
       cursor:pointer;
+      user-select:none;
     }
     .btn.primary{
       border-color:rgba(199,167,106,.65);
       background: rgba(199,167,106,.14);
     }
     .btn:hover{border-color:rgba(240,214,160,.55)}
+    .btn.secondary{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.02);
+    }
+    .btn.small{padding:10px 12px;border-radius:12px;font-size:13px}
+    .btn.ghost{background:transparent}
 
     .panel{
       border:1px solid rgba(255,255,255,.10);
@@ -196,11 +204,9 @@
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
     }
-    .tag.gold{border-color:rgba(199,167,106,.45)}
+    .tag.gold{border-color:rgba(199,167,106,.45); color:var(--gold2)}
     .tag.silver{border-color:rgba(255,255,255,.18)}
     .card-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
-    .btn.small{padding:10px 12px;border-radius:12px;font-size:13px}
-    .btn.ghost{background:transparent}
 
     /* Portfolio blocks */
     .portfolio-grid{
@@ -214,15 +220,92 @@
       border-radius:var(--r2);
       border:1px solid rgba(255,255,255,.10);
       background: rgba(255,255,255,.03);
+      position:relative;
+      overflow:hidden;
     }
+    .box:before{
+      content:"";
+      position:absolute; inset:-140px -140px auto auto;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(199,167,106,.12), transparent 60%);
+      opacity:.75;
+    }
+    .box > *{position:relative}
     .mini-title{margin:0 0 8px;font-size:14px}
     .note{color:var(--muted);font-size:13px;margin:8px 0 0;line-height:1.55}
     .list{margin:0;padding-left:18px;color:var(--muted);line-height:1.7}
     .divider{height:1px;background:rgba(255,255,255,.08);margin:14px 0}
+    .hr-soft{height:1px;background:rgba(255,255,255,.08);margin:12px 0}
+
+    /* Investment ultra luxe */
+    .invest-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){ .invest-grid{grid-template-columns:1fr} }
+    .invest-card{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--r2);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .invest-card:before{
+      content:"";
+      position:absolute; inset:-140px -140px auto auto;
+      width:420px; height:420px;
+      background: radial-gradient(circle at 30% 30%, rgba(199,167,106,.18), transparent 60%);
+      opacity:.85;
+    }
+    .invest-inner{position:relative}
+    .invest-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .badge{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+    }
+    .badge.gold{border-color: rgba(199,167,106,.50); color: var(--gold2);}
+
+    .ticket{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: 18px;
+      padding:14px;
+    }
+    .ticket h3{margin:0 0 6px;font-size:14px}
+    .ticket p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
+    .ticket .mini{color:var(--muted);font-size:12px;margin-top:8px}
+
+    /* Private access */
+    details.private{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      border-radius: var(--r2);
+      padding:14px 16px;
+    }
+    details.private summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    details.private summary::-webkit-details-marker{display:none}
+    .private-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width: 920px){ .private-grid{grid-template-columns:1fr} }
 
     /* Anchor offset for sticky header */
     .anchor{scroll-margin-top:110px}
 
+    /* Footer */
     footer{padding:18px 22px;color:var(--muted);font-size:12px;text-align:center}
   </style>
 </head>
@@ -241,6 +324,8 @@
     <nav>
       <a href="#divisions">Divisions</a>
       <a href="#portfolios">Portfolios</a>
+      <a href="#investment">Investment</a>
+      <a href="#private" class="cta">Private Access</a>
       <a href="#contact" class="cta">Contact</a>
     </nav>
   </div>
@@ -264,7 +349,7 @@
         </div>
 
         <div class="actions">
-          <a class="btn primary" href="#contact">Request a briefing</a>
+          <a class="btn primary" href="#investment">Investment briefing</a>
           <a class="btn" href="#divisions">Explore divisions</a>
         </div>
       </div>
@@ -347,7 +432,7 @@
     </div>
   </section>
 
-  <!-- PORTFOLIOS (one page) -->
+  <!-- PORTFOLIOS -->
   <section id="portfolios" class="anchor">
     <div class="section-title">
       <h2>Portfolios</h2>
@@ -453,7 +538,7 @@
             <li>Private security operations and coordination</li>
             <li>Transport support (air / sea / land)</li>
             <li>Cybersecurity advisory layer</li>
-            <li>Secure communications mindset for operations</li>
+            <li>Secure operational coordination</li>
           </ul>
           <div class="divider"></div>
           <p class="mini-title">Use cases</p>
@@ -478,6 +563,142 @@
     </div>
   </section>
 
+  <!-- INVESTMENT -->
+  <section id="investment" class="anchor">
+    <div class="section-title">
+      <h2>Investment</h2>
+      <p>Family Office • Strategic Partners • Institutional Conversations</p>
+    </div>
+
+    <div class="invest-grid">
+      <div class="invest-card">
+        <div class="invest-inner">
+          <h3 style="margin:0 0 8px;font-size:18px">EyeDit Group: premium ecosystem built to scale</h3>
+          <p class="note" style="margin:0">
+            We are opening selective conversations with aligned partners to accelerate execution across:
+            <b style="color:var(--text)">Media</b>, <b style="color:var(--text)">Secure Operations</b>, and
+            <b style="color:var(--text)">Wellness Delivery</b>.
+            Our focus is a luxury-grade standard: discreet, reliable, and internationally scalable.
+          </p>
+
+          <div class="invest-badges">
+            <span class="badge gold">Confidential Deck</span>
+            <span class="badge">Selective Access</span>
+            <span class="badge">Premium Clients</span>
+            <span class="badge">International Projection</span>
+          </div>
+
+          <div class="hr-soft"></div>
+
+          <p class="note" style="margin:0">
+            If you manage capital for premium clients or strategic expansion vehicles, request the private deck and a short briefing.
+            We reply with a clear next step.
+          </p>
+
+          <div class="actions" style="margin-top:14px">
+            <a class="btn primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Request%20Deck%20%2F%20Briefing&body=Hello%20Mikel%2C%0A%0AI%20would%20like%20to%20request%20the%20EyeDit%20Group%20deck%20and%20a%20short%20briefing.%0A%0AName%3A%0AOrganization%3A%0ARole%3A%0AInvestment%20Focus%3A%0APreferred%20time%20windows%20(CET)%3A%0A%0ARegards%2C">
+              Request Deck
+            </a>
+
+            <a class="btn secondary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Request%20One-Pager&body=Hello%20Mikel%2C%0A%0APlease%20share%20the%20EyeDit%20Group%20one-pager.%0A%0AName%3A%0AOrganization%3A%0ARegards%2C">
+              Request One-Pager
+            </a>
+
+            <a class="btn" href="#private">Private access</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="invest-card">
+        <div class="invest-inner">
+          <h3 style="margin:0 0 10px;font-size:16px">Engagement tickets</h3>
+
+          <div class="ticket">
+            <h3>Seed / Pre-Seed (Execution)</h3>
+            <p>Accelerate delivery: productization, go-to-market, premium client acquisition and scalable operations.</p>
+            <div class="mini">Fast iteration • clear milestones • lean governance</div>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <div class="ticket">
+            <h3>Strategic Partnership (Expansion)</h3>
+            <p>Market access, distribution, co-production, and partnerships aligned with premium and institutional demands.</p>
+            <div class="mini">Co-selling • alliances • international rollouts</div>
+          </div>
+
+          <div style="height:10px"></div>
+
+          <div class="ticket">
+            <h3>Infrastructure / Secure Ops</h3>
+            <p>Secure communications, operational coordination and high-exigency environments for sensitive projects.</p>
+            <div class="mini">Compliance-ready • discretion-first • robust delivery</div>
+          </div>
+
+          <div class="hr-soft"></div>
+          <p class="note" style="margin:0">
+            To keep discretion: detailed references are shared privately after a short alignment call.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVATE ACCESS -->
+  <section id="private" class="anchor">
+    <div class="section-title">
+      <h2>Private Access</h2>
+      <p>NDA request • Secure link • Board-ready summary</p>
+    </div>
+
+    <details class="private" open>
+      <summary>Confidential materials (click to collapse/expand)</summary>
+      <p class="note">
+        For premium clients and institutional contexts, we share sensitive information via private channels and, when required, under NDA.
+      </p>
+
+      <div class="private-grid">
+        <div class="box">
+          <p class="mini-title">NDA request</p>
+          <p class="note">Request our NDA template, or send yours. We can align quickly and proceed with confidential sharing.</p>
+          <div class="actions" style="margin-top:12px">
+            <a class="btn small primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20NDA%20Request&body=Hello%20Mikel%2C%0A%0APlease%20send%20your%20NDA%20template.%0A%0AName%3A%0AOrganization%3A%0ARole%3A%0A%0ARegards%2C">
+              Request NDA
+            </a>
+            <a class="btn small secondary" href="#contact">Send my NDA</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <p class="mini-title">Secure link request</p>
+          <p class="note">We can share a private deck link with access control and limited visibility, based on your objective.</p>
+          <div class="actions" style="margin-top:12px">
+            <a class="btn small primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Secure%20Deck%20Link%20Request&body=Hello%20Mikel%2C%0A%0AI%20request%20a%20secure%20link%20to%20the%20deck.%0A%0AName%3A%0AOrganization%3A%0ARole%3A%0APurpose%20(briefing%20%2F%20investment%20%2F%20partnership)%3A%0A%0ARegards%2C">
+              Request secure link
+            </a>
+            <a class="btn small ghost" href="#investment">Back to Investment</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="box" style="margin-top:14px">
+        <p class="mini-title">Board-ready summary (3 bullets)</p>
+        <ul class="list">
+          <li><b style="color:var(--text)">Premium ecosystem:</b> media + secure operations + wellness delivery, designed for discretion and consistency.</li>
+          <li><b style="color:var(--text)">Scalable model:</b> productized services, operational standards, and international projection from Barcelona.</li>
+          <li><b style="color:var(--text)">Selective partnerships:</b> opening aligned conversations for execution capital, strategic expansion and infrastructure-grade engagements.</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <p class="mini-title">Next step</p>
+        <p class="note" style="margin:0">
+          Send a short message with your objective and preferred time window (CET). We respond with a clear next step.
+        </p>
+      </div>
+    </details>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="anchor">
     <div class="section-title">
@@ -493,15 +714,20 @@
             ms.eyedit@outlook.com
           </a>
         </p>
-        <p class="note">Include: your objective (briefing / quote / partnership) + 2 lines of context.</p>
+        <p class="note">Include: objective (briefing / quote / partnership) + 2 lines of context + preferred time windows (CET).</p>
+
+        <div class="actions" style="margin-top:12px">
+          <a class="btn small primary" href="mailto:ms.eyedit@outlook.com?subject=EyeDit%20Group%20-%20Briefing%20Request&body=Hello%20Mikel%2C%0A%0AI%20request%20a%20briefing.%0A%0AName%3A%0AOrganization%3A%0AObjective%3A%0APreferred%20time%20windows%20(CET)%3A%0A%0ARegards%2C">Request briefing</a>
+          <a class="btn small secondary" href="#private">Private access</a>
+        </div>
       </div>
 
       <div class="box">
         <p class="mini-title">Office</p>
         <p class="note">Barcelona. Operations designed for international projection.</p>
         <div class="divider"></div>
-        <p class="mini-title">Private decks</p>
-        <p class="note">For family office / investor conversations, decks can be shared privately upon request.</p>
+        <p class="mini-title">Discretion</p>
+        <p class="note">We handle sensitive requests with confidentiality. NDA-based sharing available.</p>
       </div>
     </div>
   </section>
