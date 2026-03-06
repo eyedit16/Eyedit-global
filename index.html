@@ -15,71 +15,37 @@ font-family:Arial,Helvetica,sans-serif;
 background:#020407;
 color:white;
 line-height:1.6;
-overflow-x:hidden;
-}
-
-.container{
-width:90%;
-max-width:1300px;
-margin:auto;
+text-align:center;
 }
 
 /* HEADER */
 
 header{
-position:sticky;
-top:0;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(255,255,255,0.08);
-z-index:1000;
-}
-
-.nav{
+border-bottom:1px solid rgba(255,255,255,0.1);
+padding:20px;
 display:flex;
+justify-content:center;
 align-items:center;
-justify-content:space-between;
-height:90px;
+gap:20px;
 }
 
-.brand{
-display:flex;
-align-items:center;
-gap:14px;
+header img{
+height:70px;
 }
 
-.brand img{
-height:55px;
-}
-
-.brand h1{
-font-size:14px;
-letter-spacing:3px;
-margin:0;
-}
-
-nav a{
-margin-left:30px;
-color:#9aa7b7;
-text-decoration:none;
-font-size:14px;
-}
-
-nav a:hover{
-color:white;
+h1{
+letter-spacing:4px;
+font-size:18px;
 }
 
 /* HERO */
 
 .hero{
-padding:120px 0 100px 0;
-text-align:center;
-position:relative;
+padding:120px 20px;
 }
 
 .hero h2{
 font-size:64px;
-letter-spacing:-2px;
 margin-bottom:20px;
 }
 
@@ -90,47 +56,48 @@ margin:auto;
 font-size:18px;
 }
 
-.triangle-stage{
+/* TRIANGLE */
+
+.triangle{
 margin-top:80px;
 position:relative;
 }
 
-.triangle-stage::before{
+.triangle::before{
 content:"";
 position:absolute;
-width:600px;
-height:600px;
 left:50%;
 transform:translateX(-50%);
 top:-120px;
-background:radial-gradient(circle, rgba(86,242,161,0.15), transparent 70%);
-filter:blur(80px);
+width:700px;
+height:700px;
+background:radial-gradient(circle, rgba(86,242,161,0.18), transparent 70%);
+filter:blur(90px);
 }
 
-.triangle-stage img{
+.triangle img{
 width:100%;
-max-width:650px;
+max-width:720px;
 margin:auto;
 display:block;
-filter:drop-shadow(0 0 40px rgba(86,242,161,0.15));
 animation:float 7s ease-in-out infinite;
+filter:drop-shadow(0 0 50px rgba(86,242,161,0.25));
 }
 
 @keyframes float{
 0%{transform:translateY(0px)}
-50%{transform:translateY(-12px)}
+50%{transform:translateY(-15px)}
 100%{transform:translateY(0px)}
 }
 
 /* DIVISIONS */
 
 .section{
-padding:120px 0;
-text-align:center;
+padding:120px 20px;
 }
 
 .section h3{
-font-size:42px;
+font-size:44px;
 margin-bottom:20px;
 }
 
@@ -143,50 +110,48 @@ margin:auto;
 .divisions{
 display:flex;
 justify-content:center;
-gap:40px;
-margin-top:70px;
+gap:50px;
 flex-wrap:wrap;
+margin-top:80px;
 }
 
 .card{
 background:#0a0f16;
-border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
 border-radius:20px;
-padding:50px 35px;
-width:300px;
+padding:60px 40px;
+width:320px;
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-border-color:rgba(255,255,255,0.2);
+transform:translateY(-10px);
+border-color:white;
 }
 
 .card img{
-width:150px;
+width:180px;
 margin:auto;
-margin-bottom:20px;
+margin-bottom:25px;
 }
 
 .card h4{
-font-size:22px;
+font-size:24px;
 margin-bottom:10px;
 }
 
 .card p{
+font-size:15px;
 color:#9aa7b7;
-font-size:14px;
 }
 
 /* FOOTER */
 
 footer{
-border-top:1px solid rgba(255,255,255,0.08);
+border-top:1px solid rgba(255,255,255,0.1);
 padding:40px;
-text-align:center;
 color:#9aa7b7;
 font-size:14px;
-margin-top:80px;
 }
 
 </style>
@@ -197,27 +162,16 @@ margin-top:80px;
 
 
 <header>
-<div class="container nav">
 
-<div class="brand">
 <img src="logo-eyeditgroup.png">
+
 <h1>EYEDIT GROUP</h1>
-</div>
 
-<nav>
-<a href="#">About</a>
-<a href="#">Divisions</a>
-<a href="#">Contact</a>
-</nav>
-
-</div>
 </header>
 
 
 
 <section class="hero">
-
-<div class="container">
 
 <h2>Three Sectors<br>One Holding</h2>
 
@@ -226,11 +180,10 @@ EyeDit Group connects media, natural health and security systems
 into a unified international structure.
 </p>
 
-<div class="triangle-stage">
+
+<div class="triangle">
 
 <img src="logo-triangle3logos.png">
-
-</div>
 
 </div>
 
@@ -240,15 +193,15 @@ into a unified international structure.
 
 <section class="section">
 
-<div class="container">
-
 <h3>Divisions</h3>
 
 <p>
 Three strategic sectors forming the structure of the holding.
 </p>
 
+
 <div class="divisions">
+
 
 <div class="card">
 
@@ -261,6 +214,7 @@ Media production, telecommunications and creative systems.
 </p>
 
 </div>
+
 
 
 <div class="card">
@@ -276,6 +230,7 @@ Natural medicine, alternative therapies and holistic wellbeing.
 </div>
 
 
+
 <div class="card">
 
 <img src="logo-eyevision.png">
@@ -288,8 +243,6 @@ Security systems, cybersecurity and transport protection.
 
 </div>
 
-
-</div>
 
 </div>
 
