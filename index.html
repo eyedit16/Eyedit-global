@@ -6,24 +6,23 @@
   <title>EyeDit Group | International Holding</title>
   <meta
     name="description"
-    content="EyeDit Group is an international holding connecting media and technology, natural health, and security and transport systems."
+    content="EyeDit Group is an international holding connecting media, natural health, and security systems."
   />
-
   <style>
     :root {
-      --bg: #05070b;
-      --bg-soft: #0b1018;
-      --panel: rgba(255,255,255,0.05);
-      --panel-strong: rgba(255,255,255,0.08);
-      --line: rgba(255,255,255,0.12);
-      --text: #eef3f8;
-      --muted: #9ca8b7;
+      --bg: #030508;
+      --bg-soft: #0a0f15;
+      --panel: rgba(255, 255, 255, 0.05);
+      --panel-strong: rgba(255, 255, 255, 0.08);
+      --panel-border: rgba(255, 255, 255, 0.10);
+      --text: #f3f7fb;
+      --muted: #9aa8b8;
       --green: #56f2a1;
       --blue: #58a6ff;
       --orange: #ff9b50;
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
-      --radius: 22px;
-      --max: 1240px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      --radius: 26px;
+      --max: 1280px;
     }
 
     * {
@@ -38,13 +37,28 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(86,242,161,0.10), transparent 28%),
-        radial-gradient(circle at top right, rgba(88,166,255,0.10), transparent 24%),
-        radial-gradient(circle at bottom center, rgba(255,155,80,0.08), transparent 22%),
-        var(--bg);
       color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(86,242,161,0.10), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(88,166,255,0.10), transparent 20%),
+        radial-gradient(circle at 50% 90%, rgba(255,155,80,0.08), transparent 20%),
+        linear-gradient(180deg, #030508 0%, #070b10 46%, #05080d 100%);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 90%);
+      opacity: 0.25;
+      z-index: 0;
     }
 
     a {
@@ -61,6 +75,8 @@
     .container {
       width: min(92%, var(--max));
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     header {
@@ -68,12 +84,12 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(14px);
-      background: rgba(5,7,11,0.72);
+      background: rgba(3, 5, 8, 0.78);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     .nav {
-      min-height: 78px;
+      min-height: 86px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -87,16 +103,14 @@
     }
 
     .brand-mark {
-      width: 48px;
-      height: 48px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
+      padding: 6px;
+      overflow: hidden;
       background: linear-gradient(135deg, rgba(86,242,161,0.18), rgba(88,166,255,0.18));
       border: 1px solid rgba(255,255,255,0.12);
       box-shadow: var(--shadow);
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      padding: 6px;
       flex-shrink: 0;
     }
 
@@ -110,28 +124,31 @@
     .brand-text h1 {
       font-size: 1rem;
       line-height: 1.1;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     .brand-text span {
+      display: block;
       font-size: 0.78rem;
-      color: var(--muted);
       letter-spacing: 0.16em;
       text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       gap: 28px;
+      align-items: center;
       flex-wrap: wrap;
     }
 
     nav a {
       color: var(--muted);
       font-size: 0.95rem;
-      transition: 0.25s ease;
+      transition: color 0.25s ease;
     }
 
     nav a:hover {
@@ -141,49 +158,48 @@
     .cta-nav {
       padding: 11px 18px;
       border-radius: 999px;
-      border: 1px solid rgba(86,242,161,0.28);
-      color: var(--text);
       background: rgba(86,242,161,0.08);
-      transition: 0.25s ease;
+      border: 1px solid rgba(86,242,161,0.24);
+      color: var(--text);
     }
 
     .cta-nav:hover {
       background: rgba(86,242,161,0.14);
-      transform: translateY(-1px);
     }
 
     .hero {
-      padding: 90px 0 70px;
+      padding: 104px 0 84px;
+      position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 44px;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 48px;
       align-items: center;
     }
 
     .eyebrow {
       display: inline-block;
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--green);
       margin-bottom: 18px;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.20em;
+      font-size: 0.78rem;
     }
 
     .hero h2 {
-      font-size: clamp(2.6rem, 6vw, 5.4rem);
-      line-height: 0.96;
-      letter-spacing: -0.04em;
-      max-width: 800px;
+      font-size: clamp(3rem, 6vw, 6rem);
+      line-height: 0.93;
+      letter-spacing: -0.05em;
       margin-bottom: 22px;
+      max-width: 780px;
     }
 
     .hero p {
+      max-width: 710px;
       color: var(--muted);
-      font-size: 1.06rem;
-      max-width: 700px;
+      font-size: 1.08rem;
       margin-bottom: 30px;
     }
 
@@ -200,7 +216,11 @@
       padding: 14px 22px;
       border-radius: 999px;
       font-weight: 600;
-      transition: 0.25s ease;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
@@ -210,136 +230,128 @@
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, rgba(86,242,161,0.24), rgba(88,166,255,0.22));
+      background: linear-gradient(135deg, rgba(86,242,161,0.24), rgba(88,166,255,0.24));
     }
 
     .btn-secondary {
-      border: 1px solid rgba(255,255,255,0.14);
-      color: var(--text);
       background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .btn-secondary:hover {
       background: rgba(255,255,255,0.07);
-      transform: translateY(-2px);
     }
 
     .hero-panel {
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 34px;
-      padding: 34px;
-      box-shadow: var(--shadow);
       position: relative;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+        rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 36px;
+      padding: 42px 30px;
+      box-shadow: var(--shadow);
       overflow: hidden;
-      min-height: 520px;
+      min-height: 660px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      isolation: isolate;
     }
 
     .hero-panel::before {
       content: "";
       position: absolute;
-      inset: auto -60px -60px auto;
-      width: 220px;
-      height: 220px;
+      width: 360px;
+      height: 360px;
+      right: -100px;
+      top: -80px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(86,242,161,0.25), transparent 68%);
-      pointer-events: none;
+      background: radial-gradient(circle, rgba(88,166,255,0.18), transparent 70%);
+      z-index: -1;
+    }
+
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      left: -100px;
+      bottom: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(86,242,161,0.16), transparent 70%);
+      z-index: -1;
+    }
+
+    .triangle-stage {
+      width: 100%;
+      text-align: center;
     }
 
     .triangle-wrap {
       position: relative;
       width: 100%;
-      max-width: 430px;
-      margin: 12px auto 0;
-      aspect-ratio: 1 / 1;
+      max-width: 660px;
+      margin: 0 auto;
     }
 
-    .triangle-svg {
-      position: absolute;
-      inset: 0;
+    .triangle-wrap img {
       width: 100%;
-      height: 100%;
-      opacity: 0.95;
-    }
-
-    .node {
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      padding: 12px;
-    }
-
-    .node img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-
-    .node-top {
-      left: 50%;
-      top: 5%;
-      transform: translateX(-50%);
-      box-shadow: 0 0 0 2px rgba(255,155,80,0.18), var(--shadow);
-    }
-
-    .node-left {
-      left: 7%;
-      bottom: 10%;
-      box-shadow: 0 0 0 2px rgba(86,242,161,0.18), var(--shadow);
-    }
-
-    .node-right {
-      right: 7%;
-      bottom: 10%;
-      box-shadow: 0 0 0 2px rgba(88,166,255,0.18), var(--shadow);
-    }
-
-    .triangle-center {
-      position: absolute;
-      left: 50%;
-      top: 52%;
-      transform: translate(-50%, -50%);
-      width: 132px;
-      height: 132px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(5,7,11,0.86);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      padding: 14px;
-    }
-
-    .triangle-center img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 50%;
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+      filter:
+        drop-shadow(0 0 20px rgba(86,242,161,0.18))
+        drop-shadow(0 0 34px rgba(88,166,255,0.14))
+        drop-shadow(0 16px 50px rgba(0,0,0,0.35));
+      animation: floatTriangle 7s ease-in-out infinite;
     }
 
     .triangle-caption {
-      margin-top: 24px;
+      margin-top: 26px;
       text-align: center;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.98rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    section {
-      padding: 32px 0 88px;
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .metric {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .section {
+      padding: 40px 0 96px;
+      position: relative;
+      z-index: 1;
     }
 
     .section-header {
-      margin-bottom: 28px;
+      margin-bottom: 30px;
+      text-align: center;
     }
 
     .section-header .kicker {
@@ -352,32 +364,41 @@
     }
 
     .section-header h3 {
-      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-size: clamp(2rem, 3vw, 3.2rem);
       letter-spacing: -0.03em;
       margin-bottom: 12px;
     }
 
     .section-header p {
-      max-width: 760px;
+      max-width: 780px;
+      margin: 0 auto;
       color: var(--muted);
     }
 
     .about-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 26px;
+      gap: 24px;
+      margin-top: 26px;
     }
 
     .card {
       background: var(--panel);
-      border: 1px solid var(--line);
+      border: 1px solid var(--panel-border);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 32px;
       box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
     }
 
     .card h4 {
-      font-size: 1.15rem;
+      font-size: 1.16rem;
       margin-bottom: 12px;
     }
 
@@ -388,20 +409,20 @@
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 16px;
       margin-top: 20px;
     }
 
     .stat {
-      padding: 20px;
-      border-radius: 18px;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 20px;
     }
 
     .stat strong {
       display: block;
-      font-size: 1.7rem;
+      font-size: 1.8rem;
       margin-bottom: 4px;
     }
 
@@ -413,49 +434,50 @@
     .divisions-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 24px;
+      margin-top: 28px;
     }
 
     .division-card {
       position: relative;
       overflow: hidden;
-      min-height: 380px;
+      min-height: 450px;
+      text-align: left;
     }
 
     .division-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      opacity: 0.95;
       pointer-events: none;
+      opacity: 0.95;
     }
 
     .division-card.orange::before {
-      background: linear-gradient(180deg, rgba(255,155,80,0.10), transparent 58%);
+      background: linear-gradient(180deg, rgba(255,155,80,0.10), transparent 56%);
     }
 
     .division-card.green::before {
-      background: linear-gradient(180deg, rgba(86,242,161,0.10), transparent 58%);
+      background: linear-gradient(180deg, rgba(86,242,161,0.10), transparent 56%);
     }
 
     .division-card.blue::before {
-      background: linear-gradient(180deg, rgba(88,166,255,0.10), transparent 58%);
+      background: linear-gradient(180deg, rgba(88,166,255,0.10), transparent 56%);
     }
 
-    .division-icon {
-      width: 78px;
-      height: 78px;
+    .division-logo {
+      width: 168px;
+      height: 168px;
+      margin: 0 auto 22px;
       border-radius: 50%;
-      padding: 10px;
-      display: grid;
-      place-items: center;
+      padding: 12px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.12);
-      margin-bottom: 20px;
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .division-icon img {
+    .division-logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -463,25 +485,33 @@
     }
 
     .division-card h4 {
-      font-size: 1.35rem;
+      text-align: center;
+      font-size: 1.45rem;
       margin-bottom: 10px;
     }
 
-    .division-card .division-subtitle {
+    .division-subtitle {
+      text-align: center;
       color: var(--muted);
-      margin-bottom: 18px;
       font-size: 0.96rem;
+      margin-bottom: 18px;
+    }
+
+    .division-text {
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 18px;
     }
 
     .features {
       list-style: none;
       display: grid;
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     .features li {
-      color: #d7dee8;
+      color: #dbe3ec;
       padding-left: 18px;
       position: relative;
     }
@@ -500,13 +530,14 @@
     .vision-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
+      gap: 24px;
+      margin-top: 26px;
     }
 
     .contact-block {
       text-align: center;
-      padding: 36px;
-      border-radius: 30px;
+      padding: 46px 28px;
+      border-radius: 32px;
       background:
         linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
         rgba(255,255,255,0.02);
@@ -515,7 +546,7 @@
     }
 
     .contact-block h3 {
-      font-size: clamp(1.8rem, 3vw, 3.2rem);
+      font-size: clamp(2rem, 3vw, 3.4rem);
       margin-bottom: 12px;
       letter-spacing: -0.03em;
     }
@@ -527,8 +558,10 @@
     }
 
     footer {
-      padding: 30px 0 44px;
+      padding: 34px 0 44px;
       border-top: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+      z-index: 1;
     }
 
     .footer-row {
@@ -540,11 +573,17 @@
       font-size: 0.92rem;
     }
 
-    @media (max-width: 1060px) {
+    @keyframes floatTriangle {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @media (max-width: 1100px) {
       .hero-grid,
       .about-grid,
-      .vision-grid,
-      .divisions-grid {
+      .divisions-grid,
+      .vision-grid {
         grid-template-columns: 1fr;
       }
 
@@ -565,25 +604,25 @@
       }
 
       .hero {
-        padding-top: 54px;
+        padding-top: 56px;
       }
 
+      .hero-metrics,
       .stats {
         grid-template-columns: 1fr;
       }
 
-      .node {
-        width: 88px;
-        height: 88px;
+      .triangle-wrap img {
+        max-width: 470px;
       }
 
-      .triangle-center {
-        width: 110px;
-        height: 110px;
+      .division-logo {
+        width: 140px;
+        height: 140px;
       }
 
       .contact-block {
-        padding: 28px 20px;
+        padding: 30px 20px;
       }
     }
   </style>
@@ -620,72 +659,52 @@
           <span class="eyebrow">Global structure · Strategic identity</span>
           <h2>Three sectors. One international holding.</h2>
           <p>
-            EyeDit Group connects media and technology, natural health, and security and transport
-            into a premium international structure designed for vision, resilience, and expansion.
+            EyeDit Group connects media, natural health, and security systems into one premium
+            international framework designed for identity, expansion, and long-term positioning.
           </p>
 
           <div class="hero-actions">
             <a href="#divisions" class="btn btn-primary">Explore Divisions</a>
             <a href="#contact" class="btn btn-secondary">Institutional Contact</a>
           </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <strong>3 Pillars</strong>
+              <span>Media, Health, Security</span>
+            </div>
+            <div class="metric">
+              <strong>Barcelona</strong>
+              <span>International base</span>
+            </div>
+            <div class="metric">
+              <strong>Premium</strong>
+              <span>Holding identity</span>
+            </div>
+          </div>
         </div>
 
         <div class="hero-panel">
-          <div class="triangle-wrap">
-            <svg class="triangle-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#ff9b50" stop-opacity="0.65"></stop>
-                  <stop offset="100%" stop-color="#56f2a1" stop-opacity="0.45"></stop>
-                </linearGradient>
-                <linearGradient id="lineB" x1="1" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.65"></stop>
-                  <stop offset="100%" stop-color="#56f2a1" stop-opacity="0.45"></stop>
-                </linearGradient>
-                <linearGradient id="lineC" x1="0.5" y1="0" x2="0.5" y2="1">
-                  <stop offset="0%" stop-color="#ff9b50" stop-opacity="0.65"></stop>
-                  <stop offset="100%" stop-color="#58a6ff" stop-opacity="0.55"></stop>
-                </linearGradient>
-              </defs>
-
-              <path d="M200 52 L76 290 L324 290 Z" stroke="url(#lineC)" stroke-width="2.4"></path>
-              <circle cx="200" cy="52" r="4" fill="#ff9b50"></circle>
-              <circle cx="76" cy="290" r="4" fill="#56f2a1"></circle>
-              <circle cx="324" cy="290" r="4" fill="#58a6ff"></circle>
-            </svg>
-
-            <div class="node node-top">
-              <img src="logo-eyedit.png" alt="EyeDit logo">
+          <div class="triangle-stage">
+            <div class="triangle-wrap">
+              <img src="logo-triangle3logos.png" alt="EyeDit Group triangle with three project logos">
             </div>
-
-            <div class="node node-left">
-              <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM logo">
-            </div>
-
-            <div class="node node-right">
-              <img src="logo-eyevision.png" alt="EyeVision logo">
-            </div>
-
-            <div class="triangle-center">
-              <img src="logo-eyeditgroup.png" alt="EyeDit Group central logo">
-            </div>
+            <p class="triangle-caption">
+              A unified corporate symbol connecting EyeDit, CCS CAN SS AM CAN SAM, and EyeVision under one international holding.
+            </p>
           </div>
-
-          <p class="triangle-caption">
-            A unified corporate triangle integrating creative systems, natural wellbeing, and strategic protection.
-          </p>
         </div>
       </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="section">
       <div class="container">
         <div class="section-header">
           <span class="kicker">About the holding</span>
           <h3>A premium structure with three strategic pillars</h3>
           <p>
-            EyeDit Group is conceived as an international holding with a selective and scalable identity.
-            Its foundation is built on convergence: communication, wellbeing, and security.
+            EyeDit Group is conceived as an international holding with a selective and scalable identity,
+            built on the convergence of communication, wellbeing, and security.
           </p>
         </div>
 
@@ -693,7 +712,7 @@
           <div class="card">
             <h4>Institutional Positioning</h4>
             <p>
-              The holding is designed to present a coherent corporate image for partnerships,
+              The holding is designed to present one coherent corporate face for partnerships,
               private capital dialogue, strategic alliances, and future global development.
             </p>
 
@@ -717,71 +736,71 @@
             <h4>Leadership</h4>
             <p>
               CEO: <strong>Mikel Skoda</strong><br><br>
-              The brand architecture places EyeDit as the leading visual identity while EyeDit Group
-              functions as the institutional and strategic umbrella for the entire ecosystem.
+              EyeDit operates as the leading visual identity, while EyeDit Group functions as the
+              institutional umbrella for the full ecosystem.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="divisions">
+    <section id="divisions" class="section">
       <div class="container">
         <div class="section-header">
           <span class="kicker">Three divisions</span>
           <h3>Distinct sectors, connected logic</h3>
           <p>
-            Each division has its own language and market direction, while remaining part of one
-            larger corporate structure.
+            Each division has its own market language and operational direction, while remaining part
+            of one larger corporate structure.
           </p>
         </div>
 
         <div class="divisions-grid">
           <article class="card division-card orange">
-            <div class="division-icon">
-              <img src="logo-eyedit.png" alt="EyeDit division logo">
+            <div class="division-logo">
+              <img src="logo-eyedit.png" alt="EyeDit logo">
             </div>
             <h4>EyeDit</h4>
             <p class="division-subtitle">Media & Technology Division</p>
-            <p>
+            <p class="division-text">
               The creative and technological engine of the group, focused on image, communication,
-              audiovisual production, telecom systems, and broadcast expansion.
+              audiovisual production, and telecom systems.
             </p>
             <ul class="features">
               <li>Image and digital media</li>
               <li>Radio and television</li>
               <li>Creative agency systems</li>
-              <li>Telecommunications and satellite vision</li>
+              <li>Telecommunications and broadcast vision</li>
             </ul>
           </article>
 
           <article class="card division-card green">
-            <div class="division-icon">
-              <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM division logo">
+            <div class="division-logo">
+              <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM logo">
             </div>
             <h4>CCS CAN SS AM CAN SAM</h4>
             <p class="division-subtitle">Natural Health Division</p>
-            <p>
-              The human and wellness-oriented branch of the holding, dedicated to natural medicine,
+            <p class="division-text">
+              The human and wellness branch of the holding, dedicated to natural medicine,
               alternative therapies, and holistic balance.
             </p>
             <ul class="features">
               <li>Natural medicine</li>
               <li>Alternative therapies</li>
-              <li>Integral wellbeing concepts</li>
-              <li>Holistic service development</li>
+              <li>Holistic wellness</li>
+              <li>Integrative health systems</li>
             </ul>
           </article>
 
           <article class="card division-card blue">
-            <div class="division-icon">
-              <img src="logo-eyevision.png" alt="EyeVision division logo">
+            <div class="division-logo">
+              <img src="logo-eyevision.png" alt="EyeVision logo">
             </div>
             <h4>EyeVision</h4>
             <p class="division-subtitle">Security & Transport Division</p>
-            <p>
-              A strategic division dedicated to protection, movement, cyber systems,
-              and secure operational frameworks across multiple environments.
+            <p class="division-text">
+              A strategic division dedicated to protection, cybersecurity, secure movement,
+              and operational resilience across multiple environments.
             </p>
             <ul class="features">
               <li>Private security</li>
@@ -794,14 +813,14 @@
       </div>
     </section>
 
-    <section id="vision">
+    <section id="vision" class="section">
       <div class="container">
         <div class="section-header">
           <span class="kicker">Global vision</span>
           <h3>A holding model prepared for international projection</h3>
           <p>
             The strength of the group lies in the coexistence of high-value sectors under one disciplined identity.
-            This creates a compact yet expansive framework, ready for future partnerships, institutional presentations,
+            It creates a compact but expansive framework for future partnerships, institutional presentations,
             and premium digital presence.
           </p>
         </div>
@@ -811,28 +830,28 @@
             <h4>Why this structure works</h4>
             <p>
               Three differentiated verticals create depth, while one parent identity creates coherence.
-              The result is stronger than three isolated brands drifting like satellites without orbit.
+              That gives the brand more gravity and less fragmentation.
             </p>
           </div>
 
           <div class="card">
             <h4>Digital positioning</h4>
             <p>
-              This website should operate as the official front door of the holding: elegant, minimal,
-              direct, and credible for investors, collaborators, institutional contacts, and future clients.
+              This website should work as the official front door of the holding: elegant, minimal,
+              direct, and credible for investors, collaborators, and institutional contacts.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="section">
       <div class="container">
         <div class="contact-block">
           <h3>EyeDit Group</h3>
           <p>
-            International holding structure based in Barcelona with a long-term vision across
-            media, natural health, and strategic security systems.
+            International holding structure based in Barcelona with a long-term vision across media,
+            natural health, and strategic security systems.
           </p>
           <div class="hero-actions" style="justify-content:center;">
             <a href="mailto:ms.eyedit@outlook.com" class="btn btn-primary">ms.eyedit@outlook.com</a>
