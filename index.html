@@ -1,262 +1,862 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EyeDit Group | International Holding</title>
+  <meta
+    name="description"
+    content="EyeDit Group is an international holding connecting media, natural health and security systems."
+  />
+  <style>
+    :root{
+      --bg:#020407;
+      --bg2:#071019;
+      --panel:rgba(255,255,255,0.05);
+      --line:rgba(255,255,255,0.10);
+      --text:#f4f7fb;
+      --muted:#9aa7b7;
+      --green:#56f2a1;
+      --blue:#58a6ff;
+      --orange:#ff9b50;
+      --shadow:0 24px 70px rgba(0,0,0,0.45);
+      --radius:24px;
+      --max:1320px;
+    }
 
-<title>EyeDit Group | International Holding</title>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-<style>
+    html{
+      scroll-behavior:smooth;
+    }
 
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#020407;
-color:white;
-line-height:1.6;
-text-align:center;
-}
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(86,242,161,0.12), transparent 20%),
+        radial-gradient(circle at 85% 10%, rgba(88,166,255,0.12), transparent 18%),
+        radial-gradient(circle at 50% 90%, rgba(255,155,80,0.08), transparent 18%),
+        linear-gradient(180deg, #020407 0%, #050910 48%, #020407 100%);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
 
-/* HEADER */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size:40px 40px;
+      mask-image:radial-gradient(circle at center, black 28%, transparent 88%);
+      opacity:0.22;
+      z-index:0;
+    }
 
-header{
-border-bottom:1px solid rgba(255,255,255,0.1);
-padding:20px;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:20px;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-header img{
-height:70px;
-}
+    img{
+      display:block;
+      max-width:100%;
+      height:auto;
+    }
 
-h1{
-letter-spacing:4px;
-font-size:18px;
-}
+    .container{
+      width:min(92%, var(--max));
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
 
-/* HERO */
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(2,4,7,0.78);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
 
-.hero{
-padding:120px 20px;
-}
+    .nav{
+      min-height:88px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
 
-.hero h2{
-font-size:64px;
-margin-bottom:20px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
 
-.hero p{
-color:#9aa7b7;
-max-width:700px;
-margin:auto;
-font-size:18px;
-}
+    .brand img{
+      height:62px;
+      width:auto;
+      object-fit:contain;
+    }
 
-/* TRIANGLE */
+    .brand-text h1{
+      font-size:1rem;
+      line-height:1.1;
+      letter-spacing:0.16em;
+      text-transform:uppercase;
+    }
 
-.triangle{
-margin-top:80px;
-position:relative;
-}
+    .brand-text span{
+      display:block;
+      margin-top:3px;
+      font-size:0.78rem;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+    }
 
-.triangle::before{
-content:"";
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-top:-120px;
-width:700px;
-height:700px;
-background:radial-gradient(circle, rgba(86,242,161,0.18), transparent 70%);
-filter:blur(90px);
-}
+    nav ul{
+      list-style:none;
+      display:flex;
+      align-items:center;
+      gap:28px;
+      flex-wrap:wrap;
+    }
 
-.triangle img{
-width:100%;
-max-width:720px;
-margin:auto;
-display:block;
-animation:float 7s ease-in-out infinite;
-filter:drop-shadow(0 0 50px rgba(86,242,161,0.25));
-}
+    nav a{
+      color:var(--muted);
+      font-size:0.95rem;
+      transition:color 0.25s ease;
+    }
 
-@keyframes float{
-0%{transform:translateY(0px)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0px)}
-}
+    nav a:hover{
+      color:var(--text);
+    }
 
-/* DIVISIONS */
+    .cta-nav{
+      padding:11px 18px;
+      border-radius:999px;
+      background:rgba(86,242,161,0.08);
+      border:1px solid rgba(86,242,161,0.24);
+      color:var(--text);
+    }
 
-.section{
-padding:120px 20px;
-}
+    .cta-nav:hover{
+      background:rgba(86,242,161,0.14);
+    }
 
-.section h3{
-font-size:44px;
-margin-bottom:20px;
-}
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding:80px 0 70px;
+      position:relative;
+    }
 
-.section p{
-color:#9aa7b7;
-max-width:700px;
-margin:auto;
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:54px;
+      align-items:center;
+      width:100%;
+    }
 
-.divisions{
-display:flex;
-justify-content:center;
-gap:50px;
-flex-wrap:wrap;
-margin-top:80px;
-}
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:18px;
+      font-size:0.78rem;
+      text-transform:uppercase;
+      letter-spacing:0.22em;
+      color:var(--green);
+    }
 
-.card{
-background:#0a0f16;
-border:1px solid rgba(255,255,255,0.1);
-border-radius:20px;
-padding:60px 40px;
-width:320px;
-transition:0.3s;
-}
+    .hero h2{
+      font-size:clamp(3.2rem, 7vw, 6.8rem);
+      line-height:0.92;
+      letter-spacing:-0.05em;
+      margin-bottom:24px;
+      max-width:760px;
+    }
 
-.card:hover{
-transform:translateY(-10px);
-border-color:white;
-}
+    .hero p{
+      color:var(--muted);
+      font-size:1.08rem;
+      max-width:700px;
+      margin-bottom:30px;
+    }
 
-.card img{
-width:180px;
-margin:auto;
-margin-bottom:25px;
-}
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      margin-bottom:28px;
+    }
 
-.card h4{
-font-size:24px;
-margin-bottom:10px;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:600;
+      transition:transform 0.25s ease, background 0.25s ease;
+    }
 
-.card p{
-font-size:15px;
-color:#9aa7b7;
-}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
 
-/* FOOTER */
+    .btn-primary{
+      background:linear-gradient(135deg, rgba(86,242,161,0.20), rgba(88,166,255,0.18));
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:var(--shadow);
+    }
 
-footer{
-border-top:1px solid rgba(255,255,255,0.1);
-padding:40px;
-color:#9aa7b7;
-font-size:14px;
-}
+    .btn-primary:hover{
+      background:linear-gradient(135deg, rgba(86,242,161,0.26), rgba(88,166,255,0.24));
+    }
 
-</style>
+    .btn-secondary{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.07);
+    }
+
+    .hero-metrics{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      max-width:760px;
+    }
+
+    .metric{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      padding:16px;
+      text-align:center;
+      box-shadow:var(--shadow);
+    }
+
+    .metric strong{
+      display:block;
+      font-size:1.08rem;
+      margin-bottom:4px;
+    }
+
+    .metric span{
+      color:var(--muted);
+      font-size:0.88rem;
+    }
+
+    .hero-panel{
+      position:relative;
+      min-height:760px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+        rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:38px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      padding:30px;
+      isolation:isolate;
+    }
+
+    .hero-panel::before{
+      content:"";
+      position:absolute;
+      width:520px;
+      height:520px;
+      left:50%;
+      top:50%;
+      transform:translate(-50%, -50%);
+      background:radial-gradient(circle, rgba(86,242,161,0.18), rgba(88,166,255,0.10) 38%, transparent 72%);
+      filter:blur(60px);
+      z-index:-1;
+    }
+
+    .hero-panel::after{
+      content:"";
+      position:absolute;
+      inset:18px;
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:30px;
+      pointer-events:none;
+    }
+
+    .triangle-stage{
+      width:100%;
+      text-align:center;
+    }
+
+    .triangle-wrap{
+      width:100%;
+      max-width:860px;
+      margin:0 auto;
+      position:relative;
+    }
+
+    .triangle-wrap img{
+      width:100%;
+      max-width:780px;
+      margin:0 auto;
+      display:block;
+      filter:
+        drop-shadow(0 0 28px rgba(86,242,161,0.20))
+        drop-shadow(0 0 50px rgba(88,166,255,0.16))
+        drop-shadow(0 18px 60px rgba(0,0,0,0.36));
+      animation:floatTriangle 7s ease-in-out infinite;
+    }
+
+    .triangle-caption{
+      margin-top:26px;
+      max-width:560px;
+      margin-left:auto;
+      margin-right:auto;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    .section{
+      padding:42px 0 110px;
+      position:relative;
+      z-index:1;
+    }
+
+    .section-header{
+      text-align:center;
+      margin-bottom:34px;
+    }
+
+    .section-header .kicker{
+      display:inline-block;
+      color:var(--green);
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      font-size:0.76rem;
+      margin-bottom:12px;
+    }
+
+    .section-header h3{
+      font-size:clamp(2.1rem, 3vw, 3.4rem);
+      letter-spacing:-0.03em;
+      margin-bottom:12px;
+    }
+
+    .section-header p{
+      color:var(--muted);
+      max-width:800px;
+      margin:0 auto;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:24px;
+      margin-top:26px;
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:32px;
+      box-shadow:var(--shadow);
+      transition:transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(255,255,255,0.16);
+      background:rgba(255,255,255,0.06);
+    }
+
+    .card h4{
+      font-size:1.18rem;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:var(--muted);
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+      margin-top:20px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      padding:20px;
+    }
+
+    .stat strong{
+      display:block;
+      font-size:1.8rem;
+      margin-bottom:4px;
+    }
+
+    .stat span{
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    .divisions-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:26px;
+      margin-top:30px;
+    }
+
+    .division-card{
+      position:relative;
+      overflow:hidden;
+      min-height:500px;
+      text-align:left;
+    }
+
+    .division-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      opacity:0.95;
+      pointer-events:none;
+    }
+
+    .division-card.orange::before{
+      background:linear-gradient(180deg, rgba(255,155,80,0.11), transparent 56%);
+    }
+
+    .division-card.green::before{
+      background:linear-gradient(180deg, rgba(86,242,161,0.11), transparent 56%);
+    }
+
+    .division-card.blue::before{
+      background:linear-gradient(180deg, rgba(88,166,255,0.11), transparent 56%);
+    }
+
+    .division-logo{
+      width:200px;
+      height:200px;
+      margin:0 auto 24px;
+      border-radius:50%;
+      padding:14px;
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .division-logo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      border-radius:50%;
+    }
+
+    .division-card h4{
+      text-align:center;
+      font-size:1.5rem;
+      margin-bottom:10px;
+    }
+
+    .division-subtitle{
+      text-align:center;
+      color:var(--muted);
+      font-size:0.97rem;
+      margin-bottom:18px;
+    }
+
+    .division-text{
+      text-align:center;
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .features{
+      list-style:none;
+      display:grid;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .features li{
+      color:#dbe3ec;
+      padding-left:18px;
+      position:relative;
+    }
+
+    .features li::before{
+      content:"";
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--green);
+      position:absolute;
+      left:0;
+      top:10px;
+    }
+
+    .vision-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:24px;
+      margin-top:26px;
+    }
+
+    .contact-block{
+      text-align:center;
+      padding:48px 28px;
+      border-radius:32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03)),
+        rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.10);
+      box-shadow:var(--shadow);
+    }
+
+    .contact-block h3{
+      font-size:clamp(2rem, 3vw, 3.5rem);
+      margin-bottom:12px;
+      letter-spacing:-0.03em;
+    }
+
+    .contact-block p{
+      color:var(--muted);
+      max-width:760px;
+      margin:0 auto 24px;
+    }
+
+    footer{
+      padding:34px 0 44px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      position:relative;
+      z-index:1;
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    @keyframes floatTriangle{
+      0%{transform:translateY(0px)}
+      50%{transform:translateY(-10px)}
+      100%{transform:translateY(0px)}
+    }
+
+    @media (max-width:1150px){
+      .hero-grid,
+      .about-grid,
+      .divisions-grid,
+      .vision-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:auto;
+        padding-top:70px;
+      }
+
+      .hero-panel{
+        min-height:auto;
+      }
+    }
+
+    @media (max-width:760px){
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:14px 0;
+      }
+
+      nav ul,
+      .hero-actions{
+        gap:16px;
+      }
+
+      .hero-metrics,
+      .stats{
+        grid-template-columns:1fr;
+      }
+
+      .triangle-wrap img{
+        max-width:520px;
+      }
+
+      .division-logo{
+        width:155px;
+        height:155px;
+      }
+
+      .contact-block{
+        padding:30px 20px;
+      }
+    }
+  </style>
 </head>
-
-
 <body>
 
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo-eyeditgroup.png" alt="EyeDit Group logo">
+        <div class="brand-text">
+          <h1>EyeDit Group</h1>
+          <span>International Holding</span>
+        </div>
+      </div>
 
-<header>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#divisions">Divisions</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#contact" class="cta-nav">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<img src="logo-eyeditgroup.png">
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Global structure · Strategic identity</span>
+          <h2>Three sectors. One international holding.</h2>
+          <p>
+            EyeDit Group connects media, natural health and security systems into one premium
+            international framework designed for identity, expansion and long-term positioning.
+          </p>
 
-<h1>EYEDIT GROUP</h1>
+          <div class="hero-actions">
+            <a href="#divisions" class="btn btn-primary">Explore Divisions</a>
+            <a href="#contact" class="btn btn-secondary">Institutional Contact</a>
+          </div>
 
-</header>
+          <div class="hero-metrics">
+            <div class="metric">
+              <strong>3 Pillars</strong>
+              <span>Media, Health, Security</span>
+            </div>
+            <div class="metric">
+              <strong>Barcelona</strong>
+              <span>International base</span>
+            </div>
+            <div class="metric">
+              <strong>Premium</strong>
+              <span>Holding identity</span>
+            </div>
+          </div>
+        </div>
 
+        <div class="hero-panel">
+          <div class="triangle-stage">
+            <div class="triangle-wrap">
+              <img src="logo-triangle3logos.png" alt="EyeDit Group triangle with three project logos">
+            </div>
+            <p class="triangle-caption">
+              A unified corporate symbol connecting EyeDit, CCS CAN SS AM CAN SAM and EyeVision under one international holding.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">About the holding</span>
+          <h3>A premium structure with three strategic pillars</h3>
+          <p>
+            EyeDit Group is conceived as an international holding with a selective and scalable identity,
+            built on the convergence of communication, wellbeing and security.
+          </p>
+        </div>
 
-<section class="hero">
+        <div class="about-grid">
+          <div class="card">
+            <h4>Institutional Positioning</h4>
+            <p>
+              The holding is designed to present one coherent corporate face for partnerships,
+              private capital dialogue, strategic alliances and future global development.
+            </p>
 
-<h2>Three Sectors<br>One Holding</h2>
+            <div class="stats">
+              <div class="stat">
+                <strong>3</strong>
+                <span>Core sectors</span>
+              </div>
+              <div class="stat">
+                <strong>1</strong>
+                <span>Unified identity</span>
+              </div>
+              <div class="stat">
+                <strong>Global</strong>
+                <span>Long-term vision</span>
+              </div>
+            </div>
+          </div>
 
-<p>
-EyeDit Group connects media, natural health and security systems
-into a unified international structure.
-</p>
+          <div class="card">
+            <h4>Leadership</h4>
+            <p>
+              CEO: <strong>Mikel Skoda</strong><br><br>
+              EyeDit operates as the leading visual identity, while EyeDit Group functions as the
+              institutional umbrella for the full ecosystem.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="divisions" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Three divisions</span>
+          <h3>Distinct sectors, connected logic</h3>
+          <p>
+            Each division has its own market language and operational direction, while remaining part
+            of one larger corporate structure.
+          </p>
+        </div>
 
-<div class="triangle">
+        <div class="divisions-grid">
+          <article class="card division-card orange">
+            <div class="division-logo">
+              <img src="logo-eyedit.png" alt="EyeDit logo">
+            </div>
+            <h4>EyeDit</h4>
+            <p class="division-subtitle">Media & Technology Division</p>
+            <p class="division-text">
+              The creative and technological engine of the group, focused on image, communication,
+              audiovisual production and telecom systems.
+            </p>
+            <ul class="features">
+              <li>Image and digital media</li>
+              <li>Radio and television</li>
+              <li>Creative agency systems</li>
+              <li>Telecommunications and broadcast vision</li>
+            </ul>
+          </article>
 
-<img src="logo-triangle3logos.png">
+          <article class="card division-card green">
+            <div class="division-logo">
+              <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM logo">
+            </div>
+            <h4>CCS CAN SS AM CAN SAM</h4>
+            <p class="division-subtitle">Natural Health Division</p>
+            <p class="division-text">
+              The human and wellness branch of the holding, dedicated to natural medicine,
+              alternative therapies and holistic balance.
+            </p>
+            <ul class="features">
+              <li>Natural medicine</li>
+              <li>Alternative therapies</li>
+              <li>Holistic wellness</li>
+              <li>Integrative health systems</li>
+            </ul>
+          </article>
 
-</div>
+          <article class="card division-card blue">
+            <div class="division-logo">
+              <img src="logo-eyevision.png" alt="EyeVision logo">
+            </div>
+            <h4>EyeVision</h4>
+            <p class="division-subtitle">Security & Transport Division</p>
+            <p class="division-text">
+              A strategic division dedicated to protection, cybersecurity, secure movement
+              and operational resilience across multiple environments.
+            </p>
+            <ul class="features">
+              <li>Private security</li>
+              <li>Cybersecurity</li>
+              <li>Aerial, maritime and land transport</li>
+              <li>Secure telecommunications systems</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section id="vision" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="kicker">Global vision</span>
+          <h3>A holding model prepared for international projection</h3>
+          <p>
+            The strength of the group lies in the coexistence of high-value sectors under one disciplined identity.
+            It creates a compact but expansive framework for future partnerships, institutional presentations
+            and premium digital presence.
+          </p>
+        </div>
 
+        <div class="vision-grid">
+          <div class="card">
+            <h4>Why this structure works</h4>
+            <p>
+              Three differentiated verticals create depth, while one parent identity creates coherence.
+              That gives the brand more gravity and less fragmentation.
+            </p>
+          </div>
 
+          <div class="card">
+            <h4>Digital positioning</h4>
+            <p>
+              This website should work as the official front door of the holding: elegant, minimal,
+              direct and credible for investors, collaborators and institutional contacts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="section">
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-block">
+          <h3>EyeDit Group</h3>
+          <p>
+            International holding structure based in Barcelona with a long-term vision across media,
+            natural health and strategic security systems.
+          </p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a href="mailto:ms.eyedit@outlook.com" class="btn btn-primary">ms.eyedit@outlook.com</a>
+            <a href="#" class="btn btn-secondary">Barcelona · International Network</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<h3>Divisions</h3>
-
-<p>
-Three strategic sectors forming the structure of the holding.
-</p>
-
-
-<div class="divisions">
-
-
-<div class="card">
-
-<img src="logo-eyedit.png">
-
-<h4>EyeDit</h4>
-
-<p>
-Media production, telecommunications and creative systems.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<img src="logo-ccscanssam.png">
-
-<h4>CCS CAN SS AM CAN SAM</h4>
-
-<p>
-Natural medicine, alternative therapies and holistic wellbeing.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<img src="logo-eyevision.png">
-
-<h4>EyeVision</h4>
-
-<p>
-Security systems, cybersecurity and transport protection.
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<footer>
-
-© 2026 EyeDit Group  
-CEO Mikel Skoda
-
-</footer>
-
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 EyeDit Group. All rights reserved.</span>
+      <span>CEO: Mikel Skoda · International Holding Framework</span>
+    </div>
+  </footer>
 
 </body>
 </html>
