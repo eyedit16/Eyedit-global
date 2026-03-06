@@ -18,7 +18,7 @@
     }
 
     body{
-      background:#081310;
+      background:#060d0b;
       color:#ffffff;
       line-height:1.6;
     }
@@ -28,29 +28,57 @@
       color:inherit;
     }
 
+    img{
+      display:block;
+      max-width:100%;
+    }
+
     nav{
       position:fixed;
       top:0;
+      left:0;
       width:100%;
-      background:rgba(4,18,14,0.95);
-      border-bottom:1px solid rgba(0,230,168,0.15);
-      padding:16px 28px;
       display:flex;
       justify-content:space-between;
       align-items:center;
+      padding:18px 28px;
+      background:rgba(5,12,10,0.94);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(8px);
       z-index:1000;
     }
 
-    nav h2{
-      color:#00e6a8;
-      font-size:20px;
-      letter-spacing:0.8px;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      width:42px;
+      height:42px;
+      object-fit:contain;
+    }
+
+    .brand span{
+      font-size:18px;
+      letter-spacing:1px;
+      font-weight:600;
+      color:#f5f5f5;
+    }
+
+    nav .menu{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
     }
 
     nav .menu a{
-      margin-left:20px;
-      font-size:14px;
-      color:#ffffff;
+      font-size:13px;
+      letter-spacing:0.8px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.82);
+      transition:0.2s ease;
     }
 
     nav .menu a:hover{
@@ -63,34 +91,43 @@
       align-items:center;
       justify-content:center;
       text-align:center;
-      padding:130px 20px 80px;
+      padding:140px 20px 90px;
       background:
-        radial-gradient(circle at top, rgba(0,230,168,0.12), transparent 38%),
-        linear-gradient(135deg,#061711,#0a211b,#081310);
+        radial-gradient(circle at top, rgba(0,230,168,0.10), transparent 30%),
+        linear-gradient(180deg, #07110e 0%, #060d0b 100%);
     }
 
     .hero-inner{
-      max-width:900px;
+      max-width:980px;
     }
 
     .hero-logo{
-      width:150px;
-      margin:0 auto 24px;
-      display:block;
-      filter:drop-shadow(0 0 16px rgba(0,230,168,0.25));
+      width:165px;
+      margin:0 auto 28px;
+      filter:drop-shadow(0 0 18px rgba(0,230,168,0.18));
+    }
+
+    .eyebrow{
+      color:#00e6a8;
+      font-size:13px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:16px;
     }
 
     .hero h1{
-      font-size:3rem;
-      margin-bottom:14px;
-      line-height:1.15;
+      font-size:3.4rem;
+      line-height:1.08;
+      margin-bottom:18px;
+      font-weight:700;
+      letter-spacing:-1px;
     }
 
     .hero p{
-      max-width:760px;
-      margin:0 auto 28px;
-      color:rgba(255,255,255,0.84);
-      font-size:1.05rem;
+      max-width:780px;
+      margin:0 auto 30px;
+      color:rgba(255,255,255,0.76);
+      font-size:1.08rem;
     }
 
     .hero-buttons{
@@ -102,196 +139,243 @@
 
     .btn-main{
       background:#00e6a8;
-      color:#042018;
-      padding:13px 26px;
+      color:#041713;
+      padding:14px 26px;
       border-radius:999px;
-      font-weight:bold;
+      font-weight:700;
+      letter-spacing:0.3px;
     }
 
     .btn-ghost{
-      border:1px solid rgba(0,230,168,0.35);
+      border:1px solid rgba(255,255,255,0.18);
       color:#ffffff;
-      padding:13px 26px;
+      padding:14px 26px;
       border-radius:999px;
     }
 
     .section{
-      padding:90px 20px;
+      padding:100px 20px;
     }
 
     .container{
-      max-width:1160px;
+      max-width:1180px;
       margin:0 auto;
     }
 
-    .section-title{
-      text-align:center;
-      color:#00e6a8;
-      font-size:2.1rem;
-      margin-bottom:14px;
-    }
-
-    .section-subtitle{
-      text-align:center;
+    .section-head{
       max-width:760px;
-      margin:0 auto 45px;
-      color:rgba(255,255,255,0.78);
-    }
-
-    .about-box{
-      max-width:920px;
-      margin:0 auto;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(0,230,168,0.14);
-      border-radius:22px;
-      padding:34px 28px;
+      margin:0 auto 52px;
       text-align:center;
     }
 
-    .about-box p{
-      color:rgba(255,255,255,0.86);
+    .section-head h2{
+      font-size:2.2rem;
       margin-bottom:14px;
-    }
-
-    .group-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:24px;
-    }
-
-    .group-card{
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(0,230,168,0.14);
-      border-radius:22px;
-      padding:28px;
-      text-align:left;
-      transition:transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .group-card:hover,
-    .portfolio-card:hover,
-    .contact-box:hover{
-      transform:translateY(-5px);
-      border-color:rgba(0,230,168,0.32);
-    }
-
-    .group-card img{
-      width:100px;
-      height:100px;
-      object-fit:contain;
-      margin-bottom:18px;
-      filter:drop-shadow(0 0 12px rgba(0,230,168,0.15));
-    }
-
-    .group-card h3{
-      margin-bottom:12px;
-      font-size:1.3rem;
       color:#ffffff;
     }
 
-    .group-card p{
+    .section-head p{
+      color:rgba(255,255,255,0.72);
+    }
+
+    .overview-box{
+      max-width:980px;
+      margin:0 auto;
+      padding:36px 34px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    }
+
+    .overview-box p{
       color:rgba(255,255,255,0.82);
       margin-bottom:14px;
+      font-size:1.03rem;
     }
 
-    .group-card ul{
-      list-style:none;
-    }
-
-    .group-card li{
-      margin-bottom:8px;
-      color:rgba(255,255,255,0.88);
-      position:relative;
-      padding-left:16px;
-    }
-
-    .group-card li::before{
-      content:"•";
-      color:#00e6a8;
-      position:absolute;
-      left:0;
-    }
-
-    .portfolio-grid{
+    .stats{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+      gap:18px;
+      margin-top:28px;
+    }
+
+    .stat{
+      border:1px solid rgba(255,255,255,0.08);
+      padding:22px;
+      background:rgba(255,255,255,0.02);
+    }
+
+    .stat h3{
+      color:#00e6a8;
+      font-size:1.8rem;
+      margin-bottom:6px;
+    }
+
+    .stat p{
+      color:rgba(255,255,255,0.72);
+      font-size:0.95rem;
+      margin:0;
+    }
+
+    .divisions-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:24px;
     }
 
-    .portfolio-card{
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(0,230,168,0.14);
-      border-radius:20px;
-      padding:24px;
-      min-height:210px;
-      transition:transform 0.25s ease, border-color 0.25s ease;
+    .division-card{
+      border:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      padding:30px 28px;
+      transition:0.25s ease;
     }
 
-    .portfolio-card h3{
+    .division-card:hover,
+    .capability-card:hover,
+    .direction-box:hover,
+    .contact-box:hover{
+      transform:translateY(-4px);
+      border-color:rgba(0,230,168,0.28);
+    }
+
+    .division-card img{
+      width:95px;
+      height:95px;
+      object-fit:contain;
+      margin-bottom:18px;
+      filter:drop-shadow(0 0 12px rgba(0,230,168,0.10));
+    }
+
+    .division-card h3{
+      font-size:1.35rem;
       margin-bottom:12px;
-      font-size:1.2rem;
     }
 
-    .portfolio-card p{
-      color:rgba(255,255,255,0.82);
+    .division-card p{
+      color:rgba(255,255,255,0.78);
+      margin-bottom:16px;
     }
 
-    .contact-box{
-      max-width:920px;
+    .division-card ul{
+      list-style:none;
+    }
+
+    .division-card li{
+      color:rgba(255,255,255,0.86);
+      margin-bottom:9px;
+      padding-left:16px;
+      position:relative;
+    }
+
+    .division-card li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      color:#00e6a8;
+    }
+
+    .vision-box{
+      max-width:980px;
       margin:0 auto;
-      background:rgba(255,255,255,0.03);
-      border:1px solid rgba(0,230,168,0.14);
-      border-radius:22px;
+      border:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      padding:38px 34px;
+    }
+
+    .vision-box p{
+      color:rgba(255,255,255,0.82);
+      margin-bottom:16px;
+      font-size:1.03rem;
+    }
+
+    .capabilities-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:22px;
+    }
+
+    .capability-card{
+      border:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+      padding:26px;
+      min-height:210px;
+      transition:0.25s ease;
+    }
+
+    .capability-card h3{
+      font-size:1.2rem;
+      margin-bottom:12px;
+      color:#ffffff;
+    }
+
+    .capability-card p{
+      color:rgba(255,255,255,0.78);
+    }
+
+    .direction-box,
+    .contact-box{
+      max-width:860px;
+      margin:0 auto;
+      border:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
       padding:34px 28px;
       text-align:center;
-      transition:transform 0.25s ease, border-color 0.25s ease;
+      transition:0.25s ease;
     }
 
+    .direction-box h3,
+    .contact-box h3{
+      margin-bottom:14px;
+      font-size:1.4rem;
+    }
+
+    .direction-box p,
     .contact-box p{
-      color:rgba(255,255,255,0.86);
+      color:rgba(255,255,255,0.82);
       margin-bottom:12px;
     }
 
     .contact-box a{
       color:#00e6a8;
-      font-weight:bold;
+      font-weight:700;
     }
 
     footer{
+      border-top:1px solid rgba(255,255,255,0.06);
       text-align:center;
-      padding:36px 20px 48px;
-      color:rgba(255,255,255,0.48);
-      border-top:1px solid rgba(0,230,168,0.08);
+      padding:36px 20px 50px;
+      color:rgba(255,255,255,0.42);
+      font-size:0.94rem;
     }
 
-    @media (max-width:768px){
+    @media (max-width: 820px){
       nav{
-        padding:14px 16px;
-      }
-
-      nav .menu a{
-        margin-left:12px;
-        font-size:13px;
+        padding:16px 16px;
+        align-items:flex-start;
+        gap:10px;
+        flex-direction:column;
       }
 
       .hero h1{
-        font-size:2.2rem;
+        font-size:2.35rem;
       }
 
       .hero p,
-      .section-subtitle,
-      .about-box p,
+      .section-head p,
+      .overview-box p,
+      .vision-box p,
+      .direction-box p,
       .contact-box p{
         font-size:0.98rem;
       }
 
       .hero-logo{
-        width:120px;
+        width:128px;
       }
 
-      .group-card img{
-        width:88px;
-        height:88px;
+      .brand img{
+        width:38px;
+        height:38px;
       }
     }
   </style>
@@ -299,11 +383,17 @@
 <body>
 
   <nav>
-    <h2>EyeDit</h2>
+    <div class="brand">
+      <img src="logo-eyeditgroup.png" alt="EyeDit Group Logo">
+      <span>EyeDit Group</span>
+    </div>
+
     <div class="menu">
-      <a href="#about">About</a>
-      <a href="#group">Group</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="#overview">Overview</a>
+      <a href="#divisions">Divisions</a>
+      <a href="#vision">Vision</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#direction">Direction</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -312,94 +402,117 @@
     <div class="hero-inner">
       <img src="logo-eyedit.png" alt="EyeDit Logo" class="hero-logo">
 
-      <h1>EyeDit Image Quick Service</h1>
+      <div class="eyebrow">Multidisciplinary Holding Structure</div>
+
+      <h1>EyeDit Group</h1>
 
       <p>
-        A multidisciplinary group connecting media, creative identity,
-        wellbeing concepts and strategic security systems under one global vision.
+        A multidisciplinary holding connecting media, visual identity,
+        wellbeing concepts and strategic security systems within one unified structure.
       </p>
 
       <div class="hero-buttons">
-        <a href="#group" class="btn-main">Explore Group</a>
+        <a href="#divisions" class="btn-main">Explore Structure</a>
         <a href="#contact" class="btn-ghost">Contact</a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section" id="overview">
     <div class="container">
-      <h2 class="section-title">About EyeDit Group</h2>
-      <p class="section-subtitle">
-        Institutional structure, visual identity and premium portfolio presentation.
-      </p>
+      <div class="section-head">
+        <h2>Holding Overview</h2>
+        <p>
+          A corporate structure designed to integrate communication,
+          human-centered wellbeing and strategic protection in one ecosystem.
+        </p>
+      </div>
 
-      <div class="about-box">
+      <div class="overview-box">
         <p>
-          EyeDit Group is conceived as a holding-style platform that brings together
-          visual communication, alternative wellbeing and strategic protection services.
+          EyeDit Group is conceived as a parent structure built around visual communication,
+          media development, alternative wellbeing and future-oriented security systems.
         </p>
+
         <p>
-          The project combines creativity, human development and security-oriented
-          systems within one unified structure designed for long-term positioning.
+          The objective is to establish a clear institutional framework where specialized divisions
+          operate independently while reinforcing a single strategic identity.
         </p>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>3</h3>
+            <p>Core divisions</p>
+          </div>
+          <div class="stat">
+            <h3>1</h3>
+            <p>Unified holding identity</p>
+          </div>
+          <div class="stat">
+            <h3>Global</h3>
+            <p>Positioning ambition</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="group">
+  <section class="section" id="divisions">
     <div class="container">
-      <h2 class="section-title">Group Structure</h2>
-      <p class="section-subtitle">
-        Three divisions. One identity. One ecosystem.
-      </p>
+      <div class="section-head">
+        <h2>Core Divisions</h2>
+        <p>
+          Three business pillars structured under the EyeDit Group framework.
+        </p>
+      </div>
 
-      <div class="group-grid">
+      <div class="divisions-grid">
 
-        <div class="group-card">
+        <div class="division-card">
           <img src="logo-eyedit.png" alt="EyeDit Logo">
           <h3>EyeDit Image Quick Service</h3>
           <p>
-            Core media and communication division focused on image,
-            audiovisual production and brand visibility.
+            Principal media and visual communication division focused on identity,
+            production and global creative presence.
           </p>
           <ul>
             <li>Photography</li>
             <li>Video production</li>
-            <li>Radio & Television</li>
-            <li>Creative agency</li>
-            <li>Media communication</li>
+            <li>Radio and television concepts</li>
+            <li>Creative agency development</li>
+            <li>Media communication systems</li>
           </ul>
         </div>
 
-        <div class="group-card">
+        <div class="division-card">
           <img src="logo-ccscanssam.png" alt="CCS CAN SS AM CAN SAM Logo">
           <h3>CCS CAN SS AM CAN SAM</h3>
           <p>
-            Holistic and human-centered division dedicated to natural medicine,
-            alternative therapies and personal balance.
+            Holistic division dedicated to wellbeing, natural medicine
+            and alternative therapeutic approaches.
           </p>
           <ul>
-            <li>Natural medicine</li>
+            <li>Natural medicine concepts</li>
             <li>Alternative therapies</li>
-            <li>Holistic wellbeing</li>
-            <li>Balance and recovery</li>
-            <li>Complementary care</li>
+            <li>Holistic wellness</li>
+            <li>Balance and personal recovery</li>
+            <li>Complementary care philosophy</li>
           </ul>
         </div>
 
-        <div class="group-card">
+        <div class="division-card">
           <img src="logo-eyevision.png" alt="EyeVision Security Logo">
           <h3>EyeVision Security</h3>
           <p>
-            Strategic protection division focused on private security,
-            cyber systems, telecom and mobility infrastructure.
+            Strategic security division combining protection, cyber systems,
+            transport security and advanced telecommunications.
           </p>
           <ul>
             <li>Private security</li>
             <li>Cybersecurity</li>
-            <li>Transport protection</li>
-            <li>Telecommunications</li>
-            <li>Satellite systems</li>
+            <li>Air, land and maritime protection</li>
+            <li>Telecommunications systems</li>
+            <li>Satellite-oriented infrastructure</li>
           </ul>
         </div>
 
@@ -407,66 +520,117 @@
     </div>
   </section>
 
-  <section class="section" id="portfolio">
+  <section class="section" id="vision">
     <div class="container">
-      <h2 class="section-title">Portfolio</h2>
-      <p class="section-subtitle">
-        Institutional presentation of the EyeDit Group ecosystem.
-      </p>
+      <div class="section-head">
+        <h2>Strategic Vision</h2>
+        <p>
+          Long-term positioning built on communication, wellbeing and protection.
+        </p>
+      </div>
 
-      <div class="portfolio-grid">
-        <div class="portfolio-card">
-          <h3>Visual Identity</h3>
+      <div class="vision-box">
+        <p>
+          EyeDit Group is structured to operate as a multidisciplinary platform where
+          media ecosystems, human-centered services and strategic security systems coexist.
+        </p>
+
+        <p>
+          The long-term vision is to create an identifiable holding structure capable of
+          integrating creative production, institutional presentation, alternative wellbeing
+          and advanced protection services into one coherent framework.
+        </p>
+
+        <p>
+          This model is designed for scalable identity, strategic differentiation
+          and international projection.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="capabilities">
+    <div class="container">
+      <div class="section-head">
+        <h2>Capabilities</h2>
+        <p>
+          Core operational areas across the group structure.
+        </p>
+      </div>
+
+      <div class="capabilities-grid">
+        <div class="capability-card">
+          <h3>Brand & Identity</h3>
           <p>
-            Brand design, image positioning and corporate presentation
-            for projects with premium ambition.
+            Corporate presentation, visual language, public image
+            and premium positioning for group-level visibility.
           </p>
         </div>
 
-        <div class="portfolio-card">
-          <h3>Creative Media</h3>
+        <div class="capability-card">
+          <h3>Media Production</h3>
           <p>
-            Media production concepts in photography, video, radio,
-            television and communication strategy.
+            Audiovisual concepts, photography, communication flows
+            and content-oriented media development.
           </p>
         </div>
 
-        <div class="portfolio-card">
-          <h3>Wellbeing Concepts</h3>
+        <div class="capability-card">
+          <h3>Human Wellbeing</h3>
           <p>
-            Alternative therapeutic vision integrating natural medicine,
-            human balance and complementary care.
+            Alternative therapeutic vision, natural medicine frameworks
+            and complementary wellness concepts.
           </p>
         </div>
 
-        <div class="portfolio-card">
-          <h3>Security Systems</h3>
+        <div class="capability-card">
+          <h3>Protection Systems</h3>
           <p>
-            Strategic services in cyber protection, telecom,
-            transport security and advanced communications.
+            Security strategy, cyber frameworks, telecom structures
+            and transport-oriented protective systems.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="direction">
+    <div class="container">
+      <div class="section-head">
+        <h2>Founder & Direction</h2>
+        <p>
+          Central project leadership and strategic coordination.
+        </p>
+      </div>
+
+      <div class="direction-box">
+        <h3>Mikel Skoda</h3>
+        <p>
+          Founder and project direction for EyeDit Group and its multidisciplinary structure.
+        </p>
       </div>
     </div>
   </section>
 
   <section class="section" id="contact">
     <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <p class="section-subtitle">
-        Group coordination and project communication.
-      </p>
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>
+          Group coordination and strategic communication.
+        </p>
+      </div>
 
       <div class="contact-box">
-        <p>EyeDit Group · Global Enterprise</p>
+        <h3>EyeDit Group</h3>
         <p>Email: <a href="mailto:ms.eyedit@outlook.com">ms.eyedit@outlook.com</a></p>
-        <p>Founder & Project Direction: Mikel Skoda</p>
+        <p>Global project structure · Media · Wellbeing · Security</p>
       </div>
     </div>
   </section>
 
   <footer>
-    © EyeDit Image Quick Service
+    © EyeDit Group · Global Enterprise
   </footer>
 
 </body>
